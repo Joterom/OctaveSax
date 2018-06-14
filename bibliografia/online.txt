@@ -1,3 +1,7 @@
+Basicas preliminares:
+https://en.wikipedia.org/wiki/Octave_effect#Octave_down
+https://www.electronics-tutorials.ws/counter/count_1.html
+
 Algoritmo FFT: https://www.tec.ac.cr/sites/default/files/media/doc/lec07.2.pdf
 FFT en VHDL: https://www.youtube.com/watch?v=UmLYqdZdMts
 Traslacion en frecuencia: https://startcom1.wordpress.com/2011/01/25/modulacion-lineal-y-traslacion-de-frecuencia/

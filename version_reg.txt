@@ -1,1 +1,2 @@
 0.0 Inicio del proyecto y busqueda de bibliografia
+0.01 Compatibilidad con Windows probada
