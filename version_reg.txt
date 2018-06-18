@@ -1,2 +1,5 @@
+14-6-18
 0.0 Inicio del proyecto y busqueda de bibliografia
 0.01 Compatibilidad con Windows probada
+18-6-18
+1.0 Primer trabajo en el algoritmo para la octavacion
