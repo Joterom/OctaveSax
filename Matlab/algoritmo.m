@@ -11,6 +11,7 @@ f3 = figure('Name','FFT processed signal','NumberTitle','off');
 f4 = figure('Name','Stereo output signal','NumberTitle','off');
 
 FILE_IN = 'audio_prueba.wav';
+%FILE_IN = 'audio_prueba_complejo.wav';
 FILE_OUT = 'proc_audio.wav';
 
 [y, Fs] = audioread(FILE_IN);
@@ -57,6 +58,9 @@ hold off;
 
 movL = freqL/2;
 movR = freqR/2;
+
+uint32(movL);
+uint32(movR);
 
 % Left Channel
 ampL = abs(Y_L);
@@ -127,9 +131,9 @@ out = alfa.*y + beta.*out;
 % Graficamos
 figure(f4);
 hold on;
-subplot(3,1,1), plot(t,out), title('Both Channels'), xlabel('Time(s)'), ylabel('Amplitude');
-subplot(3,1,2), plot(t,final_L), title('Left Channel'), xlabel('Time(s)'), ylabel('Amplitude');
-subplot(3,1,3), plot(t,final_R), title('Right Channel'),xlabel('Time(s)'), ylabel('Amplitude');
+subplot(3,1,1), plot(t,out), title(['Both Channels with \alpha = ', num2str(alfa),', \beta = ',num2str(beta)]), xlabel('Time(s)'), ylabel('Amplitude');
+subplot(3,1,2), plot(t,out(:,1)), title('Left Channel (same mix)'), xlabel('Time(s)'), ylabel('Amplitude');
+subplot(3,1,3), plot(t,out(:,2)), title('Right Channel (same mix)'),xlabel('Time(s)'), ylabel('Amplitude');
 hold off;
 
 % Reproducimos

@@ -5,3 +5,4 @@
 1.0 Primer trabajo en el algoritmo para la octavacion
 20-6-18
 1.5 Primer algoritmo funcional para la octavacion
+1.5.1 Algunos problemas detectados
