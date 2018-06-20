@@ -3,3 +3,5 @@
 0.01 Compatibilidad con Windows probada
 18-6-18
 1.0 Primer trabajo en el algoritmo para la octavacion
+20-6-18
+1.5 Primer algoritmo funcional para la octavacion
