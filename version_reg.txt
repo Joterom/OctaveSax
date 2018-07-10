@@ -8,3 +8,5 @@
 1.5.1 Algunos problemas detectados
 9-7-18
 1.5.2 Origen de los problemas detectado
+10-7-18
+1.6 TUTORIA - Cambio en el algoritmo
