@@ -10,3 +10,5 @@
 1.5.2 Origen de los problemas detectado
 10-7-18
 1.6 TUTORIA - Cambio en el algoritmo
+27-8-18
+1.6.2 Primera correccion (en proceso) del algoritmo (no funcional)

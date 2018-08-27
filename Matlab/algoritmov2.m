@@ -73,7 +73,7 @@ Y_L_compress(end-10:end)
 final_R = real(ifft(Y_L_compress));
 final_L = real(ifft(Y_L_compress));
  % Creamos el sterero y mezclamos la se�al final 
- out = zeros(length(final_L),2);
+ out = zeros(length(final_L),2); % usar size
  out(:,1) = final_L(:,1);
  out(:,2) = final_R(:,1);
 out = alfa.*y + beta.*out;
