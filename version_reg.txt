@@ -12,3 +12,5 @@
 1.6 TUTORIA - Cambio en el algoritmo
 27-8-18
 1.6.2 Primera correccion (en proceso) del algoritmo (no funcional)
+29-8-18
+1.7 Algoritmo funcional completo
