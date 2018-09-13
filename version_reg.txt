@@ -14,3 +14,5 @@
 1.6.2 Primera correccion (en proceso) del algoritmo (no funcional)
 29-8-18
 1.7 Algoritmo funcional completo
+13-9-18
+2.0 Primeros pasos en Vivado
