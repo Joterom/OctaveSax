@@ -16,3 +16,6 @@
 1.7 Algoritmo funcional completo
 13-9-18
 2.0 Primeros pasos en Vivado
+25-9-18
+2.1 Comienzo pruebas tamaño ventana
+
