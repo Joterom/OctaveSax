@@ -19,4 +19,5 @@
 25-9-18
 2.1 Comienzo pruebas tamaño ventana
 2.1.1 Pruebas tamaño ventana
+2.2 Pruebas del modulo FFT de Vivado
 
