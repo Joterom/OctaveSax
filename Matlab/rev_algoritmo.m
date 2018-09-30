@@ -10,7 +10,7 @@ f2 = figure('Name','Normalized input signal FFT','NumberTitle','off');
 f3 = figure('Name','Processed signal FFT','NumberTitle','off');
 f4 = figure('Name','Stereo output signal','NumberTitle','off');
 
-FILE_IN = 'audio_prueba.wav';
+FILE_IN = 'audio_prueba_complejo.wav';
 FILE_OUT = 'octaved_audio.wav';
 
 [y, Fs] = audioread(FILE_IN);
