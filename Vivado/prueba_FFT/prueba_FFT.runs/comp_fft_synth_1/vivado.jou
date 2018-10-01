@@ -2,11 +2,11 @@
 # Vivado v2017.2 (64-bit)
 # SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
 # IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
-# Start of session at: Fri Sep 28 12:00:04 2018
-# Process ID: 12256
-# Current directory: D:/UNI/TFG/prueba_FFT/prueba_FFT.runs/comp_fft_synth_1
+# Start of session at: Mon Oct  1 10:57:50 2018
+# Process ID: 6964
+# Current directory: D:/UNI/TFG/OctaveSax/Vivado/prueba_FFT/prueba_FFT.runs/comp_fft_synth_1
 # Command line: vivado.exe -log comp_fft.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source comp_fft.tcl
-# Log file: D:/UNI/TFG/prueba_FFT/prueba_FFT.runs/comp_fft_synth_1/comp_fft.vds
-# Journal file: D:/UNI/TFG/prueba_FFT/prueba_FFT.runs/comp_fft_synth_1\vivado.jou
+# Log file: D:/UNI/TFG/OctaveSax/Vivado/prueba_FFT/prueba_FFT.runs/comp_fft_synth_1/comp_fft.vds
+# Journal file: D:/UNI/TFG/OctaveSax/Vivado/prueba_FFT/prueba_FFT.runs/comp_fft_synth_1\vivado.jou
 #-----------------------------------------------------------
 source comp_fft.tcl -notrace

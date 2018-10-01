@@ -10,15 +10,15 @@ set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
-set_property webtalk.parent_dir D:/UNI/TFG/prueba_FFT/prueba_FFT.cache/wt [current_project]
-set_property parent.project_path D:/UNI/TFG/prueba_FFT/prueba_FFT.xpr [current_project]
+set_property webtalk.parent_dir D:/UNI/TFG/OctaveSax/Vivado/prueba_FFT/prueba_FFT.cache/wt [current_project]
+set_property parent.project_path D:/UNI/TFG/OctaveSax/Vivado/prueba_FFT/prueba_FFT.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language VHDL [current_project]
-set_property ip_output_repo d:/UNI/TFG/prueba_FFT/prueba_FFT.cache/ip [current_project]
+set_property ip_output_repo d:/UNI/TFG/OctaveSax/Vivado/prueba_FFT/prueba_FFT.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
-read_ip -quiet d:/UNI/TFG/prueba_FFT/prueba_FFT.srcs/sources_1/ip/comp_fft/comp_fft.xci
-set_property used_in_implementation false [get_files -all d:/UNI/TFG/prueba_FFT/prueba_FFT.srcs/sources_1/ip/comp_fft/comp_fft_ooc.xdc]
-set_property is_locked true [get_files d:/UNI/TFG/prueba_FFT/prueba_FFT.srcs/sources_1/ip/comp_fft/comp_fft.xci]
+read_ip -quiet D:/UNI/TFG/OctaveSax/Vivado/prueba_FFT/prueba_FFT.srcs/sources_1/ip/comp_fft/comp_fft.xci
+set_property used_in_implementation false [get_files -all d:/UNI/TFG/OctaveSax/Vivado/prueba_FFT/prueba_FFT.srcs/sources_1/ip/comp_fft/comp_fft_ooc.xdc]
+set_property is_locked true [get_files D:/UNI/TFG/OctaveSax/Vivado/prueba_FFT/prueba_FFT.srcs/sources_1/ip/comp_fft/comp_fft.xci]
 
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -31,7 +31,7 @@ foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
 read_xdc dont_touch.xdc
 set_property used_in_implementation false [get_files dont_touch.xdc]
 
-set cached_ip [config_ip_cache -export -no_bom -use_project_ipc -dir D:/UNI/TFG/prueba_FFT/prueba_FFT.runs/comp_fft_synth_1 -new_name comp_fft -ip [get_ips comp_fft]]
+set cached_ip [config_ip_cache -export -no_bom -use_project_ipc -dir D:/UNI/TFG/OctaveSax/Vivado/prueba_FFT/prueba_FFT.runs/comp_fft_synth_1 -new_name comp_fft -ip [get_ips comp_fft]]
 
 if { $cached_ip eq {} } {
 
@@ -66,32 +66,32 @@ write_checkpoint -force -noxdef comp_fft.dcp
 catch { report_utilization -file comp_fft_utilization_synth.rpt -pb comp_fft_utilization_synth.pb }
 
 if { [catch {
-  file copy -force D:/UNI/TFG/prueba_FFT/prueba_FFT.runs/comp_fft_synth_1/comp_fft.dcp d:/UNI/TFG/prueba_FFT/prueba_FFT.srcs/sources_1/ip/comp_fft/comp_fft.dcp
+  file copy -force D:/UNI/TFG/OctaveSax/Vivado/prueba_FFT/prueba_FFT.runs/comp_fft_synth_1/comp_fft.dcp D:/UNI/TFG/OctaveSax/Vivado/prueba_FFT/prueba_FFT.srcs/sources_1/ip/comp_fft/comp_fft.dcp
 } _RESULT ] } { 
   send_msg_id runtcl-3 error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
   error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
 }
 
 if { [catch {
-  write_verilog -force -mode synth_stub d:/UNI/TFG/prueba_FFT/prueba_FFT.srcs/sources_1/ip/comp_fft/comp_fft_stub.v
+  write_verilog -force -mode synth_stub D:/UNI/TFG/OctaveSax/Vivado/prueba_FFT/prueba_FFT.srcs/sources_1/ip/comp_fft/comp_fft_stub.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a Verilog synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_vhdl -force -mode synth_stub d:/UNI/TFG/prueba_FFT/prueba_FFT.srcs/sources_1/ip/comp_fft/comp_fft_stub.vhdl
+  write_vhdl -force -mode synth_stub D:/UNI/TFG/OctaveSax/Vivado/prueba_FFT/prueba_FFT.srcs/sources_1/ip/comp_fft/comp_fft_stub.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a VHDL synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_verilog -force -mode funcsim d:/UNI/TFG/prueba_FFT/prueba_FFT.srcs/sources_1/ip/comp_fft/comp_fft_sim_netlist.v
+  write_verilog -force -mode funcsim D:/UNI/TFG/OctaveSax/Vivado/prueba_FFT/prueba_FFT.srcs/sources_1/ip/comp_fft/comp_fft_sim_netlist.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the Verilog functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_vhdl -force -mode funcsim d:/UNI/TFG/prueba_FFT/prueba_FFT.srcs/sources_1/ip/comp_fft/comp_fft_sim_netlist.vhdl
+  write_vhdl -force -mode funcsim D:/UNI/TFG/OctaveSax/Vivado/prueba_FFT/prueba_FFT.srcs/sources_1/ip/comp_fft/comp_fft_sim_netlist.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the VHDL functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
@@ -101,46 +101,46 @@ if { [catch {
 
 
 if { [catch {
-  file copy -force D:/UNI/TFG/prueba_FFT/prueba_FFT.runs/comp_fft_synth_1/comp_fft.dcp d:/UNI/TFG/prueba_FFT/prueba_FFT.srcs/sources_1/ip/comp_fft/comp_fft.dcp
+  file copy -force D:/UNI/TFG/OctaveSax/Vivado/prueba_FFT/prueba_FFT.runs/comp_fft_synth_1/comp_fft.dcp D:/UNI/TFG/OctaveSax/Vivado/prueba_FFT/prueba_FFT.srcs/sources_1/ip/comp_fft/comp_fft.dcp
 } _RESULT ] } { 
   send_msg_id runtcl-3 error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
   error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
 }
 
 if { [catch {
-  file rename -force D:/UNI/TFG/prueba_FFT/prueba_FFT.runs/comp_fft_synth_1/comp_fft_stub.v d:/UNI/TFG/prueba_FFT/prueba_FFT.srcs/sources_1/ip/comp_fft/comp_fft_stub.v
+  file rename -force D:/UNI/TFG/OctaveSax/Vivado/prueba_FFT/prueba_FFT.runs/comp_fft_synth_1/comp_fft_stub.v D:/UNI/TFG/OctaveSax/Vivado/prueba_FFT/prueba_FFT.srcs/sources_1/ip/comp_fft/comp_fft_stub.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a Verilog synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  file rename -force D:/UNI/TFG/prueba_FFT/prueba_FFT.runs/comp_fft_synth_1/comp_fft_stub.vhdl d:/UNI/TFG/prueba_FFT/prueba_FFT.srcs/sources_1/ip/comp_fft/comp_fft_stub.vhdl
+  file rename -force D:/UNI/TFG/OctaveSax/Vivado/prueba_FFT/prueba_FFT.runs/comp_fft_synth_1/comp_fft_stub.vhdl D:/UNI/TFG/OctaveSax/Vivado/prueba_FFT/prueba_FFT.srcs/sources_1/ip/comp_fft/comp_fft_stub.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a VHDL synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  file rename -force D:/UNI/TFG/prueba_FFT/prueba_FFT.runs/comp_fft_synth_1/comp_fft_sim_netlist.v d:/UNI/TFG/prueba_FFT/prueba_FFT.srcs/sources_1/ip/comp_fft/comp_fft_sim_netlist.v
+  file rename -force D:/UNI/TFG/OctaveSax/Vivado/prueba_FFT/prueba_FFT.runs/comp_fft_synth_1/comp_fft_sim_netlist.v D:/UNI/TFG/OctaveSax/Vivado/prueba_FFT/prueba_FFT.srcs/sources_1/ip/comp_fft/comp_fft_sim_netlist.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the Verilog functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
 
 if { [catch {
-  file rename -force D:/UNI/TFG/prueba_FFT/prueba_FFT.runs/comp_fft_synth_1/comp_fft_sim_netlist.vhdl d:/UNI/TFG/prueba_FFT/prueba_FFT.srcs/sources_1/ip/comp_fft/comp_fft_sim_netlist.vhdl
+  file rename -force D:/UNI/TFG/OctaveSax/Vivado/prueba_FFT/prueba_FFT.runs/comp_fft_synth_1/comp_fft_sim_netlist.vhdl D:/UNI/TFG/OctaveSax/Vivado/prueba_FFT/prueba_FFT.srcs/sources_1/ip/comp_fft/comp_fft_sim_netlist.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the VHDL functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
 
 }; # end if cached_ip 
 
-if {[file isdir D:/UNI/TFG/prueba_FFT/prueba_FFT.ip_user_files/ip/comp_fft]} {
+if {[file isdir D:/UNI/TFG/OctaveSax/Vivado/prueba_FFT/prueba_FFT.ip_user_files/ip/comp_fft]} {
   catch { 
-    file copy -force d:/UNI/TFG/prueba_FFT/prueba_FFT.srcs/sources_1/ip/comp_fft/comp_fft_stub.v D:/UNI/TFG/prueba_FFT/prueba_FFT.ip_user_files/ip/comp_fft
+    file copy -force D:/UNI/TFG/OctaveSax/Vivado/prueba_FFT/prueba_FFT.srcs/sources_1/ip/comp_fft/comp_fft_stub.v D:/UNI/TFG/OctaveSax/Vivado/prueba_FFT/prueba_FFT.ip_user_files/ip/comp_fft
   }
 }
 
-if {[file isdir D:/UNI/TFG/prueba_FFT/prueba_FFT.ip_user_files/ip/comp_fft]} {
+if {[file isdir D:/UNI/TFG/OctaveSax/Vivado/prueba_FFT/prueba_FFT.ip_user_files/ip/comp_fft]} {
   catch { 
-    file copy -force d:/UNI/TFG/prueba_FFT/prueba_FFT.srcs/sources_1/ip/comp_fft/comp_fft_stub.vhdl D:/UNI/TFG/prueba_FFT/prueba_FFT.ip_user_files/ip/comp_fft
+    file copy -force D:/UNI/TFG/OctaveSax/Vivado/prueba_FFT/prueba_FFT.srcs/sources_1/ip/comp_fft/comp_fft_stub.vhdl D:/UNI/TFG/OctaveSax/Vivado/prueba_FFT/prueba_FFT.ip_user_files/ip/comp_fft
   }
 }

@@ -21,6 +21,7 @@ architecture Behavioral of modulo_fft_tb is
         im_in : in STD_LOGIC_VECTOR (15 downto 0);
         enable : in STD_LOGIC;
         
+        config_data : in STD_LOGIC_VECTOR (7 downto 0);
         config_tvalid : in STD_LOGIC;    
         config_tready : out STD_LOGIC;
         
@@ -35,6 +36,7 @@ architecture Behavioral of modulo_fft_tb is
     
     signal re_in, im_in, re_out, im_out : STD_LOGIC_VECTOR(15 downto 0) := (others => '0');
     signal clk, enable, config_tvalid, config_tready, data_in_tlast, data_in_tvalid, data_in_tready, data_out_tvalid : STD_LOGIC := '0';
+    signal config_data : STD_LOGIC_VECTOR (7 downto 0);
   
 begin
 
@@ -44,6 +46,7 @@ begin
         im_in => im_in,
         enable => enable,
         
+        config_data => config_data,
         config_tvalid => config_tvalid,
         config_tready => config_tready,
         
@@ -66,11 +69,13 @@ begin
     
     signal_proc : process
         begin
+            config_data <= "10000000";
             enable <= '1';
         wait for 60 ns;
             config_tvalid <= '1';
         wait for 80 ns;
             config_tvalid <= '0';
+        wait for 120 ns;
             data_in_tvalid <= '1';
         wait for 60 ns;
             im_in <= (others => '0');
@@ -90,6 +95,34 @@ begin
             data_in_tlast <= '1';
         wait for 40 ns;
             re_in <= "0000000000001000";
+            data_in_tlast <= '0';
+            data_in_tvalid <= '0';
+            config_data <= "00000000";
+        wait for 1000 ns;
+            config_tvalid <= '1';
+        wait for 40 ns;
+            config_tvalid <= '0';
+        wait for 580 ns;
+            data_in_tvalid <= '1';
+        wait for 20 ns;
+            re_in <= "0000000000011100";
+            im_in <= (others => '0');
+        wait for 80 ns;
+            re_in <= "1111111111111100";
+            im_in <= "0000000011111111";
+        wait for 40 ns;
+            im_in <= "0000010011111111";
+        wait for 40 ns;
+            im_in <= "1111110011111111";
+        wait for 40 ns;
+            im_in <= "0000100111111111";
+        wait for 40 ns;
+            im_in <= "1111111111111111";
+        wait for 40 ns;
+            im_in <= "0000000111111111";
+            data_in_tlast <= '1';
+        wait for 40 ns;
+            im_in <= "1111011111111111";
             data_in_tlast <= '0';
             data_in_tvalid <= '0';
         wait;

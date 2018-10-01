@@ -16,7 +16,8 @@ entity modulo_fft is
     im_in : in STD_LOGIC_VECTOR (15 downto 0);
     enable : in STD_LOGIC;
     
-    config_tvalid : in STD_LOGIC;    
+    config_tvalid : in STD_LOGIC;
+    config_data : in STD_LOGIC_VECTOR(7 downto 0);    
     config_tready : out STD_LOGIC;
     
     data_in_tlast : in STD_LOGIC;
@@ -70,7 +71,7 @@ FFT : comp_fft port map (
       
       s_axis_config_tvalid        => config_tvalid,
       s_axis_config_tready        => config_tready,
-      s_axis_config_tdata         => "00000001",
+      s_axis_config_tdata         => config_data,
       
       s_axis_data_tvalid          => data_in_tvalid,
       s_axis_data_tready          => data_in_tready,

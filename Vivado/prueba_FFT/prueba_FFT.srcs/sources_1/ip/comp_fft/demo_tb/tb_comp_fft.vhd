@@ -457,23 +457,6 @@ begin
   -----------------------------------------------------------------------
 
   record_outputs : process (aclk)
-    -- Function to digit-reverse an integer, to convert output to input ordering
-    function digit_reverse_int ( fwd, width : integer ) return integer is
-      variable rev     : integer;
-      variable fwd_slv : std_logic_vector(width-1 downto 0);
-      variable rev_slv : std_logic_vector(width-1 downto 0);
-    begin
-      fwd_slv := std_logic_vector(to_unsigned(fwd, width));
-      for i in 0 to width/2-1 loop  -- reverse in digit groups (2 bits at a time)
-        rev_slv(i*2+1 downto i*2) := fwd_slv(width-i*2-1 downto width-i*2-2);
-      end loop;
-      if width mod 2 = 1 then  -- width is odd: LSB moves to MSB
-        rev_slv(width-1) := fwd_slv(0);
-      end if;
-      rev := to_integer(unsigned(rev_slv));
-      return rev;
-    end function digit_reverse_int;
-
     variable index : integer := 0;
 
   begin
@@ -481,8 +464,6 @@ begin
       if aclken = '1' and m_axis_data_tvalid = '1' then
         -- Record output data such that it can be used as input data
         index := op_sample;
-        -- Digit-reverse output sample number, to get actual sample index as outputs are in digit-reversed order
-        index := digit_reverse_int(index, 3);
         -- Truncate output data to match input data width
         op_data(index).re <= m_axis_data_tdata(19 downto 4);
         op_data(index).im <= m_axis_data_tdata(43 downto 28);

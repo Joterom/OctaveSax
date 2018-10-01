@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='D:/UNI/TFG/prueba_FFT/prueba_FFT.runs/comp_fft_synth_1'
+HD_PWD='D:/UNI/TFG/OctaveSax/Vivado/prueba_FFT/prueba_FFT.runs/comp_fft_synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

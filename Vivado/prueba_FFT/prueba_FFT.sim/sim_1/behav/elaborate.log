@@ -38,6 +38,7 @@ Compiling package c_shift_ram_v12_0_10.c_shift_ram_v12_0_10_pkg
 Compiling package c_mux_bit_v12_0_3.c_mux_bit_v12_0_3_viv_comp
 Compiling package xfft_v9_0_12.quarter_sin_tw_table
 Compiling package xfft_v9_0_12.quarter2_sin_tw_table
+Compiling package ieee.std_logic_textio
 Compiling architecture synth of entity xfft_v9_0_12.axi_wrapper_input_fifo [\axi_wrapper_input_fifo(c_fifo_w...]
 Compiling architecture synth of entity xfft_v9_0_12.axi_wrapper_input_fifo [\axi_wrapper_input_fifo(c_fifo_w...]
 Compiling architecture synth of entity xfft_v9_0_12.axi_wrapper_output_fifo [\axi_wrapper_output_fifo(c_fifo_...]
@@ -139,6 +140,16 @@ Compiling architecture xilinx of entity xfft_v9_0_12.shift_ram [\shift_ram(c_xde
 Compiling architecture xilinx of entity xfft_v9_0_12.shift_ram [\shift_ram(c_xdevicefamily="arti...]
 Compiling architecture xilinx of entity xfft_v9_0_12.shift_ram [\shift_ram(c_xdevicefamily="arti...]
 Compiling architecture xilinx of entity xfft_v9_0_12.r22_pe [\r22_pe(c_xdevicefamily="artix7"...]
+Compiling architecture xilinx of entity xfft_v9_0_12.shift_ram [\shift_ram(c_xdevicefamily="arti...]
+Compiling architecture xilinx of entity xfft_v9_0_12.shift_ram [\shift_ram(c_xdevicefamily="arti...]
+Compiling architecture xilinx of entity xfft_v9_0_12.shift_ram [\shift_ram(c_xdevicefamily="arti...]
+Compiling architecture xilinx of entity xfft_v9_0_12.shift_ram [\shift_ram(c_xdevicefamily="arti...]
+Compiling architecture rb18_internal_vhdl_v of entity unisim.RB18_INTERNAL_VHDL [\RB18_INTERNAL_VHDL(bram_size=18...]
+Compiling architecture ramb18e1_v of entity unisim.RAMB18E1 [\RAMB18E1(doa_reg=1,dob_reg=1,ra...]
+Compiling architecture xilinx of entity xfft_v9_0_12.dpm [\dpm(c_xdevicefamily="artix7",wm...]
+Compiling architecture xilinx of entity xfft_v9_0_12.r22_memory [\r22_memory(c_xdevicefamily="art...]
+Compiling architecture xilinx of entity xfft_v9_0_12.shift_ram [\shift_ram(c_xdevicefamily="arti...]
+Compiling architecture xilinx of entity xfft_v9_0_12.shift_ram [\shift_ram(c_xdevicefamily="arti...]
 Compiling architecture xilinx of entity xfft_v9_0_12.shift_ram [\shift_ram(c_xdevicefamily="arti...]
 Compiling architecture xilinx of entity xfft_v9_0_12.shift_ram [\shift_ram(c_xdevicefamily="arti...]
 Compiling architecture xilinx of entity xfft_v9_0_12.r22_busy [\r22_busy(c_xdevicefamily="artix...]

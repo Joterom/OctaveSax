@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="comp_fft_synth_1" LaunchPart="xc7a75tcsg324-1" LaunchTime="1538128803">
-  <File Type="PA-TCL" Name="comp_fft.tcl"/>
+<GenRun Id="comp_fft_synth_1" LaunchPart="xc7a75tcsg324-1" LaunchTime="1538384269">
   <File Type="RDS-PROPCONSTRS" Name="comp_fft_drc_synth.rpt"/>
+  <File Type="PA-TCL" Name="comp_fft.tcl"/>
   <File Type="RDS-RDS" Name="comp_fft.vds"/>
   <File Type="RDS-UTIL" Name="comp_fft_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="comp_fft_utilization_synth.pb"/>
