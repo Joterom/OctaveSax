@@ -25,8 +25,8 @@ entity modulo_fft is
     data_in_tready : out STD_LOGIC;
     
     data_out_tvalid : out STD_LOGIC;
-    re_out : out STD_LOGIC_VECTOR (15 downto 0);
-    im_out : out STD_LOGIC_VECTOR (15 downto 0)
+    re_out : out STD_LOGIC_VECTOR (23 downto 0);
+    im_out : out STD_LOGIC_VECTOR (23 downto 0)
   );
 end modulo_fft;
 
@@ -89,7 +89,7 @@ FFT : comp_fft port map (
       );
       
         datos_in <= im_in & re_in;
-        im_out <= datos_out(31 downto 16); 
-        re_out <= datos_out(15 downto 0);
+        im_out <= datos_out(47 downto 24); 
+        re_out <= datos_out(23 downto 0);
     
 end Behavioral;
