@@ -17,10 +17,12 @@
 13-9-18
 2.0 Primeros pasos en Vivado
 25-9-18
-2.1 Comienzo pruebas tamaño ventana
-2.1.1 Pruebas tamaño ventana
+2.1 Comienzo pruebas tamanio ventana
+2.1.1 Pruebas tamanio ventana
 30-09-18
 2.2 Pruebas del modulo FFT de Vivado
 2.2.1 Mejora de la prueba de ventana
 2.2.2 Mejoras en las pruebas de la FFT
 2.2.2 Pruebas de FFT e IFFT vivado
+4-10-18
+2.2.3 Mejora de la FFT Vivado
