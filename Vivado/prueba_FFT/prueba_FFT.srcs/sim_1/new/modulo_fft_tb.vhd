@@ -31,14 +31,15 @@ architecture Behavioral of modulo_fft_tb is
         tuser : out STD_LOGIC_VECTOR (7 downto 0);
         
         data_out_tvalid : out STD_LOGIC;
-        re_out : out STD_LOGIC_VECTOR (23 downto 0);
-        im_out : out STD_LOGIC_VECTOR (23 downto 0)
+        re_out : out STD_LOGIC_VECTOR (19 downto 0);
+        im_out : out STD_LOGIC_VECTOR (19 downto 0)
     ); end component;
     
     signal re_in, im_in : STD_LOGIC_VECTOR(15 downto 0) := (others => '0');
-    signal re_out, im_out : STD_LOGIC_VECTOR(23 downto 0) := (others => '0');
+    signal re_out, im_out : STD_LOGIC_VECTOR(19 downto 0) := (others => '0');
     signal clk, enable, config_tvalid, config_tready, data_in_tlast, data_in_tvalid, data_in_tready, data_out_tvalid : STD_LOGIC := '0';
-    signal config_data, tuser : STD_LOGIC_VECTOR (7 downto 0);
+    signal config_data : STD_LOGIC_VECTOR (7 downto 0) := "00000001";
+    signal tuser : STD_LOGIC_VECTOR (7 downto 0);
   
 begin
 
@@ -72,13 +73,13 @@ begin
     
     signal_proc : process
         begin
-            config_data <= "00000001";
+            config_data <= "11111111";
             enable <= '1';
         wait for 60 ns;
             config_tvalid <= '1';
         wait for 80 ns;
             config_tvalid <= '0';
-        wait for 300 ns;
+        wait for 380 ns;
             data_in_tvalid <= '1';
             im_in <= (others => '0');
             re_in <= x"4000";
@@ -114,29 +115,29 @@ begin
             config_tvalid <= '0';
         wait for 480 ns; 
             data_in_tvalid <= '1';
-            re_in <= x"002e";
-            im_in <= x"ffc9";
+            re_in <= x"10cc";
+            im_in <= x"f5f1";
         wait for 80 ns;
-            re_in <= x"0036";
-            im_in <= x"ffe4";
+            re_in <= x"13e5";
+            im_in <= x"fad6";
         wait for 40 ns;
-            re_in <= x"003e";
-            im_in <= x"fffb";
+            re_in <= x"169c";
+            im_in <= x"ff18";
         wait for 40 ns;
-            re_in <= x"0047";
-            im_in <= x"0017";
+            re_in <= x"19ec";
+            im_in <= x"044a";
         wait for 40 ns;
-            re_in <= x"0058";
-            im_in <= x"004b";
+            re_in <= x"2018";
+            im_in <= x"0df7";
         wait for 40 ns;
-            re_in <= x"00b0";
-            im_in <= x"015a";
+            re_in <= x"3fff";
+            im_in <= x"3fff";
         wait for 40 ns;
-            re_in <= x"ffeb";
-            im_in <= x"fefc";
+            re_in <= x"f896";
+            im_in <= x"d003";
         wait for 40 ns;
-            re_in <= x"0020";
-            im_in <= x"ff9d";
+            re_in <= x"0b98";
+            im_in <= x"edd2";
             data_in_tlast <= '1';
         wait for 40 ns;
             data_in_tlast <= '0';

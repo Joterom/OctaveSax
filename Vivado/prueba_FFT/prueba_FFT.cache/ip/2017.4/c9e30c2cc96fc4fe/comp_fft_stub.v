@@ -1,10 +1,10 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
-// Date        : Wed Oct 10 17:27:17 2018
+// Date        : Wed Oct 10 17:27:15 2018
 // Host        : vhdl-2018 running 64-bit Ubuntu 18.04.1 LTS
-// Command     : write_verilog -force -mode synth_stub
-//               /home/joterom/workspace/OctaveSax/Vivado/prueba_FFT/prueba_FFT.srcs/sources_1/ip/comp_fft/comp_fft_stub.v
+// Command     : write_verilog -force -mode synth_stub -rename_top decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix -prefix
+//               decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_ comp_fft_stub.v
 // Design      : comp_fft
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7a75tcsg324-1
@@ -14,7 +14,7 @@
 // The synthesis directives are for Synopsys Synplify support to prevent IO buffer insertion.
 // Please paste the declaration into a Verilog source file or add the file as an additional source.
 (* x_core_info = "xfft_v9_0_14,Vivado 2017.4" *)
-module comp_fft(aclk, aclken, s_axis_config_tdata, 
+module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix(aclk, aclken, s_axis_config_tdata, 
   s_axis_config_tvalid, s_axis_config_tready, s_axis_data_tdata, s_axis_data_tvalid, 
   s_axis_data_tready, s_axis_data_tlast, m_axis_data_tdata, m_axis_data_tuser, 
   m_axis_data_tvalid, m_axis_data_tlast, event_frame_started, event_tlast_unexpected, 

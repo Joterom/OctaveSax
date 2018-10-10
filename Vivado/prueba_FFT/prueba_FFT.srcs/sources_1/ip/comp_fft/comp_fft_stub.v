@@ -1,7 +1,7 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
-// Date        : Wed Oct 10 13:51:36 2018
+// Date        : Wed Oct 10 17:27:17 2018
 // Host        : vhdl-2018 running 64-bit Ubuntu 18.04.1 LTS
 // Command     : write_verilog -force -mode synth_stub
 //               /home/joterom/workspace/OctaveSax/Vivado/prueba_FFT/prueba_FFT.srcs/sources_1/ip/comp_fft/comp_fft_stub.v
