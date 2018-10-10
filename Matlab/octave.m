@@ -8,9 +8,7 @@ in_R = audio_in(:,2);
 
 Ts = 1/Fs;
 max_time = (length(in_L)*Ts)-Ts;
-t = 0:Ts:max_time;
 len = length(in_L);
-f = Fs*(0:(len/2))/len;
 
 transform_L = fft(in_L);
 transform_R = fft(in_R);

@@ -28,3 +28,4 @@
 2.2.3 Mejora de la FFT Vivado
 10-10-18
 2.2.4 Mas pruebas de la FFT, todavia no hace FFT-IFFT
+2.2.5 Cambio en el algoritmo de octavacion

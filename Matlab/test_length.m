@@ -1,11 +1,11 @@
 function test_length(pot)
-%TEST_LENGTH Prueba diferentes tamaños de ventana en la FFT
+%TEST_LENGTH Prueba diferentes tamaï¿½os de ventana en la FFT
 %   Permite realizar la FFT del archivo de entrada especificada con un
-%   tamaño de ventana especificado como parametro.
+%   tamaï¿½o de ventana especificado como parametro.
 
 close all;
 
-FILE_IN = 'audio_prueba.wav';
+FILE_IN = 'audio_prueba_complejo.wav';
 FILE_OUT_FULL = 'length_test_full.wav';
 FILE_OUT_TEST = 'length_test_specified.wav';
 
@@ -21,7 +21,10 @@ f4 = figure('Name','Stereo output signal','NumberTitle','off');
 f3 = figure('Name','FFT Comparison','NumberTitle','off');
 
 %Transformada directa para comprobar
-comprobacion = octave(y,Fs);
+y_ext = zeros(length(y)*2,2);
+y_ext(1:length(y),:) = y(:,:);
+comprobacion_largo = octave(y_ext,Fs);
+comprobacion = comprobacion_largo(1:length(y),:);
 
 
 %Transformada con la ventana especificada
@@ -46,10 +49,10 @@ figure(f4);
 hold on;
 subplot(3,2,1), plot(t,comprobacion), title('Full length FFT BOTH'), ylabel('Amplitude');
 subplot(3,2,3), plot(t,comprobacion(:,1)), title('Full length FFT LEFT'), ylabel('Amplitude');
-subplot(3,2,5), plot(t,comprobacion(:,2)), title('Full length FFT RIGHT'), ylabel('Amplitude');
+subplot(3,2,4), plot(t,comprobacion(:,2)), title('Full length FFT RIGHT'), ylabel('Amplitude');
 
 subplot(3,2,2), plot(t,result), title('Specified length BOTH'), ylabel('Amplitude');
-subplot(3,2,4), plot(t,result(:,1)), title('Specified length LEFT'), ylabel('Amplitude');
+subplot(3,2,5), plot(t,result(:,1)), title('Specified length LEFT'), ylabel('Amplitude');
 subplot(3,2,6), plot(t,result(:,2)), title('Specified length RIGHT'), xlabel('Time(s)'), ylabel('Amplitude');
 hold off;
 
