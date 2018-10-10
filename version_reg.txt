@@ -26,3 +26,5 @@
 2.2.2 Pruebas de FFT e IFFT vivado
 4-10-18
 2.2.3 Mejora de la FFT Vivado
+10-10-18
+2.2.4 Mas pruebas de la FFT, todavia no hace FFT-IFFT

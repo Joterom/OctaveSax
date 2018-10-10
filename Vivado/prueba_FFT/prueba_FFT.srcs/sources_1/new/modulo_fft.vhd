@@ -23,6 +23,7 @@ entity modulo_fft is
     data_in_tlast : in STD_LOGIC;
     data_in_tvalid : in STD_LOGIC;
     data_in_tready : out STD_LOGIC;
+    tuser : out STD_LOGIC_VECTOR (7 downto 0);
     
     data_out_tvalid : out STD_LOGIC;
     re_out : out STD_LOGIC_VECTOR (23 downto 0);
@@ -47,7 +48,7 @@ component comp_fft port (
     
     m_axis_data_tdata : out STD_LOGIC_VECTOR (47 downto 0);
     m_axis_data_tlast : out STD_LOGIC;
-    --m_axis_data_tready : in STD_LOGIC;
+    m_axis_data_tuser : out STD_LOGIC_VECTOR (7 downto 0);
     m_axis_data_tvalid : out STD_LOGIC;
     
     event_frame_started : out STD_LOGIC;
@@ -81,6 +82,7 @@ FFT : comp_fft port map (
       m_axis_data_tvalid          => data_out_tvalid,
       m_axis_data_tdata           => datos_out,
       m_axis_data_tlast           => data_out_tlast,
+      m_axis_data_tuser           => tuser,
       
       event_frame_started         => event_frame_started,
       event_tlast_unexpected      => event_tlast_unexpected,

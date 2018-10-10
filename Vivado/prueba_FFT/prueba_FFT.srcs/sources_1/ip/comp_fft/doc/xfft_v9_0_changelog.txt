@@ -1,3 +1,14 @@
+2017.4:
+ * Version 9.0 (Rev. 14)
+ * General: Clock frequency improvement for floating point FFT.  No change in functionality.
+ * General: Bugfix in C model to resolve data-dependent incorrect block exponent when modelling the Pipelined, Streaming I/O architecture with a Block Floating Point datapath.
+ * Revision change in one or more subcores
+
+2017.3:
+ * Version 9.0 (Rev. 13)
+ * General: Comment change in C model. No change to functionality
+ * Revision change in one or more subcores
+
 2017.2:
  * Version 9.0 (Rev. 12)
  * No changes

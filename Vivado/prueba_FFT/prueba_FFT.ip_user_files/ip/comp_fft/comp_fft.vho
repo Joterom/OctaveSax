@@ -47,7 +47,7 @@
 -- DO NOT MODIFY THIS FILE.
 
 -- IP VLNV: xilinx.com:ip:xfft:9.0
--- IP Revision: 12
+-- IP Revision: 14
 
 -- The following code must appear in the VHDL architecture header.
 
@@ -64,6 +64,7 @@ COMPONENT comp_fft
     s_axis_data_tready : OUT STD_LOGIC;
     s_axis_data_tlast : IN STD_LOGIC;
     m_axis_data_tdata : OUT STD_LOGIC_VECTOR(47 DOWNTO 0);
+    m_axis_data_tuser : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
     m_axis_data_tvalid : OUT STD_LOGIC;
     m_axis_data_tlast : OUT STD_LOGIC;
     event_frame_started : OUT STD_LOGIC;
@@ -90,6 +91,7 @@ your_instance_name : comp_fft
     s_axis_data_tready => s_axis_data_tready,
     s_axis_data_tlast => s_axis_data_tlast,
     m_axis_data_tdata => m_axis_data_tdata,
+    m_axis_data_tuser => m_axis_data_tuser,
     m_axis_data_tvalid => m_axis_data_tvalid,
     m_axis_data_tlast => m_axis_data_tlast,
     event_frame_started => event_frame_started,

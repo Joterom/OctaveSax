@@ -28,6 +28,7 @@ architecture Behavioral of modulo_fft_tb is
         data_in_tlast : in STD_LOGIC;
         data_in_tvalid : in STD_LOGIC;
         data_in_tready : out STD_LOGIC;
+        tuser : out STD_LOGIC_VECTOR (7 downto 0);
         
         data_out_tvalid : out STD_LOGIC;
         re_out : out STD_LOGIC_VECTOR (23 downto 0);
@@ -37,7 +38,7 @@ architecture Behavioral of modulo_fft_tb is
     signal re_in, im_in : STD_LOGIC_VECTOR(15 downto 0) := (others => '0');
     signal re_out, im_out : STD_LOGIC_VECTOR(23 downto 0) := (others => '0');
     signal clk, enable, config_tvalid, config_tready, data_in_tlast, data_in_tvalid, data_in_tready, data_out_tvalid : STD_LOGIC := '0';
-    signal config_data : STD_LOGIC_VECTOR (7 downto 0);
+    signal config_data, tuser : STD_LOGIC_VECTOR (7 downto 0);
   
 begin
 
@@ -54,6 +55,7 @@ begin
         data_in_tlast => data_in_tlast,
         data_in_tvalid => data_in_tvalid,
         data_in_tready => data_in_tready,
+        tuser => tuser,
         
         data_out_tvalid => data_out_tvalid,
         re_out => re_out,
@@ -139,30 +141,6 @@ begin
         wait for 40 ns;
             data_in_tlast <= '0';
             data_in_tvalid <= '0';
-        wait for 480 ns; 
-            re_in <= x"0001";
-            im_in <= x"ffff";
-        wait for 80 ns;
-            re_in <= x"ffff";
-            im_in <= x"fffe";
-        wait for 40 ns;
-            re_in <= x"fffe";
-            im_in <= x"0001";
-        wait for 40 ns;
-            re_in <= x"0001";
-            im_in <= x"0000";
-        wait for 40 ns;
-            re_in <= x"ffff";
-            im_in <= x"fffe";
-        wait for 40 ns;
-            re_in <= x"fffe";
-            im_in <= x"0001";
-        wait for 40 ns;
-            re_in <= x"0001";
-            im_in <= x"0000";
-        wait for 40 ns;
-            re_in <= x"ffff";
-            im_in <= x"ffee";
         wait;
     end process;
 
