@@ -10,13 +10,13 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="1901409999fs"></ZoomStartTime>
-      <ZoomEndTime time="3117522855fs"></ZoomEndTime>
-      <Cursor1Time time="2700000000fs"></Cursor1Time>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="7000000001fs"></ZoomEndTime>
+      <Cursor1Time time="880000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="80"></NameColumnWidth>
-      <ValueColumnWidth column_width="158"></ValueColumnWidth>
+      <ValueColumnWidth column_width="141"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="23" />
    <wvobject type="logic" fp_name="/modulo_fft_tb/clk">
@@ -69,7 +69,7 @@
       <obj_property name="ObjectShortName">re_in[15:0]</obj_property>
       <obj_property name="Radix">REALRADIX</obj_property>
       <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
-      <obj_property name="radix_fractionWidth">14</obj_property>
+      <obj_property name="radix_fractionWidth">15</obj_property>
       <obj_property name="radix_otherWidth">0</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/modulo_fft_tb/im_in">
@@ -77,7 +77,7 @@
       <obj_property name="ObjectShortName">im_in[15:0]</obj_property>
       <obj_property name="Radix">REALRADIX</obj_property>
       <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
-      <obj_property name="radix_fractionWidth">14</obj_property>
+      <obj_property name="radix_fractionWidth">15</obj_property>
       <obj_property name="radix_otherWidth">0</obj_property>
    </wvobject>
    <wvobject fp_name="divider338" type="divider">
@@ -93,7 +93,7 @@
       <obj_property name="ObjectShortName">re_out[19:0]</obj_property>
       <obj_property name="Radix">REALRADIX</obj_property>
       <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
-      <obj_property name="radix_fractionWidth">14</obj_property>
+      <obj_property name="radix_fractionWidth">15</obj_property>
       <obj_property name="radix_otherWidth">0</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/modulo_fft_tb/im_out">
@@ -101,7 +101,7 @@
       <obj_property name="ObjectShortName">im_out[19:0]</obj_property>
       <obj_property name="Radix">REALRADIX</obj_property>
       <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
-      <obj_property name="radix_fractionWidth">14</obj_property>
+      <obj_property name="radix_fractionWidth">15</obj_property>
       <obj_property name="radix_otherWidth">0</obj_property>
    </wvobject>
    <wvobject fp_name="divider427" type="divider">
