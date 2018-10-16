@@ -2,7 +2,7 @@ function algoritmo(alfa, beta)
 %Prueba el algoritmo a utilizar para la implementacion futura
 %   Algoritmo que se utilizara posteriormente para la implementacion del
 %   ocatavador y sus funciones en FPGA. Los parametros de entrada 
-%   mezclan la señal original y la octava respectivamente. Javier Otero
+%   mezclan la seï¿½al original y la octava respectivamente. Javier Otero
 close all;
 
 f1 = figure('Name','Stereo input signal','NumberTitle','off');
@@ -16,7 +16,7 @@ FILE_OUT = 'proc_audio.wav';
 
 [y, Fs] = audioread(FILE_IN);
 L = y(:,1);
-R = y(:,1);
+R = y(:,2);
 
 Ts = 1/Fs;
 max_time = (length(L)*Ts)-Ts;
@@ -52,7 +52,7 @@ subplot(2,1,1), plot(f, PL), title('FFT Left Channel'), xlabel('Frequency(Hz)');
 subplot(2,1,2), plot(f, PR), title('FFT Right Channel'),xlabel('Frequency(Hz)');
 hold off;
 
-% Procesado de la señal
+% Procesado de la seï¿½al
 [~, freqL] = max(PL);
 [~, freqR] = max(PR);
 
@@ -121,7 +121,7 @@ hold off;
 % %sound(y, Fs);
 
 
-% Creamos el sterero y mezclamos la señal final 
+% Creamos el sterero y mezclamos la seï¿½al final 
 out = zeros(length(final_L),2);
 out(:,1) = final_L(:,1);
 out(:,2) = final_R(:,1);

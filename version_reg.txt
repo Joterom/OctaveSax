@@ -31,4 +31,4 @@
 2.2.5 Cambio en el algoritmo de octavacion
 2.2.6 Primera coincidencia Matlab-Vivado en FFT
 16-10-18
-2.2.7 Pruebas del problema de la IFFT
+2.2.7x Pruebas del problema de la IFFT
