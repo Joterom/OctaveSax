@@ -34,3 +34,5 @@
 2.2.7x Pruebas del problema de la IFFT
 25-10-18
 2.2.8 Pruebas de diferentes algoritmos
+7-11-18
+3.0 Pruebas con el algoritmo de Ellis en Matlab

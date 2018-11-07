@@ -1,0 +1,6 @@
+»[d,sr]=wavread('clar.wav');
+»e = pvoc(d, 0.8);
+»f = resample(e,4,5); % NB: 0.8 = 4/5
+»soundsc(d(1:length(f))+f,sr) 
+
+URL::http://www.ee.columbia.edu/~dpwe/resources/matlab/pvoc/ --> D.P.W.Ellis, "A phase vocoder in Matlab"
