@@ -17,15 +17,13 @@ si_fft(1) = si_aux(1);
 
 f = (0:length(si_fft)-1)*T;
 
-si_stft_aux = stft(si);
-si_stft = zeros(size(si_fft));
-si_stft(1:97) = si_stft_aux(1:97,1);
-si_stft(98:128) = si_stft_aux(97:129,1) + si_stft_aux(1:32,2);
-si_stft(129:162) = si_stft_aux(33:96,2);
-si_stft(163:196) = si_stft_aux(97:129,2) + si_stft_aux(1:32,3);
+si_stft = stft(si);
 
+for i = 1:min(size(si_stft))
+    if i == 1
+        si_stft(1:
 
-
+si_nuevo = istft(si_stft);
 
 figure(f1)
 subplot(2,1,1), plot(f,si_fft), title('Input'), xlabel('Time(s)'), ylabel('Amplitude');
