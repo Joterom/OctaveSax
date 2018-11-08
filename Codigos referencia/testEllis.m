@@ -7,6 +7,7 @@ f1 = figure('Name','Input and Output','NumberTitle','off');
 f2 = figure('Name','Frequency domain','NumberTitle','off');
 
 FILE_OUT = 'Octaved audio.wav';
+FILE_MIX = 'Mixed audio.wav';
 [in, Fs] = audioread(FILE_IN);
 
 in_mono = in(:,1);
@@ -44,6 +45,9 @@ subplot(2,1,2), plot(f,out_fft_plot), title('Output'), xlabel('Freq.');
 xlim([0 length(f)]);
 ylim([0 20000]);
 
+mix = 0.5.*in_mono + 0.5*out;
+
 audiowrite(FILE_OUT,out,Fs);
+audiowrite(FILE_MIX,mix,Fs);
 end
 
