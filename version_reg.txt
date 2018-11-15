@@ -39,4 +39,5 @@
 3.0.1 Envios de audio al github
 3.0.3 Prueba del algoritmo de Ellis en Matlab
 3.1 Algoritmo de Ellis funcional y pruebas
-3.1.1 Sintesis del algoritmo de Ellis en proceso
+3.1.1.x Sintesis del algoritmo de Ellis en proceso
+
