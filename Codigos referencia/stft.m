@@ -1,4 +1,4 @@
-function D = stft(x, f, w, h, sr)
+function stft_signal = stft(input, transform_size, hop)
 % D = stft(X, F, W, H, SR)                       Short-time Fourier transform.
 %	Returns some frames of short-term Fourier transform of x.  Each 
 %	column of the result is one F-point fft (default 256); each
@@ -11,66 +11,37 @@ function D = stft(x, f, w, h, sr)
 % dpwe 1994may05.  Uses built-in 'fft'
 % $Header: /home/empire6/dpwe/public_html/resources/matlab/pvoc/RCS/stft.m,v 1.4 2010/08/13 16:03:14 dpwe Exp $
 
-if nargin < 2;  f = 256; end
-if nargin < 3;  w = f; end
-if nargin < 4;  h = 0; end
-if nargin < 5;  sr = 8000; end
-
 % expect x as a row
-if size(x,1) > 1
-  x = x';
+if size(input,1) > 1
+  input = input';
 end
 
-s = length(x);
+s = length(input);
+w1 = transform_size;
 
-if length(w) == 1
-  if w == 0
-    % special case: rectangular window
-    win = ones(1,f);
-  else
-    if rem(w, 2) == 0   % force window to be odd-len
-      w = w + 1;
-    end
-    halflen = (w-1)/2;
-    halff = f/2;   % midpoint of win
-    halfwin = 0.5 * ( 1 + cos( pi * (0:halflen)/halflen));
-    win = zeros(1, f);
-    acthalflen = min(halff, halflen);
-    win((halff+1):(halff+acthalflen)) = halfwin(1:acthalflen);
-    win((halff+1):-1:(halff-acthalflen+2)) = halfwin(1:acthalflen);
-  end
-else
-  win = w;
+if rem(w1, 2) == 0   % force window to be odd-len
+  w1 = w1 + 1;
 end
+halflen = (w1-1)/2;
+halff = transform_size/2;   % midpoint of win
+halfwin = 0.5 * ( 1 + cos( pi * (0:halflen)/halflen));
+win_stft = zeros(1, transform_size);
+acthalflen = min(halff, halflen);
+win_stft((halff+1):(halff+acthalflen)) = halfwin(1:acthalflen);
+win_stft((halff+1):-1:(halff-acthalflen+2)) = halfwin(1:acthalflen);
 
-w = length(win);
-% now can set default hop
-if h == 0
-  h = floor(w/2);
-end
-
-c = 1;
+c_stft = 1;
 
 % pre-allocate output array
-d = zeros((1+f/2),1+fix((s-f)/h));
+out = zeros((1+transform_size/2),1+fix((s-transform_size)/hop));
 
-for b = 0:h:(s-f)
-  u = win.*x((b+1):(b+f));
-  t = fft(u);
-  d(:,c) = t(1:(1+f/2))';
-  c = c+1;
+for i = 0:hop:(s-transform_size)
+  frame = win_stft.*input((i+1):(i+transform_size));
+  tot = fft(frame);
+  out(:,c_stft) = tot(1:(1+transform_size/2))';
+  c_stft = c_stft+1;
 end;
 
-% If no output arguments, plot a spectrogram
-if nargout == 0
-  tt = [0:size(d,2)]*h/sr;
-  ff = [0:size(d,1)]*sr/f;
-  imagesc(tt,ff,20*log10(abs(d)));
-  axis('xy');
-  xlabel('time / sec');
-  ylabel('freq / Hz')
-  % leave output variable D undefined
-else
-  % Otherwise, no plot, but return STFT
-  D = d;
+stft_signal = out;
+
 end

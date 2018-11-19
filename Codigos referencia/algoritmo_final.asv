@@ -64,38 +64,39 @@ pv_signal = zeros(rows, length(t));
 dphi = zeros(1,num/2+1);
 dphi(2:(1 + num/2)) = (2*pi*hop)./(num./(1:(num/2)));
 
-% Acumulador de fase
-% Se inicializa idealmente a 1 la primera muesrta
+% Phase accumulator
+% Preset to phase of first frame for perfect reconstruction
+% in case of 1:1 time scaling
 ph = angle(stft_signal(:,1));
 
-% Incluye una columna de seguridad para evitar problemas
+% Append a 'safety' column on to the end of b to avoid problems 
+% taking *exactly* the last frame (i.e. 1*b(:,cols)+0*b(:,cols+1))
 stft_signal = [stft_signal,zeros(rows,1)];
 
 ocol = 1;
 for i = t
-  % Coge dos coulmnas
+  % Grab the two columns of b
   bcols = stft_signal(:,floor(i)+[1 2]);
   tf = i - floor(i);
   bmag = (1-tf)*abs(bcols(:,1)) + tf*(abs(bcols(:,2)));
-  % Calcula la fase siguiente
+  % calculate phase advance
   dp = angle(bcols(:,2)) - angle(bcols(:,1)) - dphi';
-  % La reduce a rango de -pi, pi
+  % Reduce to -pi:pi range
   dp = dp - 2 * pi * round(dp/(2*pi));
   % Save the column
   pv_signal(:,ocol) = bmag .* exp(j*ph);
-  % Acumula la fase para la siguiente trama
+  % Cumulate phase, ready for next frame
   ph = ph + dphi' + dp;
   ocol = ocol+1;
 end
 
 % iSTFT +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-% inicializa las variables necesarias
 s = size(pv_signal);
 cols = s(2);
 w_aux = transform_length;
-% Enventanado a la salida
-if rem(w_aux, 2) == 0   % ventana impar
+
+if rem(w_aux, 2) == 0   % force window to be odd-len
   w_aux = w_aux + 1;
 end
 halflen = (w_aux-1)/2;
@@ -105,13 +106,19 @@ win_istft = zeros(1, transform_length);
 acthalflen = min(halff, halflen);
 win_istft((halff+1):(halff+acthalflen)) = halfwin(1:acthalflen);
 win_istft((halff+1):-1:(halff-acthalflen+2)) = halfwin(1:acthalflen);
-% Necesario para que se mantenga intacto tras el solapamiento
+% 2009-01-06: Make stft-istft loop be identity for 25% hop
 win_istft = 2/3*win_istft;
 
-% Inicializa las variables necesarias y procede a hacer transformada
-% inversa
+
+w_aux = length(win_istft);
+% now can set default hop
+if hop == 0 
+  hop = floor(w_aux/2);
+end
+
 xlen = transform_length + (cols-1)*hop;
 istft_signal = zeros(1,xlen);
+
 for i = 0:hop:(hop*(cols-1))
   ft = pv_signal(:,1+i/hop)';
   ft = [ft, conj(ft([((transform_length/2)):-1:2]))];
@@ -121,10 +128,8 @@ end
 
 % PREPARACION FINAL +++++++++++++++++++++++++++++++++++++++++++++
 
-% Remuestreo (interpolacion) tras filtrado antialiasing
 pre_out = resample(istft_signal,2,1);
 
-% Fuerza a la salida a tener la misma longitud que a la entrada
 if length(pre_out) == length(input)
     out = pre_out';
 else

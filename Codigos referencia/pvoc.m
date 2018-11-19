@@ -1,4 +1,4 @@
-function y = pvoc(x, r, n)
+function y = pvoc(input, scale_factor, transform_size)
 % y = pvoc(x, r, n)  Time-scale a signal to r times faster with phase vocoder
 %      x is an input sound. n is the FFT size, defaults to 1024.  
 %      Calculate the 25%-overlapped STFT, squeeze it by a factor of r, 
@@ -6,13 +6,9 @@ function y = pvoc(x, r, n)
 % 2000-12-05, 2002-02-13 dpwe@ee.columbia.edu.  Uses pvsample, stft, istft
 % $Header: /home/empire6/dpwe/public_html/resources/matlab/pvoc/RCS/pvoc.m,v 1.3 2011/02/08 21:08:39 dpwe Exp $
 
-if nargin < 3
-  n = 1024;
-end
-
 % With hann windowing on both input and output, 
 % we need 25% window overlap for smooth reconstruction
-hop = n/4;
+hop = transform_size/4;
 % Effect of hanns at both ends is a cumulated cos^2 window (for
 % r = 1 anyway); need to scale magnitudes by 2/3 for
 % identity input/output
@@ -21,11 +17,11 @@ hop = n/4;
 scf = 1.0;
 
 % Calculate the basic STFT, magnitude scaled
-X = scf * stft(x', n, n, hop);
+X = scf * stft(input', transform_size, hop);
 
 % Calculate the new timebase samples
 [rows, cols] = size(X);
-t = 0:r:(cols-2);
+t = 0:scale_factor:(cols-2);
 % Have to stay two cols off end because (a) counting from zero, and 
 % (b) need col n AND col n+1 to interpolate
 
@@ -33,4 +29,4 @@ t = 0:r:(cols-2);
 X2 = pvsample(X, t, hop);
 
 % Invert to a waveform
-y = istft(X2, n, n, hop)';
+y = istft(X2, transform_size, hop)';

@@ -1,4 +1,4 @@
-function x = istft(d, ftsize, w, h)
+function istft_signal = istft(pv_signal, transform_size, hop)
 % X = istft(D, F, W, H)                   Inverse short-time Fourier transform.
 %	Performs overlap-add resynthesis from the short-time Fourier transform 
 %	data in D.  Each column of D is taken as the result of an F-point 
@@ -12,50 +12,39 @@ function x = istft(d, ftsize, w, h)
 % dpwe 1994may24.  Uses built-in 'ifft' etc.
 % $Header: /home/empire6/dpwe/public_html/resources/matlab/pvoc/RCS/istft.m,v 1.5 2010/08/12 20:39:42 dpwe Exp $
 
-if nargin < 2; ftsize = 2*(size(d,1)-1); end
-if nargin < 3; w = 0; end
-if nargin < 4; h = 0; end  % will become winlen/2 later
+s = size(pv_signal);
 
-s = size(d);
-if s(1) ~= (ftsize/2)+1
-  error('number of rows should be fftsize/2+1')
-end
 cols = s(2);
- 
-if length(w) == 1
-  if w == 0
-    % special case: rectangular window
-    win = ones(1,ftsize);
-  else
-    if rem(w, 2) == 0   % force window to be odd-len
-      w = w + 1;
-    end
-    halflen = (w-1)/2;
-    halff = ftsize/2;
-    halfwin = 0.5 * ( 1 + cos( pi * (0:halflen)/halflen));
-    win = zeros(1, ftsize);
-    acthalflen = min(halff, halflen);
-    win((halff+1):(halff+acthalflen)) = halfwin(1:acthalflen);
-    win((halff+1):-1:(halff-acthalflen+2)) = halfwin(1:acthalflen);
-    % 2009-01-06: Make stft-istft loop be identity for 25% hop
-    win = 2/3*win;
-  end
-else
-  win = w;
-end
 
-w = length(win);
+w_aux = transform_size;
+
+
+if rem(w_aux, 2) == 0   % force window to be odd-len
+  w_aux = w_aux + 1;
+end
+halflen = (w_aux-1)/2;
+halff = transform_size/2;
+halfwin = 0.5 * ( 1 + cos( pi * (0:halflen)/halflen));
+win_istft = zeros(1, transform_size);
+acthalflen = min(halff, halflen);
+win_istft((halff+1):(halff+acthalflen)) = halfwin(1:acthalflen);
+win_istft((halff+1):-1:(halff-acthalflen+2)) = halfwin(1:acthalflen);
+% 2009-01-06: Make stft-istft loop be identity for 25% hop
+win_istft = 2/3*win_istft;
+
+
+w_aux = length(win_istft);
 % now can set default hop
-if h == 0 
-  h = floor(w/2);
+if hop == 0 
+  hop = floor(w_aux/2);
 end
 
-xlen = ftsize + (cols-1)*h;
-x = zeros(1,xlen);
+xlen = transform_size + (cols-1)*hop;
+istft_signal = zeros(1,xlen);
 
-for b = 0:h:(h*(cols-1))
-  ft = d(:,1+b/h)';
-  ft = [ft, conj(ft([((ftsize/2)):-1:2]))];
+for i = 0:hop:(hop*(cols-1))
+  ft = pv_signal(:,1+i/hop)';
+  ft = [ft, conj(ft([((transform_size/2)):-1:2]))];
   px = real(ifft(ft));
-  x((b+1):(b+ftsize)) = x((b+1):(b+ftsize))+px.*win;
+  istft_signal((i+1):(i+transform_size)) = istft_signal((i+1):(i+transform_size))+px.*win_istft;
 end
