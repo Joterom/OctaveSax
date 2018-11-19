@@ -1,4 +1,4 @@
-function testEllis(FILE_IN)
+function lat = testEllis(FILE_IN)
 %MAIN Summary of this function goes here
 %   Detailed explanation goes here
 close all;
@@ -50,12 +50,12 @@ xlim([0 length(f)]);
 ylim([0 20000]);
 
 figure(f3)
-subplot(2,1,1), plot(t,out), title('Input'), xlabel('Freq.');
-xlim([0 length(f)]);
-ylim([0 20000]);
-subplot(2,1,2), plot(t,out_fpga), title('Output'), xlabel('Freq.');
-xlim([0 length(f)]);
-ylim([0 20000]);
+subplot(2,1,1), plot(t,out), title('Input'), xlabel('Sample');
+xlim([0 length(t)]);
+ylim([-0.7 0.7]);
+subplot(2,1,2), plot(t,out_fpga), title('Output'), xlabel('Sample');
+xlim([0 length(t)]);
+ylim([-0.7 0.7]);
 
 mix = 0.5.*in_mono + 0.5*out;
 

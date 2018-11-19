@@ -94,19 +94,21 @@ end
 
 % iSTFT +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+n = transform_length; % Se sobreescribe mas adelante
+
 s = size(out_pv);
-if s(1) ~= (transform_length/2)+1
-  error('number of rows should be fftsize/2+1')
-end
+% if s(1) ~= (transform_length/2)+1
+%   error('number of rows should be fftsize/2+1')
+% end
 cols = s(2);
  
 if rem(n, 2) == 0   % force window to be odd-len
   n = n + 1;
 end
 halflen = (n-1)/2;
-halff = n/2;
+halff = transform_length/2; % Se sobreescribe mas adelante/2;
 halfwin = 0.5 * ( 1 + cos( pi * (0:halflen) / halflen) );
-win = zeros(1, n);
+win = zeros(1, transform_length); % Se sobreescribe mas adelante);
 acthalflen = min(halff, halflen);
 win( (halff + 1):(halff + acthalflen)) = halfwin(1:acthalflen);
 win( (halff + 1):-1:(halff - acthalflen + 2)) = halfwin(1:acthalflen);
@@ -115,19 +117,15 @@ win = 2/3*win;
 
 
 n = length(win);
-% now can set default hop
-if h == 0 
-  h = floor(n/2);
-end
 
-xlen = n + (cols-1)*h;
+xlen = n + (cols-1)*hop;
 out_istft = zeros(1,xlen);
 
-for b = 0:h:(h*(cols-1))
-  ft = out_pv(:,1+b/h)';
-  ft = [ft, conj(ft([((n/2)):-1:2]))];
+for b = 0:hop:(hop*(cols-1))
+  ft = out_pv(:,1+b/hop)';
+  ft = [ft, conj(ft([((transform_length/2)):-1:2]))];
   px = real(ifft(ft));
-  out_istft((b+1):(b+n)) = out_istft((b+1):(b+n))+px.*win;
+  out_istft((b+1):(b+transform_length)) = out_istft((b+1):(b+transform_length))+px.*win;
 end
 
 out = resample(out_istft,2,1);
