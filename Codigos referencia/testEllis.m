@@ -33,9 +33,11 @@ out_fft = fft(out);
 
 in_fft_plot = 2*abs(in_fft(1:length(in_fft)/2+1));
 in_fft_plot(1) = in_fft(1);
+in_fft_plot = in_fft_plot./max(in_fft_plot);
 
 out_fft_plot = 2*abs(out_fft(1:length(out_fft)/2+1));
 out_fft_plot(1) = out_fft(1);
+out_fft_plot = out_fft_plot./max(out_fft_plot);
 
 f = 1:1:length(out_fft)/2+1;
 % Graficas
@@ -52,13 +54,14 @@ xlim([0 length(t)]);
 ylim([-f_lim f_lim]);
 
 
-f_lim = 5500;
+f_lim = 1;
+x_lim = 15000;
 figure(f2)
-subplot(2,1,1), plot(f,in_fft_plot), title('Input'), xlabel('Freq.');
-xlim([0 length(f)]);
+subplot(2,1,1), plot(f,in_fft_plot), title('Input (normalized)'), xlabel('Freq.');
+xlim([0 x_lim]);
 ylim([0 f_lim]);
-subplot(2,1,2), plot(f,out_fft_plot), title('Output'), xlabel('Freq.');
-xlim([0 length(f)]);
+subplot(2,1,2), plot(f,out_fft_plot), title('Octaved Input (normalized)'), xlabel('Freq.');
+xlim([0 x_lim]);
 ylim([0 f_lim]);
 
 audiowrite(FILE_OUT,out,Fs);

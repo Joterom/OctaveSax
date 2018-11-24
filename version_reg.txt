@@ -43,3 +43,5 @@
 3.1.2 Introduccion de latencia, pruebas de ellis
 19-11-18
 3.2 Algoritmo funcional, comentado y probado. Se incluye la simulacion de latencia maxima
+24-11-18
+3.3 Script para las tablas de valores de las ventanas

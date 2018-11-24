@@ -1,0 +1,7 @@
+Algoritmo para modificar la frecuencia:
+
+1. Dividir la muestra en conjuntos de muestras de potencias de 2 (8,16,64...)
+2. FFT de del conjunto de muestras
+3. Buscar la frecuencia central del subconjunto fc --> wc= 2PIfc
+4. Desplazar la transformada la frecuencia deseada
+5. Sumar esas muestras a las originales en la proporcion adecuada.

@@ -36,17 +36,15 @@ win_stft((halff+1):(halff+acthalflen)) = halfwin(1:acthalflen);
 win_stft((halff+1):-1:(halff-acthalflen+2)) = halfwin(1:acthalflen);
 
 % Inicializa el array de salida y las variables necesarias
-out = zeros((1+transform_length/2),1+fix((s-transform_length)/hop));
+stft_signal = zeros((1+transform_length/2),1+fix((s-transform_length)/hop));
 c_stft = 1;
 % Realiza la FFT utilizando una columna por cada ventana
 for i = 0:hop:(s-transform_length)
   frame = win_stft.*input((i+1):(i+transform_length));
   tot = fft(frame);
-  out(:,c_stft) = tot(1:(1+transform_length/2))';
+  stft_signal(:,c_stft) = tot(1:(1+transform_length/2))';
   c_stft = c_stft+1;
 end;
-
-stft_signal = out;
 
 % PVSAMPLE +++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -65,7 +63,7 @@ dphi = zeros(1,num/2+1);
 dphi(2:(1 + num/2)) = (2*pi*hop)./(num./(1:(num/2)));
 
 % Acumulador de fase
-% Se inicializa idealmente a 1 la primera muesrta
+% Se inicializa la fase de todas las muestras de la primera trama
 ph = angle(stft_signal(:,1));
 
 % Incluye una columna de seguridad para evitar problemas
@@ -93,20 +91,20 @@ end
 % inicializa las variables necesarias
 s = size(pv_signal);
 cols = s(2);
-w_aux = transform_length;
+% w_aux = transform_length;
 % Enventanado a la salida
-if rem(w_aux, 2) == 0   % ventana impar
-  w_aux = w_aux + 1;
-end
-halflen = (w_aux-1)/2;
-halff = transform_length/2;
-halfwin = 0.5 * ( 1 + cos( pi * (0:halflen)/halflen));
-win_istft = zeros(1, transform_length);
-acthalflen = min(halff, halflen);
-win_istft((halff+1):(halff+acthalflen)) = halfwin(1:acthalflen);
-win_istft((halff+1):-1:(halff-acthalflen+2)) = halfwin(1:acthalflen);
+% if rem(w_aux, 2) == 0   % ventana impar
+%   w_aux = w_aux + 1;
+% end
+% halflen = (w_aux-1)/2;
+% halff = transform_length/2;
+% halfwin = 0.5 * ( 1 + cos( pi * (0:halflen)/halflen));
+% win_istft = zeros(1, transform_length);
+% acthalflen = min(halff, halflen);
+% win_istft((halff+1):(halff+acthalflen)) = halfwin(1:acthalflen);
+% win_istft((halff+1):-1:(halff-acthalflen+2)) = halfwin(1:acthalflen);
 % Necesario para que se mantenga intacto tras el solapamiento
-win_istft = 2/3*win_istft;
+win_istft = 2/3*win_stft;
 
 % Inicializa las variables necesarias y procede a hacer transformada
 % inversa
