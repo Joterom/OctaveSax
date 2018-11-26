@@ -80,7 +80,7 @@ for i = t
   % La reduce a rango de -pi, pi
   dp = dp - 2 * pi * round(dp/(2*pi));
   % Save the column
-  pv_signal(:,ocol) = bmag .* exp(j*ph);
+  pv_signal(:,ocol) = bmag.*cos(ph) + j.*bmag.*sin(ph);
   % Acumula la fase para la siguiente trama
   ph = ph + dphi' + dp;
   ocol = ocol+1;
