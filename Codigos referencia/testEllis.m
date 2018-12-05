@@ -24,7 +24,7 @@ t = 1:1:length(in_mono);
 
 mix = zeros(size(out));
 mix(1:samples_delayed) = 0.5.*in_mono(1:samples_delayed);
-mix(samples_delayed+1:end) = 0.5.*in_mono(samples_delayed+1:end) + 0.5.*out(1:end-samples_delayed);
+mix(samples_delayed+1:end) = 0.35.*in_mono(samples_delayed+1:end) + 0.65.*out(1:end-samples_delayed);
 max_lat = 1/105*samples_delayed;
 
 % Gestion de las FFT para las graficas

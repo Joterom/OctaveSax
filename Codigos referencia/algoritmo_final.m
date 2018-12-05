@@ -21,19 +21,13 @@ if size(input,1) > 1
 end
 
 s = length(input);
-w1 = transform_length;
 
 % Enventanado para la STFT
-if rem(w1, 2) == 0   % La ventana debe de ser impar
-  w1 = w1 + 1;
-end
-halflen = (w1-1)/2;
 halff = transform_length/2;   % punto medio de la ventana
-halfwin = 0.5 * ( 1 + cos( pi * (0:halflen)/halflen));
+halfwin = 0.5 * ( 1 + cos( pi * (0:halff)/halff));
 win_stft = zeros(1, transform_length);
-acthalflen = min(halff, halflen);
-win_stft((halff+1):(halff+acthalflen)) = halfwin(1:acthalflen);
-win_stft((halff+1):-1:(halff-acthalflen+2)) = halfwin(1:acthalflen);
+win_stft((halff+1):(halff+halff)) = halfwin(1:halff);
+win_stft((halff+1):-1:(halff-halff+2)) = halfwin(1:halff);
 
 % Inicializa el array de salida y las variables necesarias
 stft_signal = zeros((1+transform_length/2),1+fix((s-transform_length)/hop));
@@ -73,8 +67,7 @@ ocol = 1;
 for i = t
   % Coge dos coulmnas
   bcols = stft_signal(:,floor(i)+[1 2]);
-  tf = i - floor(i);
-  bmag = (1-tf)*abs(bcols(:,1)) + tf*(abs(bcols(:,2)));
+  bmag = abs(bcols(:,1));% + tf*(abs(bcols(:,2)));
   % Calcula la fase siguiente
   dp = angle(bcols(:,2)) - angle(bcols(:,1)) - dphi';
   % La reduce a rango de -pi, pi
@@ -91,22 +84,9 @@ end
 % inicializa las variables necesarias
 s = size(pv_signal);
 cols = s(2);
-% w_aux = transform_length;
-% Enventanado a la salida
-% if rem(w_aux, 2) == 0   % ventana impar
-%   w_aux = w_aux + 1;
-% end
-% halflen = (w_aux-1)/2;
-% halff = transform_length/2;
-% halfwin = 0.5 * ( 1 + cos( pi * (0:halflen)/halflen));
-% win_istft = zeros(1, transform_length);
-% acthalflen = min(halff, halflen);
-% win_istft((halff+1):(halff+acthalflen)) = halfwin(1:acthalflen);
-% win_istft((halff+1):-1:(halff-acthalflen+2)) = halfwin(1:acthalflen);
-% Necesario para que se mantenga intacto tras el solapamiento
 win_istft = 2/3*win_stft;
 
-% Inicializa las variables necesarias y procede a hacer transformada
+% Inicializa las variables de salida y procede a hacer transformada
 % inversa
 xlen = transform_length + (cols-1)*hop;
 istft_signal = zeros(1,xlen);
