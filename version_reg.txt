@@ -47,3 +47,5 @@
 3.3 Script para las tablas de valores de las ventanas
 3.3.1 Script para los datos de fase
 3.3.2 Modulo en Vivado
+17-12-2018
+4.0 Modulo de lectura/escritura del Pmod en Vivado completo
