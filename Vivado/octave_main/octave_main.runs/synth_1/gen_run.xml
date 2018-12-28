@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1545040566">
+<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1545999240">
   <File Type="RDS-PROPCONSTRS" Name="sampling_drc_synth.rpt"/>
   <File Type="PA-TCL" Name="sampling.tcl"/>
   <File Type="RDS-RDS" Name="sampling.vds"/>
@@ -70,6 +70,26 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/new/simple_example.vhd">
+      <FileInfo>
+        <Attr Name="UserDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/square_wave.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/ip/clock_change/clock_change.xci">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
       <Option Name="TopModule" Val="sampling"/>
@@ -79,7 +99,7 @@
     <Filter Type="Constrs"/>
     <File Path="$PSRCDIR/constrs_1/imports/Downloads/Nexys4DDR_Master.xdc">
       <FileInfo>
-        <Attr Name="ImportPath" Val="$PPRDIR/../PROYECTO_DSED_San-Ote/PROYECTO_DSED_San-Ote.srcs/constrs_1/imports/Downloads/Nexys4DDR_Master.xdc"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../PROYECTO_DSED_San-Ote/PROYECTO_DSED_San-Ote.srcs/constrs_1/imports/Downloads/Nexys4DDR_Master.xdc"/>
         <Attr Name="ImportTime" Val="1516467205"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -95,6 +115,5 @@
     <Step Id="synth_design"/>
   </Strategy>
   <BlockFileSet Type="BlockSrcs" Name="fft_module"/>
-  <BlockFileSet Type="BlockSrcs" Name="clock_change"/>
   <BlockFileSet Type="BlockSrcs" Name="ram_memo"/>
 </GenRun>

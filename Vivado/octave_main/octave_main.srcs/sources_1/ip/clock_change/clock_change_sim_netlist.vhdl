@@ -1,10 +1,10 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.2 (win64) Build 1909853 Thu Jun 15 18:39:09 MDT 2017
--- Date        : Wed Dec 12 17:13:24 2018
+-- Date        : Fri Dec 28 12:36:36 2018
 -- Host        : DESKTOP-DR3C0JT running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim
---               d:/UNI/TFG/octave_main/octave_main.srcs/sources_1/ip/clock_change/clock_change_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top clock_change -prefix
+--               clock_change_ clock_change_sim_netlist.vhdl
 -- Design      : clock_change
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -16,19 +16,18 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity clock_change_clock_change_clk_wiz is
   port (
-    clk_22MHz : out STD_LOGIC;
+    clk_48MHz : out STD_LOGIC;
+    clk_30MHz : out STD_LOGIC;
     clk_100MHz : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of clock_change_clock_change_clk_wiz : entity is "clock_change_clk_wiz";
 end clock_change_clock_change_clk_wiz;
 
 architecture STRUCTURE of clock_change_clock_change_clk_wiz is
   signal clk_100MHz_clock_change : STD_LOGIC;
-  signal clk_22MHz_clock_change : STD_LOGIC;
+  signal clk_30MHz_clock_change : STD_LOGIC;
+  signal clk_48MHz_clock_change : STD_LOGIC;
   signal clkfbout_buf_clock_change : STD_LOGIC;
   signal clkfbout_clock_change : STD_LOGIC;
-  signal NLW_plle2_adv_inst_CLKOUT1_UNCONNECTED : STD_LOGIC;
   signal NLW_plle2_adv_inst_CLKOUT2_UNCONNECTED : STD_LOGIC;
   signal NLW_plle2_adv_inst_CLKOUT3_UNCONNECTED : STD_LOGIC;
   signal NLW_plle2_adv_inst_CLKOUT4_UNCONNECTED : STD_LOGIC;
@@ -46,6 +45,7 @@ architecture STRUCTURE of clock_change_clock_change_clk_wiz is
   attribute IFD_DELAY_VALUE : string;
   attribute IFD_DELAY_VALUE of clkin1_ibufg : label is "AUTO";
   attribute BOX_TYPE of clkout1_buf : label is "PRIMITIVE";
+  attribute BOX_TYPE of clkout2_buf : label is "PRIMITIVE";
   attribute BOX_TYPE of plle2_adv_inst : label is "PRIMITIVE";
 begin
 clkf_buf: unisim.vcomponents.BUFG
@@ -63,20 +63,25 @@ clkin1_ibufg: unisim.vcomponents.IBUF
     );
 clkout1_buf: unisim.vcomponents.BUFG
      port map (
-      I => clk_22MHz_clock_change,
-      O => clk_22MHz
+      I => clk_48MHz_clock_change,
+      O => clk_48MHz
+    );
+clkout2_buf: unisim.vcomponents.BUFG
+     port map (
+      I => clk_30MHz_clock_change,
+      O => clk_30MHz
     );
 plle2_adv_inst: unisim.vcomponents.PLLE2_ADV
     generic map(
       BANDWIDTH => "OPTIMIZED",
-      CLKFBOUT_MULT => 14,
+      CLKFBOUT_MULT => 48,
       CLKFBOUT_PHASE => 0.000000,
       CLKIN1_PERIOD => 10.000000,
       CLKIN2_PERIOD => 0.000000,
-      CLKOUT0_DIVIDE => 62,
+      CLKOUT0_DIVIDE => 20,
       CLKOUT0_DUTY_CYCLE => 0.500000,
       CLKOUT0_PHASE => 0.000000,
-      CLKOUT1_DIVIDE => 1,
+      CLKOUT1_DIVIDE => 32,
       CLKOUT1_DUTY_CYCLE => 0.500000,
       CLKOUT1_PHASE => 0.000000,
       CLKOUT2_DIVIDE => 1,
@@ -92,7 +97,7 @@ plle2_adv_inst: unisim.vcomponents.PLLE2_ADV
       CLKOUT5_DUTY_CYCLE => 0.500000,
       CLKOUT5_PHASE => 0.000000,
       COMPENSATION => "ZHOLD",
-      DIVCLK_DIVIDE => 1,
+      DIVCLK_DIVIDE => 5,
       IS_CLKINSEL_INVERTED => '0',
       IS_PWRDWN_INVERTED => '0',
       IS_RST_INVERTED => '0',
@@ -106,8 +111,8 @@ plle2_adv_inst: unisim.vcomponents.PLLE2_ADV
       CLKIN1 => clk_100MHz_clock_change,
       CLKIN2 => '0',
       CLKINSEL => '1',
-      CLKOUT0 => clk_22MHz_clock_change,
-      CLKOUT1 => NLW_plle2_adv_inst_CLKOUT1_UNCONNECTED,
+      CLKOUT0 => clk_48MHz_clock_change,
+      CLKOUT1 => clk_30MHz_clock_change,
       CLKOUT2 => NLW_plle2_adv_inst_CLKOUT2_UNCONNECTED,
       CLKOUT3 => NLW_plle2_adv_inst_CLKOUT3_UNCONNECTED,
       CLKOUT4 => NLW_plle2_adv_inst_CLKOUT4_UNCONNECTED,
@@ -130,7 +135,8 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity clock_change is
   port (
-    clk_22MHz : out STD_LOGIC;
+    clk_48MHz : out STD_LOGIC;
+    clk_30MHz : out STD_LOGIC;
     clk_100MHz : in STD_LOGIC
   );
   attribute NotValidForBitStream : boolean;
@@ -142,6 +148,7 @@ begin
 inst: entity work.clock_change_clock_change_clk_wiz
      port map (
       clk_100MHz => clk_100MHz,
-      clk_22MHz => clk_22MHz
+      clk_30MHz => clk_30MHz,
+      clk_48MHz => clk_48MHz
     );
 end STRUCTURE;

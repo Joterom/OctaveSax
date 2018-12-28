@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='D:/UNI/TFG/octave_main/octave_main.runs/synth_1'
+HD_PWD='D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

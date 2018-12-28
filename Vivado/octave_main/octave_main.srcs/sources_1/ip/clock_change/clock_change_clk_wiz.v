@@ -56,7 +56,8 @@
 //  Output     Output      Phase    Duty Cycle   Pk-to-Pk     Phase
 //   Clock     Freq (MHz)  (degrees)    (%)     Jitter (ps)  Error (ps)
 //----------------------------------------------------------------------------
-// clk_22MHz____22.581______0.000______50.0______135.137_____79.592
+// clk_48MHz____48.000______0.000______50.0______281.382____301.601
+// clk_30MHz____30.000______0.000______50.0______306.249____301.601
 //
 //----------------------------------------------------------------------------
 // Input Clock   Freq (MHz)    Input Jitter (UI)
@@ -69,7 +70,8 @@ module clock_change_clk_wiz
 
  (// Clock in ports
   // Clock out ports
-  output        clk_22MHz,
+  output        clk_48MHz,
+  output        clk_30MHz,
   input         clk_100MHz
  );
   // Input buffering
@@ -88,8 +90,8 @@ wire clk_in2_clock_change;
   //    * Unused inputs are tied off
   //    * Unused outputs are labeled unused
 
-  wire        clk_22MHz_clock_change;
-  wire        clk_out2_clock_change;
+  wire        clk_48MHz_clock_change;
+  wire        clk_30MHz_clock_change;
   wire        clk_out3_clock_change;
   wire        clk_out4_clock_change;
   wire        clk_out5_clock_change;
@@ -103,7 +105,6 @@ wire clk_in2_clock_change;
   wire        clkfbout_clock_change;
   wire        clkfbout_buf_clock_change;
   wire        clkfboutb_unused;
-   wire clkout1_unused;
    wire clkout2_unused;
    wire clkout3_unused;
    wire clkout4_unused;
@@ -116,19 +117,22 @@ wire clk_in2_clock_change;
   #(.BANDWIDTH            ("OPTIMIZED"),
     .COMPENSATION         ("ZHOLD"),
     .STARTUP_WAIT         ("FALSE"),
-    .DIVCLK_DIVIDE        (1),
-    .CLKFBOUT_MULT        (14),
+    .DIVCLK_DIVIDE        (5),
+    .CLKFBOUT_MULT        (48),
     .CLKFBOUT_PHASE       (0.000),
-    .CLKOUT0_DIVIDE       (62),
+    .CLKOUT0_DIVIDE       (20),
     .CLKOUT0_PHASE        (0.000),
     .CLKOUT0_DUTY_CYCLE   (0.500),
+    .CLKOUT1_DIVIDE       (32),
+    .CLKOUT1_PHASE        (0.000),
+    .CLKOUT1_DUTY_CYCLE   (0.500),
     .CLKIN1_PERIOD        (10.000))
   plle2_adv_inst
     // Output clocks
    (
     .CLKFBOUT            (clkfbout_clock_change),
-    .CLKOUT0             (clk_22MHz_clock_change),
-    .CLKOUT1             (clkout1_unused),
+    .CLKOUT0             (clk_48MHz_clock_change),
+    .CLKOUT1             (clk_30MHz_clock_change),
     .CLKOUT2             (clkout2_unused),
     .CLKOUT3             (clkout3_unused),
     .CLKOUT4             (clkout4_unused),
@@ -164,9 +168,13 @@ wire clk_in2_clock_change;
 
 
   BUFG clkout1_buf
-   (.O   (clk_22MHz),
-    .I   (clk_22MHz_clock_change));
+   (.O   (clk_48MHz),
+    .I   (clk_48MHz_clock_change));
 
+
+  BUFG clkout2_buf
+   (.O   (clk_30MHz),
+    .I   (clk_30MHz_clock_change));
 
 
 

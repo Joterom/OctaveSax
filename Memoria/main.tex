@@ -1,0 +1,125 @@
+\documentclass[a4paper, 11pt, oneside, openright]{report}
+
+\usepackage{amsmath}           
+\usepackage[utf8]{inputenc}  
+\usepackage[spanish]{babel}
+\renewcommand{\labelitemi}{\textbullet}
+\usepackage{pdfpages}
+
+
+\addtolength{\topmargin}{-20mm}
+\addtolength{\textheight}{20mm}
+
+\setlength{\voffset}{-2cm}     % para márgenes
+\setlength{\hoffset}{-3cm}
+\setlength{\oddsidemargin}{3.5cm}
+\setlength{\evensidemargin}{2.5cm}
+\setlength{\marginparwidth}{8mm}
+\setlength{\marginparsep}{2mm}
+\setlength{\topmargin}{2.5cm}
+\setlength{\textheight}{22.5cm}
+\setlength{\textwidth}{15cm}
+\setlength{\parskip}{4pt}
+\setlength{\parsep}{1pt}
+\setlength{\topsep}{1pt}
+\setlength{\partopsep}{1pt}
+\setlength{\itemsep}{0.5pt}
+
+\usepackage{fancyhdr}
+% with this we ensure that the chapter and section
+% headings are in lowercase.
+\renewcommand{\chaptermark}[1]{%
+\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{%
+\markright{\thesection\ #1}}
+\fancyhf{}  % delete current header and footer
+\fancyhead[LE,RO]{\bfseries\thepage}
+\fancyhead[LO]{\bfseries\leftmark}
+\fancyhead[RE]{\bfseries\rightmark}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0pt}
+\addtolength{\headheight}{0.5pt} % space for the rule
+\fancypagestyle{plain}{%
+\fancyhead{} % get rid of headers on plain pages
+\renewcommand{\headrulewidth}{0pt} % and the line
+}
+
+\begin{document}
+
+% PORTADA
+\begin{center}
+	\large UNIVERSIDAD POLITÉCNICA DE MADRID\\
+	ESCUELA TÉCNICA SUPERIOR DE INGENIEROS DE TELECOMUNICACIÓN\\
+	
+	\includegraphics[width=10cm]{img/LOGO_ESCUELA.png}
+\end{center}
+
+\vspace*{3cm}
+\begin{center}
+	TRABAJO FIN DE GRADO
+\end{center}
+
+\vspace*{1.5cm}
+\begin{center}
+	\Huge DISEÑO E IMPLEMENTACIÓN SOBRE\\ FPGA DE UN PEDAL DE EFECTOS DIGITAL
+\end{center}
+
+\vspace*{2cm}
+\begin{center}
+	\Large GRADO EN INGENIERÍA DE TECNOLOGÍAS\\ Y SERVICIOS DE TELECOMUNICACIÓN
+\end{center}
+
+\vspace*{4cm}
+\begin{flushright}
+	\rm
+	\Large	JAVIER OTERO MARTÍNEZ\\
+	Madrid, Junio 2019
+\end{flushright}
+\thispagestyle{empty}
+\newpage
+
+%PRIMERA PAGINA
+\thispagestyle{empty}
+\pagenumbering{roman}
+\setcounter{page}{2}
+\vspace*{3cm}
+\begin{center}
+	\Huge DISEÑO E IMPLEMENTACIÓN SOBRE\\ FPGA DE UN PEDAL DE EFECTOS DIGITAL
+\end{center}
+\vspace*{4cm}
+\begin{center}
+	\Large Autor: Javier Otero Martínez\\
+	\vspace*{1.5cm}
+	\Large Tutor: Pablo Ituero Herrero\\ Departamento de Ingeniería Electrónica
+\end{center}
+
+% AGRDECIMIENTOS
+\newpage
+%\section*{Agradecimientos}
+\vspace*{5cm}
+\input{agradecimientos}
+
+% RESUMEN - ABSTRACT
+\newpage
+\section*{Resumen}
+\input{resumen}
+\section*{Abstract}
+\input{abstract}
+
+% INDICE Y COMIENZO DEL DOCUMENTO
+\newpage
+\thispagestyle{empty}
+\tableofcontents
+%\listoffigures
+%\listoftables
+\clearpage
+\pagenumbering{arabic}
+\pagestyle{fancy}
+% INTRODUCCION
+\chapter{Introducción y generalidades}
+\input introduccion.tex
+
+\chapter{El algoritmo}
+\input algoritmo.tex
+
+\end{document}
