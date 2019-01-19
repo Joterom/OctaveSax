@@ -5,6 +5,7 @@
 \usepackage[spanish]{babel}
 \renewcommand{\labelitemi}{\textbullet}
 \usepackage{pdfpages}
+\usepackage{graphicx}
 
 
 \addtolength{\topmargin}{-20mm}
@@ -43,6 +44,7 @@
 \fancyhead{} % get rid of headers on plain pages
 \renewcommand{\headrulewidth}{0pt} % and the line
 }
+\usepackage{hyperref}
 
 \begin{document}
 
@@ -51,7 +53,7 @@
 	\large UNIVERSIDAD POLITÉCNICA DE MADRID\\
 	ESCUELA TÉCNICA SUPERIOR DE INGENIEROS DE TELECOMUNICACIÓN\\
 	
-	\includegraphics[width=10cm]{img/LOGO_ESCUELA.png}
+	\includegraphics[width=9cm]{img/LOGO_ESCUELA.png}
 \end{center}
 
 \vspace*{3cm}
@@ -119,7 +121,29 @@
 \chapter{Introducción y generalidades}
 \input introduccion.tex
 
+\chapter{Sistema Completo}
+\input sistema.tex
+
 \chapter{El algoritmo}
 \input algoritmo.tex
+
+\chapter{Implementación}
+\input implementacion.tex
+
+\chapter{Pruebas y depuración}
+\input pruebas.tex
+
+% BIBLIOGRAFIA
+\begin{thebibliography}{aaa}
+
+\bibitem[Ell]{Ellis} 
+	\textsc{D. Ellis},
+	\textit{A Phase Vocoder in Matlab},
+	LabROSA at Columbia University,
+	Marzo 2003: 
+	http://www.ee.columbia.edu/\~dpwe/LabROSA/matlab/pvoc/
+	
+\end{thebibliography}
+
 
 \end{document}
