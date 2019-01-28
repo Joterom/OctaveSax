@@ -51,3 +51,5 @@
 4.0 Modulo de lectura/escritura del Pmod en Vivado completo
 4.1 Primer planteamiento de la memoria y pruebas en vivado
 4.1.1 Backup de los avances en la memoria, esqueleto de latex completo
+28-01-2019
+4.1.2 Avances memoria para BCN

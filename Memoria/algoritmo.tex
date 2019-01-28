@@ -25,42 +25,84 @@ El método para hacerlo es el siguiente. En primer lugar se lleva a cabo una tra
 
 \section{Transformación a frecuencia: STFT}
 
-Una STFT se usa para determinar el módulo y fase de muestras próximas de una señal mientras cambia con el tiempo, haciéndola muy adecuada para aplicaciones en tiempo real. Para ello, se divide la señal en segmentos más cortos de la misma longitud y se calcula la transformada de Fourier de cada uno de ellos por separado. El método para calcular la transformada es indiferente pero al priorizar una baja latencia conviene decantarse por el algoritmo de la Transformada Rápida de Fourier o FFT, no obstante, se explica con mayor detalle posteriormente.
+Una STFT se usa para determinar el módulo y fase de muestras próximas de una señal mientras cambia con el tiempo, haciéndola muy adecuada para aplicaciones en tiempo real. Para ello, se divide la señal en segmentos más cortos de la misma longitud y se calcula la transformada de Fourier de cada uno de ellos por separado. El método para calcular la transformada es indiferente pero al priorizar una baja latencia conviene decantarse por el algoritmo de la Transformada Rápida de Fourier o FFT.
 
-La división de las muestras se realiza por dos razones: en primer lugar nos permite acotar el número de muestras para realizar la transformada propiamente dicha (limitado por el Hardware) y en segundo lugar favorece una reconstrucción suave de la señal si se lleva a cabo de una forma adecuada.
+\subsection{Transformada de Fourier: FFT e iFFT}
+
+Para realizar la transformación al dominio de la frecuencia, la opción más adecuada es sin duda el algoritmo de la Transformada Rápida de Fourier o FFT\footnote{Del inglés Fast Fourier Transform}. Este algoritmo calcula la Transformada de Fourier en Tiempo Discreto o DFT\footnote{Del inglés Discrete Fourier Transform} descomponiendo la señal original de longitud $N$ en fragmentos de tamaño $N/2$ como muestra la figura~\ref{fig:fft} y posteriormente multiplicarlo por los términos $W_{n}$ calculados previamente. Nótese que en los bloques de $N/2$ se puede volver a aplicar el mismo principio de forma recursiva. Esto consigue reducir el tiempo de cálculo porque la transformada propiamente dicha se calcula para una longitud mucho menor. En la ecuación~\ref{eq:FFT} correspondiente la DFT genérica podemos ver como la complejidad depende cuadráticamente de la longitud de la entrada $O({n^{2}})$ mientras que la FFT lo realiza únicamente con $O({n*\log (n)})$.
+
+\begin{figure}[!ht]
+\begin{center}
+\label{fig:fft}
+\includegraphics[width=10cm]{img/dft.png}
+\caption{Esquema del algoritmo para la realización de la FFT}
+\end{center}
+\end{figure}
+
+\begin{equation}
+\label{eq:FFT}
+X(k) =  \sum_{n = 0}^{N - 1} x_{n}e^{-2\pi kni/N}~~~~~~~~Donde~~~~k = 0, 1...., N-1
+\end{equation}
+\begin{equation}
+\label{eq:iFFT}
+x(n) = \frac{1}{N} \sum_{n = 0}^{N - 1} X_{k}e^{-2\pi kni/N}~~~~~Donde~~~~n = 0, 1...., N-1
+\end{equation}
+
+El caso de la transformada inversa es totalmente análogo, el algoritmo de la FFT se puede aplicar de la misma forma para realizar iDFT de forma más rápida, lo que se conoce como iFFT. La ecuacion~\ref{eq:iFFT} muestra la expresión genérica de la iDFT para un señal de N muestras. Cada uno de los parámetros que se utilizan para realizar las transformaciones se encuentra explicado en el apartado de implementacion HACER LA CITA.
 
 \subsection{Solapamiento y enventanado}
 
-Dividir la señal entrante en sucesivas tramas es un proceso sencillo, únicamente se almacenan las muestras en una memoria para introducirlas posteriormente en el módulo que realiza la FFT. Sin embargo, el proceso de reconstrucción puede llegar a ser más complicado, especialmente si se modifica la señal entre medias. Es por ello que conviene estudiar este problema con detalle teniendo en cuenta las numerosas posibilidades que existen ya desarrolladas.
+Dividir la señal entrante en sucesivas tramas es un proceso sencillo, únicamente se almacenan las muestras en una memoria para introducirlas posteriormente en el módulo que realiza la FFT. El problema entonces reside en la propia naturaleza de la FFT y es que esta funciona perfectamente para señales periódicas, pero al dividir la señal, no se garantiza que estas tramas contengan un número entero de periodos. Esto se agudiza especialmente cuando la señal es variante con el tiempo y el número de elementos por trama es independiente de la frecuencia de la señal de entrada.
 
-La idea más intuitiva en este punto es utilizar algún tipo de \emph{solapamiento}, es decir, en lugar de empezar a construir una trama a continuación de la anterior, la empezamos a llenar antes de que se haya acabado de llenar la trama anterior, repitiendo muestras. De esta forma, las tramas están enlazadas entre ellas evitando una discontinuidad abrupt1.
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[width=14cm]{img/problem_fft.png}
+\caption{Señal sinoidal y su FFT con periodos enteros, recortada y enventanada}
+\label{fig:probfft}
+\end{center}
+\end{figure}
+
+En la figura~\ref{fig:probfft} se ilustra el problema del recortado arbitrario descrito y su clara mejora al aplicarle enventanado. Frente al caso ideal, el primero, el corte introduce componentes en otras frecuencias que se traducirán como un ruido molesto al final de cada trama al escuchar la transformada inversa. Podemos comprobar como al aplicar una ventana a la señal de entrada, este se hace menor y afecta a menos muestras. Para este ejemplo se ha utilizado una ventana de Hann como la que se utilizará en el prototipo.
+
+Junto al enventanado, se suele aplicar llo que recibe el nombre de  \emph{solapamiento}, es decir, en lugar de empezar a construir una trama a continuación de la anterior, la empezamos a llenar antes de que se haya acabado de llenar la trama anterior, repitiendo muestras. De esta forma, las tramas están enlazadas entre ellas evitando una discontinuidad abrupta.
 
 Generalmente se cuantifica este proceso mediante un \emph{factor de solapamiento, fs,} expresado en tanto por ciento. Si una trama t de longitud $n = 100$ muestras tiene un solapamiento de 15\%, las primeras $n*15\% = 15$ muestras de t son idénticas a las 15 últimas de la trama anterior, t-1, y así sucesivamente.
 
-Lógicamente, no se puede aumentar el factor de solapamiento infinitamente. A partir de un 50\% ya no resulta práctico debido a que para reconstruir la trama t se necesitan muestras de las tramas t-1 y t+1. En este caso, el beneficio de introducir este solapamiento es menor que el coste que hay que pagar: la disminución de la eficiencia del algoritmo. Idealmente realizamos el procesado sobre $n$ muestras que luego reconstruimos pero, al introducir solapamiento, solo un porcentaje de ellas, $m$, formarán parte de la señal reconstruida. En consecuencia $m < n$ siempre, lo que quiere decir que procesamos más muestras de las que utilizaremos en la reconstrucción.
-
-La consecuencia directa de ello es un desperdicio de recursos en el procesado. Por un lado, cuanto más disminuya esta eficiencia, más aumentará la latencia, ya que habrá que esperar al cálculo de la siguiente trama para poder finalizar la construcción de la trama presente. Por otro lado, resulta mucho más complejo de cara a la temporización en su implementación. 
-
-Como conclusión, debemos elegir un factor de solapamiento $0 < fs < 50$ para que resulte práctico. Tras un modelado en Matlab, he implementado finalmente un valor $fs = 25\%$ tal y como recomienda Ellis ~\cite{Ellis} en su implementación del vocoder de fase.
-
-
-\begin{figure}[b]
+\begin{figure}[!b]
 \begin{center}
-\label{fig:compven}
 \includegraphics[width=10cm]{img/ventanas_grafica.png}
 \caption{Comparativa de las ventanas más utilizadas}
+\label{fig:compven}
 \end{center}
 \end{figure}
 
-En general, estos procesos de enventanado (a excepción de la ventana rectangular) tienen la propiedad de que concentran sus transformadas de Fourier alrededor de $\omega = 0$ y además se pueden calcular fácilmente. En la figura \ref{fig:compven} se establece una comparativa entre varias de estas ventanas.
+Lógicamente, no se puede aumentar el factor de solapamiento infinitamente. A partir de un 50\% ya no resulta práctico debido a que para reconstruir la trama $t$ se necesitan muestras de las tramas $t-1$ y $t+1$. En este caso, el beneficio de introducir este solapamiento es menor que el coste que hay que pagar: la disminución de la eficiencia del algoritmo. Idealmente realizamos el procesado sobre $n$ muestras que luego reconstruimos pero, al introducir solapamiento, solo un porcentaje de ellas, $m$, formarán parte de la señal reconstruida. En consecuencia $m < n$ siempre, lo que quiere decir que procesamos más muestras de las que utilizaremos en la reconstrucción: estamos ``desperdiciando'' recursos.
 
-\begin{figure}
+Este desperdicio de recursos en el procesado supone un compromiso doble con las prestaciones. Por un lado, cuanto más disminuya esta eficiencia, más aumentará la latencia, ya que habrá que esperar al cálculo de la siguiente trama para poder finalizar la construcción de la trama presente. Por otro lado, resulta mucho más complejo de cara a la temporización en su implementación. 
+
+Como conclusión, debemos elegir un factor de solapamiento $0 < fs < 50$ para que resulte práctico. Tras un modelado en Matlab, he implementado finalmente un valor de $fs = 25\%$ tal y como recomienda Ellis~\cite{Ellis} en su implementación del vocoder de fase.
+
+\begin{figure}[!b]
 \begin{center}
-\label{fig:tablaven}
-\includegraphics[width=14cm]{img/tabla_ventanas.png}
-\caption{Características de las ventanas más utilizadas}
+\label{fig:used_win}
+\includegraphics[width=15cm]{img/ventana_utilizada.png}
+\caption{Ventana de Hann para $N = 512$ en Matlab}
 \end{center}
 \end{figure}
 
-La figura \ref{fig:tablaven} compara las ventanas desde un punto de vista más analítico. Para este caso conviene prestar  especial atención al valor de la anchura del lóbulo principal y la amplitud relativa de los lóbulos laterales. Esta última 
+Como ya se ha visto antes, el solapamiento se utilizará junto con un enventanado de Hann cuya expresión se recoge en~\ref{eq:Hann}. Esta ecuación resulta sencilla de implementar y su uso está muy extendido para aplicaciones de audio en tiempo real frente a algunas de sus alternativas vistas en la figura~\ref{fig:compven}. El propio Ellis utiliza en su algoritmo~\cite{Ellis} una ventana de estas características.
+
+\begin{equation}
+\label{eq:Hann}
+ H(n) = 0.5 * \left(1 - \cos\left(\frac{2\pi n}{N - 1}\right)\right)
+ \end{equation} 
+ 
+Es evidente, que también se puede aplicar al proceso de la transformada inversa iSTFT. Se utilizará una ventana de las mismas características por las mismas razones antes de introducir las tramas en el módulo que realiza la iFFT. La única salvedad es que para mantener la amplitud de las muestras en la salida igual que las de la entrada, hay que aplicar un factor de escala de $2/3$. En la práctica, lo que se hará será realizar la multiplicación a las constantes de la ventana quedando una ventana de Hann donde cada muestra está escalada por el factor $2/3$, ahorrando así una operación.
+
+
+
+ 
+ 
+
+
 
