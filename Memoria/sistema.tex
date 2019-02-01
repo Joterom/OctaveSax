@@ -1,29 +1,64 @@
-El pedal de efectos tendrá una estructura clara: la parte más importante es la etapa de procesado, en la que se transforma la señal entrante en la que se va a proporcionar en la salida. La etapa de salida adquiere gran relevancia en sistemas que se diseñan para colacarse en cascada, ya que es importante adecuar la señal a los diferentes módulos. Pero en este capítulo se habla sobre la etapa de entrada. Esta etapa de entrada se encargará de captar la señal y prepararla para su procesado posterior por la FPGA.
+El pedal de efectos tendrá una estructura clara: la parte más importante es la etapa de procesado, en la que se transforma la señal entrante en la que se va a proporcionar en la salida. La etapa de salida adquiere gran relevancia en sistemas que se diseñan para colacarse en cascada, que no es el caso, no obstante, en este capítulo se habla sobre la etapa de entrada. Esta parte del sistema se encargará de captar la señal y prepararla para su procesado posterior por la FPGA.
 
 \section{Selección de micrófono}
 
-Para capturar el sonido, es necesario utilizar algún transductor que sea capaz de convertir la señal acústica consistente en ondas de presión en una serie de impulsos eléctricos. En el caso más común de instrumentos electrófonos, el uso de pedales es inmediato: la señal la viaja por un cable entre el instrumento y el amplificador, pero al enfocar este pedal a instrumentos de viento es necesaria esta conversión.
+Como normalmente se utilizan pedales de efectos en instrumentos electrófonos, la señal de salida del instrumento ya viaja por un cable de camino a la amplificador por lo que el pedal actúa como un intermediario entre ambos. Sin embargo, en instrumentos de viento, es necesario utilizar algún transductor que sea capaz de convertir la señal acústica consistente en ondas de presión en una serie de impulsos eléctricos que puedn ser editados posteriormente.
 
 La solución más sencilla consiste en utilizar el micrófono que viene integrado con la placa Nexys A7: modelo \emph{ADMP421} de Analog Devices~\cite{Nexys}. No obstante, la utilización de este micrófono plantea dos problemas.
 
-En primer lugar, es inmediato pensar que incluso en el caso de un prototipo, si se plantea usar como pedal, no resulta nada recomendable colocar el micrófono encargado de recoger todo el sonido en el suelo. Además de estar lejos de la fuente sonora, capturaría el sonido resultante de la manipulación de los controles suponiendo una bajada en la calidad del sonido que pudiese proporcionar el dispositivo.
+En primer lugar, es inmediato pensar que incluso en el caso de un prototipo, si se plantea usar como pedal, no resulta nada recomendable colocar el micrófono encargado de recoger todo el sonido en el suelo. Además de estar lejos de la fuente sonora, capturaría el sonido resultante de la manipulación de los controles suponiendo una bajada en la calidad del sonido que pudiese proporcionar el dispositivo. Por tanto, es mejor utilizar un micrófono no integrado al propio diseño.
 
 \begin{figure}
 \begin{center}
-\label{fig:polar_dig}
 \includegraphics[width=15cm]{img/micros.png}
-\caption{Tipos de micrófonos según su diagrama polar~\cite{Mic}}
+\caption{\label{fig:polar_dig}Tipos de micrófonos según su diagrama polar~\cite{Mic}}
 \end{center}
 \end{figure}
 
-En segundo lugar, pero no menos importante, conviene tener en cuenta la respuesta de sensibilidad del micrófono será omnidireccional, es decir, captará todos los sonidos sin importar la dirección de dónde vengan. Este tipo de aparatos se usa principalmente en radio y televisión, donde puede haber varias personas hablando en el mismo micrófono o para la grabación de orquestas o agrupaciones en localizaciones cerradas determinadas. Estos micrófonos son capaces de captar tanto el sonido proveniente de la fuente directamente como los ecos y reflexiones característicos del espacio, dando la sensación de amplitud al oyente que la que produciría su escucha en esa misma localización. Pero mientras que en estos casos se trata de un efecto deseado, resulta poco agradable captar estas reflexiones en un ambiente no preparado para ello y en general, se suelen utilizar micrófonos de tipo cardioide.
+En segundo lugar, pero no menos importante, conviene tener en cuenta la respuesta de sensibilidad del micrófono será omnidireccional (ver figura \ref{fig:polar_dig}), es decir, captará todos los sonidos sin importar la dirección de dónde vengan. Este tipo de transductores se usan principalmente en radio y televisión, donde puede haber varias personas hablando en el mismo micrófono o para la grabación de orquestas o agrupaciones en localizaciones cerradas determinadas. Estos micrófonos son capaces de captar tanto el sonido proveniente de la fuente directamente como los ecos y reflexiones característicos del espacio, dando la sensación de amplitud al oyente que la que produciría su escucha en esa misma localización. Pero mientras que en estos casos se trata de un efecto deseado, resulta poco agradable captar estas reflexiones en un ambiente no preparado para ello y encima cercano al suelo, siendo más conveniente utilizar micrófonos de tipo cardioide.
 
-Estos micrófonos son muy utilizados con instrumentos de viento, ya que el sonido suele provenir de un punto concreto. Es preciso matizar que en el caso del saxofón, contra la creencia popular, el sonido no sale siempre por la campana del instrumento. El sonido sale, por el contrario, por la llave abierta más cercana a la embocadura, que suele ser en torno al centro del instrumento. Por lo que tampoco resulta conveniente acercar el micrófono mucho a la campana dado que se descuidan las otras llaves del instrumento. La figura \ref{fig:saxo} muestra un saxofón en detalle.
+Estos micrófonos son muy utilizados con instrumentos de viento, ya que el sonido suele provenir de un punto concreto. Es preciso matizar que en el caso del saxofón, contra la creencia popular, el sonido no sale siempre por la campana del instrumento. El sonido sale, por el contrario, por la llave abierta más próxima a la embocadura, que suele ser en torno al centro del instrumento. En consecuencia, no resulta conveniente acercar el micrófono mucho a la campana descuidando otras llaves del instrumento. La figura \ref{fig:saxo} muestra un saxofón alto.
 
 \begin{figure}[!b]
 \begin{center}
-\label{fig:saxo}
 \includegraphics[height=9cm]{img/saxo.png}
-\caption{Saxofón alto}
+\caption{\label{fig:saxo}Saxofón alto}
 \end{center}
 \end{figure}
+
+Además de tener en cuenta el diagrama polar para la elección de micrófono, resulta imprescindible conocer los posibles tipos en cuanto a fabricación y funcionamiento. En este sentido tenemos los dos tipos más comunes: los micrófonos de condensador y los dinámicos.
+
+Los micrófonos de condensador reciben su nombre del condensador que poseen en el interior de su cápsula. El diafragma es la pieza encargada de vibrar cuando las ondas de presión del sonido lo atraviesan pero, a su vez, se une esta pieza con una de las placas del condensador. El resultado es que con cada movimiento del diafragma, varía la distancia entre las placas y en consecuencia, se modifica la capacidad de manera inversamente proporcional. Estos cambios modifican una señal eléctrica en la que quedan registradas las ondas de sonido recibidas. Estos micrófonos poseen una buena sensibilidad pero necesitan de alimentación \emph{phantom} de entre 24 y 48 V, que se realiza desde la mesa de mezclas por el mismo cable de señal.
+
+Los micrófonos dinámicos por el contrario, no requieren de alimentación y además poseen buena robustez y son más baratos que los anteriores. Estos funcionan gracias a una bobina unida al diafragma que se mueve conforme a las ondas de presión recibidas del sonido dentro de un campo electromagnético. Por la acción de la inducción electromagnética, este movimiento genera una corriente que atravesará la bobina proporcionalmente al estímulo entrante. La principal desventaja de estos micrófonos es que su respuesta no es del todo lineal con la frecuancia, produciendo mayor o menor ganancia en función del rango del espectro en el que se encuentre el sonido de entrada. Para arreglar esto se suele usar ecualización posterior o diferentes diafragmas para cada rango del espectro para luego reconstruir la señal a base de sumas de los diferentes tramos.
+
+Teniendo en cuenta su uso en el diseño, he escogido un micrófono dinámico por la robustez que presenta que además evitará tener que preocuparse de la alimentación. Además, estos micrófonos funcionan de manera muy similar entre sí, lo que resultará muy conveniente para mantener la flexibilidad del proyecto. El micrófono elegido finalmente será un \emph{MODELO DEL MICRO QUE USE} cortesía del Club Musical Delta. Este se colocará para capturar los sonidos en un pie en la ubicación más adecuada para el instrumento y se conectará a la etapa siguiente ubicada en el suelo mediante un cable.
+
+En cualquier caso, es necesario añadir una etapa posterior de \emph{pre-amplificación o preamp} que adecúe la señal eléctrica del micrófono a la que pueda interpretar la FPGA. 
+
+\section{Preamp}
+
+Las principales funciones que va a realizar la etapa de preamplificación será la de amplificar la señal entrante y transformar la señal balanceada proveniente del micrófono en una sin balancear. Se realizará de manera puramente analógica dado que el esquema está muy desarrollado en la literatura sobre el tema. En este caso he implementado el modelo propuesto por P.Allison en~\cite{Preamp}\footnote{Sugerido por el profesor Alfredo Sanz Hervás de la UPM al que agradezco su referencia} al que he añadido una fuente de alimentación lineal estándar.
+
+Típicamente, todos los modelos de micrófonos comerciales para aplicaciones de música, utilizan conexiones balanceadas para proporcionar su señal a la salida. El formato de estos cables de 3 hilos recibe el nombre de \emph{XLR} pero también se pueden utilizar conectores de tipo \emph{Jack de 6.35 mm}\footnote{Este tipo de conector pero sin balancear, es el utilizado en guitarras y bajos eléctricos. Para los auriculares se utiliza jack de 3.5 mm que recibe el nombre de ``minijack''.} adecuados a este tipo de señales, ilustrados en la figura \ref{fig:conec}.
+
+\begin{figure}[!htb]
+\begin{center}
+\includegraphics[width=6cm]{img/canonyjack.png}
+\caption{\label{fig:conec}Conector tipo XLR hembra y jack no balanceado macho de 6.35 mm}
+\end{center}
+\end{figure}
+
+El fundamento del par balanceado consiste en enviar la señal por dos conductores entrelazados con la polaridad invertida entre sí, envueltos de un tercer conductor que actúa de barrera frente a interferencias electromagnéticas externas. De esta forma, si se produce una interferencia, afectará a ambos conductores de igual manera. Posteriormente, se introduce la señal en destino en un \emph{Amplificador de diferencia}\footnote{Del inglés \emph{Difference Amplifier}, la traducción al castellano puede inducir a error} que se encargará de amplificar únicamente la diferencia entre ambas señales rechazando la interferencia sufrida. Esta idea muy extendida en los diseños analógicos, permite enviar la señal por largos cables de manera robusta a cambio de introducir un tercer conductor. 
+
+Así pues, el diseño de pre-amplificación constará de un amplificador de diferencia mediante amplificador operacional junto con una etapa de amplificación mediante transistores BJT, tal y como se puede ver en el esquema del mismo de la figura \ref{fig:circuit}. El potenciómetro permite controlar la ganancia del sistema, es decir, el nivel de señal a la salida del mismo.
+
+\begin{figure}[!htb]
+\begin{center}
+\includegraphics[width=14cm]{img/circuito.png}
+\caption{\label{fig:circuit}Esquema del circuito de pre-amplificación implementado}
+\end{center}
+\end{figure}
+
+\section{Alimentación}
+	

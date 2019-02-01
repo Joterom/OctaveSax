@@ -33,9 +33,8 @@ Para realizar la transformación al dominio de la frecuencia, la opción más ad
 
 \begin{figure}[!ht]
 \begin{center}
-\label{fig:fft}
 \includegraphics[width=10cm]{img/dft.png}
-\caption{Esquema del algoritmo para la realización de la FFT}
+\caption{\label{fig:fft}Esquema del algoritmo para la realización de la FFT}
 \end{center}
 \end{figure}
 
@@ -57,8 +56,7 @@ Dividir la señal entrante en sucesivas tramas es un proceso sencillo, únicamen
 \begin{figure}[!ht]
 \begin{center}
 \includegraphics[width=14cm]{img/problem_fft.png}
-\caption{Señal sinoidal y su FFT con periodos enteros, recortada y enventanada}
-\label{fig:probfft}
+\caption{\label{fig:probfft}Señal sinoidal y su FFT con periodos enteros, recortada y enventanada}
 \end{center}
 \end{figure}
 
@@ -71,8 +69,7 @@ Generalmente se cuantifica este proceso mediante un \emph{factor de solapamiento
 \begin{figure}[!b]
 \begin{center}
 \includegraphics[width=10cm]{img/ventanas_grafica.png}
-\caption{Comparativa de las ventanas más utilizadas}
-\label{fig:compven}
+\caption{\label{fig:compven}Comparativa de las ventanas más utilizadas}
 \end{center}
 \end{figure}
 
@@ -84,9 +81,8 @@ Como conclusión, debemos elegir un factor de solapamiento $0 < fs < 50$ para qu
 
 \begin{figure}[!b]
 \begin{center}
-\label{fig:used_win}
 \includegraphics[width=15cm]{img/ventana_utilizada.png}
-\caption{Ventana de Hann para $N = 512$ en Matlab}
+\caption{\label{fig:used_win}Ventana de Hann para $N = 512$ en Matlab}
 \end{center}
 \end{figure}
 
@@ -98,6 +94,8 @@ Como ya se ha visto antes, el solapamiento se utilizará junto con un enventanad
  \end{equation} 
  
 Es evidente, que también se puede aplicar al proceso de la transformada inversa iSTFT. Se utilizará una ventana de las mismas características por las mismas razones antes de introducir las tramas en el módulo que realiza la iFFT. La única salvedad es que para mantener la amplitud de las muestras en la salida igual que las de la entrada, hay que aplicar un factor de escala de $2/3$. En la práctica, lo que se hará será realizar la multiplicación a las constantes de la ventana quedando una ventana de Hann donde cada muestra está escalada por el factor $2/3$, ahorrando así una operación.
+
+\section{Operaciones sobre la fase}
 
 
 
