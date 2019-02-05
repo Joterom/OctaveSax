@@ -24,7 +24,6 @@ Compiling architecture ibuf_v of entity unisim.IBUF [\IBUF(1,9,1,1,1,4,1,7)\]
 Compiling architecture plle2_adv_v of entity unisim.PLLE2_ADV [\PLLE2_ADV(clkfbout_mult=48,clki...]
 Compiling architecture structure of entity xil_defaultlib.clock_change_clock_change_clk_wiz [clock_change_clock_change_clk_wi...]
 Compiling architecture structure of entity xil_defaultlib.clock_change [clock_change_default]
-Compiling architecture behavioral of entity xil_defaultlib.square_wave [square_wave_default]
 Compiling architecture behavioral of entity xil_defaultlib.sampling [sampling_default]
 Compiling architecture behavioral of entity xil_defaultlib.main_tb
 Built simulation snapshot main_tb_behav

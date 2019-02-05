@@ -56,7 +56,6 @@
 --   Clock     Freq (MHz)  (degrees)    (%)     Jitter (ps)  Error (ps)
 ------------------------------------------------------------------------------
 -- clk_48MHz____48.000______0.000______50.0______281.382____301.601
--- clk_30MHz____30.000______0.000______50.0______306.249____301.601
 --
 ------------------------------------------------------------------------------
 -- Input Clock   Freq (MHz)    Input Jitter (UI)
@@ -71,7 +70,6 @@ port
  (-- Clock in ports
   -- Clock out ports
   clk_48MHz          : out    std_logic;
-  clk_30MHz          : out    std_logic;
   clk_100MHz           : in     std_logic
  );
 end component;
@@ -84,7 +82,6 @@ your_instance_name : clock_change
    port map ( 
   -- Clock out ports  
    clk_48MHz => clk_48MHz,
-   clk_30MHz => clk_30MHz,
    -- Clock in ports
    clk_100MHz => clk_100MHz
  );

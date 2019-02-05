@@ -1,10 +1,10 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2017.2 (win64) Build 1909853 Thu Jun 15 18:39:09 MDT 2017
-// Date        : Fri Dec 28 12:36:36 2018
+// Date        : Tue Feb  5 19:54:07 2019
 // Host        : DESKTOP-DR3C0JT running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim -rename_top clock_change -prefix
-//               clock_change_ clock_change_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim
+//               D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/clock_change/clock_change_sim_netlist.v
 // Design      : clock_change
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -15,38 +15,32 @@
 (* NotValidForBitStream *)
 module clock_change
    (clk_48MHz,
-    clk_30MHz,
     clk_100MHz);
   output clk_48MHz;
-  output clk_30MHz;
   input clk_100MHz;
 
   (* IBUF_LOW_PWR *) wire clk_100MHz;
-  wire clk_30MHz;
   wire clk_48MHz;
 
   clock_change_clock_change_clk_wiz inst
        (.clk_100MHz(clk_100MHz),
-        .clk_30MHz(clk_30MHz),
         .clk_48MHz(clk_48MHz));
 endmodule
 
+(* ORIG_REF_NAME = "clock_change_clk_wiz" *) 
 module clock_change_clock_change_clk_wiz
    (clk_48MHz,
-    clk_30MHz,
     clk_100MHz);
   output clk_48MHz;
-  output clk_30MHz;
   input clk_100MHz;
 
   wire clk_100MHz;
   wire clk_100MHz_clock_change;
-  wire clk_30MHz;
-  wire clk_30MHz_clock_change;
   wire clk_48MHz;
   wire clk_48MHz_clock_change;
   wire clkfbout_buf_clock_change;
   wire clkfbout_clock_change;
+  wire NLW_plle2_adv_inst_CLKOUT1_UNCONNECTED;
   wire NLW_plle2_adv_inst_CLKOUT2_UNCONNECTED;
   wire NLW_plle2_adv_inst_CLKOUT3_UNCONNECTED;
   wire NLW_plle2_adv_inst_CLKOUT4_UNCONNECTED;
@@ -73,10 +67,6 @@ module clock_change_clock_change_clk_wiz
        (.I(clk_48MHz_clock_change),
         .O(clk_48MHz));
   (* BOX_TYPE = "PRIMITIVE" *) 
-  BUFG clkout2_buf
-       (.I(clk_30MHz_clock_change),
-        .O(clk_30MHz));
-  (* BOX_TYPE = "PRIMITIVE" *) 
   PLLE2_ADV #(
     .BANDWIDTH("OPTIMIZED"),
     .CLKFBOUT_MULT(48),
@@ -86,7 +76,7 @@ module clock_change_clock_change_clk_wiz
     .CLKOUT0_DIVIDE(20),
     .CLKOUT0_DUTY_CYCLE(0.500000),
     .CLKOUT0_PHASE(0.000000),
-    .CLKOUT1_DIVIDE(32),
+    .CLKOUT1_DIVIDE(1),
     .CLKOUT1_DUTY_CYCLE(0.500000),
     .CLKOUT1_PHASE(0.000000),
     .CLKOUT2_DIVIDE(1),
@@ -116,7 +106,7 @@ module clock_change_clock_change_clk_wiz
         .CLKIN2(1'b0),
         .CLKINSEL(1'b1),
         .CLKOUT0(clk_48MHz_clock_change),
-        .CLKOUT1(clk_30MHz_clock_change),
+        .CLKOUT1(NLW_plle2_adv_inst_CLKOUT1_UNCONNECTED),
         .CLKOUT2(NLW_plle2_adv_inst_CLKOUT2_UNCONNECTED),
         .CLKOUT3(NLW_plle2_adv_inst_CLKOUT3_UNCONNECTED),
         .CLKOUT4(NLW_plle2_adv_inst_CLKOUT4_UNCONNECTED),

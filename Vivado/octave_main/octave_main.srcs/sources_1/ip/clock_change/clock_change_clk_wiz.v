@@ -57,7 +57,6 @@
 //   Clock     Freq (MHz)  (degrees)    (%)     Jitter (ps)  Error (ps)
 //----------------------------------------------------------------------------
 // clk_48MHz____48.000______0.000______50.0______281.382____301.601
-// clk_30MHz____30.000______0.000______50.0______306.249____301.601
 //
 //----------------------------------------------------------------------------
 // Input Clock   Freq (MHz)    Input Jitter (UI)
@@ -71,7 +70,6 @@ module clock_change_clk_wiz
  (// Clock in ports
   // Clock out ports
   output        clk_48MHz,
-  output        clk_30MHz,
   input         clk_100MHz
  );
   // Input buffering
@@ -105,6 +103,7 @@ wire clk_in2_clock_change;
   wire        clkfbout_clock_change;
   wire        clkfbout_buf_clock_change;
   wire        clkfboutb_unused;
+   wire clkout1_unused;
    wire clkout2_unused;
    wire clkout3_unused;
    wire clkout4_unused;
@@ -123,16 +122,13 @@ wire clk_in2_clock_change;
     .CLKOUT0_DIVIDE       (20),
     .CLKOUT0_PHASE        (0.000),
     .CLKOUT0_DUTY_CYCLE   (0.500),
-    .CLKOUT1_DIVIDE       (32),
-    .CLKOUT1_PHASE        (0.000),
-    .CLKOUT1_DUTY_CYCLE   (0.500),
     .CLKIN1_PERIOD        (10.000))
   plle2_adv_inst
     // Output clocks
    (
     .CLKFBOUT            (clkfbout_clock_change),
     .CLKOUT0             (clk_48MHz_clock_change),
-    .CLKOUT1             (clk_30MHz_clock_change),
+    .CLKOUT1             (clkout1_unused),
     .CLKOUT2             (clkout2_unused),
     .CLKOUT3             (clkout3_unused),
     .CLKOUT4             (clkout4_unused),
@@ -171,10 +167,6 @@ wire clk_in2_clock_change;
    (.O   (clk_48MHz),
     .I   (clk_48MHz_clock_change));
 
-
-  BUFG clkout2_buf
-   (.O   (clk_30MHz),
-    .I   (clk_30MHz_clock_change));
 
 
 

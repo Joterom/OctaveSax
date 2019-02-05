@@ -42,5 +42,5 @@ begin
         wait for 5 ns;
     end process;
     
-    DATA_IN <= '0';
+    DATA_IN <= '0', '1' after 30 ns, '0' after 60 ns, '1' after 30 ns, '0' after 30 ns, '1' after 90 ns, '0' after 60 ns, '1' after 30 ns;
 end Behavioral;

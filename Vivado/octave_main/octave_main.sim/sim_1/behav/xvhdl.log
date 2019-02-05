@@ -161,6 +161,9 @@ INFO: [VRFC 10-307] analyzing entity ram_memo_blk_mem_gen_top
 INFO: [VRFC 10-307] analyzing entity ram_memo_blk_mem_gen_v8_3_6_synth
 INFO: [VRFC 10-307] analyzing entity ram_memo_blk_mem_gen_v8_3_6
 INFO: [VRFC 10-307] analyzing entity ram_memo
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/clock_change/clock_change_sim_netlist.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity clock_change_clock_change_clk_wiz
+INFO: [VRFC 10-307] analyzing entity clock_change
 INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/imports/new/pmod_clk_gen.vhd" into library xil_defaultlib
 INFO: [VRFC 10-307] analyzing entity pmod_clk_gen
 INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/project_trunk.vhd" into library xil_defaultlib
@@ -170,9 +173,6 @@ INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main
 INFO: [VRFC 10-307] analyzing entity shift_register
 INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/square_wave.vhd" into library xil_defaultlib
 INFO: [VRFC 10-307] analyzing entity square_wave
-INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/clock_change/clock_change_sim_netlist.vhdl" into library xil_defaultlib
-INFO: [VRFC 10-307] analyzing entity clock_change_clock_change_clk_wiz
-INFO: [VRFC 10-307] analyzing entity clock_change
 INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sim_1/new/pmod_clk_gen_tb.vhd" into library xil_defaultlib
 INFO: [VRFC 10-307] analyzing entity pmod_clk_gen_tb
 INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sim_1/new/main_tb.vhd" into library xil_defaultlib

@@ -1,5 +1,0 @@
-<?xml version="1.0"?>
-<Runs Version="1" Minor="0">
-	<Run Id="comp_fft_synth_1" LaunchDir="D:/UNI/TFG/prueba_FFT/prueba_FFT.runs/comp_fft_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
-</Runs>
-

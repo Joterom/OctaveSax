@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="clock_change_synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1549392812">
+  <File Type="PA-TCL" Name="clock_change.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="clock_change_drc_synth.rpt"/>
+  <File Type="RDS-RDS" Name="clock_change.vds"/>
+  <File Type="RDS-UTIL" Name="clock_change_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="clock_change_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="clock_change.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="clock_change_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="clock_change_timing_summary_synth.pb"/>
+  <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/clock_change">
+    <File Path="$PSRCDIR/sources_1/ip/clock_change/clock_change.xci">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="TopModule" Val="clock_change"/>
+      <Option Name="UseBlackboxStub" Val="1"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="BlockSrcs" RelSrcDir="$PSRCDIR/clock_change">
+    <File Path="$PSRCDIR/sources_1/ip/clock_change/clock_change.xci">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="TopModule" Val="clock_change"/>
+      <Option Name="UseBlackboxStub" Val="1"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2017"/>
+    <Step Id="synth_design"/>
+  </Strategy>
+</GenRun>
