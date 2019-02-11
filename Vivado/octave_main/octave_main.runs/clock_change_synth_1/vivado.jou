@@ -1,12 +1,12 @@
 #-----------------------------------------------------------
-# Vivado v2017.2 (64-bit)
-# SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
-# IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
-# Start of session at: Tue Feb  5 19:53:34 2019
-# Process ID: 1608
-# Current directory: D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/clock_change_synth_1
-# Command line: vivado.exe -log clock_change.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source clock_change.tcl
-# Log file: D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/clock_change_synth_1/clock_change.vds
-# Journal file: D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/clock_change_synth_1\vivado.jou
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:54:30 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Mon Feb 11 17:48:56 2019
+# Process ID: 2873
+# Current directory: /home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.runs/clock_change_synth_1
+# Command line: vivado -log clock_change.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source clock_change.tcl
+# Log file: /home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.runs/clock_change_synth_1/clock_change.vds
+# Journal file: /home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.runs/clock_change_synth_1/vivado.jou
 #-----------------------------------------------------------
 source clock_change.tcl -notrace

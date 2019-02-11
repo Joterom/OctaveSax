@@ -1,10 +1,10 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
-// Tool Version: Vivado v.2017.2 (win64) Build 1909853 Thu Jun 15 18:39:09 MDT 2017
-// Date        : Tue Feb  5 19:54:07 2019
-// Host        : DESKTOP-DR3C0JT running 64-bit major release  (build 9200)
+// Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
+// Date        : Mon Feb 11 17:50:07 2019
+// Host        : vhdl-2018 running 64-bit Ubuntu 18.04.1 LTS
 // Command     : write_verilog -force -mode synth_stub
-//               D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/clock_change/clock_change_stub.v
+//               /home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/clock_change/clock_change_stub.v
 // Design      : clock_change
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7a100tcsg324-1

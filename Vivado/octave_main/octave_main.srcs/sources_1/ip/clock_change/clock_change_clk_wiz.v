@@ -56,7 +56,7 @@
 //  Output     Output      Phase    Duty Cycle   Pk-to-Pk     Phase
 //   Clock     Freq (MHz)  (degrees)    (%)     Jitter (ps)  Error (ps)
 //----------------------------------------------------------------------------
-// clk_48MHz____48.000______0.000______50.0______281.382____301.601
+// clk_48MHz____50.000______0.000______50.0______203.457____155.540
 //
 //----------------------------------------------------------------------------
 // Input Clock   Freq (MHz)    Input Jitter (UI)
@@ -81,6 +81,8 @@ wire clk_in2_clock_change;
     .I (clk_100MHz));
 
 
+
+
   // Clocking PRIMITIVE
   //------------------------------------
 
@@ -89,7 +91,7 @@ wire clk_in2_clock_change;
   //    * Unused outputs are labeled unused
 
   wire        clk_48MHz_clock_change;
-  wire        clk_30MHz_clock_change;
+  wire        clk_out2_clock_change;
   wire        clk_out3_clock_change;
   wire        clk_out4_clock_change;
   wire        clk_out5_clock_change;
@@ -116,10 +118,10 @@ wire clk_in2_clock_change;
   #(.BANDWIDTH            ("OPTIMIZED"),
     .COMPENSATION         ("ZHOLD"),
     .STARTUP_WAIT         ("FALSE"),
-    .DIVCLK_DIVIDE        (5),
-    .CLKFBOUT_MULT        (48),
+    .DIVCLK_DIVIDE        (2),
+    .CLKFBOUT_MULT        (17),
     .CLKFBOUT_PHASE       (0.000),
-    .CLKOUT0_DIVIDE       (20),
+    .CLKOUT0_DIVIDE       (17),
     .CLKOUT0_PHASE        (0.000),
     .CLKOUT0_DUTY_CYCLE   (0.500),
     .CLKIN1_PERIOD        (10.000))
@@ -160,6 +162,9 @@ wire clk_in2_clock_change;
   BUFG clkf_buf
    (.O (clkfbout_buf_clock_change),
     .I (clkfbout_clock_change));
+
+
+
 
 
 

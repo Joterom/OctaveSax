@@ -1,1 +1,2 @@
 clock_change_sim_netlist.vhdl,vhdl,xil_defaultlib,../../../../octave_main.srcs/sources_1/ip/clock_change/clock_change_sim_netlist.vhdl,incdir="../../../../octave_main.srcs/sources_1/ip/clock_change"
+glbl.v,Verilog,xil_defaultlib,glbl.v

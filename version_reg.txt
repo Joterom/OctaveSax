@@ -58,3 +58,5 @@
 4.1.4 Vuelta a Madrid
 5-2-19
 4.1.5 Preparacion vivado tutoria pmod
+11-2-19
+4.2 Prueba del pmod completada y probada en FPGA - Comienzo FFT
