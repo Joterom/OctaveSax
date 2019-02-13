@@ -1,50 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="impl_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1545999240">
-  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
-  <File Type="BITSTR-SYSDEF" Name="sampling.sysdef"/>
-  <File Type="BITSTR-MMI" Name="sampling.mmi"/>
+  <File Type="BG-BIN" Name="sampling.bin"/>
+  <File Type="ROUTE-BLACKBOX-DCP" Name="sampling_routed_bb.dcp"/>
+  <File Type="ROUTE-DCP" Name="sampling_routed.dcp"/>
+  <File Type="BG-DRC" Name="sampling.drc"/>
+  <File Type="ROUTE-ERROR-DCP" Name="sampling_routed_error.dcp"/>
   <File Type="BITSTR-BMM" Name="sampling_bd.bmm"/>
-  <File Type="BITSTR-NKY" Name="sampling.nky"/>
-  <File Type="BITSTR-RBT" Name="sampling.rbt"/>
   <File Type="BG-BIT" Name="sampling.bit"/>
-  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="sampling_postroute_physopt_bb.dcp"/>
   <File Type="POSTROUTE-PHYSOPT-DCP" Name="sampling_postroute_physopt.dcp"/>
-  <File Type="ROUTE-CLK" Name="sampling_clock_utilization_routed.rpt"/>
-  <File Type="ROUTE-TIMING-RPX" Name="sampling_timing_summary_routed.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="sampling_postroute_physopt_bb.dcp"/>
+  <File Type="BITSTR-SYSDEF" Name="sampling.sysdef"/>
+  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
   <File Type="ROUTE-TIMING-PB" Name="sampling_timing_summary_routed.pb"/>
-  <File Type="ROUTE-TIMINGSUMMARY" Name="sampling_timing_summary_routed.rpt"/>
-  <File Type="ROUTE-STATUS-PB" Name="sampling_route_status.pb"/>
-  <File Type="ROUTE-STATUS" Name="sampling_route_status.rpt"/>
-  <File Type="ROUTE-PWR-SUM" Name="sampling_power_summary_routed.pb"/>
-  <File Type="ROUTE-PWR" Name="sampling_power_routed.rpt"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="sampling_methodology_drc_routed.pb"/>
-  <File Type="BG-BGN" Name="sampling.bgn"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="sampling_methodology_drc_routed.rpx"/>
-  <File Type="PLACE-IO" Name="sampling_io_placed.rpt"/>
-  <File Type="PWROPT-DCP" Name="sampling_pwropt.dcp"/>
-  <File Type="PLACE-UTIL" Name="sampling_utilization_placed.rpt"/>
-  <File Type="OPT-HWDEF" Name="sampling.hwdef"/>
-  <File Type="OPT-DRC" Name="sampling_drc_opted.rpt"/>
-  <File Type="OPT-DCP" Name="sampling_opt.dcp"/>
-  <File Type="RDI-RDI" Name="sampling.vdi"/>
-  <File Type="PLACE-PRE-SIMILARITY" Name="sampling_incremental_reuse_pre_placed.rpt"/>
   <File Type="PLACE-DCP" Name="sampling_placed.dcp"/>
   <File Type="PA-TCL" Name="sampling.tcl"/>
   <File Type="BITSTR-MSK" Name="sampling.msk"/>
-  <File Type="ROUTE-PWR-RPX" Name="sampling_power_routed.rpx"/>
-  <File Type="PLACE-UTIL-PB" Name="sampling_utilization_placed.pb"/>
-  <File Type="PLACE-CTRL" Name="sampling_control_sets_placed.rpt"/>
+  <File Type="BITSTR-RBT" Name="sampling.rbt"/>
+  <File Type="BITSTR-MMI" Name="sampling.mmi"/>
+  <File Type="OPT-DCP" Name="sampling_opt.dcp"/>
+  <File Type="BITSTR-NKY" Name="sampling.nky"/>
+  <File Type="BG-BGN" Name="sampling.bgn"/>
+  <File Type="PWROPT-DCP" Name="sampling_pwropt.dcp"/>
+  <File Type="OPT-HWDEF" Name="sampling.hwdef"/>
+  <File Type="RDI-RDI" Name="sampling.vdi"/>
+  <File Type="PLACE-PRE-SIMILARITY" Name="sampling_incremental_reuse_pre_placed.rpt"/>
   <File Type="POSTPLACE-PWROPT-DCP" Name="sampling_postplace_pwropt.dcp"/>
   <File Type="PHYSOPT-DCP" Name="sampling_physopt.dcp"/>
-  <File Type="ROUTE-ERROR-DCP" Name="sampling_routed_error.dcp"/>
-  <File Type="BG-DRC" Name="sampling.drc"/>
-  <File Type="ROUTE-DCP" Name="sampling_routed.dcp"/>
-  <File Type="ROUTE-BLACKBOX-DCP" Name="sampling_routed_bb.dcp"/>
-  <File Type="ROUTE-DRC" Name="sampling_drc_routed.rpt"/>
-  <File Type="ROUTE-METHODOLOGY-DRC" Name="sampling_methodology_drc_routed.rpt"/>
-  <File Type="ROUTE-DRC-PB" Name="sampling_drc_routed.pb"/>
-  <File Type="BG-BIN" Name="sampling.bin"/>
-  <File Type="ROUTE-DRC-RPX" Name="sampling_drc_routed.rpx"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/imports/new/pmod_clk_gen.vhd">
@@ -159,6 +140,6 @@
     <Step Id="post_route_phys_opt_design"/>
     <Step Id="write_bitstream"/>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="ram_memo"/>
   <BlockFileSet Type="BlockSrcs" Name="fft_module"/>
+  <BlockFileSet Type="BlockSrcs" Name="ram_memo"/>
 </GenRun>

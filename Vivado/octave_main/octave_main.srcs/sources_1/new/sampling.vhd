@@ -12,12 +12,9 @@ entity sampling is
         frame_number : out integer;
         reset : in STD_LOGIC;
         -- CLKs
-        MCLK_ADC : out STD_LOGIC;
-        SCLK_ADC : out STD_LOGIC;
-        LR_W_SEL_ADC : out STD_LOGIC;
-        MCLK_DAC : out STD_LOGIC;
-        SCLK_DAC : out STD_LOGIC;
-        LR_W_SEL_DAC : out STD_LOGIC
+        MCLK : out STD_LOGIC;
+        SCLK : out STD_LOGIC;
+        LR_W_SEL : out STD_LOGIC
        );
 end sampling;
 
@@ -49,9 +46,9 @@ begin
                 mc <= '0';                
             elsif rising_edge(clk_48MHz) then              
                 count <= count + "00000001";
-                lr <= lr_next;
-                sc <= sc_next;
-                mc <= mc_next;                                      
+                lr <= not lr_next;
+                sc <= not sc_next;
+                mc <= not mc_next;                                      
             end if; 
     end process;
     
@@ -68,7 +65,7 @@ begin
                     frame_num <= 0;
                   elsif init = '1' then
                     frame_num <= 0;
-                  elsif falling_edge(sc) then                      
+                  elsif rising_edge(sc) then                      
                     frame_num <= frame_number_next;                      
                   end if;
               end process;
@@ -87,12 +84,8 @@ begin
     sc_next <= count(3);
     mc_next <= count(0);
     
-    LR_W_SEL_DAC <= lr;
-    SCLK_DAC <= sc;
-    MCLK_DAC <= mc;
-    
-    LR_W_SEL_ADC <= lr;
-    SCLK_ADC <= sc;
-    MCLK_ADC <= mc;  
-                
+    LR_W_SEL <= lr;
+    SCLK <= sc;
+    MCLK <= mc;
+                    
 end Behavioral;

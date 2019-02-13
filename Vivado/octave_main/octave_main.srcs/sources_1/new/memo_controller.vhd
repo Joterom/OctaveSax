@@ -1,43 +1,45 @@
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date: 11.02.2019 16:39:59
--- Design Name: 
--- Module Name: memo_controller - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
-----------------------------------------------------------------------------------
-
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
+use IEEE.NUMERIC_STD.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.all;
+use work.project_trunk.all;
 
 entity memo_controller is
---  Port ( );
+  Port ( 
+    clk : in STD_LOGIC;
+    reset : in STD_LOGIC;
+    write_sample : in STD_LOGIC;
+    read_sample : in STD_LOGIC;
+    memo_address : in STD_LOGIC_VECTOR (11 downto 0);
+    storaged_sample : out STD_LOGIC_VECTOR (sample_size - 1 downto 0);
+    writing_sample : in STD_LOGIC_VECTOR (sample_size - 1 downto 0)
+    );
 end memo_controller;
 
 architecture Behavioral of memo_controller is
 
+    component ram_memory port(
+        addra : in STD_LOGIC_VECTOR (11 downto 0);
+        clka : in STD_LOGIC;
+        dina : in STD_LOGIC_VECTOR (sample_size-1 downto 0);
+        douta : out STD_LOGIC_VECTOR (sample_size-1 downto 0);
+        ena : in STD_LOGIC;
+        wea : in STD_LOGIC_VECTOR (0 downto 0)
+    ); end component;
+
+    signal wea : STD_LOGIC_VECTOR (0 downto 0) := "0";
 begin
 
+    ram : ram_memory port map(
+        addra => memo_address,
+        clka => clk,
+        dina => writing_sample,
+        douta => storaged_sample,
+        ena => write_sample,
+        wea => wea
+    );
+    
+    wea <= "1" when (write_sample = '1' and read_sample = '0') else
+           "0";
 
 end Behavioral;

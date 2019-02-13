@@ -60,3 +60,4 @@
 4.1.5 Preparacion vivado tutoria pmod
 11-2-19
 4.2 Prueba del pmod completada y probada en FPGA - Comienzo FFT
+4.2.1 Avances proyecto con buffer de entrada 

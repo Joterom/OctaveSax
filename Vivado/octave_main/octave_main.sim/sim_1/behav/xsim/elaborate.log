@@ -19,6 +19,7 @@ Compiling package ieee.std_logic_signed
 Compiling package ieee.vital_timing
 Compiling package ieee.vital_primitives
 Compiling package unisim.vpkg
+Compiling package ieee.std_logic_textio
 Compiling module xil_defaultlib.glbl
 Compiling architecture bufg_v of entity unisim.BUFG [bufg_default]
 Compiling architecture ibuf_v of entity unisim.IBUF [\IBUF(1,9)(1,1)(1,4)(1,7)\]
@@ -26,6 +27,21 @@ Compiling architecture plle2_adv_v of entity unisim.PLLE2_ADV [\PLLE2_ADV(clkfbo
 Compiling architecture structure of entity xil_defaultlib.clock_change_clock_change_clk_wiz [clock_change_clock_change_clk_wi...]
 Compiling architecture structure of entity xil_defaultlib.clock_change [clock_change_default]
 Compiling architecture behavioral of entity xil_defaultlib.sampling [sampling_default]
+Compiling architecture gnd_v of entity unisim.GND [gnd_default]
+Compiling architecture rb18_internal_vhdl_v of entity unisim.RB18_INTERNAL_VHDL [\RB18_INTERNAL_VHDL(bram_size=18...]
+Compiling architecture ramb18e1_v of entity unisim.RAMB18E1 [\RAMB18E1(doa_reg=1,rdaddr_colli...]
+Compiling architecture structure of entity xil_defaultlib.ram_memory_blk_mem_gen_prim_wrapper [ram_memory_blk_mem_gen_prim_wrap...]
+Compiling architecture structure of entity xil_defaultlib.ram_memory_blk_mem_gen_prim_width [ram_memory_blk_mem_gen_prim_widt...]
+Compiling architecture rb36_internal_vhdl_v of entity unisim.RB36_INTERNAL_VHDL [\RB36_INTERNAL_VHDL(doa_reg=1,in...]
+Compiling architecture ramb36e1_v of entity unisim.RAMB36E1 [\RAMB36E1(doa_reg=1,rdaddr_colli...]
+Compiling architecture structure of entity xil_defaultlib.\ram_memory_blk_mem_gen_prim_wrapper__parameterized0\ [\ram_memory_blk_mem_gen_prim_wra...]
+Compiling architecture structure of entity xil_defaultlib.\ram_memory_blk_mem_gen_prim_width__parameterized0\ [\ram_memory_blk_mem_gen_prim_wid...]
+Compiling architecture structure of entity xil_defaultlib.ram_memory_blk_mem_gen_generic_cstr [ram_memory_blk_mem_gen_generic_c...]
+Compiling architecture structure of entity xil_defaultlib.ram_memory_blk_mem_gen_top [ram_memory_blk_mem_gen_top_defau...]
+Compiling architecture structure of entity xil_defaultlib.ram_memory_blk_mem_gen_v8_4_1_synth [ram_memory_blk_mem_gen_v8_4_1_sy...]
+Compiling architecture structure of entity xil_defaultlib.ram_memory_blk_mem_gen_v8_4_1 [ram_memory_blk_mem_gen_v8_4_1_de...]
+Compiling architecture structure of entity xil_defaultlib.ram_memory [ram_memory_default]
+Compiling architecture behavioral of entity xil_defaultlib.memo_controller [memo_controller_default]
 Compiling architecture behavioral of entity xil_defaultlib.shift_register [shift_register_default]
 Compiling architecture behavioral of entity xil_defaultlib.master_controller [master_controller_default]
 Compiling architecture behavioral of entity xil_defaultlib.main_tb
