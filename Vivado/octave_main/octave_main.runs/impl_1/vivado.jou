@@ -1,12 +1,12 @@
 #-----------------------------------------------------------
-# Vivado v2017.2 (64-bit)
-# SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
-# IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
-# Start of session at: Fri Dec 28 13:14:42 2018
-# Process ID: 9876
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Sun Feb 17 15:45:39 2019
+# Process ID: 13308
 # Current directory: D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/impl_1
-# Command line: vivado.exe -log sampling.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source sampling.tcl -notrace
-# Log file: D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/impl_1/sampling.vdi
+# Command line: vivado.exe -log master_controller.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source master_controller.tcl -notrace
+# Log file: D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/impl_1/master_controller.vdi
 # Journal file: D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/impl_1\vivado.jou
 #-----------------------------------------------------------
-source sampling.tcl -notrace
+source master_controller.tcl -notrace

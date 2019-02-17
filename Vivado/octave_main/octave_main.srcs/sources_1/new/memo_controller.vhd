@@ -1,7 +1,7 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
-use IEEE.STD_LOGIC_UNSIGNED.all;
+use IEEE.STD_LOGIC_UNSIGNED.all; 
 use work.project_trunk.all;
 
 entity memo_controller is
@@ -28,6 +28,8 @@ architecture Behavioral of memo_controller is
     ); end component;
 
     signal wea : STD_LOGIC_VECTOR (0 downto 0) := "0";
+    signal ena : STD_LOGIC;
+    
 begin
 
     ram : ram_memory port map(
@@ -35,11 +37,13 @@ begin
         clka => clk,
         dina => writing_sample,
         douta => storaged_sample,
-        ena => write_sample,
+        ena => ena,
         wea => wea
     );
     
     wea <= "1" when (write_sample = '1' and read_sample = '0') else
            "0";
+    
+    ena <= read_sample or write_sample;
 
 end Behavioral;

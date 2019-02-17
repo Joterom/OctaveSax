@@ -7,9 +7,7 @@ vhdl xil_defaultlib  \
 "../../../../octave_main.srcs/sources_1/new/shift_register.vhd" \
 "../../../../octave_main.srcs/sources_1/new/memo_controller.vhd" \
 "../../../../octave_main.srcs/sources_1/new/master_controller.vhd" \
-"../../../../octave_main.srcs/sim_1/new/pmod_clk_gen_tb.vhd" \
 "../../../../octave_main.srcs/sim_1/new/main_tb.vhd" \
-"../../../../octave_main.srcs/sim_1/new/fft_tb.vhd" \
 
 # Do not sort compile order
 nosort

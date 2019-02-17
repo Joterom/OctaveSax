@@ -1,13 +1,92 @@
 #-----------------------------------------------------------
-# Vivado v2017.2 (64-bit)
-# SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
-# IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
-# Start of session at: Mon Jan 28 11:55:18 2019
-# Process ID: 2972
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Sun Feb 17 12:30:08 2019
+# Process ID: 4344
 # Current directory: D:/UNI/TFG/OctaveSax/Vivado/octave_main
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent2552 D:\UNI\TFG\OctaveSax\Vivado\octave_main\octave_main.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent548 D:\UNI\TFG\OctaveSax\Vivado\octave_main\octave_main.xpr
 # Log file: D:/UNI/TFG/OctaveSax/Vivado/octave_main/vivado.log
 # Journal file: D:/UNI/TFG/OctaveSax/Vivado/octave_main\vivado.jou
 #-----------------------------------------------------------
 start_gui
 open_project D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.xpr
+launch_simulation
+source main_tb.tcl
+restart
+run 40 us
+restart
+run 40 us
+relaunch_sim
+restart
+run 40 us
+restart
+run 40 us
+relaunch_sim
+relaunch_sim
+restart
+run 40 us
+restart
+run 40 us
+relaunch_sim
+restart
+run 40 us
+restart
+run 40 us
+save_wave_config {D:/UNI/TFG/OctaveSax/Vivado/octave_main/test.wcfg}
+add_files -fileset sim_1 -norecurse D:/UNI/TFG/OctaveSax/Vivado/octave_main/test.wcfg
+set_property xsim.view D:/UNI/TFG/OctaveSax/Vivado/octave_main/test.wcfg [get_filesets sim_1]
+close_sim
+launch_simulation
+open_wave_config D:/UNI/TFG/OctaveSax/Vivado/octave_main/test.wcfg
+source main_tb.tcl
+restart
+run 40 us
+save_wave_config {D:/UNI/TFG/OctaveSax/Vivado/octave_main/test.wcfg}
+restart
+run 40 us
+save_wave_config {D:/UNI/TFG/OctaveSax/Vivado/octave_main/test.wcfg}
+restart
+run 40 us
+restart
+run 200 us
+restart
+run 200 us
+restart
+run 200 us
+save_wave_config {D:/UNI/TFG/OctaveSax/Vivado/octave_main/test.wcfg}
+relaunch_sim
+restart
+run 300 us
+save_wave_config {D:/UNI/TFG/OctaveSax/Vivado/octave_main/test.wcfg}
+relaunch_sim
+restart
+run 300 us
+restart
+run 300 us
+save_wave_config {D:/UNI/TFG/OctaveSax/Vivado/octave_main/test.wcfg}
+relaunch_sim
+relaunch_sim
+relaunch_sim
+restart
+run 300 us
+restart
+run 300 us
+save_wave_config {D:/UNI/TFG/OctaveSax/Vivado/octave_main/test.wcfg}
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+wait_on_run impl_1
+close_sim
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+wait_on_run synth_1
+launch_runs impl_1 -jobs 2
+wait_on_run impl_1
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+wait_on_run synth_1
+launch_runs impl_1 -jobs 2
+wait_on_run impl_1

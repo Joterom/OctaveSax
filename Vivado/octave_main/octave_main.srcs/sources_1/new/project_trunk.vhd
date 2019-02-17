@@ -12,5 +12,7 @@ package project_trunk is
 --    constant direccion_maxima : STD_LOGIC_VECTOR (17 downto 0) := std_logic_vector(to_unsigned(LLENADO_MEMORIA, 18));
     
     constant sample_size : integer := 12;
+    constant writing_cicle : integer := 27;
+    constant reading_cicle : integer := 25;
     
 end project_trunk;

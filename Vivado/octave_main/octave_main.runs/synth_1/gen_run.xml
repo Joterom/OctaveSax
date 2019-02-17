@@ -1,54 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1545999240">
-  <File Type="RDS-DCP" Name="sampling.dcp"/>
-  <File Type="PA-TCL" Name="sampling.tcl"/>
-  <File Type="RDS-RDS" Name="sampling.vds"/>
+<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1550410803">
+  <File Type="PA-TCL" Name="master_controller.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="master_controller_drc_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="master_controller_reports.tcl"/>
+  <File Type="RDS-RDS" Name="master_controller.vds"/>
+  <File Type="RDS-UTIL" Name="master_controller_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="master_controller_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="master_controller.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="master_controller_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="master_controller_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
-    <File Path="$PSRCDIR/sources_1/imports/new/pmod_clk_gen.vhd">
-      <FileInfo>
-        <Attr Name="ImportPath" Val="$PSRCDIR/sources_1/new/pmod_clk_gen.vhd"/>
-        <Attr Name="ImportTime" Val="1544097484"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/imports/new/ROM_istft.vhd">
-      <FileInfo>
-        <Attr Name="UserDisabled" Val="1"/>
-        <Attr Name="ImportPath" Val="$PSRCDIR/sources_1/new/ROM_istft.vhd"/>
-        <Attr Name="ImportTime" Val="1543087489"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/imports/new/ROM_stft.vhd">
-      <FileInfo>
-        <Attr Name="UserDisabled" Val="1"/>
-        <Attr Name="ImportPath" Val="$PSRCDIR/sources_1/new/ROM_stft.vhd"/>
-        <Attr Name="ImportTime" Val="1543087168"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/imports/new/module_ALU.vhd">
-      <FileInfo>
-        <Attr Name="UserDisabled" Val="1"/>
-        <Attr Name="ImportPath" Val="$PSRCDIR/sources_1/new/module_ALU.vhd"/>
-        <Attr Name="ImportTime" Val="1544011366"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PSRCDIR/sources_1/new/project_trunk.vhd">
       <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/new/fft_controller.vhd">
-      <FileInfo>
-        <Attr Name="UserDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
@@ -65,29 +29,21 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/simple_example.vhd">
-      <FileInfo>
-        <Attr Name="UserDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/new/square_wave.vhd">
+    <File Path="$PSRCDIR/sources_1/new/memo_controller.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/ip/clock_change/clock_change.xci">
+    <File Path="$PSRCDIR/sources_1/new/master_controller.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="sampling"/>
+      <Option Name="TopModule" Val="master_controller"/>
     </Config>
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
@@ -109,6 +65,6 @@
     <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2017"/>
     <Step Id="synth_design"/>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="fft_module"/>
-  <BlockFileSet Type="BlockSrcs" Name="ram_memo"/>
+  <BlockFileSet Type="BlockSrcs" Name="clock_change"/>
+  <BlockFileSet Type="BlockSrcs" Name="ram_memory"/>
 </GenRun>

@@ -5,7 +5,7 @@ entity main_tb is
 --  Port ( );
 end main_tb;
 
-architecture Behavioral of main_tb is
+architecture Behavioral of main_tb is  
 
     component master_controller port (
         -- Master FPGA CLK
@@ -28,6 +28,7 @@ architecture Behavioral of main_tb is
     
     
 begin
+
 
     UUT: master_controller port map (
         -- Master FPGA CLK

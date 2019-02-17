@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2017.2 (64-bit)
+# SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
+# IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
+# Start of session at: Mon Jan 28 11:55:18 2019
+# Process ID: 2972
+# Current directory: D:/UNI/TFG/OctaveSax/Vivado/octave_main
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent2552 D:\UNI\TFG\OctaveSax\Vivado\octave_main\octave_main.xpr
+# Log file: D:/UNI/TFG/OctaveSax/Vivado/octave_main/vivado.log
+# Journal file: D:/UNI/TFG/OctaveSax/Vivado/octave_main\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.xpr
