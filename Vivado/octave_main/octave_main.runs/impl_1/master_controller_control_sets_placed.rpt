@@ -1,0 +1,70 @@
+Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+----------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
+| Date         : Mon Feb 18 18:43:07 2019
+| Host         : vhdl-2018 running 64-bit Ubuntu 18.04.1 LTS
+| Command      : report_control_sets -verbose -file master_controller_control_sets_placed.rpt
+| Design       : master_controller
+| Device       : xc7a100t
+----------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Flip-Flop Distribution
+3. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Number of unique control sets                            |     7 |
+| Unused register locations in slices containing registers |    29 |
++----------------------------------------------------------+-------+
+
+
+2. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              22 |           11 |
+| No           | No                    | Yes                    |               5 |            2 |
+| No           | Yes                   | No                     |               0 |            0 |
+| Yes          | No                    | No                     |              16 |            5 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |              24 |            6 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+3. Detailed Control Set Information
+-----------------------------------
+
++--------------------------+---------------------------+----------------------------+------------------+----------------+
+|       Clock Signal       |       Enable Signal       |      Set/Reset Signal      | Slice Load Count | Bel Load Count |
++--------------------------+---------------------------+----------------------------+------------------+----------------+
+|  clk_gen/inst/clk_100MHz | SAMP/counter32[3]_i_1_n_0 |                            |                1 |              4 |
+|  SAMP/frame_num_reg[0]_0 |                           | SAMP/init                  |                2 |              5 |
+|  clk_gen/inst/clk_100MHz |                           |                            |                3 |              5 |
+|  SAMP/frame_num_reg[0]_0 | enable                    |                            |                4 |             12 |
+|  clk_gen/inst/clk_100MHz | SAMP/read_sample          | SAMP/read_address_reg[11]  |                3 |             12 |
+|  clk_gen/inst/clk_100MHz | SAMP/sample_in_ready      | SAMP/write_address_reg[11] |                3 |             12 |
+|  clk_gen/inst/clk_50MHz  |                           |                            |                8 |             17 |
++--------------------------+---------------------------+----------------------------+------------------+----------------+
+
+
++--------+-----------------------+
+| Fanout | Number of ControlSets |
++--------+-----------------------+
+| 4      |                     1 |
+| 5      |                     2 |
+| 12     |                     3 |
+| 16+    |                     1 |
++--------+-----------------------+
+
+

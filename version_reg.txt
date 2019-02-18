@@ -63,3 +63,5 @@
 4.2.1 Avances proyecto con buffer de entrada 
 17-2-19
 4.2.2 Implementacion de la lectura-escritura en memoria 
+18-2-19
+4.2.3 Adecentamiento del codigo y correcciones de estilo

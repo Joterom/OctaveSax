@@ -1,0 +1,4 @@
+vhdl xil_defaultlib  \
+"../../../../octave_main.srcs/sources_1/ip/clk_generator/clk_generator_sim_netlist.vhdl" \
+
+nosort

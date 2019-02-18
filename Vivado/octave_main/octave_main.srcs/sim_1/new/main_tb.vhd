@@ -9,7 +9,7 @@ architecture Behavioral of main_tb is
 
     component master_controller port (
         -- Master FPGA CLK
-        clk_100MHz : in STD_LOGIC;
+        clk_fpga : in STD_LOGIC; 
         -- CLKs
         MCLK_ADC : out STD_LOGIC;
         SCLK_ADC : out STD_LOGIC;
@@ -23,7 +23,7 @@ architecture Behavioral of main_tb is
        
     ); end component;
     
-    signal clk_100MHz, MCLK_DAC, SCLK_DAC, LR_W_SEL_DAC, MCLK_ADC, SCLK_ADC, LR_W_SEL_ADC,
+    signal clk_fpga, MCLK_DAC, SCLK_DAC, LR_W_SEL_DAC, MCLK_ADC, SCLK_ADC, LR_W_SEL_ADC,
         DATA_IN, DATA_OUT : STD_LOGIC := '0';
     
     
@@ -32,7 +32,7 @@ begin
 
     UUT: master_controller port map (
         -- Master FPGA CLK
-        clk_100MHz => clk_100MHz,
+        clk_fpga => clk_fpga,
         -- CLKs
         MCLK_ADC => MCLK_ADC,
         SCLK_ADC => SCLK_ADC,
@@ -47,11 +47,11 @@ begin
         
     clk_gen : process
         begin
-            clk_100MHz <= '0';
+            clk_fpga <= '0';
         wait for 5 ns;
-            clk_100MHz <= '1';
+            clk_fpga <= '1';
         wait for 5 ns;
     end process;
     
-    DATA_IN <= '0', '1' after 30 ns, '0' after 60 ns, '1' after 30 ns, '0' after 30 ns, '1' after 90 ns, '0' after 60 ns, '1' after 30 ns;
+    DATA_IN <= '0', '1' after 1 us, '1' after 30 ns, '0' after 60 ns, '1' after 30 ns, '0' after 30 ns, '1' after 90 ns, '0' after 60 ns, '1' after 30 ns;
 end Behavioral;
