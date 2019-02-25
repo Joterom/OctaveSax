@@ -13,6 +13,9 @@ entity master_controller is
   Port (
         -- Master FPGA CLK
         clk_fpga : in STD_LOGIC;
+        -- Displays
+        seg : out STD_LOGIC_VECTOR (6 downto 0);
+        an : out STD_LOGIC_VECTOR (7 downto 0);
         -- CLKs
         MCLK_ADC : out STD_LOGIC;
         SCLK_ADC : out STD_LOGIC;
@@ -67,7 +70,13 @@ architecture Behavioral of master_controller is
         clk_50MHz : out STD_LOGIC
     ); end component;
           
-          
+    component display_interface port(
+        clk : in STD_LOGIC;
+        reset : in STD_LOGIC;
+        seg : out STD_LOGIC_VECTOR (6 downto 0);
+        an : out STD_LOGIC_VECTOR (7 downto 0)
+    ); end component;
+    
     signal frame_number : STD_LOGIC_VECTOR (4 downto 0) := (others => '0');
     signal reset, enable_shift, enable_shift_next : STD_LOGIC := '0';    
     signal input_reg : STD_LOGIC_VECTOR ((sample_size - 1) downto 0) := (others => '0');    
@@ -75,6 +84,7 @@ architecture Behavioral of master_controller is
     signal write_address, write_address_next, read_address, read_address_next, address, storaged_sample : STD_LOGIC_VECTOR (11 downto 0) := (others => '0');
     signal read_sample, sample_towrite_ready, sample_in_ready, write_sample : STD_LOGIC := '0';
     signal start_reading, start_reading_next : STD_LOGIC := '0';
+    signal sample_towrite : STD_LOGIC_VECTOR (23 downto 0) := (others => '0');
     
 begin  
 
@@ -111,6 +121,13 @@ begin
         data_out => input_reg
     );
     
+    displays : display_interface port map (
+        clk => clk_100MHz,
+        reset => reset,
+        seg => seg,
+        an => an
+    );
+    
     clk_gen : clk_generator port map (
         clk_fpga => clk_fpga,
         clk_100MHz => clk_100MHz,
@@ -133,7 +150,7 @@ begin
     end process;
     
     -- Generates enable signal used by the shift-register
-    enable_shift_next <= '1' when (frame_number <= sample_size - 1) else
+    enable_shift_next <= '1' when (frame_number >= 0 and frame_number <= 11) else
         '0';
     
     memo_logic : process(sample_in_ready, sample_towrite_ready, write_address, start_reading, read_address)
@@ -170,23 +187,36 @@ begin
     end process;
     
     -- Writing dac mode: takes sample from the previously loaded register and links it to output data
-    write_dac : process(frame_number, start_reading, storaged_sample)
+    write_dac : process(frame_number, start_reading, sample_towrite)
         begin 
             DATA_OUT <= '0';
             if start_reading = '1' then                
                 case frame_number is
-                    when "00001" => DATA_OUT <= storaged_sample(sample_size-1);
-                    when "00010" => DATA_OUT <= storaged_sample(sample_size-2);
-                    when "00011" => DATA_OUT <= storaged_sample(sample_size-3);
-                    when "00100" => DATA_OUT <= storaged_sample(sample_size-4);
-                    when "00101" => DATA_OUT <= storaged_sample(sample_size-5);
-                    when "00110" => DATA_OUT <= storaged_sample(sample_size-6);
-                    when "00111" => DATA_OUT <= storaged_sample(sample_size-7);
-                    when "01000" => DATA_OUT <= storaged_sample(sample_size-8);
-                    when "01001" => DATA_OUT <= storaged_sample(sample_size-9);
-                    when "01010" => DATA_OUT <= storaged_sample(sample_size-10);
-                    when "01011" => DATA_OUT <= storaged_sample(sample_size-11);
-                    when "01100" => DATA_OUT <= storaged_sample(sample_size-12);                    
+                    when "00001" => DATA_OUT <= sample_towrite(23);
+                    when "00010" => DATA_OUT <= sample_towrite(22);
+                    when "00011" => DATA_OUT <= sample_towrite(21);
+                    when "00100" => DATA_OUT <= sample_towrite(21);
+                    when "00101" => DATA_OUT <= sample_towrite(20);
+                    when "00110" => DATA_OUT <= sample_towrite(19);
+                    when "00111" => DATA_OUT <= sample_towrite(18);
+                    when "01000" => DATA_OUT <= sample_towrite(17);
+                    when "01001" => DATA_OUT <= sample_towrite(16);
+                    when "01010" => DATA_OUT <= sample_towrite(15);
+                    when "01011" => DATA_OUT <= sample_towrite(14);
+                    when "01100" => DATA_OUT <= sample_towrite(13);
+                    when "01101" => DATA_OUT <= sample_towrite(12);
+                    when "01110" => DATA_OUT <= sample_towrite(11);
+                    when "01111" => DATA_OUT <= sample_towrite(10);
+                    when "10000" => DATA_OUT <= sample_towrite(9);
+                    when "10001" => DATA_OUT <= sample_towrite(8);
+                    when "10010" => DATA_OUT <= sample_towrite(7);
+                    when "10011" => DATA_OUT <= sample_towrite(6);
+                    when "10100" => DATA_OUT <= sample_towrite(5);
+                    when "10101" => DATA_OUT <= sample_towrite(4);
+                    when "10110" => DATA_OUT <= sample_towrite(3);
+                    when "10111" => DATA_OUT <= sample_towrite(2);
+                    when "11000" => DATA_OUT <= sample_towrite(1);
+                    when "11001" => DATA_OUT <= sample_towrite(0);
                     when others => DATA_OUT <= '0';
                 end case;
             end if;
@@ -204,5 +234,6 @@ begin
     MCLK_DAC  <= MCLK; --and start_reading;
     SCLK_DAC <= SCLK; --and start_reading;
     LR_W_SEL_DAC <= LR_W_SEL; --and start_reading;  
+    sample_towrite <= "000000000000" & storaged_sample;
     
 end Behavioral;

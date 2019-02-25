@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Product Version: Vivado v2017.2 (64-bit)                     -->
+<!-- Product Version: Vivado v2017.4 (64-bit)                     -->
 <!--                                                              -->
 <!-- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.        -->
 
@@ -9,7 +9,8 @@
     <Object name="xc7a100t_0" gui_info="">
       <Properties Property="FULL_PROBES.FILE" value=""/>
       <Properties Property="PROBES.FILE" value=""/>
-      <Properties Property="PROGRAM.HW_BITSTREAM" value="$_project_name_.runs/impl_1/sampling.bit"/>
+      <Properties Property="PROGRAM.HW_BITSTREAM" value="$_project_name_.runs/impl_1/master_controller.bit"/>
+      <Properties Property="SLR.COUNT" value="1"/>
     </Object>
   </ObjectList>
   <probeset name="hw project" active="false"/>
