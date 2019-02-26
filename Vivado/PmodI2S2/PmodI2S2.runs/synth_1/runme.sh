@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='C:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/proj/PmodI2S2.runs/synth_1'
+HD_PWD='D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

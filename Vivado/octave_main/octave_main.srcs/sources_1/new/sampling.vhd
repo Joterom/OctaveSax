@@ -24,10 +24,11 @@ entity sampling is
         -- CLKs
         MCLK : out STD_LOGIC;
         SCLK : out STD_LOGIC;
+        SC_2 : out STD_LOGIC;
         LR_W_SEL : out STD_LOGIC
        );
 end sampling;
-
+ 
 architecture Behavioral of sampling is
    
     signal lr, lr_next, sc, sc_next, mc, mc_next, clk_30MHz, wave : STD_LOGIC := '0';
@@ -35,6 +36,7 @@ architecture Behavioral of sampling is
     signal frame_num, frame_number_next, counter32, counter32_next : STD_LOGIC_VECTOR (4 downto 0) := "00000";
     signal init, init_next : STD_LOGIC := '1'; 
     signal sample_in_ready_next, sample_towrite_ready_next : STD_LOGIC; 
+    signal half_sc, half_sc_next : STD_LOGIC := '0';
     
 begin
       
@@ -47,12 +49,14 @@ begin
                 lr <= '0';
                 sc <= '0';
                 mc <= '0';
+                half_sc <= '0';
                 init <= '1';                
             elsif rising_edge(clk_50MHz) then              
                 count <= count + "00000001";
                 lr <= not lr_next;
                 sc <= not sc_next;
-                mc <= not mc_next;  
+                mc <= not mc_next;
+                half_sc <= not half_sc_next;  
                 init <= init_next;                                    
             end if; 
     end process;
@@ -130,11 +134,13 @@ begin
     -- Frequency divider to generate ADC/DAC clocks
     lr_next <= count(9); -- /1024
     sc_next <= count(3); -- /16
+    half_sc_next <= count(2);
     mc_next <= count(0); -- /2
     -- Final assingments
     LR_W_SEL <= lr;
     SCLK <= sc;
     MCLK <= mc;
+    SC_2 <= half_sc;
     frame_number <= frame_num;    
                  
 end Behavioral;

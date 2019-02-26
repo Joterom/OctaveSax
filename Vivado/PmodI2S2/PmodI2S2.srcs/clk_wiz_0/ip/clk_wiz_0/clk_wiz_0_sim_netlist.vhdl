@@ -1,10 +1,10 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
--- Date        : Mon Apr 30 14:35:58 2018
--- Host        : WK142 running 64-bit major release  (build 9200)
+-- Date        : Mon Feb 25 23:04:55 2019
+-- Host        : DESKTOP-DR3C0JT running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
---               C:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/shared/src/ip/clk_wiz_0/clk_wiz_0_sim_netlist.vhdl
+--               D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.srcs/clk_wiz_0/ip/clk_wiz_0/clk_wiz_0_sim_netlist.vhdl
 -- Design      : clk_wiz_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.

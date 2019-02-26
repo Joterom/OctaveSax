@@ -17,6 +17,8 @@ architecture Behavioral of main_tb is
         MCLK_DAC : out STD_LOGIC;
         SCLK_DAC : out STD_LOGIC;
         LR_W_SEL_DAC : out STD_LOGIC;
+        seg : out STD_LOGIC_VECTOR (6 downto 0);
+        an : out STD_LOGIC_VECTOR (7 downto 0);
         -- INput/OUTput
         DATA_IN : in STD_LOGIC;
         DATA_OUT : out STD_LOGIC   
@@ -25,7 +27,8 @@ architecture Behavioral of main_tb is
     
     signal clk_fpga, MCLK_DAC, SCLK_DAC, LR_W_SEL_DAC, MCLK_ADC, SCLK_ADC, LR_W_SEL_ADC,
         DATA_IN, DATA_OUT : STD_LOGIC := '0';
-    
+    signal seg : STD_LOGIC_VECTOR (6 downto 0);
+    signal an : STD_LOGIC_VECTOR (7 downto 0);
     
 begin
 
@@ -36,6 +39,8 @@ begin
         -- CLKs
         MCLK_ADC => MCLK_ADC,
         SCLK_ADC => SCLK_ADC,
+        seg => seg,
+        an => an,
         LR_W_SEL_ADC => LR_W_SEL_ADC,
         MCLK_DAC => MCLK_DAC,
         SCLK_DAC => SCLK_DAC,
@@ -53,5 +58,16 @@ begin
         wait for 5 ns;
     end process;
     
-    DATA_IN <= '0', '1' after 1 us, '1' after 30 ns, '0' after 60 ns, '1' after 30 ns, '0' after 30 ns, '1' after 90 ns, '0' after 60 ns, '1' after 30 ns;
+    process
+        begin
+            DATA_IN <= '0';
+        wait for 63 ns;
+            DATA_IN <= '1';
+        wait for 47 ns;
+            DATA_IN <= '0';
+        wait for 39 ns;
+            DATA_IN <= '1';
+        wait for 51 ns;
+    end process;
+    
 end Behavioral;

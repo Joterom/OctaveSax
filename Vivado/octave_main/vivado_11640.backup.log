@@ -1,0 +1,39 @@
+#-----------------------------------------------------------
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Sat Feb 23 17:30:38 2019
+# Process ID: 11640
+# Current directory: D:/UNI/TFG/OctaveSax/Vivado/octave_main
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent4976 D:\UNI\TFG\OctaveSax\Vivado\octave_main\octave_main.xpr
+# Log file: D:/UNI/TFG/OctaveSax/Vivado/octave_main/vivado.log
+# Journal file: D:/UNI/TFG/OctaveSax/Vivado/octave_main\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2017.4/data/ip'.
+open_project: Time (s): cpu = 00:00:09 ; elapsed = 00:00:06 . Memory (MB): peak = 747.578 ; gain = 60.617
+close [ open D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/display_interface.vhd w ]
+add_files D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/display_interface.vhd
+close [ open D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/display_counter.vhd w ]
+add_files D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/display_counter.vhd
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+[Sat Feb 23 18:23:57 2019] Launched synth_1...
+Run output will be captured here: D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+[Sat Feb 23 18:25:25 2019] Launched synth_1...
+Run output will be captured here: D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 2
+[Sat Feb 23 18:26:13 2019] Launched impl_1...
+Run output will be captured here: D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/impl_1/runme.log
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Sat Feb 23 18:37:28 2019] Launched impl_1...
+Run output will be captured here: D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/impl_1/runme.log
+exit
+INFO: [Common 17-206] Exiting Vivado at Sat Feb 23 18:39:09 2019...

@@ -6,12 +6,12 @@ entity shift_register is
            enable : in STD_LOGIC;
            reset : in STD_LOGIC;
            data_in : in STD_LOGIC;
-           data_out : out STD_LOGIC_VECTOR (11 downto 0));
+           data_out : out STD_LOGIC_VECTOR (23 downto 0));
 end shift_register;
 
 architecture Behavioral of shift_register is
 
-    signal r_reg, r_next : STD_LOGIC_VECTOR (11 downto 0);
+    signal r_reg, r_next : STD_LOGIC_VECTOR (23 downto 0);
     
     begin
     
@@ -24,7 +24,7 @@ architecture Behavioral of shift_register is
             end if;
     end process;
     
-    r_next <= r_reg(10 downto 0) & data_in;
+    r_next <= r_reg(22 downto 0) & data_in;
     
     data_out <= r_reg;
     

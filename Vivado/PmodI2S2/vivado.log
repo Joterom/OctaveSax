@@ -1,54 +1,40 @@
 #-----------------------------------------------------------
-# Vivado v2017.2 (64-bit)
-# SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
-# IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
-# Start of session at: Tue Feb  5 20:30:46 2019
-# Process ID: 7524
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Mon Feb 25 23:01:07 2019
+# Process ID: 8204
 # Current directory: D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent9344 D:\UNI\TFG\OctaveSax\Vivado\PmodI2S2\PmodI2S2.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent116 D:\UNI\TFG\OctaveSax\Vivado\PmodI2S2\PmodI2S2.xpr
 # Log file: D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/vivado.log
 # Journal file: D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2\vivado.jou
 #-----------------------------------------------------------
 start_gui
 open_project D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.xpr
-INFO: [Project 1-313] Project file moved from 'C:/Users/arthur/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-18508-WK142/PrjAr/_X_' since last save.
+INFO: [Project 1-313] Project file moved from '/home/joterom/workspace/OctaveSax/Vivado/PmodI2S2' since last save.
 Scanning sources...
 Finished scanning sources
-CRITICAL WARNING: [Project 1-505] Unrecognized Option Name CompiledLibDirXcelium
-CRITICAL WARNING: [Project 1-505] Unrecognized Option Name ProjectType
-WARNING: [filemgmt 56-2] IP Repository Path: Could not find the directory 'D:/../../../Documents/DigilentGit/Multi-Board-Project-Test/repo', nor could it be found using path 'C:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/repo'.
-CRITICAL WARNING: [Project 1-505] Unrecognized Option Name SimTypes
+WARNING: [filemgmt 56-2] IP Repository Path: Could not find the directory 'D:/../../../Documents/DigilentGit/Multi-Board-Project-Test/repo', nor could it be found using path 'D:/../../Documents/DigilentGit/Multi-Board-Project-Test/repo'.
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 WARNING: [IP_Flow 19-2248] Failed to load user IP repository 'd:/UNI/TFG/OctaveSax/Vivado/Documents/DigilentGit/Multi-Board-Project-Test/repo'; Can't find the specified path.
 If this directory should no longer be in your list of user repositories, go to the IP Settings dialog and remove it.
-INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2017.2/data/ip'.
-WARNING: [IP_Flow 19-2162] IP 'clk_wiz_0' is locked:
-* Project containing IP 'clk_wiz_0' is read-only.
-* IP definition 'Clocking Wizard (5.4)' for IP 'clk_wiz_0' (customized with software release 2017.4) has a different revision in the IP Catalog.
-Please select 'Report IP Status' from the 'Tools/Report' menu or run Tcl command 'report_ip_status' for more information.
-WARNING: [Project 1-231] Project 'PmodI2S2.xpr' was created with a future version and may or may not perform reliably with this version of Vivado. It has been opened in read-only mode for the protection of unrecognized data. Use 'File | Save Project As...' if you wish to alter a copy of the project.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2017.4/data/ip'.
+open_project: Time (s): cpu = 00:00:11 ; elapsed = 00:00:06 . Memory (MB): peak = 753.602 ; gain = 85.531
 update_compile_order -fileset sources_1
-save_project_as pmod_example D:/UNI/TFG/OctaveSax/Vivado/pmod_example -force
-WARNING: [IP_Flow 19-2162] IP 'clk_wiz_0' is locked:
-* IP definition 'Clocking Wizard (5.4)' for IP 'clk_wiz_0' (customized with software release 2017.4) has a different revision in the IP Catalog.
-Please select 'Report IP Status' from the 'Tools/Report' menu or run Tcl command 'report_ip_status' for more information.
-WARNING: [IP_Flow 19-2162] IP 'clk_wiz_0' is locked:
-* IP definition 'Clocking Wizard (5.4)' for IP 'clk_wiz_0' (customized with software release 2017.4) has a different revision in the IP Catalog.
-Please select 'Report IP Status' from the 'Tools/Report' menu or run Tcl command 'report_ip_status' for more information.
 open_hw
 connect_hw_server
 INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
 INFO: [Labtools 27-2222] Launching hw_server...
 INFO: [Labtools 27-2221] Launch Output:
 
-****** Xilinx hw_server v2017.2
-  **** Build date : Jun 15 2017-18:53:26
+****** Xilinx hw_server v2017.4
+  **** Build date : Dec 15 2017-21:08:27
     ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 
 
 open_hw_target
 INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210292AA76C7A
-set_property PROGRAM.FILE {D:/UNI/TFG/OctaveSax/Vivado/pmod_example/pmod_example.runs/impl_1/top.bit} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.runs/impl_1/top.bit} [get_hw_devices xc7a100t_0]
 current_hw_device [get_hw_devices xc7a100t_0]
 refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a100t_0] 0]
 INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
@@ -59,7 +45,7 @@ Resolution:
 For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
 set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
 set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
-set_property PROGRAM.FILE {D:/UNI/TFG/OctaveSax/Vivado/pmod_example/pmod_example.runs/impl_1/top.bit} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.runs/impl_1/top.bit} [get_hw_devices xc7a100t_0]
 program_hw_devices [get_hw_devices xc7a100t_0]
 INFO: [Labtools 27-3164] End of startup status: HIGH
 refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
@@ -70,20 +56,29 @@ Resolution:
 2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
 For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
 close_hw
+reset_run synth_1
+reset_run clk_wiz_0_synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Mon Feb 25 23:04:17 2019] Launched clk_wiz_0_synth_1, synth_1...
+Run output will be captured here:
+clk_wiz_0_synth_1: D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.runs/clk_wiz_0_synth_1/runme.log
+synth_1: D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.runs/synth_1/runme.log
+[Mon Feb 25 23:04:17 2019] Launched impl_1...
+Run output will be captured here: D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.runs/impl_1/runme.log
 open_hw
 connect_hw_server
 INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
 INFO: [Labtools 27-2222] Launching hw_server...
 INFO: [Labtools 27-2221] Launch Output:
 
-****** Xilinx hw_server v2017.2
-  **** Build date : Jun 15 2017-18:53:26
+****** Xilinx hw_server v2017.4
+  **** Build date : Dec 15 2017-21:08:27
     ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 
 
 open_hw_target
 INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210292AA76C7A
-set_property PROGRAM.FILE {D:/UNI/TFG/OctaveSax/Vivado/pmod_example/pmod_example.runs/impl_1/top.bit} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.runs/impl_1/top.bit} [get_hw_devices xc7a100t_0]
 current_hw_device [get_hw_devices xc7a100t_0]
 refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a100t_0] 0]
 INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
@@ -94,7 +89,7 @@ Resolution:
 For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
 set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
 set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
-set_property PROGRAM.FILE {D:/UNI/TFG/OctaveSax/Vivado/pmod_example/pmod_example.runs/impl_1/top.bit} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.runs/impl_1/top.bit} [get_hw_devices xc7a100t_0]
 program_hw_devices [get_hw_devices xc7a100t_0]
 INFO: [Labtools 27-3164] End of startup status: HIGH
 refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
@@ -104,41 +99,5 @@ Resolution:
 1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
 2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
 For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
-close_hw
-open_hw
-connect_hw_server
-INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
-INFO: [Labtools 27-2222] Launching hw_server...
-INFO: [Labtools 27-2221] Launch Output:
-
-****** Xilinx hw_server v2017.2
-  **** Build date : Jun 15 2017-18:53:26
-    ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
-
-
-open_hw_target
-INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210292AA76C7A
-set_property PROGRAM.FILE {D:/UNI/TFG/OctaveSax/Vivado/pmod_example/pmod_example.runs/impl_1/top.bit} [get_hw_devices xc7a100t_0]
-current_hw_device [get_hw_devices xc7a100t_0]
-refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a100t_0] 0]
-INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
-WARNING: [Labtools 27-3361] The debug hub core was not detected.
-Resolution: 
-1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
-2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
-For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
-set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
-set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
-set_property PROGRAM.FILE {D:/UNI/TFG/OctaveSax/Vivado/pmod_example/pmod_example.runs/impl_1/top.bit} [get_hw_devices xc7a100t_0]
-program_hw_devices [get_hw_devices xc7a100t_0]
-INFO: [Labtools 27-3164] End of startup status: HIGH
-refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
-INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
-WARNING: [Labtools 27-3361] The debug hub core was not detected.
-Resolution: 
-1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
-2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
-For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
-ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210292AA76C7A
 exit
-INFO: [Common 17-206] Exiting Vivado at Tue Feb  5 20:52:56 2019...
+INFO: [Common 17-206] Exiting Vivado at Mon Feb 25 23:09:44 2019...

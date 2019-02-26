@@ -16,32 +16,33 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
+set_param xicom.use_bs_reader 1
 create_project -in_memory -part xc7a100tcsg324-1
 
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
-set_property webtalk.parent_dir C:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/proj/PmodI2S2.cache/wt [current_project]
-set_property parent.project_path C:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/proj/PmodI2S2.xpr [current_project]
+set_property webtalk.parent_dir D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.cache/wt [current_project]
+set_property parent.project_path D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.xpr [current_project]
 set_property XPM_LIBRARIES XPM_CDC [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language VHDL [current_project]
-set_property board_part_repo_paths C:/Users/arthur/Documents/Github/vivado-boards/new/board_files [current_project]
+set_property board_part_repo_paths D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.board [current_project]
 set_property board_part digilentinc.com:arty-a7-100:part0:1.0 [current_project]
-set_property ip_repo_paths c:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/repo [current_project]
-set_property ip_output_repo c:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/repo/cache [current_project]
+set_property ip_repo_paths ../Documents/DigilentGit/Multi-Board-Project-Test/repo [current_project]
+set_property ip_output_repo d:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 set_property generic RESET_POLARITY=0 [current_fileset]
 read_verilog -library xil_defaultlib {
-  C:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/shared/src/hdl/axis_i2s2.v
-  C:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/shared/src/hdl/axis_volume_controller.v
-  C:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/shared/src/hdl/top.v
+  D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.srcs/sources_1/imports/hdl/axis_i2s2.v
+  D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.srcs/sources_1/imports/hdl/axis_volume_controller.v
+  D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.srcs/sources_1/imports/hdl/top.v
 }
-read_ip -quiet C:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/shared/src/ip/clk_wiz_0/clk_wiz_0.xci
-set_property used_in_implementation false [get_files -all c:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/shared/src/ip/clk_wiz_0/clk_wiz_0_board.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/shared/src/ip/clk_wiz_0/clk_wiz_0.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/shared/src/ip/clk_wiz_0/clk_wiz_0_ooc.xdc]
+read_ip -quiet D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.srcs/clk_wiz_0/ip/clk_wiz_0/clk_wiz_0.xci
+set_property used_in_implementation false [get_files -all d:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.srcs/clk_wiz_0/ip/clk_wiz_0/clk_wiz_0_board.xdc]
+set_property used_in_implementation false [get_files -all d:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.srcs/clk_wiz_0/ip/clk_wiz_0/clk_wiz_0.xdc]
+set_property used_in_implementation false [get_files -all d:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.srcs/clk_wiz_0/ip/clk_wiz_0/clk_wiz_0_ooc.xdc]
 
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -51,8 +52,8 @@ set_property used_in_implementation false [get_files -all c:/Users/arthur/Docume
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc C:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/arty-a7-100/src/constraints/Arty-A7-100-Master.xdc
-set_property used_in_implementation false [get_files C:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/arty-a7-100/src/constraints/Arty-A7-100-Master.xdc]
+read_xdc D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.srcs/constrs_1/imports/constraints/Arty-A7-100-Master.xdc
+set_property used_in_implementation false [get_files D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.srcs/constrs_1/imports/constraints/Arty-A7-100-Master.xdc]
 
 
 synth_design -top top -part xc7a100tcsg324-1 -flatten_hierarchy none -directive RuntimeOptimized -fsm_extraction off

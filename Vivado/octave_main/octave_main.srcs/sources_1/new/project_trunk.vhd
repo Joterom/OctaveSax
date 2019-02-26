@@ -4,7 +4,7 @@ use IEEE.NUMERIC_STD.ALL;
 
 package project_trunk is
     
-    constant sample_size : integer := 12;
+    constant sample_size : integer := 24;
     constant writing_cicle : integer := 27;
     constant reading_cicle : integer := 25;
     

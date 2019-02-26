@@ -65,21 +65,21 @@ start_step init_design
 set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
-  set_param board.repoPaths {C:/Users/arthur/Documents/Github/vivado-boards/new/board_files C:/Users/arthur/Documents/DigilentGit/vivado-boards-dev/board_files}
+  set_param xicom.use_bs_reader 1
   create_project -in_memory -part xc7a100tcsg324-1
-  set_property board_part_repo_paths C:/Users/arthur/Documents/Github/vivado-boards/new/board_files [current_project]
+  set_property board_part_repo_paths D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.board [current_project]
   set_property board_part digilentinc.com:arty-a7-100:part0:1.0 [current_project]
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
-  set_property webtalk.parent_dir C:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/proj/PmodI2S2.cache/wt [current_project]
-  set_property parent.project_path C:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/proj/PmodI2S2.xpr [current_project]
-  set_property ip_repo_paths C:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/repo [current_project]
-  set_property ip_output_repo C:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/repo/cache [current_project]
+  set_property webtalk.parent_dir D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.cache/wt [current_project]
+  set_property parent.project_path D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.xpr [current_project]
+  set_property ip_repo_paths D:/../../../Documents/DigilentGit/Multi-Board-Project-Test/repo [current_project]
+  set_property ip_output_repo D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
   set_property XPM_LIBRARIES XPM_CDC [current_project]
-  add_files -quiet C:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/proj/PmodI2S2.runs/synth_1/top.dcp
-  read_ip -quiet C:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/shared/src/ip/clk_wiz_0/clk_wiz_0.xci
-  read_xdc C:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/arty-a7-100/src/constraints/Arty-A7-100-Master.xdc
+  add_files -quiet D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.runs/synth_1/top.dcp
+  read_ip -quiet D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.srcs/clk_wiz_0/ip/clk_wiz_0/clk_wiz_0.xci
+  read_xdc D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.srcs/constrs_1/imports/constraints/Arty-A7-100-Master.xdc
   link_design -top top -part xc7a100tcsg324-1
   close_msg_db -file init_design.pb
 } RESULT]

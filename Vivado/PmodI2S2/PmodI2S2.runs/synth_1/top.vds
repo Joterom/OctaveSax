@@ -2,42 +2,40 @@
 # Vivado v2017.4 (64-bit)
 # SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
 # IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
-# Start of session at: Mon Apr 30 14:36:00 2018
-# Process ID: 2532
-# Current directory: C:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/proj/PmodI2S2.runs/synth_1
+# Start of session at: Mon Feb 25 23:04:57 2019
+# Process ID: 1440
+# Current directory: D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.runs/synth_1
 # Command line: vivado.exe -log top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
-# Log file: C:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/proj/PmodI2S2.runs/synth_1/top.vds
-# Journal file: C:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/proj/PmodI2S2.runs/synth_1\vivado.jou
+# Log file: D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.runs/synth_1/top.vds
+# Journal file: D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
-Sourcing tcl script 'C:/Users/arthur/AppData/Roaming/Xilinx/Vivado/Vivado_init.tcl'
-42 Beta devices matching pattern found, 0 enabled.
 source top.tcl -notrace
 Command: synth_design -top top -part xc7a100tcsg324-1 -flatten_hierarchy none -directive RuntimeOptimized -fsm_extraction off
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 15200 
+INFO: Helper process launched with PID 6500 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:04 . Memory (MB): peak = 462.672 ; gain = 100.250
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 351.691 ; gain = 99.102
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'top' [C:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/shared/src/hdl/top.v:20]
+INFO: [Synth 8-638] synthesizing module 'top' [D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.srcs/sources_1/imports/hdl/top.v:20]
 	Parameter NUMBER_OF_SWITCHES bound to: 4 - type: integer 
 	Parameter RESET_POLARITY bound to: 0 - type: integer 
-INFO: [Synth 8-638] synthesizing module 'clk_wiz_0' [C:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/proj/PmodI2S2.runs/synth_1/.Xil/Vivado-2532-WK142/realtime/clk_wiz_0_stub.vhdl:13]
-INFO: [Synth 8-638] synthesizing module 'axis_i2s2' [C:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/shared/src/hdl/axis_i2s2.v:24]
+INFO: [Synth 8-638] synthesizing module 'clk_wiz_0' [D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.runs/synth_1/.Xil/Vivado-1440-DESKTOP-DR3C0JT/realtime/clk_wiz_0_stub.vhdl:13]
+INFO: [Synth 8-638] synthesizing module 'axis_i2s2' [D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.srcs/sources_1/imports/hdl/axis_i2s2.v:24]
 	Parameter EOF_COUNT bound to: 9'b111000111 
-INFO: [Synth 8-256] done synthesizing module 'axis_i2s2' (1#1) [C:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/shared/src/hdl/axis_i2s2.v:24]
-WARNING: [Synth 8-689] width (24) of port connection 'tx_axis_s_data' does not match port width (32) of module 'axis_i2s2' [C:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/shared/src/hdl/top.v:60]
-WARNING: [Synth 8-689] width (24) of port connection 'rx_axis_m_data' does not match port width (32) of module 'axis_i2s2' [C:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/shared/src/hdl/top.v:65]
-INFO: [Synth 8-638] synthesizing module 'axis_volume_controller' [C:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/shared/src/hdl/axis_volume_controller.v:21]
+INFO: [Synth 8-256] done synthesizing module 'axis_i2s2' (1#1) [D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.srcs/sources_1/imports/hdl/axis_i2s2.v:24]
+WARNING: [Synth 8-689] width (24) of port connection 'tx_axis_s_data' does not match port width (32) of module 'axis_i2s2' [D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.srcs/sources_1/imports/hdl/top.v:60]
+WARNING: [Synth 8-689] width (24) of port connection 'rx_axis_m_data' does not match port width (32) of module 'axis_i2s2' [D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.srcs/sources_1/imports/hdl/top.v:65]
+INFO: [Synth 8-638] synthesizing module 'axis_volume_controller' [D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.srcs/sources_1/imports/hdl/axis_volume_controller.v:21]
 	Parameter SWITCH_WIDTH bound to: 4 - type: integer 
 	Parameter DATA_WIDTH bound to: 24 - type: integer 
 	Parameter MULTIPLIER_WIDTH bound to: 24 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'axis_volume_controller' (2#1) [C:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/shared/src/hdl/axis_volume_controller.v:21]
-INFO: [Synth 8-256] done synthesizing module 'top' (3#1) [C:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/shared/src/hdl/top.v:20]
+INFO: [Synth 8-256] done synthesizing module 'axis_volume_controller' (2#1) [D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.srcs/sources_1/imports/hdl/axis_volume_controller.v:21]
+INFO: [Synth 8-256] done synthesizing module 'top' (3#1) [D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.srcs/sources_1/imports/hdl/top.v:20]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 514.535 ; gain = 152.113
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:06 . Memory (MB): peak = 404.063 ; gain = 151.473
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -47,74 +45,74 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 514.535 ; gain = 152.113
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:06 . Memory (MB): peak = 404.063 ; gain = 151.473
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a100tcsg324-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [C:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/proj/PmodI2S2.runs/synth_1/.Xil/Vivado-2532-WK142/dcp1/clk_wiz_0_in_context.xdc] for cell 'm_clk'
-Finished Parsing XDC File [C:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/proj/PmodI2S2.runs/synth_1/.Xil/Vivado-2532-WK142/dcp1/clk_wiz_0_in_context.xdc] for cell 'm_clk'
-Parsing XDC File [C:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/arty-a7-100/src/constraints/Arty-A7-100-Master.xdc]
-Finished Parsing XDC File [C:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/arty-a7-100/src/constraints/Arty-A7-100-Master.xdc]
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/arty-a7-100/src/constraints/Arty-A7-100-Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_propImpl.xdc].
+Parsing XDC File [D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.runs/synth_1/.Xil/Vivado-1440-DESKTOP-DR3C0JT/dcp1/clk_wiz_0_in_context.xdc] for cell 'm_clk'
+Finished Parsing XDC File [D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.runs/synth_1/.Xil/Vivado-1440-DESKTOP-DR3C0JT/dcp1/clk_wiz_0_in_context.xdc] for cell 'm_clk'
+Parsing XDC File [D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.srcs/constrs_1/imports/constraints/Arty-A7-100-Master.xdc]
+Finished Parsing XDC File [D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.srcs/constrs_1/imports/constraints/Arty-A7-100-Master.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.srcs/constrs_1/imports/constraints/Arty-A7-100-Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 863.840 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 758.578 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 863.840 ; gain = 501.418
+Finished Constraint Validation : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 758.578 ; gain = 505.988
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 863.840 ; gain = 501.418
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 758.578 ; gain = 505.988
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
-Applied set_property IO_BUFFER_TYPE = NONE for clk. (constraint file  C:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/proj/PmodI2S2.runs/synth_1/.Xil/Vivado-2532-WK142/dcp1/clk_wiz_0_in_context.xdc, line 3).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for clk. (constraint file  C:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/proj/PmodI2S2.runs/synth_1/.Xil/Vivado-2532-WK142/dcp1/clk_wiz_0_in_context.xdc, line 4).
+Applied set_property IO_BUFFER_TYPE = NONE for clk. (constraint file  D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.runs/synth_1/.Xil/Vivado-1440-DESKTOP-DR3C0JT/dcp1/clk_wiz_0_in_context.xdc, line 3).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for clk. (constraint file  D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.runs/synth_1/.Xil/Vivado-1440-DESKTOP-DR3C0JT/dcp1/clk_wiz_0_in_context.xdc, line 4).
 Applied set_property DONT_TOUCH = true for m_clk. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 863.840 ; gain = 501.418
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 758.578 ; gain = 505.988
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-6014] Unused sequential element count_reg was removed.  [C:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/shared/src/hdl/axis_i2s2.v:51]
-INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 6 [C:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/shared/src/hdl/axis_volume_controller.v:76]
-INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 6 [C:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/shared/src/hdl/axis_volume_controller.v:77]
-WARNING: [Synth 8-6014] Unused sequential element multiplier_reg was removed.  [C:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/shared/src/hdl/axis_volume_controller.v:67]
-WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/shared/src/hdl/axis_volume_controller.v:76]
-WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/shared/src/hdl/axis_volume_controller.v:76]
-WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/shared/src/hdl/axis_volume_controller.v:76]
+WARNING: [Synth 8-6014] Unused sequential element count_reg was removed.  [D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.srcs/sources_1/imports/hdl/axis_i2s2.v:51]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 6 [D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.srcs/sources_1/imports/hdl/axis_volume_controller.v:76]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 6 [D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.srcs/sources_1/imports/hdl/axis_volume_controller.v:77]
+WARNING: [Synth 8-6014] Unused sequential element multiplier_reg was removed.  [D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.srcs/sources_1/imports/hdl/axis_volume_controller.v:67]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.srcs/sources_1/imports/hdl/axis_volume_controller.v:76]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.srcs/sources_1/imports/hdl/axis_volume_controller.v:76]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.srcs/sources_1/imports/hdl/axis_volume_controller.v:76]
 WARNING: [Synth 8-6014] Unused sequential element  was removed. 
-WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/shared/src/hdl/axis_volume_controller.v:76]
-WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/shared/src/hdl/axis_volume_controller.v:76]
-WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/shared/src/hdl/axis_volume_controller.v:76]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.srcs/sources_1/imports/hdl/axis_volume_controller.v:76]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.srcs/sources_1/imports/hdl/axis_volume_controller.v:76]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.srcs/sources_1/imports/hdl/axis_volume_controller.v:76]
 WARNING: [Synth 8-6014] Unused sequential element  was removed. 
-WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/shared/src/hdl/axis_volume_controller.v:76]
-WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/shared/src/hdl/axis_volume_controller.v:76]
-WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/shared/src/hdl/axis_volume_controller.v:76]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.srcs/sources_1/imports/hdl/axis_volume_controller.v:76]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.srcs/sources_1/imports/hdl/axis_volume_controller.v:76]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.srcs/sources_1/imports/hdl/axis_volume_controller.v:76]
 WARNING: [Synth 8-6014] Unused sequential element  was removed. 
-WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/shared/src/hdl/axis_volume_controller.v:77]
-WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/shared/src/hdl/axis_volume_controller.v:77]
-WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/shared/src/hdl/axis_volume_controller.v:77]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.srcs/sources_1/imports/hdl/axis_volume_controller.v:77]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.srcs/sources_1/imports/hdl/axis_volume_controller.v:77]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.srcs/sources_1/imports/hdl/axis_volume_controller.v:77]
 WARNING: [Synth 8-6014] Unused sequential element  was removed. 
-WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/shared/src/hdl/axis_volume_controller.v:77]
-WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/shared/src/hdl/axis_volume_controller.v:77]
-WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/shared/src/hdl/axis_volume_controller.v:77]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.srcs/sources_1/imports/hdl/axis_volume_controller.v:77]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.srcs/sources_1/imports/hdl/axis_volume_controller.v:77]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.srcs/sources_1/imports/hdl/axis_volume_controller.v:77]
 WARNING: [Synth 8-6014] Unused sequential element  was removed. 
-WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/shared/src/hdl/axis_volume_controller.v:77]
-WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/shared/src/hdl/axis_volume_controller.v:77]
-WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/shared/src/hdl/axis_volume_controller.v:77]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.srcs/sources_1/imports/hdl/axis_volume_controller.v:77]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.srcs/sources_1/imports/hdl/axis_volume_controller.v:77]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.srcs/sources_1/imports/hdl/axis_volume_controller.v:77]
 WARNING: [Synth 8-6014] Unused sequential element  was removed. 
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 863.840 ; gain = 501.418
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 758.578 ; gain = 505.988
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -282,7 +280,7 @@ WARNING: [Synth 8-3332] Sequential element (data_reg[1][2]) is unused and will b
 WARNING: [Synth 8-3332] Sequential element (data_reg[1][1]) is unused and will be removed from module axis_volume_controller.
 WARNING: [Synth 8-3332] Sequential element (data_reg[1][0]) is unused and will be removed from module axis_volume_controller.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:19 . Memory (MB): peak = 863.840 ; gain = 501.418
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 758.578 ; gain = 505.988
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -296,7 +294,7 @@ Start Applying XDC Timing Constraints
 INFO: [Synth 8-5578] Moved timing constraint from pin 'm_clk/axis_clk' to pin 'm_clk/bbstub_axis_clk/O'
 INFO: [Synth 8-5819] Moved 1 constraints on hierarchical pins to their respective driving/loading pins
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:31 ; elapsed = 00:00:31 . Memory (MB): peak = 905.832 ; gain = 543.410
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:35 ; elapsed = 00:00:35 . Memory (MB): peak = 805.352 ; gain = 552.762
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -308,7 +306,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 929.141 ; gain = 566.719
+Finished Technology Mapping : Time (s): cpu = 00:00:36 ; elapsed = 00:00:36 . Memory (MB): peak = 828.223 ; gain = 575.633
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -326,7 +324,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 929.141 ; gain = 566.719
+Finished IO Insertion : Time (s): cpu = 00:00:37 ; elapsed = 00:00:37 . Memory (MB): peak = 828.223 ; gain = 575.633
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -339,7 +337,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 929.141 ; gain = 566.719
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:37 ; elapsed = 00:00:37 . Memory (MB): peak = 828.223 ; gain = 575.633
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -351,7 +349,7 @@ Report RTL Partitions:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 929.141 ; gain = 566.719
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:37 ; elapsed = 00:00:37 . Memory (MB): peak = 828.223 ; gain = 575.633
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -392,11 +390,11 @@ Report Instance Areas:
 |3     |  m_vc   |axis_volume_controller |   307|
 +------+---------+-----------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 929.141 ; gain = 566.719
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:37 ; elapsed = 00:00:37 . Memory (MB): peak = 828.223 ; gain = 575.633
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 106 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:23 ; elapsed = 00:00:28 . Memory (MB): peak = 929.141 ; gain = 217.414
-Synthesis Optimization Complete : Time (s): cpu = 00:00:33 ; elapsed = 00:00:33 . Memory (MB): peak = 929.141 ; gain = 566.719
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:25 ; elapsed = 00:00:31 . Memory (MB): peak = 828.223 ; gain = 221.117
+Synthesis Optimization Complete : Time (s): cpu = 00:00:37 ; elapsed = 00:00:37 . Memory (MB): peak = 828.223 ; gain = 575.633
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 32 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -408,8 +406,8 @@ No Unisim elements were transformed.
 INFO: [Common 17-83] Releasing license: Synthesis
 23 Infos, 108 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 929.141 ; gain = 570.734
-INFO: [Common 17-1381] The checkpoint 'C:/Users/arthur/Documents/DigilentGit/Multi-Board-Project-Test/proj/PmodI2S2.runs/synth_1/top.dcp' has been generated.
+synth_design: Time (s): cpu = 00:00:38 ; elapsed = 00:00:41 . Memory (MB): peak = 828.223 ; gain = 587.105
+INFO: [Common 17-1381] The checkpoint 'D:/UNI/TFG/OctaveSax/Vivado/PmodI2S2/PmodI2S2.runs/synth_1/top.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.057 . Memory (MB): peak = 929.141 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Mon Apr 30 14:36:45 2018...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.035 . Memory (MB): peak = 828.223 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Mon Feb 25 23:05:43 2019...
