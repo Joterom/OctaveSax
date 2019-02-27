@@ -69,3 +69,5 @@
 4.2.4 Codigo limpiado y programacion de los display
 4.3 Pruebas con el algoritmo IIR
 4.3.4 Mas pruebas con Hilbert
+27-2-19
+4.3.5 Vuelta al phase vocoder y pruebas entrada salida

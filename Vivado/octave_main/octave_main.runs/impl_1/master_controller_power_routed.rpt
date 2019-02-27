@@ -1,8 +1,8 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-| Tool Version     : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-| Date             : Mon Feb 25 22:58:48 2019
-| Host             : DESKTOP-DR3C0JT running 64-bit major release  (build 9200)
+| Tool Version     : Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
+| Date             : Wed Feb 27 16:45:37 2019
+| Host             : vhdl-2018 running 64-bit Ubuntu 18.04.1 LTS
 | Command          : report_power -file master_controller_power_routed.rpt -pb master_controller_power_summary_routed.pb -rpx master_controller_power_routed.rpx
 | Design           : master_controller
 | Device           : xc7a100tcsg324-1
@@ -38,7 +38,7 @@ Table of Contents
 | Effective TJA (C/W)      | 4.6          |
 | Max Ambient (C)          | 84.0         |
 | Junction Temperature (C) | 26.0         |
-| Confidence Level         | Medium       |
+| Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
 | Design Nets Matched      | NA           |
@@ -53,13 +53,13 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |     0.002 |       10 |       --- |             --- |
-| Slice Logic    |    <0.001 |      280 |       --- |             --- |
-|   LUT as Logic |    <0.001 |      104 |     63400 |            0.16 |
-|   CARRY4       |    <0.001 |       15 |     15850 |            0.09 |
-|   Register     |    <0.001 |      118 |    126800 |            0.09 |
+| Slice Logic    |    <0.001 |      230 |       --- |             --- |
+|   LUT as Logic |    <0.001 |       74 |     63400 |            0.12 |
+|   CARRY4       |    <0.001 |       11 |     15850 |            0.07 |
+|   Register     |    <0.001 |      103 |    126800 |            0.08 |
 |   Others       |     0.000 |       20 |       --- |             --- |
-|   F7/F8 Muxes  |     0.000 |        2 |     63400 |           <0.01 |
-| Signals        |    <0.001 |      210 |       --- |             --- |
+|   F7/F8 Muxes  |     0.000 |        1 |     63400 |           <0.01 |
+| Signals        |    <0.001 |      187 |       --- |             --- |
 | Block RAM      |    <0.001 |        3 |       135 |            2.22 |
 | MMCM           |     0.106 |        1 |         6 |           16.67 |
 | I/O            |     0.013 |       24 |       210 |           11.43 |
@@ -74,7 +74,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.019 |       0.004 |      0.015 |
+| Vccint    |       1.000 |     0.019 |       0.003 |      0.015 |
 | Vccaux    |       1.800 |     0.077 |       0.059 |      0.018 |
 | Vcco33    |       3.300 |     0.008 |       0.004 |      0.004 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
@@ -97,12 +97,12 @@ Table of Contents
 | User Input Data             | Confidence | Details                                               | Action                                                                                                             |
 +-----------------------------+------------+-------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------+
 | Design implementation state | High       | Design is routed                                      |                                                                                                                    |
-| Clock nodes activity        | Medium     | More than 5% of clocks are missing user specification | Provide missing clock activity with a constraint file, simulation results or by editing the "By Clock Domain" view |
+| Clock nodes activity        | Low        | User specified less than 75% of clocks                | Provide missing clock activity with a constraint file, simulation results or by editing the "By Clock Domain" view |
 | I/O nodes activity          | Medium     | More than 5% of inputs are missing user specification | Provide missing input activity with simulation results or by editing the "By Resource Type -> I/Os" view           |
 | Internal nodes activity     | Medium     | User specified less than 25% of internal nodes        | Provide missing internal nodes activity with simulation results or by editing the "By Resource Type" views         |
 | Device models               | High       | Device models are Production                          |                                                                                                                    |
 |                             |            |                                                       |                                                                                                                    |
-| Overall confidence level    | Medium     |                                                       |                                                                                                                    |
+| Overall confidence level    | Low        |                                                       |                                                                                                                    |
 +-----------------------------+------------+-------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------+
 
 

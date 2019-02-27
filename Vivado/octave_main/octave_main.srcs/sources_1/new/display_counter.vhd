@@ -19,7 +19,7 @@ end display_counter;
 
 architecture Behavioral of display_counter is
 
-    signal counter, counter_next : STD_LOGIC_VECTOR (32 downto 0) := (others => '0');
+    signal counter, counter_next : STD_LOGIC_VECTOR (17 downto 0) := (others => '0');
     
 begin
     -- Register logic
@@ -35,7 +35,7 @@ begin
     -- Combinational logic
     process (counter)
         begin
-            if counter = "100101010000001011111001000000000" then -- Limit reached so reset
+            if counter = "111101000010010000" then -- Limit reached so reset
                 counter_next <= (others => '0');
                 ref_rate <= '1';
             else -- Counts

@@ -242,7 +242,7 @@ begin
     MCLK_DAC  <= MCLK; --and start_reading;
     SCLK_DAC <= SCLK; --and start_reading;
     LR_W_SEL_DAC <= LR_W_SEL; --and start_reading;  
-    sample_towrite <= "000" & storaged_sample(23 downto 3); --when LR_W_SEL = '0' else
+    sample_towrite <= storaged_sample(23 downto 0); --when LR_W_SEL = '0' else
                       --(others => '0');
     
     DATA_OUT <= DATA_OUTr;

@@ -2,8 +2,8 @@
 # Vivado v2017.4 (64-bit)
 # SW Build 2086221 on Fri Dec 15 20:54:30 MST 2017
 # IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
-# Start of session at: Mon Feb 25 16:10:10 2019
-# Process ID: 21723
+# Start of session at: Wed Feb 27 16:11:36 2019
+# Process ID: 31054
 # Current directory: /home/joterom/workspace/OctaveSax
 # Command line: vivado
 # Log file: /home/joterom/workspace/OctaveSax/vivado.log
@@ -11,3 +11,51 @@
 #-----------------------------------------------------------
 start_gui
 open_project /home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.xpr
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+close [ open /home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sim_1/new/display_test.vhd w ]
+add_files -fileset sim_1 /home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sim_1/new/display_test.vhd
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top display_test [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode DisplayOnly [current_project]
+launch_simulation
+open_wave_config /home/joterom/workspace/OctaveSax/Vivado/octave_main/test.wcfg
+source display_test.tcl
+restart
+run 1 ms
+run 10 ms
+restart
+run 20 ms
+restart
+restart
+run 10 ms
+relaunch_sim
+restart
+run 10 ms
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+wait_on_run impl_1
+open_hw
+connect_hw_server
+disconnect_hw_server localhost:3121
+connect_hw_server
+disconnect_hw_server localhost:3121
+connect_hw_server
+close_hw
+close_sim
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top main_tb [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode DisplayOnly [current_project]
+launch_simulation
+open_wave_config /home/joterom/workspace/OctaveSax/Vivado/octave_main/test.wcfg
+source main_tb.tcl
+restart
+run 10 us
+restart
+run 300 us
+close_sim
