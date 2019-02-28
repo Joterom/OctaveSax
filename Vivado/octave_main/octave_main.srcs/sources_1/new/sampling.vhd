@@ -54,7 +54,7 @@ begin
             elsif rising_edge(clk_50MHz) then              
                 count <= count + "00000001";
                 lr <= not lr_next;
-                sc <= not sc_next;
+                sc <= sc_next;
                 mc <= not mc_next;
                 half_sc <= not half_sc_next;  
                 init <= init_next;                                    
@@ -68,7 +68,7 @@ begin
                     frame_num <= (others => '0');
                   elsif init = '1' then
                     frame_num <= (others => '0');
-                  elsif rising_edge(sc) then -- At SCLK frequency                 
+                  elsif falling_edge(sc) then -- At SCLK frequency                 
                     frame_num <= frame_number_next;                      
                   end if;
               end process;

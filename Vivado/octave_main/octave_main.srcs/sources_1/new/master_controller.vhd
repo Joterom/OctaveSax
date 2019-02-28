@@ -84,7 +84,7 @@ architecture Behavioral of master_controller is
     signal MCLK, SCLK, LR_W_SEL, clk_100MHz, clk_50MHz : STD_LOGIC := '0';
     signal write_address, write_address_next, read_address, read_address_next, address  : STD_LOGIC_VECTOR (11 downto 0) := (others => '0');
     signal read_sample, sample_towrite_ready, sample_in_ready, write_sample : STD_LOGIC := '0';
-    signal start_reading, start_reading_next, half_sc, clk_reg, DATA_OUT_n, DATA_OUTr : STD_LOGIC := '0';
+    signal start_reading, start_reading_next, DATA_OUT_n, DATA_OUTr : STD_LOGIC := '0';
     signal sample_towrite : STD_LOGIC_VECTOR (23 downto 0) := (others => '0');
     
 begin  
@@ -100,8 +100,7 @@ begin
         sample_towrite_ready => sample_towrite_ready,
         -- CLKs        
         MCLK => MCLK,
-        SCLK => SCLK,
-        SC_2 => half_sc,
+        SCLK => SCLK,        
         LR_W_SEL => LR_W_SEL        
     );
     
@@ -116,7 +115,7 @@ begin
     );
     
     SHFT : shift_register port map(
-        clk => clk_reg,
+        clk => sclk,
         enable => enable_shift,
         reset => reset,
         data_in => DATA_IN,
@@ -154,8 +153,7 @@ begin
     end process;
     
     -- Generates enable signal used by the shift-register
-    enable_shift_next <= '1' when (frame_number >= 0 and frame_number <= sample_size-1) and half_sc = '1' else
-                         enable_shift when half_sc = '0' else
+    enable_shift_next <= '1' when (frame_number >= 1 and frame_number <= sample_size) else                         
                          '0';
     
     memo_logic : process(sample_in_ready, sample_towrite_ready, write_address, start_reading, read_address)
@@ -192,11 +190,11 @@ begin
     end process;
     
     -- Writing dac mode: takes sample from the previously loaded register and links it to output data
-    write_dac : process(clk_reg, frame_number, start_reading, sample_towrite)
+    write_dac : process(frame_number, start_reading, sample_towrite)
         begin 
             DATA_OUT_n <= '0';
             if start_reading = '1' then                
-                if clk_reg = '1' then
+               --if clk_reg = '1' then
                     case frame_number is
                         when "00001" => DATA_OUT_n <= sample_towrite(23);
                         when "00010" => DATA_OUT_n <= sample_towrite(22);
@@ -224,9 +222,9 @@ begin
                         when "11000" => DATA_OUT_n <= sample_towrite(0);
                         when others => DATA_OUT_n <= '0';
                     end case;
-                else
-                    DATA_OUT_n <= DATA_OUTr;
-                end if;
+                --else
+                   -- DATA_OUT_n <= DATA_OUTr;
+               -- end if;
             end if;
     end process;
      
@@ -234,7 +232,7 @@ begin
     address <= write_address when write_sample = '1' else
                read_address when read_sample = '1' else
                (others => '0');
-    clk_reg <= SCLK and not half_sc;           
+    --clk_reg <= SCLK and not half_sc;           
     -- Output signals assignment
     MCLK_ADC <= MCLK;
     SCLK_ADC <= SCLK;

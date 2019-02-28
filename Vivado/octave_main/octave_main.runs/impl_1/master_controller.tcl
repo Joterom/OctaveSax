@@ -68,15 +68,15 @@ set rc [catch {
   create_project -in_memory -part xc7a100tcsg324-1
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
-  set_property webtalk.parent_dir /home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.cache/wt [current_project]
-  set_property parent.project_path /home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.xpr [current_project]
-  set_property ip_output_repo /home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.cache/ip [current_project]
+  set_property webtalk.parent_dir D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.cache/wt [current_project]
+  set_property parent.project_path D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.xpr [current_project]
+  set_property ip_output_repo D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
   set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
-  add_files -quiet /home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/master_controller.dcp
-  read_ip -quiet /home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/ram_memory/ram_memory.xci
-  read_ip -quiet /home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/clk_generator/clk_generator.xci
-  read_xdc /home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/constrs_1/imports/Downloads/Nexys4DDR_Master.xdc
+  add_files -quiet D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/master_controller.dcp
+  read_ip -quiet D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/ram_memory/ram_memory.xci
+  read_ip -quiet D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/clk_generator/clk_generator.xci
+  read_xdc D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/constrs_1/imports/Downloads/Nexys4DDR_Master.xdc
   link_design -top master_controller -part xc7a100tcsg324-1
   close_msg_db -file init_design.pb
 } RESULT]

@@ -71,3 +71,5 @@
 4.3.4 Mas pruebas con Hilbert
 27-2-19
 4.3.5 Vuelta al phase vocoder y pruebas entrada salida
+28-2-19
+4.4 Entrada/salida implementada
