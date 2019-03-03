@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-| Date         : Thu Feb 28 20:28:31 2019
+| Date         : Sun Mar  3 21:35:44 2019
 | Host         : DESKTOP-DR3C0JT running 64-bit major release  (build 9200)
 | Command      : report_methodology -file master_controller_methodology_drc_routed.rpt -pb master_controller_methodology_drc_routed.pb -rpx master_controller_methodology_drc_routed.rpx
 | Design       : master_controller
@@ -23,12 +23,12 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 59
+             Violations found: 51
 +-----------+----------+------------------------------------------------+------------+
 | Rule      | Severity | Description                                    | Violations |
 +-----------+----------+------------------------------------------------+------------+
 | TIMING-6  | Warning  | No common primary clock between related clocks | 8          |
-| TIMING-17 | Warning  | Non-clocked sequential cell                    | 29         |
+| TIMING-17 | Warning  | Non-clocked sequential cell                    | 21         |
 | TIMING-18 | Warning  | Missing input or output delay                  | 22         |
 +-----------+----------+------------------------------------------------+------------+
 
@@ -136,85 +136,45 @@ Related violations: <none>
 
 TIMING-17#13 Warning
 Non-clocked sequential cell  
-The clock pin SHFT/r_reg_reg[16]/C is not reached by a timing clock
+The clock pin SHFT/r_reg_reg[1]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#14 Warning
 Non-clocked sequential cell  
-The clock pin SHFT/r_reg_reg[17]/C is not reached by a timing clock
+The clock pin SHFT/r_reg_reg[2]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#15 Warning
 Non-clocked sequential cell  
-The clock pin SHFT/r_reg_reg[18]/C is not reached by a timing clock
+The clock pin SHFT/r_reg_reg[3]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#16 Warning
 Non-clocked sequential cell  
-The clock pin SHFT/r_reg_reg[19]/C is not reached by a timing clock
+The clock pin SHFT/r_reg_reg[4]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#17 Warning
 Non-clocked sequential cell  
-The clock pin SHFT/r_reg_reg[1]/C is not reached by a timing clock
+The clock pin SHFT/r_reg_reg[5]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#18 Warning
 Non-clocked sequential cell  
-The clock pin SHFT/r_reg_reg[20]/C is not reached by a timing clock
+The clock pin SHFT/r_reg_reg[6]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#19 Warning
 Non-clocked sequential cell  
-The clock pin SHFT/r_reg_reg[21]/C is not reached by a timing clock
+The clock pin SHFT/r_reg_reg[7]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#20 Warning
 Non-clocked sequential cell  
-The clock pin SHFT/r_reg_reg[22]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#21 Warning
-Non-clocked sequential cell  
-The clock pin SHFT/r_reg_reg[23]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#22 Warning
-Non-clocked sequential cell  
-The clock pin SHFT/r_reg_reg[2]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#23 Warning
-Non-clocked sequential cell  
-The clock pin SHFT/r_reg_reg[3]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#24 Warning
-Non-clocked sequential cell  
-The clock pin SHFT/r_reg_reg[4]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#25 Warning
-Non-clocked sequential cell  
-The clock pin SHFT/r_reg_reg[5]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#26 Warning
-Non-clocked sequential cell  
-The clock pin SHFT/r_reg_reg[6]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#27 Warning
-Non-clocked sequential cell  
-The clock pin SHFT/r_reg_reg[7]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#28 Warning
-Non-clocked sequential cell  
 The clock pin SHFT/r_reg_reg[8]/C is not reached by a timing clock
 Related violations: <none>
 
-TIMING-17#29 Warning
+TIMING-17#21 Warning
 Non-clocked sequential cell  
 The clock pin SHFT/r_reg_reg[9]/C is not reached by a timing clock
 Related violations: <none>

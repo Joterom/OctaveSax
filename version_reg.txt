@@ -73,3 +73,5 @@
 4.3.5 Vuelta al phase vocoder y pruebas entrada salida
 28-2-19
 4.4 Entrada/salida implementada
+3-3-2019
+4.4.1 Entrada/salida con longitud de palabra definitiva

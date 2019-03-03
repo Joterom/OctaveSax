@@ -170,7 +170,7 @@ begin
                 if write_address = 8 then
                     start_reading_next <= '1'; -- SOLO PARA DEJAR ESTE HUECO OJO
                     write_address_next <= write_address + 1;
-                elsif write_address = "000000001111" then -- Keep taking samples from the beginning
+                elsif write_address = "111111111111" then -- Keep taking samples from the beginning
                     write_address_next <= (others => '0');
                 else 
                     write_address_next <= write_address + 1;
@@ -180,7 +180,7 @@ begin
             if sample_towrite_ready = '1' then
                 if start_reading = '1' then
                     read_sample <= '1';
-                    if read_address = "000000001111" then -- Keep taking samples from the beginning
+                    if read_address = "111111111111" then -- Keep taking samples from the beginning
                         read_address_next <= (others => '0');
                     else
                         read_address_next <= read_address + 1;
@@ -226,7 +226,7 @@ begin
                    -- DATA_OUT_n <= DATA_OUTr;
                -- end if;
             end if;
-    end process;
+    end process; 
      
     -- Toggles ram address depending on current mode  
     address <= write_address when write_sample = '1' else
@@ -240,7 +240,7 @@ begin
     MCLK_DAC  <= MCLK; --and start_reading;
     SCLK_DAC <= SCLK; --and start_reading;
     LR_W_SEL_DAC <= LR_W_SEL; --and start_reading;  
-    sample_towrite <= storaged_sample(23 downto 0); --when LR_W_SEL = '0' else
+    sample_towrite <= storaged_sample & "00000000"; --when LR_W_SEL = '0' else
                       --(others => '0');
     
     DATA_OUT <= DATA_OUTr;

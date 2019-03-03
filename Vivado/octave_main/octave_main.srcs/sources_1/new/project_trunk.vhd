@@ -1,14 +1,22 @@
+-- Javier Otero Martinez
+-- OctaveSax project -- TFG
+-- June 2019 
+
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
 package project_trunk is
     
-    constant sample_size : integer := 24;
+    -- Number of bits per sample, it changes everything automatically except ram memory ip which should be
+    --    set manually
+    constant sample_size : integer := 16;
+    -- Cicle in which data is read from memory and transferred to output buffer
     constant writing_cicle : integer := 27;
+    -- Cicle in which data is read from input and written into memory
     constant reading_cicle : integer := 25;
     
--- Display characters
+-- Every available display letters
     constant off : STD_LOGIC_VECTOR (6 downto 0) := "1111111"; 
     constant a : STD_LOGIC_VECTOR (6 downto 0) := "0001000";
     --constant b : STD_LOGIC_VECTOR (6 downto 0) := "0000011";
