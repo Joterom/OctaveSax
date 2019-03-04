@@ -66,7 +66,7 @@ ENTITY fft_ip IS
     s_axis_data_tvalid : IN STD_LOGIC;
     s_axis_data_tready : OUT STD_LOGIC;
     s_axis_data_tlast : IN STD_LOGIC;
-    m_axis_data_tdata : OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
+    m_axis_data_tdata : OUT STD_LOGIC_VECTOR(47 DOWNTO 0);
     m_axis_data_tuser : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
     m_axis_data_tvalid : OUT STD_LOGIC;
     m_axis_data_tready : IN STD_LOGIC;
@@ -130,7 +130,7 @@ ARCHITECTURE fft_ip_arch OF fft_ip IS
       s_axis_data_tvalid : IN STD_LOGIC;
       s_axis_data_tready : OUT STD_LOGIC;
       s_axis_data_tlast : IN STD_LOGIC;
-      m_axis_data_tdata : OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
+      m_axis_data_tdata : OUT STD_LOGIC_VECTOR(47 DOWNTO 0);
       m_axis_data_tuser : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
       m_axis_data_tvalid : OUT STD_LOGIC;
       m_axis_data_tready : IN STD_LOGIC;
@@ -165,7 +165,7 @@ ARCHITECTURE fft_ip_arch OF fft_ip IS
   ATTRIBUTE X_INTERFACE_INFO OF m_axis_data_tready: SIGNAL IS "xilinx.com:interface:axis:1.0 M_AXIS_DATA TREADY";
   ATTRIBUTE X_INTERFACE_INFO OF m_axis_data_tvalid: SIGNAL IS "xilinx.com:interface:axis:1.0 M_AXIS_DATA TVALID";
   ATTRIBUTE X_INTERFACE_INFO OF m_axis_data_tuser: SIGNAL IS "xilinx.com:interface:axis:1.0 M_AXIS_DATA TUSER";
-  ATTRIBUTE X_INTERFACE_PARAMETER OF m_axis_data_tdata: SIGNAL IS "XIL_INTERFACENAME M_AXIS_DATA, TDATA_NUM_BYTES 8, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 16, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 1, FREQ_HZ 100000000, PHASE 0.000, LAYERED_METADATA undef";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF m_axis_data_tdata: SIGNAL IS "XIL_INTERFACENAME M_AXIS_DATA, TDATA_NUM_BYTES 6, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 16, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 1, FREQ_HZ 100000000, PHASE 0.000, LAYERED_METADATA undef";
   ATTRIBUTE X_INTERFACE_INFO OF m_axis_data_tdata: SIGNAL IS "xilinx.com:interface:axis:1.0 M_AXIS_DATA TDATA";
   ATTRIBUTE X_INTERFACE_INFO OF s_axis_data_tlast: SIGNAL IS "xilinx.com:interface:axis:1.0 S_AXIS_DATA TLAST";
   ATTRIBUTE X_INTERFACE_INFO OF s_axis_data_tready: SIGNAL IS "xilinx.com:interface:axis:1.0 S_AXIS_DATA TREADY";
@@ -184,7 +184,7 @@ BEGIN
       C_XDEVICEFAMILY => "artix7",
       C_S_AXIS_CONFIG_TDATA_WIDTH => 8,
       C_S_AXIS_DATA_TDATA_WIDTH => 32,
-      C_M_AXIS_DATA_TDATA_WIDTH => 64,
+      C_M_AXIS_DATA_TDATA_WIDTH => 48,
       C_M_AXIS_DATA_TUSER_WIDTH => 16,
       C_M_AXIS_STATUS_TDATA_WIDTH => 1,
       C_THROTTLE_SCHEME => 1,
@@ -193,9 +193,9 @@ BEGIN
       C_ARCH => 3,
       C_HAS_NFFT => 0,
       C_USE_FLT_PT => 0,
-      C_INPUT_WIDTH => 16,
-      C_TWIDDLE_WIDTH => 16,
-      C_OUTPUT_WIDTH => 27,
+      C_INPUT_WIDTH => 12,
+      C_TWIDDLE_WIDTH => 12,
+      C_OUTPUT_WIDTH => 23,
       C_HAS_SCALING => 0,
       C_HAS_BFP => 0,
       C_HAS_ROUNDING => 0,
@@ -203,7 +203,7 @@ BEGIN
       C_HAS_ARESETN => 0,
       C_HAS_OVFLO => 0,
       C_HAS_NATURAL_INPUT => 1,
-      C_HAS_NATURAL_OUTPUT => 0,
+      C_HAS_NATURAL_OUTPUT => 1,
       C_HAS_CYCLIC_PREFIX => 0,
       C_HAS_XK_INDEX => 1,
       C_DATA_MEM_TYPE => 1,

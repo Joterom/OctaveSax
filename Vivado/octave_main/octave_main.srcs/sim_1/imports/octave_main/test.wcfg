@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="main_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="main_tb" />
+            <top_module name="project_trunk" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="9028000000fs"></ZoomStartTime>
+      <ZoomEndTime time="10590000001fs"></ZoomEndTime>
+      <Cursor1Time time="9404000000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="197"></NameColumnWidth>
+      <ValueColumnWidth column_width="202"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="9" />
+   <wvobject type="logic" fp_name="/main_tb/UUT/clk_100MHz">
+      <obj_property name="ElementShortName">clk_100MHz</obj_property>
+      <obj_property name="ObjectShortName">clk_100MHz</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/main_tb/UUT/MCLK">
+      <obj_property name="ElementShortName">MCLK</obj_property>
+      <obj_property name="ObjectShortName">MCLK</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/main_tb/UUT/SCLK">
+      <obj_property name="ElementShortName">SCLK</obj_property>
+      <obj_property name="ObjectShortName">SCLK</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/main_tb/UUT/LR_W_SEL">
+      <obj_property name="ElementShortName">LR_W_SEL</obj_property>
+      <obj_property name="ObjectShortName">LR_W_SEL</obj_property>
+   </wvobject>
+   <wvobject type="group" fp_name="group27">
+      <obj_property name="label">IN/OUT</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject type="logic" fp_name="/main_tb/UUT/DATA_OUT">
+         <obj_property name="ElementShortName">DATA_OUT</obj_property>
+         <obj_property name="ObjectShortName">DATA_OUT</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/main_tb/DATA_IN">
+         <obj_property name="ElementShortName">DATA_IN</obj_property>
+         <obj_property name="ObjectShortName">DATA_IN</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="array" fp_name="/main_tb/UUT/frame_number">
+      <obj_property name="ElementShortName">frame_number[4:0]</obj_property>
+      <obj_property name="ObjectShortName">frame_number[4:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="group" fp_name="group29">
+      <obj_property name="label">Writing</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject type="logic" fp_name="/main_tb/UUT/sample_in_ready">
+         <obj_property name="ElementShortName">sample_in_ready</obj_property>
+         <obj_property name="ObjectShortName">sample_in_ready</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/main_tb/UUT/enable_shift">
+         <obj_property name="ElementShortName">enable_shift</obj_property>
+         <obj_property name="ObjectShortName">enable_shift</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/main_tb/UUT/write_sample">
+         <obj_property name="ElementShortName">write_sample</obj_property>
+         <obj_property name="ObjectShortName">write_sample</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/main_tb/UUT/input_reg">
+         <obj_property name="ElementShortName">input_reg[15:0]</obj_property>
+         <obj_property name="ObjectShortName">input_reg[15:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/main_tb/UUT/write_address">
+         <obj_property name="ElementShortName">write_address[11:0]</obj_property>
+         <obj_property name="ObjectShortName">write_address[11:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/main_tb/UUT/buffer1">
+         <obj_property name="ElementShortName">buffer1[9:0]</obj_property>
+         <obj_property name="ObjectShortName">buffer1[9:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/main_tb/UUT/buffer1_next">
+         <obj_property name="ElementShortName">buffer1_next[9:0]</obj_property>
+         <obj_property name="ObjectShortName">buffer1_next[9:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/main_tb/UUT/buffer2">
+         <obj_property name="ElementShortName">buffer2[9:0]</obj_property>
+         <obj_property name="ObjectShortName">buffer2[9:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/main_tb/UUT/buffer2_next">
+         <obj_property name="ElementShortName">buffer2_next[9:0]</obj_property>
+         <obj_property name="ObjectShortName">buffer2_next[9:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group30">
+      <obj_property name="label">Reading</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject type="logic" fp_name="/main_tb/UUT/start_reading">
+         <obj_property name="ElementShortName">start_reading</obj_property>
+         <obj_property name="ObjectShortName">start_reading</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/main_tb/UUT/sample_towrite_ready">
+         <obj_property name="ElementShortName">sample_towrite_ready</obj_property>
+         <obj_property name="ObjectShortName">sample_towrite_ready</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/main_tb/UUT/read_sample">
+         <obj_property name="ElementShortName">read_sample</obj_property>
+         <obj_property name="ObjectShortName">read_sample</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/main_tb/UUT/storaged_sample">
+         <obj_property name="ElementShortName">storaged_sample[15:0]</obj_property>
+         <obj_property name="ObjectShortName">storaged_sample[15:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/main_tb/UUT/sample_towrite">
+         <obj_property name="ElementShortName">sample_towrite[23:0]</obj_property>
+         <obj_property name="ObjectShortName">sample_towrite[23:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/main_tb/UUT/read_address">
+         <obj_property name="ElementShortName">read_address[11:0]</obj_property>
+         <obj_property name="ObjectShortName">read_address[11:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group31">
+      <obj_property name="label">MEMO</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject type="array" fp_name="/main_tb/UUT/RAM/ram/dina">
+         <obj_property name="ElementShortName">dina[15:0]</obj_property>
+         <obj_property name="ObjectShortName">dina[15:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/main_tb/UUT/RAM/ram/ena">
+         <obj_property name="ElementShortName">ena</obj_property>
+         <obj_property name="ObjectShortName">ena</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/main_tb/UUT/RAM/ram/wea">
+         <obj_property name="ElementShortName">wea[0:0]</obj_property>
+         <obj_property name="ObjectShortName">wea[0:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/main_tb/UUT/address">
+         <obj_property name="ElementShortName">address[11:0]</obj_property>
+         <obj_property name="ObjectShortName">address[11:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+   </wvobject>
+</wave_config>

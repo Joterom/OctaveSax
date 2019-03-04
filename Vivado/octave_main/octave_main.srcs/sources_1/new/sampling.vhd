@@ -118,14 +118,14 @@ begin
             end if;
     end process;
     -- Generates signals to control reading and writing stages  
-    sync : process(counter32, frame_num)
+    sync : process(counter32, frame_num, lr)
         begin           
             sample_in_ready_next <= '0';
             sample_towrite_ready_next <= '0';            
             if counter32 = 1 then -- Arbitrary choice, any other number between 0 and 15 would work as well
-                if frame_num = reading_cicle then -- Constant defined at trunk, arbitrary
+                if frame_num = reading_cicle and lr = '0' then -- Constant defined at trunk, arbitrary
                     sample_in_ready_next <= '1';                   
-                elsif frame_num = writing_cicle then -- Constant defined at trunk, arbitrary
+                elsif frame_num = writing_cicle and lr = '0' then -- Constant defined at trunk, arbitrary
                     sample_towrite_ready_next <= '1';                    
                 end if;
             end if;            

@@ -86,7 +86,8 @@ architecture Behavioral of master_controller is
     signal read_sample, sample_towrite_ready, sample_in_ready, write_sample : STD_LOGIC := '0';
     signal start_reading, start_reading_next, DATA_OUT_n, DATA_OUTr : STD_LOGIC := '0';
     signal sample_towrite : STD_LOGIC_VECTOR (23 downto 0) := (others => '0');
-    
+    signal buffer1, buffer1_next : STD_LOGIC_VECTOR (9 downto 0) := (others => '0');
+    signal buffer2, buffer2_next : STD_LOGIC_VECTOR (9 downto 0) := "1100000000"; -- Set at 768
 begin  
 
     SAMP : sampling port map(
@@ -143,17 +144,21 @@ begin
                 read_address <= (others => '0');
                 start_reading <= '0';
                 DATA_OUTr <= '0';
+                buffer1 <= (others => '0');
+                buffer2 <= "1100000000";
             elsif rising_edge(clk_100MHz) then                
                 enable_shift <= enable_shift_next;                               
                 write_address <= write_address_next;
                 read_address <= read_address_next;
                 start_reading <= start_reading_next;
                 DATA_OUTr <= DATA_OUT_n;
+                buffer1 <= buffer1_next;
+                buffer2 <= buffer2_next;
             end if;           
     end process;
     
     -- Generates enable signal used by the shift-register
-    enable_shift_next <= '1' when (frame_number >= 1 and frame_number <= sample_size) else                         
+    enable_shift_next <= '1' when (frame_number >= 1 and frame_number <= sample_size and LR_W_SEL = '0') else                         
                          '0';
     
     memo_logic : process(sample_in_ready, sample_towrite_ready, write_address, start_reading, read_address)
@@ -170,7 +175,7 @@ begin
                 if write_address = 8 then
                     start_reading_next <= '1'; -- SOLO PARA DEJAR ESTE HUECO OJO
                     write_address_next <= write_address + 1;
-                elsif write_address = "111111111111" then -- Keep taking samples from the beginning
+                elsif write_address = "010111111111" then -- Keep taking samples from the beginning
                     write_address_next <= (others => '0');
                 else 
                     write_address_next <= write_address + 1;
@@ -180,12 +185,30 @@ begin
             if sample_towrite_ready = '1' then
                 if start_reading = '1' then
                     read_sample <= '1';
-                    if read_address = "111111111111" then -- Keep taking samples from the beginning
+                    if read_address = "010111111111" then -- Keep taking samples from the beginning
                         read_address_next <= (others => '0');
                     else
                         read_address_next <= read_address + 1;
                     end if;
                 end if;
+            end if;
+    end process;
+    
+    frame_counter : process(write_address)
+        begin
+            buffer1_next <= buffer1;
+            buffer2_next <= buffer2;
+            if buffer1 = 1023 then
+                buffer1_next <= (others => '0');
+            end if;
+            if buffer2 = 1023 then
+                buffer1_next <= (others => '0');
+            end if;
+            if write_address < 1024 then
+                buffer1_next <= buffer1 + 1;
+            end if;
+            if write_address < 256 or write_address > 767 then
+                buffer2_next <= buffer2 + 1;
             end if;
     end process;
     
