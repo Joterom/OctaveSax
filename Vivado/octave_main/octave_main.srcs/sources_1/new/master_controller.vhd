@@ -86,8 +86,8 @@ architecture Behavioral of master_controller is
     signal read_sample, sample_towrite_ready, sample_in_ready, write_sample : STD_LOGIC := '0';
     signal start_reading, start_reading_next, DATA_OUT_n, DATA_OUTr : STD_LOGIC := '0';
     signal sample_towrite : STD_LOGIC_VECTOR (23 downto 0) := (others => '0');
-    signal buffer1, buffer1_next : STD_LOGIC_VECTOR (9 downto 0) := (others => '0');
-    signal buffer2, buffer2_next : STD_LOGIC_VECTOR (9 downto 0) := "0110000000"; -- Set at 384 --> 3 * fft_width / 4
+    signal buffer1, buffer1_next : STD_LOGIC_VECTOR (8 downto 0) := (others => '0');
+    signal buffer2, buffer2_next : STD_LOGIC_VECTOR (8 downto 0) := "110000000"; -- Set at 384 --> 3 * fft_width / 4
 begin  
 
     SAMP : sampling port map(
@@ -145,7 +145,7 @@ begin
                 start_reading <= '0';
                 DATA_OUTr <= '0';
                 buffer1 <= (others => '0');
-                buffer2 <= "0110000000";
+                buffer2 <= "110000000";
             elsif rising_edge(clk_100MHz) then                
                 enable_shift <= enable_shift_next;                               
                 write_address <= write_address_next;
