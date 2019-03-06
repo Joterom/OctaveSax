@@ -52,8 +52,8 @@ end
 fprintf(fileIDs, '\t\t"0000000000000000" when others;\n');
 fprintf(fileIDi, '\t\t"0000000000000000" when others;\n');
 
-fprintf(fileIDs, 'end Behavioral');
-fprintf(fileIDi, 'end Behavioral');
+fprintf(fileIDs, 'end Behavioral;');
+fprintf(fileIDi, 'end Behavioral;');
 
 fclose(fileIDs);
 fclose(fileIDi);

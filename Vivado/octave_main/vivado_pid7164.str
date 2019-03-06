@@ -1,0 +1,124 @@
+/*
+
+Xilinx Vivado v2017.4 (64-bit) [Major: 2017, Minor: 4]
+SW Build: 2086221 on Fri Dec 15 20:55:39 MST 2017
+IP Build: 2085800 on Fri Dec 15 22:25:07 MST 2017
+
+Process ID: 7164
+License: Customer
+
+Current time: 	Wed Mar 06 21:11:25 CET 2019
+Time zone: 	Central European Time (Europe/Paris)
+
+OS: Windows 10
+OS Version: 10.0
+OS Architecture: amd64
+Available processors (cores): 4
+
+Screen size: 1920x1080
+Screen resolution (DPI): 96
+Available screens: 1
+Available disk space: 31 GB
+Default font: family=Dialog,name=Dialog,style=plain,size=12
+
+Java version: 	1.8.0_112 64-bit
+Java home: 	C:/Xilinx/Vivado/2017.4/tps/win64/jre
+JVM executable location: 	C:/Xilinx/Vivado/2017.4/tps/win64/jre/bin/java.exe
+
+User name: 	Javi
+User home directory: C:/Users/Javi
+User working directory: D:/UNI/TFG/OctaveSax/Vivado/octave_main
+User country: 	ES
+User language: 	es
+User locale: 	es_ES
+
+RDI_BASEROOT: C:/Xilinx/Vivado
+HDI_APPROOT: C:/Xilinx/Vivado/2017.4
+RDI_DATADIR: C:/Xilinx/Vivado/2017.4/data
+RDI_BINDIR: C:/Xilinx/Vivado/2017.4/bin
+
+Vivado preferences file location: C:/Users/Javi/AppData/Roaming/Xilinx/Vivado/2017.4/vivado.xml
+Vivado preferences directory: C:/Users/Javi/AppData/Roaming/Xilinx/Vivado/2017.4/
+Vivado layouts directory: C:/Users/Javi/AppData/Roaming/Xilinx/Vivado/2017.4/layouts
+PlanAhead jar file location: 	C:/Xilinx/Vivado/2017.4/lib/classes/planAhead.jar
+Vivado log file location: 	D:/UNI/TFG/OctaveSax/Vivado/octave_main/vivado.log
+Vivado journal file location: 	D:/UNI/TFG/OctaveSax/Vivado/octave_main/vivado.jou
+Engine tmp dir: 	D:/UNI/TFG/OctaveSax/Vivado/octave_main/.Xil/Vivado-7164-DESKTOP-DR3C0JT
+
+GUI allocated memory:	176 MB
+GUI max memory:		3,052 MB
+Engine allocated memory: 601 MB
+
+Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+
+*/
+
+// TclEventType: START_GUI
+// Tcl Message: start_gui 
+// TclEventType: PROJECT_OPEN_DIALOG
+// bs (cj):  Open Project : addNotify
+// Opening Vivado Project: D:\UNI\TFG\OctaveSax\Vivado\octave_main\octave_main.xpr. Version: Vivado v2017.4 
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_COMPLETED
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// TclEventType: RUN_COMPLETED
+// [GUI Memory]: 63 MB (+63334kb) [00:00:06]
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// [Engine Memory]: 501 MB (+374295kb) [00:00:06]
+// TclEventType: RUN_CURRENT
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: PROJECT_NEW
+// [GUI Memory]: 70 MB (+3893kb) [00:00:08]
+// [Engine Memory]: 534 MB (+8017kb) [00:00:08]
+// [GUI Memory]: 91 MB (+18305kb) [00:00:10]
+// [Engine Memory]: 581 MB (+20952kb) [00:00:10]
+// Tcl Message: open_project D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.xpr 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2017.4/data/ip'. 
+// HMemoryUtils.trashcanNow. Engine heap size: 601 MB. GUI used memory: 47 MB. Current time: 3/6/19 9:11:25 PM CET
+// Tcl Message: open_project: Time (s): cpu = 00:00:12 ; elapsed = 00:00:06 . Memory (MB): peak = 752.785 ; gain = 66.883 
+// Project name: octave_main; location: D:/UNI/TFG/OctaveSax/Vivado/octave_main; part: xc7a100tcsg324-1
+dismissDialog("Open Project"); // bs (cj)
+// [Engine Memory]: 614 MB (+4273kb) [00:00:13]
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed time: 48 seconds
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, master_controller(Behavioral) (master_controller.vhd)]", 1); // B (D, cj)
+selectButton(PAResourceCommand.PACommandNames_ADD_SOURCES, "Sources_add_sources"); // B (f, cj)
+// Run Command: PAResourceCommand.PACommandNames_ADD_SOURCES
+// c (cj): Add Sources: addNotify
+selectButton("NEXT", "Next >"); // JButton (h, c)
+selectButton(PAResourceQtoS.SrcChooserPanel_ADD_HDL_AND_NETLIST_FILES_TO_YOUR_PROJECT, "Add Files"); // a (C, c)
+// HMemoryUtils.trashcanNow. Engine heap size: 637 MB. GUI used memory: 46 MB. Current time: 3/6/19 9:12:23 PM CET
+// Elapsed time: 12 seconds
+String[] filenames31467 = {"D:/UNI/TFG/OctaveSax/Matlab/ROM Data/istft_window.vhd", "D:/UNI/TFG/OctaveSax/Matlab/ROM Data/stft_window.vhd"};
+setFileChooser(filenames31467);
+selectButton("FINISH", "Finish"); // JButton (h, c)
+// 'h' command handler elapsed time: 22 seconds
+dismissDialog("Add Sources"); // c (cj)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: import_files -norecurse {{D:/UNI/TFG/OctaveSax/Matlab/ROM Data/istft_window.vhd} {D:/UNI/TFG/OctaveSax/Matlab/ROM Data/stft_window.vhd}} 
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Syntax Error Files]", 1); // B (D, cj)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Syntax Error Files, istft_window.vhd]", 2, false); // B (D, cj)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Syntax Error Files, istft_window.vhd]", 2, false, false, false, false, false, true); // B (D, cj) - Double Click
+selectCodeEditor("istft_window.vhd", 366, 171); // cd (w, cj)
+selectCodeEditor("istft_window.vhd", 739, 398); // cd (w, cj)
+selectCodeEditor("istft_window.vhd", 96, 485); // cd (w, cj)
+selectCodeEditor("istft_window.vhd", 436, 287); // cd (w, cj)
+selectButton(RDIResourceCommand.RDICommands_SAVE_FILE, (String) null); // B (f, cj)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Syntax Error Files, stft_window.vhd]", 2, false); // B (D, cj)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Syntax Error Files, stft_window.vhd]", 2, false); // B (D, cj)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Syntax Error Files, stft_window.vhd]", 2, false, false, false, false, false, true); // B (D, cj) - Double Click
+closeView(PAResourceOtoP.PAViews_CODE, "Code"); // B
+selectCodeEditor("stft_window.vhd", 154, 478); // cd (w, cj)
+// [Engine Memory]: 646 MB (+1012kb) [00:02:07]
