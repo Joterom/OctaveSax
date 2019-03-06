@@ -4,7 +4,7 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use work.project_trunk.all;
+use work.project_trunk.all; 
 
 -- Standard shift register as proposed by Dr. Chu (see references)
 entity shift_register is

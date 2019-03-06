@@ -1,8 +1,8 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------
-| Tool Version : Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
-| Date         : Mon Mar  4 19:27:41 2019
-| Host         : vhdl-2018 running 64-bit Ubuntu 18.04.1 LTS
+| Tool Version : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
+| Date         : Wed Mar  6 19:16:11 2019
+| Host         : DESKTOP-DR3C0JT running 64-bit major release  (build 9200)
 | Command      : report_utilization -file master_controller_utilization_synth.rpt -pb master_controller_utilization_synth.pb
 | Design       : master_controller
 | Device       : 7a100tcsg324-1
@@ -151,8 +151,8 @@ Table of Contents
 | OBUF     |   22 |                  IO |
 | LUT3     |   19 |                 LUT |
 | LUT6     |   17 |                 LUT |
-| LUT4     |   11 |                 LUT |
 | CARRY4   |   11 |          CarryLogic |
+| LUT4     |   10 |                 LUT |
 | LUT2     |    9 |                 LUT |
 | LUT1     |    7 |                 LUT |
 | FDCE     |    5 |        Flop & Latch |

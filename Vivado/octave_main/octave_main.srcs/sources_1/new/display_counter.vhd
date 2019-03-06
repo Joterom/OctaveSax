@@ -10,7 +10,7 @@ use work.project_trunk.all;
 
 -- Asserts ref_rate every 5,000,000,000 clk cycles. At 100MHz, every 20ms
 entity display_counter is
-    Port ( 
+    Port (  
         clk : in STD_LOGIC;
         reset : in STD_LOGIC;
         ref_rate : out STD_LOGIC

@@ -9,7 +9,7 @@ use IEEE.STD_LOGIC_UNSIGNED.all;
 use work.project_trunk.all;
 
 -- Used to control displays.
-entity display_interface is
+entity display_interface is 
   Port ( 
     clk : in STD_LOGIC;
     reset : in STD_LOGIC;

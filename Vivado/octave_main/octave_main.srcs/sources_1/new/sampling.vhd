@@ -29,7 +29,7 @@ entity sampling is
        );
 end sampling;
  
-architecture Behavioral of sampling is
+architecture Behavioral of sampling is 
    
     signal lr, lr_next, sc, sc_next, mc, mc_next, clk_30MHz, wave : STD_LOGIC := '0';
     signal count : STD_LOGIC_VECTOR (9 downto 0) := (others => '0');

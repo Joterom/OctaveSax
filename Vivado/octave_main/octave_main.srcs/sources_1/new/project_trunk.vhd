@@ -15,6 +15,8 @@ package project_trunk is
     constant writing_cicle : integer := 27;
     -- Cicle in which data is read from input and written into memory
     constant reading_cicle : integer := 25;
+    -- Number of samples per frame
+    constant fft_width : integer := 512;
     
 -- Every available display letters
     constant off : STD_LOGIC_VECTOR (6 downto 0) := "1111111"; 

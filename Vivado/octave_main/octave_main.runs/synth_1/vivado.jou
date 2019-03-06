@@ -1,12 +1,12 @@
 #-----------------------------------------------------------
 # Vivado v2017.4 (64-bit)
-# SW Build 2086221 on Fri Dec 15 20:54:30 MST 2017
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
 # IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
-# Start of session at: Mon Mar  4 19:26:25 2019
-# Process ID: 31431
-# Current directory: /home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1
-# Command line: vivado -log master_controller.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source master_controller.tcl
-# Log file: /home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/master_controller.vds
-# Journal file: /home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/vivado.jou
+# Start of session at: Wed Mar  6 19:15:29 2019
+# Process ID: 13112
+# Current directory: D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1
+# Command line: vivado.exe -log master_controller.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source master_controller.tcl
+# Log file: D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/master_controller.vds
+# Journal file: D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
 source master_controller.tcl -notrace

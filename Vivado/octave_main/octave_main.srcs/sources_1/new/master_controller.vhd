@@ -87,7 +87,7 @@ architecture Behavioral of master_controller is
     signal start_reading, start_reading_next, DATA_OUT_n, DATA_OUTr : STD_LOGIC := '0';
     signal sample_towrite : STD_LOGIC_VECTOR (23 downto 0) := (others => '0');
     signal buffer1, buffer1_next : STD_LOGIC_VECTOR (9 downto 0) := (others => '0');
-    signal buffer2, buffer2_next : STD_LOGIC_VECTOR (9 downto 0) := "1100000000"; -- Set at 768
+    signal buffer2, buffer2_next : STD_LOGIC_VECTOR (9 downto 0) := "0110000000"; -- Set at 384 --> 3 * fft_width / 4
 begin  
 
     SAMP : sampling port map(
@@ -145,7 +145,7 @@ begin
                 start_reading <= '0';
                 DATA_OUTr <= '0';
                 buffer1 <= (others => '0');
-                buffer2 <= "1100000000";
+                buffer2 <= "0110000000";
             elsif rising_edge(clk_100MHz) then                
                 enable_shift <= enable_shift_next;                               
                 write_address <= write_address_next;
@@ -171,21 +171,21 @@ begin
             read_sample <= '0';
             -- Writing memo - reading adc mode
             if sample_in_ready = '1' then                    
-                write_sample <= '1';
+                write_sample <= '1';               
                 if write_address = 8 then
                     start_reading_next <= '1'; -- SOLO PARA DEJAR ESTE HUECO OJO
-                    write_address_next <= write_address + 1;
-                elsif write_address = "010111111111" then -- Keep taking samples from the beginning
+                    write_address_next <= write_address + 1;                    
+                elsif write_address = 6*fft_width/4 - 1 then -- Keep taking samples from the beginning
                     write_address_next <= (others => '0');
                 else 
-                    write_address_next <= write_address + 1;
-                end if;
+                    write_address_next <= write_address + 1;                    
+                end if;--                
             end if;
             -- Reading memo mode. Load previous storaged sample into the variable
             if sample_towrite_ready = '1' then
                 if start_reading = '1' then
                     read_sample <= '1';
-                    if read_address = "010111111111" then -- Keep taking samples from the beginning
+                    if read_address = 6*fft_width/4 - 1 then -- Keep taking samples from the beginning
                         read_address_next <= (others => '0');
                     else
                         read_address_next <= read_address + 1;
@@ -193,22 +193,30 @@ begin
                 end if;
             end if;
     end process;
-    
-    frame_counter : process(write_address)
+          
+    process(sample_in_ready)
         begin
             buffer1_next <= buffer1;
             buffer2_next <= buffer2;
-            if buffer1 = 1023 then
-                buffer1_next <= (others => '0');
-            end if;
-            if buffer2 = 1023 then
-                buffer1_next <= (others => '0');
-            end if;
-            if write_address < 1024 then
-                buffer1_next <= buffer1 + 1;
-            end if;
-            if write_address < 256 or write_address > 767 then
-                buffer2_next <= buffer2 + 1;
+            if rising_edge(sample_in_ready) then
+                if write_address < fft_width/4 - 1 then --127
+                    buffer1_next <= buffer1 + 1;
+                    buffer2_next <= buffer2 + 1;
+                elsif write_address < 3 * fft_width/4 then -- 384
+                    buffer1_next <= buffer1 + 1;
+                    buffer2_next <= (others => '0');
+                elsif write_address = 3 * fft_width/4 then -- 384
+                    buffer1_next <= buffer1 + 1;
+                    buffer2_next <= buffer2 + 1;                    
+                elsif write_address < fft_width then -- 512
+                    buffer1_next <= buffer1 + 1;
+                    buffer2_next <= buffer2 + 1;
+                elsif write_address < 6 * fft_width/4 - 1 then -- 767                   
+                    buffer2_next <= buffer2 + 1;
+                    buffer1_next <= (others => '0');
+                elsif write_address = 6 * fft_width/4 - 1 then -- 767                   
+                    buffer2_next <= buffer2 + 1;
+                end if;
             end if;
     end process;
     
