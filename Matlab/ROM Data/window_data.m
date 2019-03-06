@@ -29,5 +29,15 @@ for i = 1:1:transform_length
     fprintf(fileIDs, '"%s" when "%s",\n', win_bin_s(i,:),  sample_number(i,:));
     fprintf(fileIDi, '"%s" when "%s",\n', win_bin_i(i,:),  sample_number(i,:));
 end
+<<<<<<< HEAD
+=======
+%Default and first value
+fprintf(fileIDs, '\t\t"0000000000000000" when others;\n');
+fprintf(fileIDi, '\t\t"0000000000000000" when others;\n');
+
+fprintf(fileIDs, 'end Behavioral;');
+fprintf(fileIDi, 'end Behavioral;');
+
+>>>>>>> alpalo
 fclose(fileIDs);
 fclose(fileIDi);

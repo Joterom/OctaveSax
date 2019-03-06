@@ -79,3 +79,4 @@
 4.5 Comienzo de la implementacion del solapamiento y enventanado
 6-3-19
 4.5.1 Implementacion de los buffer para la escritura en memoria
+4.6 Importacion de las ROM a Vivado, problemas con los branches
