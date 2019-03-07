@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="fft_ip_synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1551717792">
-  <File Type="RDS-DCP" Name="fft_ip.dcp"/>
   <File Type="RDS-UTIL-PB" Name="fft_ip_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="fft_ip.dcp"/>
+  <File Type="PA-TCL" Name="fft_ip.tcl"/>
   <File Type="RDS-UTIL" Name="fft_ip_utilization_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="fft_ip_reports.tcl"/>
   <File Type="RDS-RDS" Name="fft_ip.vds"/>
-  <File Type="PA-TCL" Name="fft_ip.tcl"/>
   <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/fft_ip">
     <File Path="$PSRCDIR/sources_1/ip/fft_ip/fft_ip.xci">
       <FileInfo>

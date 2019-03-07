@@ -78,16 +78,31 @@ architecture Behavioral of master_controller is
         an : out STD_LOGIC_VECTOR (7 downto 0)
     ); end component;
     
+    component window_controller port(
+        enable : in STD_LOGIC;
+        for_inv : in STD_LOGIC; -- 1 = STFT, 0 = iSTFT
+        buf1_2 : in STD_LOGIC;
+        multiplicand : in STD_LOGIC_VECTOR (sample_size - 1 downto 0);
+        factor_buf1 : in STD_LOGIC_VECTOR (8 downto 0);
+        factor_buf2 : in STD_LOGIC_VECTOR (8 downto 0);
+        result : out STD_LOGIC_VECTOR (sample_size - 1 downto 0)
+    ); end component;
+    
     signal frame_number : STD_LOGIC_VECTOR (4 downto 0) := (others => '0');
     signal reset, enable_shift, enable_shift_next : STD_LOGIC := '0';    
     signal input_reg, storaged_sample : STD_LOGIC_VECTOR ((sample_size - 1) downto 0) := (others => '0');    
     signal MCLK, SCLK, LR_W_SEL, clk_100MHz, clk_50MHz : STD_LOGIC := '0';
+    
     signal write_address, write_address_next, read_address, read_address_next, address  : STD_LOGIC_VECTOR (11 downto 0) := (others => '0');
     signal read_sample, sample_towrite_ready, sample_in_ready, write_sample : STD_LOGIC := '0';
     signal start_reading, start_reading_next, DATA_OUT_n, DATA_OUTr : STD_LOGIC := '0';
     signal sample_towrite : STD_LOGIC_VECTOR (23 downto 0) := (others => '0');
-    signal buffer1, buffer1_next : STD_LOGIC_VECTOR (9 downto 0) := (others => '0');
-    signal buffer2, buffer2_next : STD_LOGIC_VECTOR (9 downto 0) := "0110000000"; -- Set at 384 --> 3 * fft_width / 4
+    
+    signal buffer1, buffer1_next : STD_LOGIC_VECTOR (8 downto 0) := (others => '0');
+    signal buffer2, buffer2_next : STD_LOGIC_VECTOR (8 downto 0) := "110000000"; -- Set at 384 --> 3 * fft_width / 4
+    signal win_output, framed_sample, framed_sample_next : STD_LOGIC_VECTOR (sample_size - 1 downto 0) := (others => '0');
+    signal for_inv, for_inv_next, enable_win_next, enable_win, buf1_2, buf1_2_next : STD_LOGIC := '1';
+    
 begin  
 
     SAMP : sampling port map(
@@ -112,7 +127,7 @@ begin
         read_sample => read_sample,
         memo_address => address,
         storaged_sample => storaged_sample,
-        writing_sample => input_reg
+        writing_sample => framed_sample
     );
     
     SHFT : shift_register port map(
@@ -135,6 +150,16 @@ begin
         clk_100MHz => clk_100MHz,
         clk_50MHz => clk_50MHz
     );
+    
+    WIN : window_controller port map (
+        enable => enable_win,
+        for_inv => for_inv,-- 1 = STFT, 0 = iSTFT
+        buf1_2 => buf1_2,
+        multiplicand => input_reg,
+        factor_buf1 => buffer1,
+        factor_buf2 => buffer2,
+        result => win_output
+    );
     -- Register logic
     process(clk_100MHz, reset)
         begin            
@@ -145,7 +170,11 @@ begin
                 start_reading <= '0';
                 DATA_OUTr <= '0';
                 buffer1 <= (others => '0');
-                buffer2 <= "0110000000";
+                buffer2 <= "110000000";
+                framed_sample <= (others => '0');
+                for_inv <= '1';
+                enable_win <= '0';
+                buf1_2 <= '1';
             elsif rising_edge(clk_100MHz) then                
                 enable_shift <= enable_shift_next;                               
                 write_address <= write_address_next;
@@ -154,12 +183,28 @@ begin
                 DATA_OUTr <= DATA_OUT_n;
                 buffer1 <= buffer1_next;
                 buffer2 <= buffer2_next;
+                framed_sample <= framed_sample_next;
+                for_inv <= for_inv_next;
+                enable_win <= enable_win_next;
+                buf1_2 <= buf1_2_next;
             end if;           
     end process;
     
     -- Generates enable signal used by the shift-register
     enable_shift_next <= '1' when (frame_number >= 1 and frame_number <= sample_size and LR_W_SEL = '0') else                         
                          '0';
+                         
+    -- Decides which window is being applicated to the sample   
+    for_inv_next <= '1' when frame_number = 23 else
+               '0';
+               
+     -- Register windowed sample   
+    framed_sample_next <= win_output when frame_number = 23 else
+                          (others => '0');
+    
+    -- Enables windowing                      
+    enable_win_next <= '1' when frame_number = 23 else
+                       '0';
     
     memo_logic : process(sample_in_ready, sample_towrite_ready, write_address, start_reading, read_address)
         begin            
@@ -172,7 +217,7 @@ begin
             -- Writing memo - reading adc mode
             if sample_in_ready = '1' then                    
                 write_sample <= '1';               
-                if write_address = 8 then
+                if write_address = 1530 then
                     start_reading_next <= '1'; -- SOLO PARA DEJAR ESTE HUECO OJO
                     write_address_next <= write_address + 1;                    
                 elsif write_address = 6*fft_width/4 - 1 then -- Keep taking samples from the beginning
@@ -205,6 +250,7 @@ begin
                 elsif write_address < 3 * fft_width/4 then -- 384
                     buffer1_next <= buffer1 + 1;
                     buffer2_next <= (others => '0');
+                    buf1_2_next <= '0';
                 elsif write_address = 3 * fft_width/4 then -- 384
                     buffer1_next <= buffer1 + 1;
                     buffer2_next <= buffer2 + 1;                    
@@ -214,6 +260,7 @@ begin
                 elsif write_address < 6 * fft_width/4 - 1 then -- 767                   
                     buffer2_next <= buffer2 + 1;
                     buffer1_next <= (others => '0');
+                    buf1_2_next <= '1';
                 elsif write_address = 6 * fft_width/4 - 1 then -- 767                   
                     buffer2_next <= buffer2 + 1;
                 end if;
@@ -263,7 +310,7 @@ begin
     address <= write_address when write_sample = '1' else
                read_address when read_sample = '1' else
                (others => '0');
-    --clk_reg <= SCLK and not half_sc;           
+            
     -- Output signals assignment
     MCLK_ADC <= MCLK;
     SCLK_ADC <= SCLK;
