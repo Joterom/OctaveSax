@@ -1,0 +1,92 @@
+/*
+
+Xilinx Vivado v2017.4 (64-bit) [Major: 2017, Minor: 4]
+SW Build: 2086221 on Fri Dec 15 20:55:39 MST 2017
+IP Build: 2085800 on Fri Dec 15 22:25:07 MST 2017
+
+Process ID: 2824
+License: Customer
+
+Current time: 	Thu Mar 07 20:03:25 CET 2019
+Time zone: 	Central European Time (Europe/Paris)
+
+OS: Windows 10
+OS Version: 10.0
+OS Architecture: amd64
+Available processors (cores): 4
+
+Screen size: 1920x1080
+Screen resolution (DPI): 96
+Available screens: 1
+Available disk space: 32 GB
+Default font: family=Dialog,name=Dialog,style=plain,size=12
+
+Java version: 	1.8.0_112 64-bit
+Java home: 	C:/Xilinx/Vivado/2017.4/tps/win64/jre
+JVM executable location: 	C:/Xilinx/Vivado/2017.4/tps/win64/jre/bin/java.exe
+
+User name: 	Javi
+User home directory: C:/Users/Javi
+User working directory: D:/UNI/TFG/OctaveSax/Vivado/octave_main
+User country: 	ES
+User language: 	es
+User locale: 	es_ES
+
+RDI_BASEROOT: C:/Xilinx/Vivado
+HDI_APPROOT: C:/Xilinx/Vivado/2017.4
+RDI_DATADIR: C:/Xilinx/Vivado/2017.4/data
+RDI_BINDIR: C:/Xilinx/Vivado/2017.4/bin
+
+Vivado preferences file location: C:/Users/Javi/AppData/Roaming/Xilinx/Vivado/2017.4/vivado.xml
+Vivado preferences directory: C:/Users/Javi/AppData/Roaming/Xilinx/Vivado/2017.4/
+Vivado layouts directory: C:/Users/Javi/AppData/Roaming/Xilinx/Vivado/2017.4/layouts
+PlanAhead jar file location: 	C:/Xilinx/Vivado/2017.4/lib/classes/planAhead.jar
+Vivado log file location: 	D:/UNI/TFG/OctaveSax/Vivado/octave_main/vivado.log
+Vivado journal file location: 	D:/UNI/TFG/OctaveSax/Vivado/octave_main/vivado.jou
+Engine tmp dir: 	D:/UNI/TFG/OctaveSax/Vivado/octave_main/.Xil/Vivado-2824-DESKTOP-DR3C0JT
+
+GUI allocated memory:	177 MB
+GUI max memory:		3,052 MB
+Engine allocated memory: 596 MB
+
+Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+
+*/
+
+// TclEventType: START_GUI
+// TclEventType: PROJECT_OPEN_DIALOG
+// Tcl Message: start_gui 
+// TclEventType: PROJECT_OPEN_DIALOG
+// bs (cj):  Open Project : addNotify
+// Opening Vivado Project: D:\UNI\TFG\OctaveSax\Vivado\octave_main\octave_main.xpr. Version: Vivado v2017.4 
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// [GUI Memory]: 63 MB (+63685kb) [00:00:06]
+// [Engine Memory]: 464 MB (+335362kb) [00:00:06]
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_COMPLETED
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// TclEventType: RUN_COMPLETED
+// Tcl Message: open_project D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.xpr 
+// TclEventType: RUN_COMPLETED
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// TclEventType: RUN_CURRENT
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: PROJECT_NEW
+// [Engine Memory]: 542 MB (+57252kb) [00:00:09]
+// [Engine Memory]: 572 MB (+2762kb) [00:00:10]
+// [GUI Memory]: 73 MB (+7537kb) [00:00:11]
+// Tcl Message: open_project D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.xpr 
+// Tcl Message: INFO: [Project 1-313] Project file moved from '/home/joterom/workspace/OctaveSax/Vivado/octave_main' since last save. 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2017.4/data/ip'. 
+// HMemoryUtils.trashcanNow. Engine heap size: 598 MB. GUI used memory: 45 MB. Current time: 3/7/19 8:03:25 PM CET
+// [Engine Memory]: 602 MB (+1980kb) [00:00:13]
+// Tcl Message: open_project: Time (s): cpu = 00:00:10 ; elapsed = 00:00:06 . Memory (MB): peak = 760.566 ; gain = 91.250 
+// Project name: octave_main; location: D:/UNI/TFG/OctaveSax/Vivado/octave_main; part: xc7a100tcsg324-1
+dismissDialog("Open Project"); // bs (cj)
+closeMainWindow("octave_main - [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.xpr] - Vivado 2017.4"); // cj
+// HOptionPane Warning: 'A background task is running. Please wait until it completes to exit Vivado. If you choose to abort background task and exit immediately, you will lose all unsaved changes to project. (Background Task)'
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED

@@ -17,7 +17,7 @@ end shift_register;
 
 architecture Behavioral of shift_register is
 
-    signal r_reg, r_next : STD_LOGIC_VECTOR (sample_size - 1 downto 0);
+    signal r_reg, r_next : STD_LOGIC_VECTOR (sample_size - 1 downto 0) := (others => '0');
     
     begin
     

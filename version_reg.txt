@@ -82,3 +82,5 @@
 4.6 Importacion de las ROM a Vivado, problemas con los branches
 7-3-19
 4.6.1 Simulacion del sistema de enventanado de doble buffer
+10-3-19
+4.6.2 Depuracion sistema de enventanado

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="window_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="project_trunk" />
+            <top_module name="window_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="1004600000fs"></ZoomStartTime>
+      <ZoomEndTime time="1131600001fs"></ZoomEndTime>
+      <Cursor1Time time="1050000000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="197"></NameColumnWidth>
+      <ValueColumnWidth column_width="185"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="14" />
+   <wvobject fp_name="/window_tb/UUT/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/window_tb/UUT/for_inv" type="logic">
+      <obj_property name="ElementShortName">for_inv</obj_property>
+      <obj_property name="ObjectShortName">for_inv</obj_property>
+   </wvobject>
+   <wvobject fp_name="/window_tb/UUT/start_proc_win" type="logic">
+      <obj_property name="ElementShortName">start_proc_win</obj_property>
+      <obj_property name="ObjectShortName">start_proc_win</obj_property>
+   </wvobject>
+   <wvobject fp_name="/window_tb/end_proc_win" type="logic">
+      <obj_property name="ElementShortName">end_proc_win</obj_property>
+      <obj_property name="ObjectShortName">end_proc_win</obj_property>
+   </wvobject>
+   <wvobject fp_name="/window_tb/UUT/working" type="logic">
+      <obj_property name="ElementShortName">working</obj_property>
+      <obj_property name="ObjectShortName">working</obj_property>
+   </wvobject>
+   <wvobject fp_name="/window_tb/buf1_2" type="logic">
+      <obj_property name="ElementShortName">buf1_2</obj_property>
+      <obj_property name="ObjectShortName">buf1_2</obj_property>
+   </wvobject>
+   <wvobject fp_name="/window_tb/UUT/multiplicand" type="array">
+      <obj_property name="ElementShortName">multiplicand[15:0]</obj_property>
+      <obj_property name="ObjectShortName">multiplicand[15:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/window_tb/UUT/value" type="array">
+      <obj_property name="ElementShortName">value[2:0]</obj_property>
+      <obj_property name="ObjectShortName">value[2:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/window_tb/UUT/mult_reg" type="array">
+      <obj_property name="ElementShortName">mult_reg[15:0]</obj_property>
+      <obj_property name="ObjectShortName">mult_reg[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/window_tb/factor_buf1" type="array">
+      <obj_property name="ElementShortName">factor_buf1[8:0]</obj_property>
+      <obj_property name="ObjectShortName">factor_buf1[8:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/window_tb/factor_buf2" type="array">
+      <obj_property name="ElementShortName">factor_buf2[8:0]</obj_property>
+      <obj_property name="ObjectShortName">factor_buf2[8:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/window_tb/UUT/pre_resultSTFT" type="array">
+      <obj_property name="ElementShortName">pre_resultSTFT[31:0]</obj_property>
+      <obj_property name="ObjectShortName">pre_resultSTFT[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/window_tb/result1" type="array">
+      <obj_property name="ElementShortName">result1[15:0]</obj_property>
+      <obj_property name="ObjectShortName">result1[15:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/window_tb/result2" type="array">
+      <obj_property name="ElementShortName">result2[15:0]</obj_property>
+      <obj_property name="ObjectShortName">result2[15:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+</wave_config>

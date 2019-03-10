@@ -79,29 +79,33 @@ architecture Behavioral of master_controller is
     ); end component;
     
     component window_controller port(
-        enable : in STD_LOGIC;
+        clk : in STD_LOGIC;
+        start_proc_win : in STD_LOGIC;
+        end_proc_win : out STD_LOGIC;
         for_inv : in STD_LOGIC; -- 1 = STFT, 0 = iSTFT
-        buf1_2 : in STD_LOGIC;
         multiplicand : in STD_LOGIC_VECTOR (sample_size - 1 downto 0);
         factor_buf1 : in STD_LOGIC_VECTOR (8 downto 0);
         factor_buf2 : in STD_LOGIC_VECTOR (8 downto 0);
-        result : out STD_LOGIC_VECTOR (sample_size - 1 downto 0)
+        buf1_2 : out STD_LOGIC;
+        result1 : out STD_LOGIC_VECTOR (sample_size - 1 downto 0);
+        result2 : out STD_LOGIC_VECTOR (sample_size - 1 downto 0)
     ); end component;
     
     signal frame_number : STD_LOGIC_VECTOR (4 downto 0) := (others => '0');
-    signal reset, enable_shift, enable_shift_next : STD_LOGIC := '0';    
+    signal reset, enable_shift, enable_shift_next, start_proc_win_next : STD_LOGIC := '0';    
     signal input_reg, storaged_sample : STD_LOGIC_VECTOR ((sample_size - 1) downto 0) := (others => '0');    
     signal MCLK, SCLK, LR_W_SEL, clk_100MHz, clk_50MHz : STD_LOGIC := '0';
     
-    signal write_address, write_address_next, read_address, read_address_next, address  : STD_LOGIC_VECTOR (11 downto 0) := (others => '0');
+    signal write_address, write_address1, write_address2, write_address_next, read_address, read_address_next, address  : STD_LOGIC_VECTOR (11 downto 0) := (others => '0');
     signal read_sample, sample_towrite_ready, sample_in_ready, write_sample : STD_LOGIC := '0';
     signal start_reading, start_reading_next, DATA_OUT_n, DATA_OUTr : STD_LOGIC := '0';
     signal sample_towrite : STD_LOGIC_VECTOR (23 downto 0) := (others => '0');
     
+    signal address_ref, address_ref_next : STD_LOGIC_VECTOR (11 downto 0) := (others => '0');
     signal buffer1, buffer1_next : STD_LOGIC_VECTOR (8 downto 0) := (others => '0');
     signal buffer2, buffer2_next : STD_LOGIC_VECTOR (8 downto 0) := "110000000"; -- Set at 384 --> 3 * fft_width / 4
-    signal win_output, framed_sample, framed_sample_next : STD_LOGIC_VECTOR (sample_size - 1 downto 0) := (others => '0');
-    signal for_inv, for_inv_next, enable_win_next, enable_win, buf1_2, buf1_2_next : STD_LOGIC := '1';
+    signal windowed_sample_buf1, windowed_sample_buf2, framed_sample, framed_sample_next : STD_LOGIC_VECTOR (sample_size - 1 downto 0) := (others => '0');
+    signal for_inv, for_inv_next, start_proc_win, end_proc_win, buf1_2 : STD_LOGIC := '1';
     
 begin  
 
@@ -152,13 +156,23 @@ begin
     );
     
     WIN : window_controller port map (
-        enable => enable_win,
-        for_inv => for_inv,-- 1 = STFT, 0 = iSTFT
-        buf1_2 => buf1_2,
+        clk => clk_100MHz,
+        start_proc_win => start_proc_win,
+        end_proc_win => end_proc_win,
+        for_inv => '1', -- 1 = STFT, 0 = iSTFT
         multiplicand => input_reg,
         factor_buf1 => buffer1,
         factor_buf2 => buffer2,
-        result => win_output
+        buf1_2 => buf1_2,
+        result1 => windowed_sample_buf1,
+        result2 => windowed_sample_buf2
+--        enable => enable_win,
+--        for_inv => '1',-- 1 = STFT, 0 = iSTFT
+--        buf1_2 => buf1_2,
+--        multiplicand => input_reg,
+--        factor_buf1 => buffer1,
+--        factor_buf2 => buffer2,
+--        result => win_output
     );
     -- Register logic
     process(clk_100MHz, reset)
@@ -171,10 +185,10 @@ begin
                 DATA_OUTr <= '0';
                 buffer1 <= (others => '0');
                 buffer2 <= "110000000";
-                framed_sample <= (others => '0');
-                for_inv <= '1';
-                enable_win <= '0';
-                buf1_2 <= '1';
+--                framed_sample <= (others => '0');
+                --for_inv <= '1';
+                address_ref <= (others => '0');             
+                start_proc_win <= '0';                    
             elsif rising_edge(clk_100MHz) then                
                 enable_shift <= enable_shift_next;                               
                 write_address <= write_address_next;
@@ -183,10 +197,10 @@ begin
                 DATA_OUTr <= DATA_OUT_n;
                 buffer1 <= buffer1_next;
                 buffer2 <= buffer2_next;
-                framed_sample <= framed_sample_next;
-                for_inv <= for_inv_next;
-                enable_win <= enable_win_next;
-                buf1_2 <= buf1_2_next;
+--                framed_sample <= framed_sample_next;
+                --for_inv <= for_inv_next;              
+                start_proc_win <= start_proc_win_next;         
+                address_ref <= address_ref_next;                
             end if;           
     end process;
     
@@ -197,16 +211,9 @@ begin
     -- Decides which window is being applicated to the sample   
     for_inv_next <= '1' when frame_number = 23 else
                '0';
-               
-     -- Register windowed sample   
-    framed_sample_next <= win_output when frame_number = 23 else
-                          (others => '0');
     
-    -- Enables windowing                      
-    enable_win_next <= '1' when frame_number = 23 else
-                       '0';
     
-    memo_logic : process(sample_in_ready, sample_towrite_ready, write_address, start_reading, read_address)
+    memo_logic : process(end_proc_win, sample_in_ready, sample_towrite_ready, write_address, start_reading, read_address)
         begin            
             -- Default output
             write_sample <= '0';
@@ -214,17 +221,22 @@ begin
             read_address_next <= read_address;
             write_address_next <= write_address;
             read_sample <= '0';
+            start_proc_win_next <= '0';
             -- Writing memo - reading adc mode
-            if sample_in_ready = '1' then                    
-                write_sample <= '1';               
-                if write_address = 1530 then
-                    start_reading_next <= '1'; -- SOLO PARA DEJAR ESTE HUECO OJO
-                    write_address_next <= write_address + 1;                    
-                elsif write_address = 6*fft_width/4 - 1 then -- Keep taking samples from the beginning
-                    write_address_next <= (others => '0');
-                else 
-                    write_address_next <= write_address + 1;                    
-                end if;--                
+            if sample_in_ready = '1' then  
+                start_proc_win_next <= '1';            
+            end if;
+            if end_proc_win = '1' then
+                if buf1_2 = '1' then
+                    write_sample <= '1';
+                    write_address_next <= write_address2;
+                else
+                    write_sample <= '1';
+                    write_address_next <= write_address2;                                
+--                    if write_address = 2*fft_width - 1 then
+--                        write_address_next <= (others => '0'); 
+--                    end if;
+                end if;    
             end if;
             -- Reading memo mode. Load previous storaged sample into the variable
             if sample_towrite_ready = '1' then
@@ -238,33 +250,47 @@ begin
                 end if;
             end if;
     end process;
+    
+    write_address1 <= "000" & buffer1 when address_ref < 512 else
+                      "001111101000";
+    write_address2 <= "000" & (buffer2 + 512) when address_ref < 128 else
+                      "001111101000" when address_ref < 512 else
+                      "000" & (buffer2 + 128);  
+    
           
-    process(sample_in_ready)
+    process(buf1_2)
         begin
             buffer1_next <= buffer1;
-            buffer2_next <= buffer2;
-            if rising_edge(sample_in_ready) then
-                if write_address < fft_width/4 - 1 then --127
-                    buffer1_next <= buffer1 + 1;
-                    buffer2_next <= buffer2 + 1;
-                elsif write_address < 3 * fft_width/4 then -- 384
-                    buffer1_next <= buffer1 + 1;
-                    buffer2_next <= (others => '0');
-                    buf1_2_next <= '0';
-                elsif write_address = 3 * fft_width/4 then -- 384
-                    buffer1_next <= buffer1 + 1;
-                    buffer2_next <= buffer2 + 1;                    
-                elsif write_address < fft_width then -- 512
-                    buffer1_next <= buffer1 + 1;
-                    buffer2_next <= buffer2 + 1;
-                elsif write_address < 6 * fft_width/4 - 1 then -- 767                   
-                    buffer2_next <= buffer2 + 1;
-                    buffer1_next <= (others => '0');
-                    buf1_2_next <= '1';
-                elsif write_address = 6 * fft_width/4 - 1 then -- 767                   
-                    buffer2_next <= buffer2 + 1;
+            buffer2_next <= buffer2;              
+                if buf1_2 = '1' then
+                    if address_ref = 767 then
+                        address_ref_next <= (others => '0');
+                    else
+                        address_ref_next <= address_ref + 1;
+                    end if;
+                    if address_ref < fft_width/4 - 1 then --127
+                        buffer1_next <= buffer1 + 1;
+                        buffer2_next <= buffer2 + 1;
+                    elsif address_ref < 3 * fft_width/4 then -- 384
+                        buffer1_next <= buffer1 + 1;
+                        buffer2_next <= (others => '0');
+                    elsif address_ref = 3 * fft_width/4 then -- 384
+                        buffer1_next <= buffer1 + 1;
+                        buffer2_next <= buffer2 + 1;                
+                    elsif address_ref < fft_width - 1 then -- 511
+                        buffer1_next <= buffer1 + 1;
+                        buffer2_next <= buffer2 + 1;
+                    elsif address_ref = fft_width - 1 then -- 511
+                        buffer1_next <= (others => '0'); 
+                        buffer2_next <= buffer2 + 1;                                      
+                    elsif address_ref < 6 * fft_width/4 - 1 then -- 767                   
+                        buffer2_next <= buffer2 + 1;
+                        buffer1_next <= (others => '0');
+                    elsif address_ref = 6 * fft_width/4 - 1 then -- 767                   
+                        buffer2_next <= buffer2 + 1;                  
+                    end if;
                 end if;
-            end if;
+            
     end process;
     
     -- Writing dac mode: takes sample from the previously loaded register and links it to output data
@@ -306,6 +332,9 @@ begin
             end if;
     end process; 
      
+     
+    framed_sample <= windowed_sample_buf1 when buf1_2 = '1' else
+                     windowed_sample_buf2;
     -- Toggles ram address depending on current mode  
     address <= write_address when write_sample = '1' else
                read_address when read_sample = '1' else
