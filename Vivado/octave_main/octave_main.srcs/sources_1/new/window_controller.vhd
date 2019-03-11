@@ -5,7 +5,6 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
-use IEEE.STD_LOGIC_UNSIGNED.all; 
 use work.project_trunk.all;
 
 
@@ -77,7 +76,8 @@ begin
     
       
     -- Depending on value, performs a different operation
-    op : process(value)
+    op : process(value, factor_buf1, factor_buf2, multiplicand, mult_reg, multiplicatorSTFT, multiplicatoriSTFT, pre_resultSTFT
+            , pre_resultiSTFT, result1buf, result2buf)
         begin
             ended_next <= '0';
             case value is
@@ -120,7 +120,7 @@ begin
     count_logic : process(value, start_proc_win)
         begin
             if start_proc_win = '1' or working = '1' then
-                value_next <= value + 1;
+                value_next <= std_logic_vector(unsigned(value) + 1);
                 working_next <= '1';
                 if value = "111" then
                     value_next <= "000";

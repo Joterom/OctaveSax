@@ -84,3 +84,4 @@
 4.6.1 Simulacion del sistema de enventanado de doble buffer
 10-3-19
 4.6.2 Depuracion sistema de enventanado
+4.6.3 Enventanado funcionando para lectura, eliminacion de la libreria unsigned

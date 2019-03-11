@@ -5,7 +5,6 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
-use IEEE.STD_LOGIC_UNSIGNED.all; 
 use work.project_trunk.all;
 
 -- Top architecture module
@@ -102,10 +101,12 @@ architecture Behavioral of master_controller is
     signal sample_towrite : STD_LOGIC_VECTOR (23 downto 0) := (others => '0');
     
     signal address_ref, address_ref_next : STD_LOGIC_VECTOR (11 downto 0) := (others => '0');
-    signal buffer1, buffer1_next : STD_LOGIC_VECTOR (8 downto 0) := (others => '0');
-    signal buffer2, buffer2_next : STD_LOGIC_VECTOR (8 downto 0) := "110000000"; -- Set at 384 --> 3 * fft_width / 4
+    signal buffer1, buffer1_next : STD_LOGIC_VECTOR (11 downto 0) := (others => '0');
+    signal buffer2, buffer2_next : STD_LOGIC_VECTOR (11 downto 0) := "000110000000"; -- Set at 384 --> 3 * fft_width / 4
     signal windowed_sample_buf1, windowed_sample_buf2, framed_sample, framed_sample_next : STD_LOGIC_VECTOR (sample_size - 1 downto 0) := (others => '0');
     signal for_inv, for_inv_next, start_proc_win, end_proc_win, buf1_2 : STD_LOGIC := '1';
+    
+    signal buffer_aux : STD_LOGIC_VECTOR (8 downto 0) := "111111110";
     
 begin  
 
@@ -161,8 +162,8 @@ begin
         end_proc_win => end_proc_win,
         for_inv => '1', -- 1 = STFT, 0 = iSTFT
         multiplicand => input_reg,
-        factor_buf1 => buffer1,
-        factor_buf2 => buffer2,
+        factor_buf1 => buffer1(8 downto 0),
+        factor_buf2 => buffer2(8 downto 0),
         buf1_2 => buf1_2,
         result1 => windowed_sample_buf1,
         result2 => windowed_sample_buf2
@@ -184,7 +185,7 @@ begin
                 start_reading <= '0';
                 DATA_OUTr <= '0';
                 buffer1 <= (others => '0');
-                buffer2 <= "110000000";
+                buffer2 <= "000110000000";
 --                framed_sample <= (others => '0');
                 --for_inv <= '1';
                 address_ref <= (others => '0');             
@@ -205,11 +206,11 @@ begin
     end process;
     
     -- Generates enable signal used by the shift-register
-    enable_shift_next <= '1' when (frame_number >= 1 and frame_number <= sample_size and LR_W_SEL = '0') else                         
+    enable_shift_next <= '1' when (frame_number >= std_logic_vector(to_unsigned(1, 5 )) and frame_number <= std_logic_vector(to_unsigned(sample_size, 5)) and LR_W_SEL = '0') else                         
                          '0';
                          
     -- Decides which window is being applicated to the sample   
-    for_inv_next <= '1' when frame_number = 23 else
+    for_inv_next <= '1' when frame_number = std_logic_vector(to_unsigned(23, 5 )) else
                '0';
     
     
@@ -232,7 +233,7 @@ begin
                     write_address_next <= write_address2;
                 else
                     write_sample <= '1';
-                    write_address_next <= write_address2;                                
+                    write_address_next <= write_address1;                                
 --                    if write_address = 2*fft_width - 1 then
 --                        write_address_next <= (others => '0'); 
 --                    end if;
@@ -242,20 +243,21 @@ begin
             if sample_towrite_ready = '1' then
                 if start_reading = '1' then
                     read_sample <= '1';
-                    if read_address = 6*fft_width/4 - 1 then -- Keep taking samples from the beginning
+                    if read_address = std_logic_vector(to_unsigned(6*fft_width/4 - 1, 12)) then -- Keep taking samples from the beginning
                         read_address_next <= (others => '0');
                     else
-                        read_address_next <= read_address + 1;
+                        read_address_next <= std_logic_vector(unsigned(read_address) + 1);
                     end if;
                 end if;
             end if;
     end process;
     
-    write_address1 <= "000" & buffer1 when address_ref < 512 else
-                      "001111101000";
-    write_address2 <= "000" & (buffer2 + 512) when address_ref < 128 else
-                      "001111101000" when address_ref < 512 else
-                      "000" & (buffer2 + 128);  
+    write_address1 <= buffer1 when address_ref < std_logic_vector(to_unsigned(512, 12)) else
+                      "010000000001";
+    write_address2 <= (std_logic_vector(unsigned(buffer2) + 512)) when address_ref < std_logic_vector(to_unsigned(128, 12)) else
+                      --"111111111111" when address_ref < std_logic_vector(to_unsigned(128, 12)) else
+                      "010000000001" when address_ref < std_logic_vector(to_unsigned(384, 12)) else
+                      (std_logic_vector(unsigned(buffer2) + 512));  
     
           
     process(buf1_2)
@@ -263,31 +265,31 @@ begin
             buffer1_next <= buffer1;
             buffer2_next <= buffer2;              
                 if buf1_2 = '1' then
-                    if address_ref = 767 then
+                    if address_ref = (std_logic_vector(to_unsigned(767, 12))) then
                         address_ref_next <= (others => '0');
                     else
-                        address_ref_next <= address_ref + 1;
+                        address_ref_next <= std_logic_vector(unsigned(address_ref) + 1);
                     end if;
-                    if address_ref < fft_width/4 - 1 then --127
-                        buffer1_next <= buffer1 + 1;
-                        buffer2_next <= buffer2 + 1;
-                    elsif address_ref < 3 * fft_width/4 then -- 384
-                        buffer1_next <= buffer1 + 1;
+                    if address_ref < (std_logic_vector(to_unsigned(fft_width/4 - 1, 12))) then --127
+                        buffer1_next <= std_logic_vector(unsigned(buffer1) + 1);
+                        buffer2_next <= std_logic_vector(unsigned(buffer2) + 1);
+                    elsif address_ref < (std_logic_vector(to_unsigned(3 * fft_width/4, 12))) then -- 384
+                        buffer1_next <= std_logic_vector(unsigned(buffer1) + 1);
                         buffer2_next <= (others => '0');
-                    elsif address_ref = 3 * fft_width/4 then -- 384
-                        buffer1_next <= buffer1 + 1;
-                        buffer2_next <= buffer2 + 1;                
-                    elsif address_ref < fft_width - 1 then -- 511
-                        buffer1_next <= buffer1 + 1;
-                        buffer2_next <= buffer2 + 1;
-                    elsif address_ref = fft_width - 1 then -- 511
+                    elsif address_ref = (std_logic_vector(to_unsigned(3 * fft_width/4, 12))) then -- 384
+                        buffer1_next <= std_logic_vector(unsigned(buffer1) + 1);
+                        buffer2_next <= std_logic_vector(unsigned(buffer2) + 1);                
+                    elsif address_ref < (std_logic_vector(to_unsigned(fft_width - 1, 12))) then -- 511
+                        buffer1_next <= std_logic_vector(unsigned(buffer1) + 1);
+                        buffer2_next <= std_logic_vector(unsigned(buffer2) + 1);
+                    elsif address_ref = std_logic_vector(to_unsigned(fft_width - 1, 12)) then -- 511
                         buffer1_next <= (others => '0'); 
-                        buffer2_next <= buffer2 + 1;                                      
-                    elsif address_ref < 6 * fft_width/4 - 1 then -- 767                   
-                        buffer2_next <= buffer2 + 1;
+                        buffer2_next <= std_logic_vector(unsigned(buffer2) + 1);                                      
+                    elsif address_ref < std_logic_vector(to_unsigned(6 * fft_width/4 - 1, 12)) then -- 767                   
+                        buffer2_next <= std_logic_vector(unsigned(buffer2) + 1);
                         buffer1_next <= (others => '0');
-                    elsif address_ref = 6 * fft_width/4 - 1 then -- 767                   
-                        buffer2_next <= buffer2 + 1;                  
+                    elsif address_ref = std_logic_vector(to_unsigned(6 * fft_width/4 - 1, 12)) then -- 767                   
+                        buffer2_next <= std_logic_vector(unsigned(buffer2) + 1);                  
                     end if;
                 end if;
             

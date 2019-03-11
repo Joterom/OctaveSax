@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1551903293">
-  <File Type="RDS-DCP" Name="master_controller.dcp"/>
   <File Type="PA-TCL" Name="master_controller.tcl"/>
+  <File Type="RDS-DCP" Name="master_controller.dcp"/>
   <File Type="REPORTS-TCL" Name="master_controller_reports.tcl"/>
   <File Type="RDS-RDS" Name="master_controller.vds"/>
   <File Type="RDS-UTIL" Name="master_controller_utilization_synth.rpt"/>
@@ -104,6 +104,6 @@
     <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2017"/>
     <Step Id="synth_design"/>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="clk_generator"/>
   <BlockFileSet Type="BlockSrcs" Name="ram_memory"/>
+  <BlockFileSet Type="BlockSrcs" Name="clk_generator"/>
 </GenRun>

@@ -5,7 +5,6 @@
 library IEEE; 
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
-use IEEE.STD_LOGIC_UNSIGNED.all;
 use work.project_trunk.all;
 
 -- Generates clock signals used by Pmod and provides additional control signals to synchronize 
@@ -52,7 +51,7 @@ begin
                 half_sc <= '0';
                 init <= '1';                
             elsif rising_edge(clk_50MHz) then              
-                count <= count + "00000001";
+                count <= std_logic_vector(unsigned(count) + 1);
                 lr <= not lr_next;
                 sc <= sc_next;
                 mc <= not mc_next;
@@ -75,8 +74,8 @@ begin
     -- Counter logig
     process(frame_num)
         begin
-            frame_number_next <= frame_num + 1;
-            if (frame_num = 31) then
+            frame_number_next <= std_logic_vector(unsigned(frame_num) + 1);
+            if (frame_num = std_logic_vector(to_unsigned(31,5))) then
                 frame_number_next <= (others => '0');
         end if;
     end process;
@@ -90,9 +89,9 @@ begin
                 if lr = '1' then
                     init_next <= '0';
                 end if;
-                if frame_num = writing_cicle  then
+                if frame_num = std_logic_vector(to_unsigned(writing_cicle, 5))  then
                     counter32 <= counter32_next;
-                elsif frame_num = reading_cicle then
+                elsif frame_num = std_logic_vector(to_unsigned(reading_cicle, 5)) then
                     counter32 <= counter32_next;
                 end if;
             end if;
@@ -100,8 +99,8 @@ begin
     
     process(counter32)
             begin
-                counter32_next <= counter32 + 1;
-                if (counter32 = 15) then -- It counts only until 16 actually
+                counter32_next <= std_logic_vector(unsigned(counter32) + 1);
+                if (counter32 = std_logic_vector(to_unsigned(15, 5))) then -- It counts only until 16 actually
                     counter32_next <= (others => '0');
             end if;
         end process;
@@ -122,10 +121,10 @@ begin
         begin           
             sample_in_ready_next <= '0';
             sample_towrite_ready_next <= '0';            
-            if counter32 = 1 then -- Arbitrary choice, any other number between 0 and 15 would work as well
-                if frame_num = reading_cicle and lr = '0' then -- Constant defined at trunk, arbitrary
+            if counter32 = std_logic_vector(to_unsigned(1, 5)) then -- Arbitrary choice, any other number between 0 and 15 would work as well
+                if frame_num = std_logic_vector(to_unsigned(reading_cicle, 5)) and lr = '0' then -- Constant defined at trunk, arbitrary
                     sample_in_ready_next <= '1';                   
-                elsif frame_num = writing_cicle and lr = '0' then -- Constant defined at trunk, arbitrary
+                elsif frame_num = std_logic_vector(to_unsigned(writing_cicle, 5)) and lr = '0' then -- Constant defined at trunk, arbitrary
                     sample_towrite_ready_next <= '1';                    
                 end if;
             end if;            
