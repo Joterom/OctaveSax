@@ -20,29 +20,33 @@ architecture Behavioral of window_tb is
 
     component window_controller port(
         clk : in STD_LOGIC;
+        reset : in STD_LOGIC;
         start_proc_win : in STD_LOGIC;
         end_proc_win : out STD_LOGIC;
         for_inv : in STD_LOGIC; -- 1 = STFT, 0 = iSTFT
         multiplicand : in STD_LOGIC_VECTOR (sample_size - 1 downto 0);
+        multiplicand_out : in STD_LOGIC_VECTOR (sample_size - 1 downto 0);
         factor_buf1 : in STD_LOGIC_VECTOR (8 downto 0);
         factor_buf2 : in STD_LOGIC_VECTOR (8 downto 0);
-        buf1_2 : out STD_LOGIC;
         result1 : out STD_LOGIC_VECTOR (sample_size - 1 downto 0);
+        buf1_2 : out STD_LOGIC;
         result2 : out STD_LOGIC_VECTOR (sample_size - 1 downto 0)
     ); end component;
     
     signal clk, start_proc_win, end_proc_win, for_inv, buf1_2 : STD_LOGIC;
-    signal multiplicand, result1, result2 : STD_LOGIC_VECTOR (sample_size - 1 downto 0);
+    signal multiplicand, multiplicand_out, result1, result2 : STD_LOGIC_VECTOR (sample_size - 1 downto 0);
     signal factor_buf1, factor_buf2 : STD_LOGIC_VECTOR (8 downto 0);
     
 begin
 
     UUT : window_controller port map(
         clk => clk,
+        reset => '0',
         start_proc_win => start_proc_win,
         end_proc_win => end_proc_win,
         for_inv => for_inv,
         multiplicand => multiplicand,
+        multiplicand_out => multiplicand_out,
         factor_buf1 => factor_buf1,
         factor_buf2 => factor_buf2,
         buf1_2 => buf1_2,
@@ -62,9 +66,12 @@ begin
     process
         begin
             multiplicand <= "0100000000000000";
-            factor_buf1 <= "010000000";
-            factor_buf2 <= "010000000";
-            for_inv <= '1';
+            multiplicand_out <= "0000111100000000";
+--            factor_buf1 <= "010000000"; -- "0100000000000000" tras la rom STFT
+--            factor_buf2 <= "010000000"; -- "0100000000000000" tras la rom STFT
+            factor_buf1 <= "001001001"; -- "0001000000000001" tras la rom iSTFT
+            factor_buf2 <= "000100100"; -- "0000010000011000" tras la rom iSTFT
+            for_inv <= '0';
             start_proc_win <= '0';
          wait for 1 us;
             start_proc_win <= '1';

@@ -12,15 +12,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="3920982500000fs"></ZoomStartTime>
-      <ZoomEndTime time="3921334000001fs"></ZoomEndTime>
-      <Cursor1Time time="3921168500000fs"></Cursor1Time>
+      <ZoomStartTime time="7784944000000fs"></ZoomStartTime>
+      <ZoomEndTime time="7956744000001fs"></ZoomEndTime>
+      <Cursor1Time time="7914774000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="197"></NameColumnWidth>
-      <ValueColumnWidth column_width="144"></ValueColumnWidth>
+      <ValueColumnWidth column_width="140"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="8" />
+   <WVObjectSize size="7" />
    <wvobject type="group" fp_name="group55">
       <obj_property name="label">CLKs</obj_property>
       <obj_property name="DisplayName">label</obj_property>
@@ -59,15 +59,14 @@
       <obj_property name="ObjectShortName">frame_number[4:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/main_tb/UUT/address_in_ref">
-      <obj_property name="ElementShortName">address_in_ref[11:0]</obj_property>
-      <obj_property name="ObjectShortName">address_in_ref[11:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
    <wvobject type="group" fp_name="group29">
       <obj_property name="label">Writing</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="isExpanded"></obj_property>
+      <wvobject type="array" fp_name="/main_tb/UUT/address_in_ref">
+         <obj_property name="ElementShortName">address_in_ref[11:0]</obj_property>
+         <obj_property name="ObjectShortName">address_in_ref[11:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
       <wvobject type="logic" fp_name="/main_tb/UUT/sample_in_ready">
          <obj_property name="ElementShortName">sample_in_ready</obj_property>
          <obj_property name="ObjectShortName">sample_in_ready</obj_property>
@@ -88,16 +87,6 @@
       <wvobject type="array" fp_name="/main_tb/UUT/write_address">
          <obj_property name="ElementShortName">write_address[11:0]</obj_property>
          <obj_property name="ObjectShortName">write_address[11:0]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/main_tb/UUT/write_address1">
-         <obj_property name="ElementShortName">write_address1[11:0]</obj_property>
-         <obj_property name="ObjectShortName">write_address1[11:0]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/main_tb/UUT/write_address2">
-         <obj_property name="ElementShortName">write_address2[11:0]</obj_property>
-         <obj_property name="ObjectShortName">write_address2[11:0]</obj_property>
          <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject type="array" fp_name="/main_tb/UUT/buffer1">
@@ -150,6 +139,12 @@
    <wvobject type="group" fp_name="group30">
       <obj_property name="label">Reading</obj_property>
       <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject type="array" fp_name="/main_tb/UUT/address_out_ref">
+         <obj_property name="ElementShortName">address_out_ref[11:0]</obj_property>
+         <obj_property name="ObjectShortName">address_out_ref[11:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
       <wvobject type="logic" fp_name="/main_tb/UUT/start_reading">
          <obj_property name="ElementShortName">start_reading</obj_property>
          <obj_property name="ObjectShortName">start_reading</obj_property>
@@ -181,7 +176,6 @@
    <wvobject type="group" fp_name="group31">
       <obj_property name="label">MEMO</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="isExpanded"></obj_property>
       <wvobject type="array" fp_name="/main_tb/UUT/RAM/ram/dina">
          <obj_property name="ElementShortName">dina[15:0]</obj_property>
          <obj_property name="ObjectShortName">dina[15:0]</obj_property>

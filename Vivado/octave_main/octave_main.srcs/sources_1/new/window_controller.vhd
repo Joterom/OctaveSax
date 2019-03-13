@@ -18,6 +18,7 @@ entity window_controller is
     end_proc_win : out STD_LOGIC;
     for_inv : in STD_LOGIC; -- 1 = STFT, 0 = iSTFT
     multiplicand : in STD_LOGIC_VECTOR (sample_size - 1 downto 0);
+    multiplicand_out : in STD_LOGIC_VECTOR (sample_size - 1 downto 0);
     factor_buf1 : in STD_LOGIC_VECTOR (8 downto 0);
     factor_buf2 : in STD_LOGIC_VECTOR (8 downto 0);
     result1 : out STD_LOGIC_VECTOR (sample_size - 1 downto 0);
@@ -41,7 +42,7 @@ architecture Behavioral of window_controller is
     signal multiplicatorSTFT, multiplicatoriSTFT : STD_LOGIC_VECTOR (15 downto 0) := (others => '0');
     signal pre_resultSTFT_next, pre_resultiSTFT_next, pre_resultSTFT, pre_resultiSTFT : signed (31 downto 0) := (others => '0');
     signal factor, factor_next : STD_LOGIC_VECTOR (8 downto 0) := (others => '0');
-    signal result1_next, result2_next, mult_reg, mult_reg_next, result1buf, result2buf : STD_LOGIC_VECTOR (sample_size - 1 downto 0) := (others => '0');
+    signal result1_next, result2_next, mult_reg, mult_reg_next, mult_reg2, mult_reg2_next, result1buf, result2buf : STD_LOGIC_VECTOR (sample_size - 1 downto 0) := (others => '0');
     signal ended_next, count, count_next, working, working_next, buf1_2next, buf1_2reg : STD_LOGIC := '0';
     signal value, value_next, proc : STD_LOGIC_VECTOR (2 downto 0) := "000";
     
@@ -63,6 +64,7 @@ begin
             if reset = '1' then
                 factor <= (others => '0');
                 mult_reg <= (others => '0');
+                mult_reg2 <= (others => '0');
                 pre_resultSTFT <= (others => '0');
                 pre_resultiSTFT <= (others => '0');
                 result1buf <= (others => '0');
@@ -74,6 +76,7 @@ begin
             elsif rising_edge(clk) then         
                 factor <= factor_next;
                 mult_reg <= mult_reg_next;
+                mult_reg2 <= mult_reg2_next;
                 pre_resultSTFT <= pre_resultSTFT_next;
                 pre_resultiSTFT <= pre_resultiSTFT_next;
                 result1buf <= result1_next;
@@ -98,40 +101,63 @@ begin
             pre_resultiSTFT_next <= pre_resultiSTFT;
             mult_reg_next <= mult_reg;
             factor_next <= factor;
-            case value is
-            when "001" =>
-                result1_next <= (others => '0');
-                result2_next <= (others => '0');
-                -- Ciclo 1 -> Carga el factor del bufer 1 e incializa el registro del operando
-                factor_next <= factor_buf1;
-                mult_reg_next <= multiplicand;                       
-            when "011" =>    -- Ciclo 3 -> Realiza la multiplicacion para el buffer 1
-                pre_resultSTFT_next <= signed(mult_reg)*signed(multiplicatorSTFT);
-                pre_resultiSTFT_next <= signed(mult_reg)*signed(multiplicatoriSTFT);
-            when "100" =>    -- Ciclo 4                
-                if for_inv = '1' then
-                    result1_next <= std_logic_vector(pre_resultSTFT(30 downto 15));
-                else
-                    result1_next <= std_logic_vector(pre_resultiSTFT(30 downto 15));
-                end if;
-                factor_next <= factor_buf2;
-                ended_next <= '1';
-                buf1_2next <= '1';
-            when "110" =>    -- Ciclo 5
-                pre_resultSTFT_next <= signed(mult_reg)*signed(multiplicatorSTFT);
-                pre_resultiSTFT_next <= signed(mult_reg)*signed(multiplicatoriSTFT);
-            when "111" =>    -- Ciclo 7 -> Trunca y almacena la operacion en el bufer 2 de salida
-                if for_inv = '1' then
-                    result2_next <= std_logic_vector(pre_resultSTFT(30 downto 15));
-                else
-                    result2_next <= std_logic_vector(pre_resultiSTFT(30 downto 15));
-                end if;          
-                ended_next <= '1';
-                buf1_2next <= '0';
-            when others =>
-                result1_next <= result1buf;
-                result2_next <= result2buf;
-            end case;
+            if for_inv = '1' then
+                case value is
+                    when "001" =>
+                        result1_next <= (others => '0');
+                        result2_next <= (others => '0');                        
+                        factor_next <= factor_buf1;
+                        mult_reg_next <= multiplicand;      
+                                         
+                    when "011" =>    -- Ciclo 3 -> Realiza la multiplicacion para el buffer 1
+                        pre_resultSTFT_next <= signed(mult_reg)*signed(multiplicatorSTFT);                        
+                        
+                    when "100" =>    -- Ciclo 4                
+                        result1_next <= std_logic_vector(pre_resultSTFT(30 downto 15));                        
+                        factor_next <= factor_buf2;
+                        ended_next <= '1';
+                        buf1_2next <= '1';
+                        
+                    when "110" =>    -- Ciclo 5
+                        pre_resultSTFT_next <= signed(mult_reg)*signed(multiplicatorSTFT);
+                                                
+                    when "111" =>    -- Ciclo 7 -> Trunca y almacena la operacion en el bufer 2 de salida
+                        result2_next <= std_logic_vector(pre_resultSTFT(30 downto 15));                        
+                        ended_next <= '1';
+                        buf1_2next <= '0';
+                    when others =>
+                        result1_next <= result1buf;
+                        result2_next <= result2buf;
+                end case;
+            else
+                case value is
+                    when "001" =>
+                        result1_next <= (others => '0');
+                        result2_next <= (others => '0');                        
+                        factor_next <= factor_buf1;
+                        mult_reg_next <= multiplicand;
+                        mult_reg2_next <= multiplicand_out;      
+                                         
+                    when "011" =>    -- Ciclo 3 -> Realiza la multiplicacion para el buffer 1
+                        pre_resultiSTFT_next <= signed(mult_reg)*signed(multiplicatoriSTFT);                        
+                        
+                    when "100" =>    -- Ciclo 4                
+                        --result1_next <= std_logic_vector(pre_resultiSTFT(30 downto 15));                        
+                        factor_next <= factor_buf2;                       
+                        buf1_2next <= '1';
+                        
+                    when "110" =>    -- Ciclo 5
+                        pre_resultiSTFT_next <= signed(mult_reg2)*signed(multiplicatoriSTFT)+pre_resultiSTFT;
+                                                
+                    when "111" =>    -- Ciclo 7 -> Trunca y almacena la operacion en el bufer 2 de salida
+                        result2_next <= std_logic_vector(pre_resultiSTFT(30 downto 15));                        
+                        ended_next <= '1';
+                        buf1_2next <= '0';
+                    when others =>
+                        result1_next <= result1buf;
+                        result2_next <= result2buf;
+                end case;
+            end if;
     end process;
       
     -- Up to 7 counter         

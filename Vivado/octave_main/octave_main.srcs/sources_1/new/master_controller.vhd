@@ -83,6 +83,7 @@ architecture Behavioral of master_controller is
         end_proc_win : out STD_LOGIC;
         for_inv : in STD_LOGIC; -- 1 = STFT, 0 = iSTFT
         multiplicand : in STD_LOGIC_VECTOR (sample_size - 1 downto 0);
+        multiplicand_out : in STD_LOGIC_VECTOR (sample_size - 1 downto 0);
         factor_buf1 : in STD_LOGIC_VECTOR (8 downto 0);
         factor_buf2 : in STD_LOGIC_VECTOR (8 downto 0);
         buf1_2 : out STD_LOGIC;
@@ -100,7 +101,7 @@ architecture Behavioral of master_controller is
     signal start_reading, start_reading_next, DATA_OUT_n, DATA_OUTr : STD_LOGIC := '0';
     signal sample_towrite : STD_LOGIC_VECTOR (23 downto 0) := (others => '0');
     
-    signal address_in_ref, address_in_ref_next : STD_LOGIC_VECTOR (11 downto 0) := (others => '0');
+    signal address_in_ref, address_in_ref_next, address_out_ref, address_out_ref_next : STD_LOGIC_VECTOR (11 downto 0) := (others => '0');
     signal buffer1, buffer1_next : STD_LOGIC_VECTOR (11 downto 0) := (others => '0');
     signal buffer2, buffer2_next : STD_LOGIC_VECTOR (11 downto 0) := "000110000000"; -- Set at 384 --> 3 * fft_width / 4
     signal windowed_sample_buf1, windowed_sample_buf2, framed_sample, framed_sample_next : STD_LOGIC_VECTOR (sample_size - 1 downto 0) := (others => '0');
@@ -162,6 +163,7 @@ begin
         end_proc_win => end_proc_win,
         for_inv => for_inv, -- 1 = STFT, 0 = iSTFT
         multiplicand => input_reg,
+        multiplicand_out => (others => '0'),--TODO
         factor_buf1 => buffer1(8 downto 0),
         factor_buf2 => buffer2(8 downto 0),
         buf1_2 => buf1_2,
@@ -180,11 +182,12 @@ begin
                 DATA_OUTr <= '0';
                 buffer1 <= (others => '0');
                 buffer2 <= "000110000000";
-                address_in_ref <= (others => '0');             
+                address_in_ref <= (others => '0');  
+                address_out_ref <= (others => '0');           
                 start_proc_win <= '0';    
                 for_inv <= '1';  
                 val <= '1';     
-                val2 <= '1';         
+                val2 <= '1';
             elsif rising_edge(clk_100MHz) then                
                 enable_shift <= enable_shift_next;                               
                 write_address <= write_address_next;
@@ -194,7 +197,8 @@ begin
                 buffer1 <= buffer1_next;
                 buffer2 <= buffer2_next;            
                 start_proc_win <= start_proc_win_next;         
-                address_in_ref <= address_in_ref_next;   
+                address_in_ref <= address_in_ref_next;
+                address_out_ref <= address_out_ref_next;   
                 for_inv <= for_inv_next;        
                 val <= val_next; 
                 val2 <= val2_next;    
@@ -264,56 +268,72 @@ begin
         begin
             buffer1_next <= buffer1;
             buffer2_next <= buffer2; 
-            start_reading_next <= start_reading;              
-            if buf1_2 = '1' then
-                if val2 = '1' then
-                    if address_in_ref < (std_logic_vector(to_unsigned(fft_width/4 - 1, 12))) then --127
-                        buffer1_next <= std_logic_vector(unsigned(buffer1) + 1);
-                        buffer2_next <= std_logic_vector(unsigned(buffer2) + 1);
-                        val2_next <= '0';
-                    elsif address_in_ref < (std_logic_vector(to_unsigned(3 * fft_width/4, 12))) then -- 384
-                        buffer1_next <= std_logic_vector(unsigned(buffer1) + 1);
-                        buffer2_next <= (others => '0');
-                        val2_next <= '0';
-                    elsif address_in_ref = (std_logic_vector(to_unsigned(3 * fft_width/4, 12))) then -- 384
-                        buffer1_next <= std_logic_vector(unsigned(buffer1) + 1);
-                        buffer2_next <= std_logic_vector(unsigned(buffer2) + 1); 
-                        val2_next <= '0';               
-                    elsif address_in_ref < (std_logic_vector(to_unsigned(fft_width - 1, 12))) then -- 511
-                        buffer1_next <= std_logic_vector(unsigned(buffer1) + 1);
-                        buffer2_next <= std_logic_vector(unsigned(buffer2) + 1);
-                        val2_next <= '0';
-                    elsif address_in_ref = std_logic_vector(to_unsigned(fft_width - 1, 12)) then -- 511
-                        buffer1_next <= (others => '0'); 
-                        buffer2_next <= std_logic_vector(unsigned(buffer2) + 1);
-                        val2_next <= '0';                                      
-                    elsif address_in_ref < std_logic_vector(to_unsigned(6 * fft_width/4 - 1, 12)) then -- 767                   
-                        buffer2_next <= std_logic_vector(unsigned(buffer2) + 1);
-                        buffer1_next <= (others => '0');
-                        val2_next <= '0';
-                    elsif address_in_ref = std_logic_vector(to_unsigned(6 * fft_width/4 - 1, 12)) then -- 767                   
-                        buffer2_next <= std_logic_vector(unsigned(buffer2) + 1); 
-                        start_reading_next <= '1';   
-                        val2_next <= '0';              
-                    end if;
+            start_reading_next <= start_reading; 
+            if for_inv <= '1' then             
+                if buf1_2 = '1' then
+                    if val2 = '1' then
+                        if address_in_ref < (std_logic_vector(to_unsigned(fft_width/4 - 1, 12))) then --127
+                            buffer1_next <= std_logic_vector(unsigned(buffer1) + 1);
+                            buffer2_next <= std_logic_vector(unsigned(buffer2) + 1);
+                            val2_next <= '0';
+                        elsif address_in_ref < (std_logic_vector(to_unsigned(3 * fft_width/4, 12))) then -- 384
+                            buffer1_next <= std_logic_vector(unsigned(buffer1) + 1);
+                            buffer2_next <= (others => '0');
+                            val2_next <= '0';
+                            start_reading_next <= '1';
+                        elsif address_in_ref = (std_logic_vector(to_unsigned(3 * fft_width/4, 12))) then -- 384
+                            buffer1_next <= std_logic_vector(unsigned(buffer1) + 1);
+                            buffer2_next <= std_logic_vector(unsigned(buffer2) + 1); 
+                            val2_next <= '0';               
+                        elsif address_in_ref < (std_logic_vector(to_unsigned(fft_width - 1, 12))) then -- 511
+                            buffer1_next <= std_logic_vector(unsigned(buffer1) + 1);
+                            buffer2_next <= std_logic_vector(unsigned(buffer2) + 1);
+                            val2_next <= '0';
+                        elsif address_in_ref = std_logic_vector(to_unsigned(fft_width - 1, 12)) then -- 511
+                            buffer1_next <= (others => '0'); 
+                            buffer2_next <= std_logic_vector(unsigned(buffer2) + 1);
+                            val2_next <= '0';                                      
+                        elsif address_in_ref < std_logic_vector(to_unsigned(6 * fft_width/4 - 1, 12)) then -- 767                   
+                            buffer2_next <= std_logic_vector(unsigned(buffer2) + 1);
+                            buffer1_next <= (others => '0');
+                            val2_next <= '0';
+                        elsif address_in_ref = std_logic_vector(to_unsigned(6 * fft_width/4 - 1, 12)) then -- 767                   
+                            buffer2_next <= std_logic_vector(unsigned(buffer2) + 1); 
+                            --start_reading_next <= '1';   
+                            val2_next <= '0';              
+                        end if;
+                   end if;
                end if;
             else
                 val2_next <= '1';
             end if;          
     end process;
-    
-    addr_ref : process(LR_W_SEL, frame_number, address_in_ref,val)
+   
+   -- Creates references for input and output 
+    addr_ref : process(LR_W_SEL, frame_number, address_in_ref, address_out_ref, val)
         begin
             address_in_ref_next <= address_in_ref;
+            address_out_ref_next <= address_out_ref;
             if LR_W_SEL = '1' then
                 if frame_number = std_logic_vector(to_unsigned(0, 5)) then
                     if val = '1' then
+                        -- Input
                         if address_in_ref = (std_logic_vector(to_unsigned(767, 12))) then
-                                address_in_ref_next <= (others => '0'); 
-                                val_next <= '0';                       
-                            else
-                                address_in_ref_next <= std_logic_vector(unsigned(address_in_ref) + 1);
+                            address_in_ref_next <= (others => '0'); 
+                            val_next <= '0';                   
+                        else
+                            address_in_ref_next <= std_logic_vector(unsigned(address_in_ref) + 1);
+                            val_next <= '0';
+                        end if;
+                        -- Output
+                        if start_reading = '1' then
+                            if address_out_ref = (std_logic_vector(to_unsigned(767, 12))) then
+                                address_out_ref_next <= (others => '0'); 
                                 val_next <= '0';
+                            else
+                                address_out_ref_next <= std_logic_vector(unsigned(address_out_ref) + 1);
+                                val_next <= '0';
+                            end if;
                         end if;
                     end if;
                 end if;
@@ -360,6 +380,7 @@ begin
     -- Sample which is written into ram memory after first windowing  
     framed_sample <= windowed_sample_buf1 when buf1_2 = '1' else
                      windowed_sample_buf2;
+                     
     -- Toggles ram address depending on current mode  
     address <= write_address when write_sample = '1' else
                read_address when read_sample = '1' else
