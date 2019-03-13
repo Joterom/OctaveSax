@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1551903293">
+<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1552329496">
   <File Type="PA-TCL" Name="master_controller.tcl"/>
-  <File Type="RDS-DCP" Name="master_controller.dcp"/>
   <File Type="REPORTS-TCL" Name="master_controller_reports.tcl"/>
   <File Type="RDS-RDS" Name="master_controller.vds"/>
   <File Type="RDS-UTIL" Name="master_controller_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="master_controller_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="master_controller.dcp"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/project_trunk.vhd">
@@ -76,6 +76,12 @@
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/../../Matlab/ROM Data/stft_window.vhd"/>
         <Attr Name="ImportTime" Val="1551902918"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/window_controller.vhd">
+      <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>

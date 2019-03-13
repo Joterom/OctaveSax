@@ -13,6 +13,7 @@ use work.project_trunk.all;
 entity window_controller is
   Port ( 
     clk : in STD_LOGIC;
+    reset : in STD_LOGIC;
     start_proc_win : in STD_LOGIC;
     end_proc_win : out STD_LOGIC;
     for_inv : in STD_LOGIC; -- 1 = STFT, 0 = iSTFT
@@ -41,7 +42,7 @@ architecture Behavioral of window_controller is
     signal pre_resultSTFT_next, pre_resultiSTFT_next, pre_resultSTFT, pre_resultiSTFT : signed (31 downto 0) := (others => '0');
     signal factor, factor_next : STD_LOGIC_VECTOR (8 downto 0) := (others => '0');
     signal result1_next, result2_next, mult_reg, mult_reg_next, result1buf, result2buf : STD_LOGIC_VECTOR (sample_size - 1 downto 0) := (others => '0');
-    signal ended_next, count, count_next, working, working_next, buf1_2next : STD_LOGIC := '0';
+    signal ended_next, count, count_next, working, working_next, buf1_2next, buf1_2reg : STD_LOGIC := '0';
     signal value, value_next, proc : STD_LOGIC_VECTOR (2 downto 0) := "000";
     
 begin
@@ -57,10 +58,20 @@ begin
     );
     -- Operation
    
-    reg : process(clk)
+    reg : process(clk, reset)
         begin
-            if rising_edge(clk) then
-          
+            if reset = '1' then
+                factor <= (others => '0');
+                mult_reg <= (others => '0');
+                pre_resultSTFT <= (others => '0');
+                pre_resultiSTFT <= (others => '0');
+                result1buf <= (others => '0');
+                result2buf <= (others => '0');
+                end_proc_win <= '0';
+                value <= (others => '0');
+                working <= '0';
+                buf1_2reg <= '0';
+            elsif rising_edge(clk) then         
                 factor <= factor_next;
                 mult_reg <= mult_reg_next;
                 pre_resultSTFT <= pre_resultSTFT_next;
@@ -70,16 +81,23 @@ begin
                 end_proc_win <= ended_next;
                 value <= value_next;
                 working <= working_next;
-                buf1_2 <= buf1_2next;
+                buf1_2reg <= buf1_2next;
             end if;
     end process;
     
       
     -- Depending on value, performs a different operation
     op : process(value, factor_buf1, factor_buf2, multiplicand, mult_reg, multiplicatorSTFT, multiplicatoriSTFT, pre_resultSTFT
-            , pre_resultiSTFT, result1buf, result2buf)
+            , pre_resultiSTFT, result1buf, result2buf, buf1_2reg, factor, for_inv)
         begin
             ended_next <= '0';
+            result1_next <= result1buf;
+            result2_next <= result2buf;
+            buf1_2next <= buf1_2reg;
+            pre_resultSTFT_next <= pre_resultSTFT;
+            pre_resultiSTFT_next <= pre_resultiSTFT;
+            mult_reg_next <= mult_reg;
+            factor_next <= factor;
             case value is
             when "001" =>
                 result1_next <= (others => '0');
@@ -117,8 +135,10 @@ begin
     end process;
       
     -- Up to 7 counter         
-    count_logic : process(value, start_proc_win)
+    count_logic : process(value, start_proc_win, working)
         begin
+            working_next <= working;
+            value_next <= value;
             if start_proc_win = '1' or working = '1' then
                 value_next <= std_logic_vector(unsigned(value) + 1);
                 working_next <= '1';
@@ -133,6 +153,7 @@ begin
             
     result1 <= result1buf;
     result2 <= result2buf;
+    buf1_2 <= buf1_2reg;
     
 --    proc <= value when start_proc_win = '1' else
 --            "000";

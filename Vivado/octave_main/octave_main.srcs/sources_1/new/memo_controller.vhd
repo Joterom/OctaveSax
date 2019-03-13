@@ -6,7 +6,6 @@ use work.project_trunk.all;
 entity memo_controller is 
   Port ( 
     clk : in STD_LOGIC;
-    reset : in STD_LOGIC;
     write_sample : in STD_LOGIC;
     read_sample : in STD_LOGIC;
     memo_address : in STD_LOGIC_VECTOR (11 downto 0);

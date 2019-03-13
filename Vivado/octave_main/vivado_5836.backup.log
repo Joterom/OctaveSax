@@ -1,0 +1,50 @@
+#-----------------------------------------------------------
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Mon Mar 11 19:03:10 2019
+# Process ID: 5836
+# Current directory: D:/UNI/TFG/OctaveSax/Vivado/octave_main
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent9912 D:\UNI\TFG\OctaveSax\Vivado\octave_main\octave_main.xpr
+# Log file: D:/UNI/TFG/OctaveSax/Vivado/octave_main/vivado.log
+# Journal file: D:/UNI/TFG/OctaveSax/Vivado/octave_main\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.xpr
+INFO: [Project 1-313] Project file moved from '/home/joterom/workspace/OctaveSax/Vivado/octave_main' since last save.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2017.4/data/ip'.
+open_project: Time (s): cpu = 00:00:10 ; elapsed = 00:00:06 . Memory (MB): peak = 769.828 ; gain = 97.563
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+[Mon Mar 11 19:11:37 2019] Launched synth_1...
+Run output will be captured here: D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+[Mon Mar 11 19:16:35 2019] Launched synth_1...
+Run output will be captured here: D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+[Mon Mar 11 19:16:55 2019] Launched synth_1...
+Run output will be captured here: D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+[Mon Mar 11 19:28:33 2019] Launched synth_1...
+Run output will be captured here: D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+[Mon Mar 11 19:30:47 2019] Launched synth_1...
+Run output will be captured here: D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+[Mon Mar 11 19:34:54 2019] Launched synth_1...
+Run output will be captured here: D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+[Mon Mar 11 19:38:16 2019] Launched synth_1...
+Run output will be captured here: D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/runme.log
+exit
+INFO: [Common 17-206] Exiting Vivado at Mon Mar 11 19:40:22 2019...

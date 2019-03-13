@@ -23,7 +23,7 @@ architecture Behavioral of display_counter is
     
 begin
     -- Register logic
-    process (clk)
+    process (clk, reset)
         begin
             if reset = '1' then
                 counter <= (others => '0');
