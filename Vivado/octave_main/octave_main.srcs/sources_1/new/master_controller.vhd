@@ -104,7 +104,7 @@ architecture Behavioral of master_controller is
     signal buffer1, buffer1_next : STD_LOGIC_VECTOR (11 downto 0) := (others => '0');
     signal buffer2, buffer2_next : STD_LOGIC_VECTOR (11 downto 0) := "000110000000"; -- Set at 384 --> 3 * fft_width / 4
     signal windowed_sample_buf1, windowed_sample_buf2, framed_sample, framed_sample_next : STD_LOGIC_VECTOR (sample_size - 1 downto 0) := (others => '0');
-    signal for_inv, for_inv_next, start_proc_win, end_proc_win, buf1_2, val, val2 : STD_LOGIC := '1';
+    signal for_inv, for_inv_next, start_proc_win, end_proc_win, buf1_2, val, val_next, val2_next, val2 : STD_LOGIC := '1';
     
     signal buffer_aux : STD_LOGIC_VECTOR (8 downto 0) := "111111110";
     
@@ -182,7 +182,9 @@ begin
                 buffer2 <= "000110000000";
                 address_in_ref <= (others => '0');             
                 start_proc_win <= '0';    
-                for_inv <= '1';                
+                for_inv <= '1';  
+                val <= '1';     
+                val2 <= '1';         
             elsif rising_edge(clk_100MHz) then                
                 enable_shift <= enable_shift_next;                               
                 write_address <= write_address_next;
@@ -193,20 +195,17 @@ begin
                 buffer2 <= buffer2_next;            
                 start_proc_win <= start_proc_win_next;         
                 address_in_ref <= address_in_ref_next;   
-                for_inv <= for_inv_next;             
+                for_inv <= for_inv_next;        
+                val <= val_next; 
+                val2 <= val2_next;    
             end if;           
     end process;
     
     -- Generates enable signal used by the shift-register
     enable_shift_next <= '1' when (frame_number >= std_logic_vector(to_unsigned(1, 5 )) and frame_number <= std_logic_vector(to_unsigned(sample_size, 5)) and LR_W_SEL = '0') else                         
-                         '0';
-                         
-    -- Decides which window is being applicated to the sample   
---    for_inv_next <= '1' when frame_number = std_logic_vector(to_unsigned(23, 5 )) else
---               '0';
-    
-    
-    memo_logic : process(end_proc_win, sample_in_ready, sample_towrite_ready, write_address, read_address, buf1_2, write_address1, write_address2, for_inv)
+                         '0';    
+   
+    memo_logic : process(frame_number, end_proc_win, sample_in_ready, sample_towrite_ready, write_address, read_address, buf1_2, write_address1, write_address2, for_inv)
         begin            
             -- Default output
             write_sample <= '0';            
@@ -220,45 +219,36 @@ begin
                 start_proc_win_next <= '1';
                 for_inv_next <= '1';            
             end if;
-            if end_proc_win = '1' then -- Two times per sample, one for each buffer
-                if for_inv = '1' then
-                    if buf1_2 = '1' then
-                        write_sample <= '1';
-                        write_address_next <= write_address2;
-                    else
-                        write_sample <= '1';
-                        write_address_next <= write_address1;
-                        for_inv_next <= '0';
-                    end if;    
-                end if;
-            end if;
-            -- Reading memo mode. Load previous storaged sample into the variable
 --            if sample_towrite_ready = '1' then
 --                start_proc_win_next <= '1';
---                for_inv_next <= '0';  
+--                for_inv_next <= '0';
 --            end if;
---            if start_reading = '1' then
---                if end_proc_win = '1' then -- Two times per sample, one for each buffer
---                    if for_inv = '0' then
+            if end_proc_win = '1' then -- Two times per sample, one for each buffer
+                if for_inv = '1' then
+                    if frame_number = std_logic_vector(to_unsigned(reading_cicle, 5)) then
+                        if buf1_2 = '1' then
+                            write_sample <= '1';
+                            write_address_next <= write_address2;
+                        else
+                            write_sample <= '1';
+                            write_address_next <= write_address1;
+                            for_inv_next <= '0';
+                        end if;    
+                    end if;
+--                else
+--                    if frame_number = std_logic_vector(to_unsigned(writing_cicle, 5)) then
 --                        if buf1_2 = '1' then
 --                            read_sample <= '1';
 --                            read_address_next <= write_address2;
 --                        else
 --                            read_sample <= '1';
---                            read_address_next <= write_address1;                        
---                        end if;    
+--                            read_address_next <= write_address1;
+--                            for_inv_next <= '0';
+--                        end if;
 --                    end if;
---                end if;
---            end if;
-------- OLD
---                if start_reading = '1' then
---                    read_sample <= '1';
---                    if read_address = std_logic_vector(to_unsigned(6*fft_width/4 - 1, 12)) then -- Keep taking samples from the beginning
---                        read_address_next <= (others => '0');
---                    else
---                        read_address_next <= std_logic_vector(unsigned(read_address) + 1);
---                    end if;
---                end if;
+                end if;
+            end if;
+            
             
     end process;
     
@@ -274,47 +264,41 @@ begin
         begin
             buffer1_next <= buffer1;
             buffer2_next <= buffer2; 
---            address_in_ref_next <= address_in_ref;   
             start_reading_next <= start_reading;              
             if buf1_2 = '1' then
                 if val2 = '1' then
---                    if address_in_ref = (std_logic_vector(to_unsigned(767, 12))) then
-    --                        address_in_ref_next <= (others => '0');
-    --                    else
-    --                        address_in_ref_next <= std_logic_vector(unsigned(address_in_ref) + 1);
-    --                    end if;
                     if address_in_ref < (std_logic_vector(to_unsigned(fft_width/4 - 1, 12))) then --127
                         buffer1_next <= std_logic_vector(unsigned(buffer1) + 1);
                         buffer2_next <= std_logic_vector(unsigned(buffer2) + 1);
-                        val2 <= '0';
+                        val2_next <= '0';
                     elsif address_in_ref < (std_logic_vector(to_unsigned(3 * fft_width/4, 12))) then -- 384
                         buffer1_next <= std_logic_vector(unsigned(buffer1) + 1);
                         buffer2_next <= (others => '0');
-                        val2 <= '0';
+                        val2_next <= '0';
                     elsif address_in_ref = (std_logic_vector(to_unsigned(3 * fft_width/4, 12))) then -- 384
                         buffer1_next <= std_logic_vector(unsigned(buffer1) + 1);
                         buffer2_next <= std_logic_vector(unsigned(buffer2) + 1); 
-                        val2 <= '0';               
+                        val2_next <= '0';               
                     elsif address_in_ref < (std_logic_vector(to_unsigned(fft_width - 1, 12))) then -- 511
                         buffer1_next <= std_logic_vector(unsigned(buffer1) + 1);
                         buffer2_next <= std_logic_vector(unsigned(buffer2) + 1);
-                        val2 <= '0';
+                        val2_next <= '0';
                     elsif address_in_ref = std_logic_vector(to_unsigned(fft_width - 1, 12)) then -- 511
                         buffer1_next <= (others => '0'); 
                         buffer2_next <= std_logic_vector(unsigned(buffer2) + 1);
-                        val2 <= '0';                                      
+                        val2_next <= '0';                                      
                     elsif address_in_ref < std_logic_vector(to_unsigned(6 * fft_width/4 - 1, 12)) then -- 767                   
                         buffer2_next <= std_logic_vector(unsigned(buffer2) + 1);
                         buffer1_next <= (others => '0');
-                        val2 <= '0';
+                        val2_next <= '0';
                     elsif address_in_ref = std_logic_vector(to_unsigned(6 * fft_width/4 - 1, 12)) then -- 767                   
                         buffer2_next <= std_logic_vector(unsigned(buffer2) + 1); 
                         start_reading_next <= '1';   
-                        val2 <= '0';              
+                        val2_next <= '0';              
                     end if;
-                end if;
+               end if;
             else
-                val2 <= '0';
+                val2_next <= '1';
             end if;          
     end process;
     
@@ -326,17 +310,18 @@ begin
                     if val = '1' then
                         if address_in_ref = (std_logic_vector(to_unsigned(767, 12))) then
                                 address_in_ref_next <= (others => '0'); 
-                                val <= '0';                       
+                                val_next <= '0';                       
                             else
                                 address_in_ref_next <= std_logic_vector(unsigned(address_in_ref) + 1);
-                                val <= '0';
+                                val_next <= '0';
                         end if;
                     end if;
                 end if;
             else
-                val <= '1';
+                val_next <= '1';
             end if;             
         end process;
+        
     -- Writing dac mode: takes sample from the previously loaded register and links it to output data
     write_dac : process(frame_number, start_reading, sample_towrite)
         begin 

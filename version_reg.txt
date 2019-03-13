@@ -86,3 +86,5 @@
 4.6.2 Depuracion sistema de enventanado
 4.6.3 Enventanado funcionando para lectura, eliminacion de la libreria unsigned
 4.6.4 Mejoras de estilo enventanado
+13-3-19
+4.6.5 Encritura en memoria enventanada completa
