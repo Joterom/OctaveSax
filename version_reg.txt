@@ -90,3 +90,4 @@
 4.6.5 Encritura en memoria enventanada completa
 4.6.5.1 Bckp antes de hacer rama para cambiar los bufer
 4.6.5.2 Mejora del sistema de bufers
+4.6.5.3 Bufer de escritura 100% completo

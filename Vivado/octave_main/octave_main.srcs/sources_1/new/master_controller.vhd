@@ -108,7 +108,7 @@ architecture Behavioral of master_controller is
     signal buffer2, buffer2_next : STD_LOGIC_VECTOR (11 downto 0) := "000110000000"; -- Set at 384 --> 3 * fft_width / 4
     signal windowed_sample_buf1, windowed_sample_buf2, framed_sample, framed_sample_next : STD_LOGIC_VECTOR (sample_size - 1 downto 0) := (others => '0');
     signal buf1_2, val, val_next, val2_next, val2 : STD_LOGIC := '1';
-    signal for_inv, for_inv_next, start_proc_win, end_proc_win, change_memo, change_memo_next : STD_LOGIC := '0';
+    signal for_inv, for_inv_next, start_proc_win, end_proc_win, change_memo, change_memo_next, change_memo_out, change_memo_out_next : STD_LOGIC := '0';
     
     signal buffer_aux : STD_LOGIC_VECTOR (8 downto 0) := "111111110";
     
@@ -183,6 +183,7 @@ begin
                 write_address1 <= (others => '0');
                 write_address2 <= (others => '0');
                 change_memo <= '0';
+                change_memo_out <= '0';
                 read_address <= (others => '0');
                 start_reading <= '0';
                 DATA_OUTr <= '0';
@@ -200,6 +201,7 @@ begin
                 write_address1 <= write_address1_next;
                 write_address2 <= write_address2_next;
                 change_memo <= change_memo_next;
+                change_memo_out <= change_memo_out_next;
 --                write_address1_next <= write_address1_nnext;
 --                write_address2_next <= write_address2_nnext;
                 read_address <= read_address_next;
@@ -250,7 +252,7 @@ begin
                             for_inv_next <= '0';
                         end if;    
                     end if;
---                else
+                else
 --                    if frame_number = std_logic_vector(to_unsigned(writing_cicle, 5)) then
 --                        if buf1_2 = '1' then
 --                            read_sample <= '1';
@@ -267,13 +269,6 @@ begin
             
     end process;
     
-    -- Select on which address is each sample written, depending on buffer and windowing
---    write_address1 <= buffer1 when address_in_ref < std_logic_vector(to_unsigned(512, 12)) else
---                      "010000000001";
---    write_address2 <= (std_logic_vector(unsigned(buffer2) + 512)) when address_in_ref < std_logic_vector(to_unsigned(128, 12)) else                      
---                      "010000000001" when address_in_ref < std_logic_vector(to_unsigned(384, 12)) else
---                      (std_logic_vector(unsigned(buffer2) + 512));  
-    
     -- Assigns different values to both buffer 1 and 2, depending on sample number        
     process(address_in_ref, start_reading, for_inv)
         begin
@@ -283,82 +278,83 @@ begin
             write_address2_next <= write_address2;
             start_reading_next <= start_reading; 
             if for_inv <= '1' then 
-                             
-                            if address_in_ref < (std_logic_vector(to_unsigned(128, 12))) then --127
-                                buffer1_next <= std_logic_vector(unsigned(address_in_ref));
-                                buffer2_next <= std_logic_vector(unsigned(address_in_ref) + 384);
-                                write_address1_next <= std_logic_vector(unsigned(address_in_ref));
-                                write_address2_next <= std_logic_vector(unsigned(address_in_ref) + 896);
-                            elsif address_in_ref < (std_logic_vector(to_unsigned(384, 12))) then -- 384
-                                buffer1_next <= std_logic_vector(unsigned(address_in_ref));
-                                buffer2_next <= (others => '0');
-                                write_address1_next <= std_logic_vector(unsigned(address_in_ref));
-                                write_address2_next <= "010000000001";
-                                start_reading_next <= '1'; -- OJO PROVISIONAL!!!!          
-                            elsif address_in_ref < (std_logic_vector(to_unsigned(512, 12))) then -- 511
-                                buffer1_next <= std_logic_vector(unsigned(address_in_ref));
-                                buffer2_next <= std_logic_vector(unsigned(address_in_ref) - 384);
-                                write_address1_next <= std_logic_vector(unsigned(address_in_ref));
-                                write_address2_next <= std_logic_vector(unsigned(address_in_ref) + 128);
-                                val2_next <= '0';
-                            elsif address_in_ref < std_logic_vector(to_unsigned(768, 12)) then -- 511
-                                buffer1_next <= (others => '0'); 
-                                buffer2_next <= std_logic_vector(unsigned(address_in_ref) - 384); 
-                                write_address1_next <= "010000000001"; -- Hueco de memoria sin usar 
-                                write_address2_next <= std_logic_vector(unsigned(address_in_ref) + 128);
-                            end if;
-                        
+                if address_in_ref < (std_logic_vector(to_unsigned(128, 12))) then --127
+                    buffer1_next <= std_logic_vector(unsigned(address_in_ref));
+                    buffer2_next <= std_logic_vector(unsigned(address_in_ref) + 384);
+                    write_address1_next <= std_logic_vector(unsigned(address_in_ref));
+                    write_address2_next <= std_logic_vector(unsigned(address_in_ref) + 896);
+                elsif address_in_ref < (std_logic_vector(to_unsigned(384, 12))) then -- 384
+                    buffer1_next <= std_logic_vector(unsigned(address_in_ref));
+                    buffer2_next <= (others => '0');
+                    write_address1_next <= std_logic_vector(unsigned(address_in_ref));
+                    write_address2_next <= "010000000001";
+                    start_reading_next <= '1'; -- OJO PROVISIONAL!!!!          
+                elsif address_in_ref < (std_logic_vector(to_unsigned(512, 12))) then -- 511
+                    buffer1_next <= std_logic_vector(unsigned(address_in_ref));
+                    buffer2_next <= std_logic_vector(unsigned(address_in_ref) - 384);
+                    write_address1_next <= std_logic_vector(unsigned(address_in_ref));
+                    write_address2_next <= std_logic_vector(unsigned(address_in_ref) + 128);
+                    val2_next <= '0';
+                elsif address_in_ref < std_logic_vector(to_unsigned(768, 12)) then -- 511
+                    buffer1_next <= (others => '0'); 
+                    buffer2_next <= std_logic_vector(unsigned(address_in_ref) - 384); 
+                    write_address1_next <= "010000000001"; -- Hueco de memoria sin usar 
+                    write_address2_next <= std_logic_vector(unsigned(address_in_ref) + 128);
+                end if;
             else
                 --val2_next <= '1';
             end if;          
     end process;
    
    -- Creates references for input and output 
-    addr_ref : process(LR_W_SEL, frame_number, address_in_ref, address_out_ref, change_memo)
+    addr_ref : process(LR_W_SEL, frame_number, address_in_ref, address_out_ref, change_memo, change_memo_out)
         begin
             address_in_ref_next <= address_in_ref;
             address_out_ref_next <= address_out_ref;
-                -- Input
-                if change_memo = '1' then
-                    if address_in_ref = (std_logic_vector(to_unsigned(767, 12))) then
-                        address_in_ref_next <= (others => '0'); 
-                  
-                    else
-                        address_in_ref_next <= std_logic_vector(unsigned(address_in_ref) + 1);
-
-                    end if;
+            -- Input
+            if change_memo = '1' then
+                if address_in_ref = (std_logic_vector(to_unsigned(767, 12))) then
+                    address_in_ref_next <= (others => '0');               
+                else
+                    address_in_ref_next <= std_logic_vector(unsigned(address_in_ref) + 1);
                 end if;
-                 -- Output
-    --                        if start_reading = '1' then
-    --                            if address_out_ref = (std_logic_vector(to_unsigned(767, 12))) then
-    --                                address_out_ref_next <= (others => '0'); 
-    --                                val_next <= '0';
-    --                            else
-    --                                address_out_ref_next <= std_logic_vector(unsigned(address_out_ref) + 1);
-    --                                val_next <= '0';
-    --                            end if;
-    --                        end if;                         
-                      
-        end process;
+            end if;
+            
+             -- Output
+--            if start_reading = '1' and change_memo_out = '1' then
+--                if address_out_ref = (std_logic_vector(to_unsigned(767, 12))) then
+--                    address_out_ref_next <= (others => '0');
+--                else
+--                    address_out_ref_next <= std_logic_vector(unsigned(address_out_ref) + 1);
+--                end if;
+--            end if;                     
+    end process;
         
     changer_memo : process (LR_W_SEL, frame_number, SCLK, MCLK, end_proc_win)
         begin
             change_memo_next <= '0';
-            if LR_W_SEL = '0' then
-                if frame_number = std_logic_vector(to_unsigned(25, 5)) then
-                    if SCLK = '1' then
-                        if MCLK = '1' then
-                            if end_proc_win = '1' then
+            change_memo_out_next <= '0';
+            if LR_W_SEL = '0' then                
+                if SCLK = '1' then
+                    if MCLK = '1' then
+                        if end_proc_win = '1' then
+                            if frame_number = std_logic_vector(to_unsigned(25, 5)) then
                                 if val = '1' then
                                     change_memo_next <= '1';
                                     val_next <= '0';
                                 end if;
+--                            elsif frame_number = std_logic_vector(to_unsigned(27, 5)) then
+--                                if val2 = '1' then
+--                                    change_memo_out_next <= '1';
+--                                    val2_next <= '0';
+--                                end if;
                             end if;
                         end if;
                     end if;
                 end if;
             else
                 val_next <= '1';
+                val2_next <= '1';
             end if;
     end process;
         
