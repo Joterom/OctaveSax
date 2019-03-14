@@ -12,15 +12,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="168600000001fs"></ZoomEndTime>
-      <Cursor1Time time="46000000000fs"></Cursor1Time>
+      <ZoomStartTime time="1186981083334fs"></ZoomStartTime>
+      <ZoomEndTime time="1187418583335fs"></ZoomEndTime>
+      <Cursor1Time time="1187054000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="197"></NameColumnWidth>
-      <ValueColumnWidth column_width="132"></ValueColumnWidth>
+      <ValueColumnWidth column_width="128"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="7" />
+   <WVObjectSize size="9" />
    <wvobject type="group" fp_name="group55">
       <obj_property name="label">CLKs</obj_property>
       <obj_property name="DisplayName">label</obj_property>
@@ -59,15 +59,19 @@
       <obj_property name="ObjectShortName">frame_number[4:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
+   <wvobject type="array" fp_name="/main_tb/UUT/address_in_ref">
+      <obj_property name="ElementShortName">address_in_ref[11:0]</obj_property>
+      <obj_property name="ObjectShortName">address_in_ref[11:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/main_tb/UUT/address_out_ref">
+      <obj_property name="ElementShortName">address_out_ref[11:0]</obj_property>
+      <obj_property name="ObjectShortName">address_out_ref[11:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
    <wvobject type="group" fp_name="group29">
       <obj_property name="label">Writing</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="isExpanded"></obj_property>
-      <wvobject type="array" fp_name="/main_tb/UUT/address_in_ref">
-         <obj_property name="ElementShortName">address_in_ref[11:0]</obj_property>
-         <obj_property name="ObjectShortName">address_in_ref[11:0]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
       <wvobject type="logic" fp_name="/main_tb/UUT/sample_in_ready">
          <obj_property name="ElementShortName">sample_in_ready</obj_property>
          <obj_property name="ObjectShortName">sample_in_ready</obj_property>
@@ -126,6 +130,7 @@
    <wvobject type="group" fp_name="group37">
       <obj_property name="label">Window</obj_property>
       <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
       <wvobject type="logic" fp_name="/main_tb/UUT/start_proc_win">
          <obj_property name="ElementShortName">start_proc_win</obj_property>
          <obj_property name="ObjectShortName">start_proc_win</obj_property>
@@ -133,6 +138,10 @@
       <wvobject type="logic" fp_name="/main_tb/UUT/end_proc_win">
          <obj_property name="ElementShortName">end_proc_win</obj_property>
          <obj_property name="ObjectShortName">end_proc_win</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/main_tb/UUT/WIN/value">
+         <obj_property name="ElementShortName">value[2:0]</obj_property>
+         <obj_property name="ObjectShortName">value[2:0]</obj_property>
       </wvobject>
       <wvobject type="logic" fp_name="/main_tb/UUT/WIN/for_inv">
          <obj_property name="ElementShortName">for_inv</obj_property>
@@ -163,9 +172,29 @@
       <obj_property name="label">Reading</obj_property>
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="isExpanded"></obj_property>
-      <wvobject type="array" fp_name="/main_tb/UUT/address_out_ref">
-         <obj_property name="ElementShortName">address_out_ref[11:0]</obj_property>
-         <obj_property name="ObjectShortName">address_out_ref[11:0]</obj_property>
+      <wvobject type="array" fp_name="/main_tb/UUT/read_address_next">
+         <obj_property name="ElementShortName">read_address_next[11:0]</obj_property>
+         <obj_property name="ObjectShortName">read_address_next[11:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/main_tb/UUT/read_address1">
+         <obj_property name="ElementShortName">read_address1[11:0]</obj_property>
+         <obj_property name="ObjectShortName">read_address1[11:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/main_tb/UUT/read_address2">
+         <obj_property name="ElementShortName">read_address2[11:0]</obj_property>
+         <obj_property name="ObjectShortName">read_address2[11:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/main_tb/UUT/buffer1_out">
+         <obj_property name="ElementShortName">buffer1_out[11:0]</obj_property>
+         <obj_property name="ObjectShortName">buffer1_out[11:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/main_tb/UUT/buffer2_out">
+         <obj_property name="ElementShortName">buffer2_out[11:0]</obj_property>
+         <obj_property name="ObjectShortName">buffer2_out[11:0]</obj_property>
          <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject type="logic" fp_name="/main_tb/UUT/start_reading">
@@ -199,6 +228,7 @@
    <wvobject type="group" fp_name="group31">
       <obj_property name="label">MEMO</obj_property>
       <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
       <wvobject type="array" fp_name="/main_tb/UUT/RAM/ram/dina">
          <obj_property name="ElementShortName">dina[15:0]</obj_property>
          <obj_property name="ObjectShortName">dina[15:0]</obj_property>
@@ -215,6 +245,10 @@
          <obj_property name="ElementShortName">address[11:0]</obj_property>
          <obj_property name="ObjectShortName">address[11:0]</obj_property>
          <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/main_tb/UUT/RAM/ram/douta">
+         <obj_property name="ElementShortName">douta[15:0]</obj_property>
+         <obj_property name="ObjectShortName">douta[15:0]</obj_property>
       </wvobject>
    </wvobject>
 </wave_config>

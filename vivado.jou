@@ -2,8 +2,8 @@
 # Vivado v2017.4 (64-bit)
 # SW Build 2086221 on Fri Dec 15 20:54:30 MST 2017
 # IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
-# Start of session at: Wed Mar 13 19:32:03 2019
-# Process ID: 9763
+# Start of session at: Thu Mar 14 16:14:00 2019
+# Process ID: 12439
 # Current directory: /home/joterom/workspace/OctaveSax
 # Command line: vivado
 # Log file: /home/joterom/workspace/OctaveSax/vivado.log
@@ -17,6 +17,25 @@ open_wave_config /home/joterom/workspace/OctaveSax/Vivado/octave_main/window_tb_
 source main_tb.tcl
 restart
 run 8000 us
+relaunch_sim
+restart
+run 8000 us
+restart
+restart
+run 8000 us
+restart
+relaunch_sim
+run 8000 us
+restart
+run 8000 us
+relaunch_sim
+restart
+run 8000 us
+relaunch_sim
+restart
+run 8000 us
+restart
+relaunch_sim
 restart
 run 8000 us
 restart
@@ -24,8 +43,40 @@ relaunch_sim
 restart
 run 8000 us
 save_wave_config {/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sim_1/imports/octave_main/test.wcfg}
+restart
+run 8000 us
 relaunch_sim
 restart
+run 8000 us
+restart
+relaunch_sim
+restart
+run 8000 us
+relaunch_sim
+restart
+run 8000 us
+relaunch_sim
+restart
+run 8000 us
+relaunch_sim
+restart
+run 8000 us
+relaunch_sim
+restart
+run 8000 us
+restart
+run 8000 us
+save_wave_config {/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sim_1/imports/octave_main/test.wcfg}
+close_sim
+launch_simulation
+open_wave_config /home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sim_1/imports/octave_main/test.wcfg
+open_wave_config /home/joterom/workspace/OctaveSax/Vivado/octave_main/window_tb_behav.wcfg
+source main_tb.tcl
+restart
+run 8000 us
+relaunch_sim
+restart
+run 8000 us
 relaunch_sim
 restart
 run 8000 us

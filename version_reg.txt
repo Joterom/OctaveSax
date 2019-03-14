@@ -91,3 +91,5 @@
 4.6.5.1 Bckp antes de hacer rama para cambiar los bufer
 4.6.5.2 Mejora del sistema de bufers
 4.6.5.3 Bufer de escritura 100% completo
+14-3-19
+4.6.6 Comienzo del trabajo en bufer de lectura

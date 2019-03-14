@@ -97,18 +97,19 @@ architecture Behavioral of master_controller is
     signal MCLK, SCLK, LR_W_SEL, clk_100MHz, clk_50MHz : STD_LOGIC := '0';
     
     signal write_address, write_address1, write_address2, write_address_next, write_address1_next, write_address2_next
-           , read_address, read_address_next
+           , read_address, read_address_next, read_address1, read_address1_next, read_address2, read_address2_next
            , address  : STD_LOGIC_VECTOR (11 downto 0) := (others => '0');
     signal read_sample, sample_towrite_ready, sample_in_ready, write_sample : STD_LOGIC := '0';
     signal start_reading, start_reading_next, DATA_OUT_n, DATA_OUTr : STD_LOGIC := '0';
     signal sample_towrite : STD_LOGIC_VECTOR (23 downto 0) := (others => '0');
     
     signal address_in_ref, address_in_ref_next, address_out_ref, address_out_ref_next : STD_LOGIC_VECTOR (11 downto 0) := (others => '0');
-    signal buffer1, buffer1_next : STD_LOGIC_VECTOR (11 downto 0) := (others => '0');
-    signal buffer2, buffer2_next : STD_LOGIC_VECTOR (11 downto 0) := "000110000000"; -- Set at 384 --> 3 * fft_width / 4
+    signal buffer1, buffer1_next, buffer1_out, buffer1_out_next : STD_LOGIC_VECTOR (11 downto 0) := (others => '0');
+    signal buffer2, buffer2_next, buffer2_out, buffer2_out_next : STD_LOGIC_VECTOR (11 downto 0) := (others => '0'); -- Set at 384 --> 3 * fft_width / 4
     signal windowed_sample_buf1, windowed_sample_buf2, framed_sample, framed_sample_next : STD_LOGIC_VECTOR (sample_size - 1 downto 0) := (others => '0');
     signal buf1_2, val, val_next, val2_next, val2 : STD_LOGIC := '1';
-    signal for_inv, for_inv_next, start_proc_win, end_proc_win, change_memo, change_memo_next, change_memo_out, change_memo_out_next : STD_LOGIC := '0';
+    signal for_inv, for_inv_next, start_proc_win, end_proc_win, change_memo, change_memo_next
+           , change_memo_out, change_memo_out_next, read_samplen, read_samplenn, read_samplenn_next : STD_LOGIC := '0';
     
     signal buffer_aux : STD_LOGIC_VECTOR (8 downto 0) := "111111110";
     
@@ -182,33 +183,45 @@ begin
                 write_address <= (others => '0');
                 write_address1 <= (others => '0');
                 write_address2 <= (others => '0');
+                read_address1 <= (others => '0');
+                read_address2 <= (others => '0');
                 change_memo <= '0';
                 change_memo_out <= '0';
                 read_address <= (others => '0');
                 start_reading <= '0';
                 DATA_OUTr <= '0';
                 buffer1 <= (others => '0');
-                buffer2 <= "000110000000";
+                buffer2 <= (others => '0');
+                buffer1_out <= (others => '0');
+                buffer2_out <= (others => '0'); 
                 address_in_ref <= (others => '0');  
                 address_out_ref <= (others => '0');           
                 start_proc_win <= '0';    
                 for_inv <= '1';  
                 val <= '1';     
                 val2 <= '1';
+                read_samplen <= '0';
+                read_samplenn <= '0';
             elsif rising_edge(clk_100MHz) then                
                 enable_shift <= enable_shift_next;                               
                 write_address <= write_address_next;
                 write_address1 <= write_address1_next;
                 write_address2 <= write_address2_next;
+                read_address1 <= read_address1_next;
+                read_address2 <= read_address2_next;
                 change_memo <= change_memo_next;
                 change_memo_out <= change_memo_out_next;
 --                write_address1_next <= write_address1_nnext;
 --                write_address2_next <= write_address2_nnext;
+                read_samplen <= read_samplenn;
+                read_samplenn <= read_samplenn_next;
                 read_address <= read_address_next;
                 start_reading <= start_reading_next;
                 DATA_OUTr <= DATA_OUT_n;
                 buffer1 <= buffer1_next;
-                buffer2 <= buffer2_next;            
+                buffer2 <= buffer2_next;  
+                buffer1_out <= buffer1_out_next;
+                buffer2_out <= buffer2_out_next; 
                 start_proc_win <= start_proc_win_next;         
                 address_in_ref <= address_in_ref_next;
                 address_out_ref <= address_out_ref_next;   
@@ -219,30 +232,29 @@ begin
     end process;
     
     -- Generates enable signal used by the shift-register
-    enable_shift_next <= '1' when (frame_number >= std_logic_vector(to_unsigned(1, 5 )) and frame_number <= std_logic_vector(to_unsigned(sample_size, 5)) and LR_W_SEL = '0') else                         
+    enable_shift_next <= '1' when (frame_number >= std_logic_vector(to_unsigned(1, 5 )) and frame_number <= std_logic_vector(to_unsigned(sample_size, 5)) 
+                                    and LR_W_SEL = '0') else                         
                          '0';    
    
-    memo_logic : process(frame_number, end_proc_win, sample_in_ready, sample_towrite_ready, write_address, read_address, buf1_2, write_address1, write_address2, for_inv)
+    wr_memo_logic : process(frame_number, end_proc_win, sample_in_ready, write_address, buf1_2, write_address1, write_address2
+                            , for_inv, sample_towrite_ready, read_address, start_proc_win)
         begin            
             -- Default output
             write_sample <= '0';            
-            read_address_next <= read_address;
             write_address_next <= write_address;
-            read_sample <= '0';
+            read_samplenn_next <= '0';
             start_proc_win_next <= '0';
             for_inv_next <= for_inv;
             -- Writing memo - reading adc mode
             if sample_in_ready = '1' then  
                 start_proc_win_next <= '1';
                 for_inv_next <= '1';            
-            end if;
---            if sample_towrite_ready = '1' then
---                start_proc_win_next <= '1';
---                for_inv_next <= '0';
---            end if;
-            if end_proc_win = '1' then -- Two times per sample, one for each buffer
+            elsif sample_towrite_ready = '1' then
+                start_proc_win_next <= '1';
+            end if;           
+            if frame_number = std_logic_vector(to_unsigned(reading_cicle, 5)) then -- Two times per sample, one for each buffer
                 if for_inv = '1' then
-                    if frame_number = std_logic_vector(to_unsigned(reading_cicle, 5)) then
+                    if end_proc_win = '1' then
                         if buf1_2 = '1' then
                             write_sample <= '1';
                             write_address_next <= write_address2;
@@ -251,32 +263,30 @@ begin
                             write_address_next <= write_address1;
                             for_inv_next <= '0';
                         end if;    
-                    end if;
-                else
---                    if frame_number = std_logic_vector(to_unsigned(writing_cicle, 5)) then
---                        if buf1_2 = '1' then
---                            read_sample <= '1';
---                            read_address_next <= write_address2;
---                        else
---                            read_sample <= '1';
---                            read_address_next <= write_address1;
---                            for_inv_next <= '0';
---                        end if;
---                    end if;
+                    end if;               
+                end if;           
+            elsif frame_number = std_logic_vector(to_unsigned(writing_cicle, 5)) then
+                if start_proc_win = '1' then
+                    read_samplenn_next <= '1';
+                    read_address_next <= read_address2;
+                elsif buf1_2 = '1' then
+                    read_samplenn_next <= '1';
+                    read_address_next <= read_address1;
                 end if;
-            end if;
-            
-            
+            end if;                                 
     end process;
     
-    -- Assigns different values to both buffer 1 and 2, depending on sample number        
-    process(address_in_ref, start_reading, for_inv)
+    read_sample <= read_samplen or read_samplenn;
+    
+    -- Assigns different values to both input buffers (1 and 2), depending on reference address       
+    in_buf : process(address_in_ref, start_reading, for_inv)
         begin
             buffer1_next <= buffer1;
             buffer2_next <= buffer2; 
             write_address1_next <= write_address1;
             write_address2_next <= write_address2;
-            start_reading_next <= start_reading; 
+            start_reading_next <= start_reading;        
+
             if for_inv <= '1' then 
                 if address_in_ref < (std_logic_vector(to_unsigned(128, 12))) then --127
                     buffer1_next <= std_logic_vector(unsigned(address_in_ref));
@@ -302,32 +312,62 @@ begin
                     write_address2_next <= std_logic_vector(unsigned(address_in_ref) + 128);
                 end if;
             else
-                --val2_next <= '1';
+                
+                
             end if;          
+    end process;
+    
+    -- Assigns different values to both output buffers (1 and 2), depending on reference output address 
+    out_buf : process(address_out_ref,start_reading)
+        begin
+            read_address1_next <= read_address1;
+            read_address2_next <= read_address2;
+            buffer1_out_next <= buffer1_out;
+            buffer2_out_next <= buffer2_out; 
+                   
+            if address_out_ref < (std_logic_vector(to_unsigned(128, 12))) then -- First 25% overlapping
+                buffer1_out_next <= std_logic_vector(unsigned(address_out_ref));
+                buffer2_out_next <= std_logic_vector(unsigned(address_out_ref) + 384);
+                read_address1_next <= std_logic_vector(unsigned(address_out_ref));
+                read_address2_next <= std_logic_vector(unsigned(address_out_ref) + 896);
+            elsif address_out_ref < (std_logic_vector(to_unsigned(384, 12))) then -- Using just first buffer
+                buffer1_out_next <= std_logic_vector(unsigned(address_out_ref));
+                buffer2_out_next <= (others => '0');
+                read_address1_next <= std_logic_vector(unsigned(address_out_ref));
+                read_address2_next <= (others => '0'); -- Empty memo address                             
+            elsif address_out_ref < (std_logic_vector(to_unsigned(512, 12))) then -- Second 25% overlapping
+                buffer1_out_next <= std_logic_vector(unsigned(address_out_ref));
+                buffer2_out_next <= std_logic_vector(unsigned(address_out_ref) - 384);
+                read_address1_next <= std_logic_vector(unsigned(address_out_ref));
+                read_address2_next <= std_logic_vector(unsigned(address_out_ref) + 128);
+            elsif address_out_ref < std_logic_vector(to_unsigned(768, 12)) then -- Using just second buffer
+                buffer1_out_next <= (others => '0'); 
+                buffer2_out_next <= std_logic_vector(unsigned(address_out_ref) - 384); 
+                read_address1_next <= (others => '0'); -- Empty memo address
+                read_address2_next <= std_logic_vector(unsigned(address_out_ref) + 128);
+            end if;
     end process;
    
    -- Creates references for input and output 
-    addr_ref : process(LR_W_SEL, frame_number, address_in_ref, address_out_ref, change_memo, change_memo_out)
+    addr_ref : process(LR_W_SEL, frame_number, address_in_ref, address_out_ref, change_memo)
         begin
             address_in_ref_next <= address_in_ref;
             address_out_ref_next <= address_out_ref;
             -- Input
             if change_memo = '1' then
                 if address_in_ref = (std_logic_vector(to_unsigned(767, 12))) then
-                    address_in_ref_next <= (others => '0');               
+                    address_in_ref_next <= (others => '0');                                   
                 else
                     address_in_ref_next <= std_logic_vector(unsigned(address_in_ref) + 1);
                 end if;
-            end if;
-            
-             -- Output
---            if start_reading = '1' and change_memo_out = '1' then
---                if address_out_ref = (std_logic_vector(to_unsigned(767, 12))) then
---                    address_out_ref_next <= (others => '0');
---                else
---                    address_out_ref_next <= std_logic_vector(unsigned(address_out_ref) + 1);
---                end if;
---            end if;                     
+                if start_reading = '1' then
+                    if address_out_ref = (std_logic_vector(to_unsigned(767, 12))) then
+                        address_out_ref_next <= (others => '0');                                  
+                    else
+                        address_out_ref_next <= std_logic_vector(unsigned(address_out_ref) + 1);
+                    end if;
+                end if;
+            end if;                 
     end process;
         
     changer_memo : process (LR_W_SEL, frame_number, SCLK, MCLK, end_proc_win)
@@ -343,11 +383,6 @@ begin
                                     change_memo_next <= '1';
                                     val_next <= '0';
                                 end if;
---                            elsif frame_number = std_logic_vector(to_unsigned(27, 5)) then
---                                if val2 = '1' then
---                                    change_memo_out_next <= '1';
---                                    val2_next <= '0';
---                                end if;
                             end if;
                         end if;
                     end if;
@@ -400,7 +435,7 @@ begin
     -- Toggles ram address depending on current mode  
     address <= write_address when write_sample = '1' else
                read_address when read_sample = '1' else
-               (others => '0');
+               (others => '1');
             
     -- Output signals assignment
     MCLK_ADC <= MCLK;

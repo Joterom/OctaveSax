@@ -130,21 +130,24 @@ begin
                         result2_next <= result2buf;
                 end case;
             else
-                case value is
+                
+                case value is                    
                     when "001" =>
                         result1_next <= (others => '0');
                         result2_next <= (others => '0');                        
                         factor_next <= factor_buf1;
                         mult_reg_next <= multiplicand;
-                        mult_reg2_next <= multiplicand_out;      
-                                         
+                        buf1_2next <= '1';
+                    when "101" =>
+                        -- buf1_2next <= '1';
+                                             
                     when "011" =>    -- Ciclo 3 -> Realiza la multiplicacion para el buffer 1
                         pre_resultiSTFT_next <= signed(mult_reg)*signed(multiplicatoriSTFT);                        
+                        mult_reg2_next <= multiplicand_out;
                         
                     when "100" =>    -- Ciclo 4                
                         --result1_next <= std_logic_vector(pre_resultiSTFT(30 downto 15));                        
-                        factor_next <= factor_buf2;                       
-                        buf1_2next <= '1';
+                        factor_next <= factor_buf2;                                             
                         
                     when "110" =>    -- Ciclo 5
                         pre_resultiSTFT_next <= signed(mult_reg2)*signed(multiplicatoriSTFT)+pre_resultiSTFT;
@@ -152,7 +155,6 @@ begin
                     when "111" =>    -- Ciclo 7 -> Trunca y almacena la operacion en el bufer 2 de salida
                         result2_next <= std_logic_vector(pre_resultiSTFT(30 downto 15));                        
                         ended_next <= '1';
-                        buf1_2next <= '0';
                     when others =>
                         result1_next <= result1buf;
                         result2_next <= result2buf;
@@ -180,8 +182,5 @@ begin
     result1 <= result1buf;
     result2 <= result2buf;
     buf1_2 <= buf1_2reg;
-    
---    proc <= value when start_proc_win = '1' else
---            "000";
     
 end Behavioral;
