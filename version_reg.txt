@@ -93,3 +93,5 @@
 4.6.5.3 Bufer de escritura 100% completo
 14-3-19
 4.6.6 Comienzo del trabajo en bufer de lectura
+17-3-19
+4.6.7 Bufer terminados, a falta de pruebas exhaustivas. Simulacion ok.

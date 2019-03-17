@@ -83,7 +83,6 @@ architecture Behavioral of master_controller is
         end_proc_win : out STD_LOGIC;
         for_inv : in STD_LOGIC; -- 1 = STFT, 0 = iSTFT
         multiplicand : in STD_LOGIC_VECTOR (sample_size - 1 downto 0);
-        multiplicand_out : in STD_LOGIC_VECTOR (sample_size - 1 downto 0);
         factor_buf1 : in STD_LOGIC_VECTOR (8 downto 0);
         factor_buf2 : in STD_LOGIC_VECTOR (8 downto 0);
         buf1_2 : out STD_LOGIC;
@@ -93,7 +92,8 @@ architecture Behavioral of master_controller is
     
     signal frame_number : STD_LOGIC_VECTOR (4 downto 0) := (others => '0');
     signal reset, enable_shift, enable_shift_next, start_proc_win_next : STD_LOGIC := '0';    
-    signal input_reg, storaged_sample : STD_LOGIC_VECTOR ((sample_size - 1) downto 0) := (others => '0');    
+    signal input_reg, storaged_sample, multiplicand, multiplicand_out, output_sample
+           , output_sample_next : STD_LOGIC_VECTOR ((sample_size - 1) downto 0) := (others => '0');    
     signal MCLK, SCLK, LR_W_SEL, clk_100MHz, clk_50MHz : STD_LOGIC := '0';
     
     signal write_address, write_address1, write_address2, write_address_next, write_address1_next, write_address2_next
@@ -110,6 +110,9 @@ architecture Behavioral of master_controller is
     signal buf1_2, val, val_next, val2_next, val2 : STD_LOGIC := '1';
     signal for_inv, for_inv_next, start_proc_win, end_proc_win, change_memo, change_memo_next
            , change_memo_out, change_memo_out_next, read_samplen, read_samplenn, read_samplenn_next : STD_LOGIC := '0';
+    
+    type memo_state_pos is (IDLE, REST, WRITE, READ);
+    signal memo_state, memo_state_next : memo_state_pos := IDLE;
     
     signal buffer_aux : STD_LOGIC_VECTOR (8 downto 0) := "111111110";
     
@@ -166,8 +169,7 @@ begin
         start_proc_win => start_proc_win,
         end_proc_win => end_proc_win,
         for_inv => for_inv, -- 1 = STFT, 0 = iSTFT
-        multiplicand => input_reg,
-        multiplicand_out => (others => '0'),--TODO
+        multiplicand => multiplicand,
         factor_buf1 => buffer1(8 downto 0),
         factor_buf2 => buffer2(8 downto 0),
         buf1_2 => buf1_2,
@@ -202,6 +204,8 @@ begin
                 val2 <= '1';
                 read_samplen <= '0';
                 read_samplenn <= '0';
+                memo_state <= IDLE;
+                output_sample <= (others => '0');
             elsif rising_edge(clk_100MHz) then                
                 enable_shift <= enable_shift_next;                               
                 write_address <= write_address_next;
@@ -211,8 +215,6 @@ begin
                 read_address2 <= read_address2_next;
                 change_memo <= change_memo_next;
                 change_memo_out <= change_memo_out_next;
---                write_address1_next <= write_address1_nnext;
---                write_address2_next <= write_address2_nnext;
                 read_samplen <= read_samplenn;
                 read_samplenn <= read_samplenn_next;
                 read_address <= read_address_next;
@@ -228,65 +230,15 @@ begin
                 for_inv <= for_inv_next;        
                 val <= val_next; 
                 val2 <= val2_next;    
+                memo_state <= memo_state_next;
+                output_sample <= output_sample_next;
             end if;           
-    end process;
-    
-    -- Generates enable signal used by the shift-register
-    enable_shift_next <= '1' when (frame_number >= std_logic_vector(to_unsigned(1, 5 )) and frame_number <= std_logic_vector(to_unsigned(sample_size, 5)) 
-                                    and LR_W_SEL = '0') else                         
-                         '0';    
-   
-    wr_memo_logic : process(frame_number, end_proc_win, sample_in_ready, write_address, buf1_2, write_address1, write_address2
-                            , for_inv, sample_towrite_ready, read_address, start_proc_win)
-        begin            
-            -- Default output
-            write_sample <= '0';            
-            write_address_next <= write_address;
-            read_samplenn_next <= '0';
-            start_proc_win_next <= '0';
-            for_inv_next <= for_inv;
-            -- Writing memo - reading adc mode
-            if sample_in_ready = '1' then  
-                start_proc_win_next <= '1';
-                for_inv_next <= '1';            
-            elsif sample_towrite_ready = '1' then
-                start_proc_win_next <= '1';
-            end if;           
-            if frame_number = std_logic_vector(to_unsigned(reading_cicle, 5)) then -- Two times per sample, one for each buffer
-                if for_inv = '1' then
-                    if end_proc_win = '1' then
-                        if buf1_2 = '1' then
-                            write_sample <= '1';
-                            write_address_next <= write_address2;
-                        else
-                            write_sample <= '1';
-                            write_address_next <= write_address1;
-                            for_inv_next <= '0';
-                        end if;    
-                    end if;               
-                end if;           
-            elsif frame_number = std_logic_vector(to_unsigned(writing_cicle, 5)) then
-                if start_proc_win = '1' then
-                    read_samplenn_next <= '1';
-                    read_address_next <= read_address2;
-                elsif buf1_2 = '1' then
-                    read_samplenn_next <= '1';
-                    read_address_next <= read_address1;
-                end if;
-            end if;                                 
-    end process;
-    
-    read_sample <= read_samplen or read_samplenn;
+    end process;         
     
     -- Assigns different values to both input buffers (1 and 2), depending on reference address       
-    in_buf : process(address_in_ref, start_reading, for_inv)
+    in_buf : process(address_in_ref, start_reading, for_inv, buffer1, buffer2, write_address1, start_reading, write_address2, start_reading)
         begin
-            buffer1_next <= buffer1;
-            buffer2_next <= buffer2; 
-            write_address1_next <= write_address1;
-            write_address2_next <= write_address2;
-            start_reading_next <= start_reading;        
-
+           start_reading_next <= start_reading;
             if for_inv <= '1' then 
                 if address_in_ref < (std_logic_vector(to_unsigned(128, 12))) then --127
                     buffer1_next <= std_logic_vector(unsigned(address_in_ref));
@@ -305,26 +257,25 @@ begin
                     write_address1_next <= std_logic_vector(unsigned(address_in_ref));
                     write_address2_next <= std_logic_vector(unsigned(address_in_ref) + 128);
                     val2_next <= '0';
-                elsif address_in_ref < std_logic_vector(to_unsigned(768, 12)) then -- 511
+                else
+                --elsif address_in_ref < std_logic_vector(to_unsigned(768, 12)) then -- 511
                     buffer1_next <= (others => '0'); 
                     buffer2_next <= std_logic_vector(unsigned(address_in_ref) - 384); 
                     write_address1_next <= "010000000001"; -- Hueco de memoria sin usar 
                     write_address2_next <= std_logic_vector(unsigned(address_in_ref) + 128);
                 end if;
             else
-                
-                
+               buffer1_next <=  buffer1;
+                buffer2_next <= buffer2;
+                write_address1_next <= write_address1;
+                write_address2_next <= write_address2; 
+                start_reading_next <= start_reading;
             end if;          
     end process;
     
     -- Assigns different values to both output buffers (1 and 2), depending on reference output address 
     out_buf : process(address_out_ref,start_reading)
         begin
-            read_address1_next <= read_address1;
-            read_address2_next <= read_address2;
-            buffer1_out_next <= buffer1_out;
-            buffer2_out_next <= buffer2_out; 
-                   
             if address_out_ref < (std_logic_vector(to_unsigned(128, 12))) then -- First 25% overlapping
                 buffer1_out_next <= std_logic_vector(unsigned(address_out_ref));
                 buffer2_out_next <= std_logic_vector(unsigned(address_out_ref) + 384);
@@ -340,7 +291,8 @@ begin
                 buffer2_out_next <= std_logic_vector(unsigned(address_out_ref) - 384);
                 read_address1_next <= std_logic_vector(unsigned(address_out_ref));
                 read_address2_next <= std_logic_vector(unsigned(address_out_ref) + 128);
-            elsif address_out_ref < std_logic_vector(to_unsigned(768, 12)) then -- Using just second buffer
+            else
+            --elsif address_out_ref < std_logic_vector(to_unsigned(768, 12)) then -- Using just second buffer
                 buffer1_out_next <= (others => '0'); 
                 buffer2_out_next <= std_logic_vector(unsigned(address_out_ref) - 384); 
                 read_address1_next <= (others => '0'); -- Empty memo address
@@ -349,7 +301,7 @@ begin
     end process;
    
    -- Creates references for input and output 
-    addr_ref : process(LR_W_SEL, frame_number, address_in_ref, address_out_ref, change_memo)
+    addr_ref : process(LR_W_SEL, frame_number, address_in_ref, address_out_ref, change_memo, start_reading)
         begin
             address_in_ref_next <= address_in_ref;
             address_out_ref_next <= address_out_ref;
@@ -370,10 +322,11 @@ begin
             end if;                 
     end process;
         
-    changer_memo : process (LR_W_SEL, frame_number, SCLK, MCLK, end_proc_win)
+    changer_memo : process (LR_W_SEL, frame_number, SCLK, MCLK, end_proc_win, val)
         begin
             change_memo_next <= '0';
             change_memo_out_next <= '0';
+            val_next <= val;
             if LR_W_SEL = '0' then                
                 if SCLK = '1' then
                     if MCLK = '1' then
@@ -427,7 +380,102 @@ begin
                     end case;
             end if;
     end process; 
+    
+    change_state_log : process (frame_number, memo_state, start_reading)
+        begin   
+            memo_state_next <= memo_state;
+            case memo_state is 
+                when IDLE => -- IDLE
+                    if frame_number = std_logic_vector(to_unsigned(1, 5)) then
+                        memo_state_next <= REST;
+                    end if;
+                    
+                when REST => -- REST
+                    if frame_number = std_logic_vector(to_unsigned(25, 5)) then
+                        memo_state_next <= WRITE;
+                    end if;
+                    
+                when WRITE => -- WRITE              
+                    if start_reading = '1' then
+                        if frame_number = std_logic_vector(to_unsigned(27, 5)) then
+                            memo_state_next <= READ;
+                        end if;
+                    else
+                        if frame_number = std_logic_vector(to_unsigned(27, 5)) then
+                            memo_state_next <= REST;
+                        end if;
+                    end if;
+                
+                when READ =>
+                    if frame_number = std_logic_vector(to_unsigned(29, 5)) then
+                       memo_state_next <= REST;
+                    end if;
+                
+                    
+                when others =>
+                    memo_state_next <= IDLE;
+            end case;
+     end process;
      
+     process(memo_state, sample_in_ready, for_inv, buf1_2, sample_towrite_ready, read_address, 
+                write_address, start_proc_win, end_proc_win, start_reading, storaged_sample,
+                read_address1, read_address2, write_address1, write_address2, windowed_sample_buf2,
+                input_reg, output_sample)
+        begin
+            start_proc_win_next <= '0';
+            for_inv_next <= for_inv;
+            write_address_next <= write_address;
+            write_sample <= '0';
+            read_samplenn_next <= '0';
+            read_address_next <= read_address;
+            multiplicand <= input_reg;
+            output_sample_next <= output_sample;
+            
+            case memo_state is
+                when REST => --REST
+                
+                when WRITE => --WRITE
+                    multiplicand <= input_reg;
+                    if sample_in_ready = '1' then  
+                        start_proc_win_next <= '1';
+                        for_inv_next <= '1';
+                    end if;
+                    if for_inv = '1' then
+                        if end_proc_win = '1' then
+                            if buf1_2 = '1' then
+                                write_sample <= '1';
+                                write_address_next <= write_address2;
+                            else
+                                write_sample <= '1';
+                                write_address_next <= write_address1;
+                                for_inv_next <= '0';
+                            end if;    
+                        end if;               
+                    end if;
+                    
+                when READ => --READ
+                    multiplicand <= storaged_sample;
+                    output_sample_next <= windowed_sample_buf2;
+                    if sample_towrite_ready = '1' then                   
+                        start_proc_win_next <= '1';
+                        read_samplenn_next <= '1';
+                        read_address_next <= read_address2;
+                    elsif buf1_2 = '1' then
+                        read_samplenn_next <= '1';
+                        read_address_next <= read_address1;                                         
+                    end if; 
+                                      
+                when others => 
+            end case;
+    end process;
+     
+    read_sample <= read_samplen or read_samplenn; 
+     
+    -- Generates enable signal used by the shift-register
+    enable_shift_next <= '1' when (frame_number >= std_logic_vector(to_unsigned(1, 5 )) and frame_number <= std_logic_vector(to_unsigned(sample_size, 5)) 
+                                    and LR_W_SEL = '0') else                         
+                         '0';
+                         
     -- Sample which is written into ram memory after first windowing  
     framed_sample <= windowed_sample_buf1 when buf1_2 = '1' else
                      windowed_sample_buf2;
@@ -444,7 +492,7 @@ begin
     MCLK_DAC  <= MCLK; --and start_reading;
     SCLK_DAC <= SCLK; --and start_reading;
     LR_W_SEL_DAC <= LR_W_SEL; --and start_reading;  
-    sample_towrite <= storaged_sample & "00000000"; --when LR_W_SEL = '0' else
+    sample_towrite <= output_sample & "00000000"; --when LR_W_SEL = '0' else
     DATA_OUT <= DATA_OUTr;
     
 end Behavioral;
