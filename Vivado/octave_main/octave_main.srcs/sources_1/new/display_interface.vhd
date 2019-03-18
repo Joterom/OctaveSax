@@ -1,6 +1,6 @@
 -- Javier Otero Martinez
 -- OctaveSax project -- TFG
--- June 2019 
+-- June 2019  
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
@@ -13,6 +13,7 @@ entity display_interface is
   Port ( 
     clk : in STD_LOGIC;
     reset : in STD_LOGIC;
+    state : in STD_LOGIC_VECTOR (1 downto 0);
     seg : out STD_LOGIC_VECTOR (6 downto 0);
     an : out STD_LOGIC_VECTOR (7 downto 0)
   );
@@ -28,7 +29,7 @@ architecture Behavioral of display_interface is
     
     signal ref_rate : STD_LOGIC;
     signal display1, display2, display3, display4, display5, display6, display7, display8 : STD_LOGIC_VECTOR (6 downto 0) := "0000000";
-    signal curr_display, state : STD_LOGIC_VECTOR (2 downto 0) := (others => '0');
+    signal curr_display : STD_LOGIC_VECTOR (2 downto 0) := (others => '0');
     
 begin
 
@@ -71,7 +72,17 @@ begin
                 display8 <= off;
                 
             case state is
-                when "000" => -- "ready"
+                when "01" => -- "pause"
+                    display1 <= off;
+                    display2 <= e;
+                    display3 <= s;
+                    display4 <= u;
+                    display5 <= a;
+                    display6 <= p;
+                    display7 <= off;
+                    display8 <= off;
+                
+                when "11" => -- "play"
                     display1 <= off;
                     display2 <= off;
                     display3 <= y;

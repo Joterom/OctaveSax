@@ -21,7 +21,7 @@ entity sampling is
         sample_in_ready : out STD_LOGIC;
         sample_towrite_ready : out STD_LOGIC;
         -- CLKs
-        MCLK : out STD_LOGIC;
+        MCLK : out STD_LOGIC; 
         SCLK : out STD_LOGIC;
         SC_2 : out STD_LOGIC;
         LR_W_SEL : out STD_LOGIC
@@ -122,9 +122,9 @@ begin
             sample_in_ready_next <= '0';
             sample_towrite_ready_next <= '0';            
             if counter32 = std_logic_vector(to_unsigned(1, 5)) then -- Arbitrary choice, any other number between 0 and 15 would work as well
-                if frame_num = std_logic_vector(to_unsigned(reading_cicle, 5)) and lr = '0' then -- Constant defined at trunk, arbitrary
+                if frame_num = std_logic_vector(to_unsigned(reading_cicle, 5)) and lr = '0' and sc = '0' then -- Constant defined at trunk, arbitrary
                     sample_in_ready_next <= '1';                   
-                elsif frame_num = std_logic_vector(to_unsigned(writing_cicle, 5)) and lr = '0' then -- Constant defined at trunk, arbitrary
+                elsif frame_num = std_logic_vector(to_unsigned(writing_cicle, 5)) and lr = '0' and sc = '0' then -- Constant defined at trunk, arbitrary
                     sample_towrite_ready_next <= '1';                    
                 end if;
             end if;            

@@ -11,10 +11,9 @@ use work.project_trunk.all;
 entity master_controller is 
   Port (
         -- Master FPGA CLK
-        clk_fpga : in STD_LOGIC;
-        -- Displays
-        seg : out STD_LOGIC_VECTOR (6 downto 0);
-        an : out STD_LOGIC_VECTOR (7 downto 0);
+        clk_100MHz : in STD_LOGIC;
+        clk_50MHz : in STD_LOGIC;   
+        reset : in STD_LOGIC;    
         -- CLKs
         MCLK_ADC : out STD_LOGIC;
         SCLK_ADC : out STD_LOGIC;
@@ -22,7 +21,8 @@ entity master_controller is
         MCLK_DAC : out STD_LOGIC;
         SCLK_DAC : out STD_LOGIC;
         LR_W_SEL_DAC : out STD_LOGIC;
-        -- INput/OUTput
+        -- INput/OUTput       
+        global_state : in STD_LOGIC_VECTOR (1 downto 0);
         DATA_IN : in STD_LOGIC;
         DATA_OUT : out STD_LOGIC         
    );
@@ -62,20 +62,7 @@ architecture Behavioral of master_controller is
         storaged_sample : out STD_LOGIC_VECTOR (sample_size - 1 downto 0);
         writing_sample : in STD_LOGIC_VECTOR (sample_size - 1 downto 0)
     ); end component;
-    
-    component clk_generator port(
-        clk_fpga : in STD_LOGIC;
-        clk_100MHz : out STD_LOGIC;
-        clk_50MHz : out STD_LOGIC
-    ); end component;
-          
-    component display_interface port(
-        clk : in STD_LOGIC;
-        reset : in STD_LOGIC;
-        seg : out STD_LOGIC_VECTOR (6 downto 0);
-        an : out STD_LOGIC_VECTOR (7 downto 0)
-    ); end component;
-    
+                  
     component window_controller port(
         clk : in STD_LOGIC;
         reset : in STD_LOGIC;
@@ -89,12 +76,12 @@ architecture Behavioral of master_controller is
         result1 : out STD_LOGIC_VECTOR (sample_size - 1 downto 0);
         result2 : out STD_LOGIC_VECTOR (sample_size - 1 downto 0)
     ); end component;
-    
+            
     signal frame_number : STD_LOGIC_VECTOR (4 downto 0) := (others => '0');
-    signal reset, enable_shift, enable_shift_next, start_proc_win_next : STD_LOGIC := '0';    
+    signal enable_shift, enable_shift_next, start_proc_win_next : STD_LOGIC := '0';    
     signal input_reg, storaged_sample, multiplicand, multiplicand_out, output_sample
            , output_sample_next : STD_LOGIC_VECTOR ((sample_size - 1) downto 0) := (others => '0');    
-    signal MCLK, SCLK, LR_W_SEL, clk_100MHz, clk_50MHz : STD_LOGIC := '0';
+    signal MCLK, SCLK, LR_W_SEL : STD_LOGIC := '0';
     
     signal write_address, write_address1, write_address2, write_address_next, write_address1_next, write_address2_next
            , read_address, read_address_next, read_address1, read_address1_next, read_address2, read_address2_next
@@ -104,8 +91,8 @@ architecture Behavioral of master_controller is
     signal sample_towrite : STD_LOGIC_VECTOR (23 downto 0) := (others => '0');
     
     signal address_in_ref, address_in_ref_next, address_out_ref, address_out_ref_next : STD_LOGIC_VECTOR (11 downto 0) := (others => '0');
-    signal buffer1, buffer1_next, buffer1_out, buffer1_out_next : STD_LOGIC_VECTOR (11 downto 0) := (others => '0');
-    signal buffer2, buffer2_next, buffer2_out, buffer2_out_next : STD_LOGIC_VECTOR (11 downto 0) := (others => '0'); -- Set at 384 --> 3 * fft_width / 4
+    signal buffer1, buffer1_next, buffer1_out, buffer1_out_next, factor_buf1 : STD_LOGIC_VECTOR (11 downto 0) := (others => '0');
+    signal buffer2, buffer2_next, buffer2_out, buffer2_out_next, factor_buf2 : STD_LOGIC_VECTOR (11 downto 0) := (others => '0'); -- Set at 384 --> 3 * fft_width / 4
     signal windowed_sample_buf1, windowed_sample_buf2, framed_sample, framed_sample_next : STD_LOGIC_VECTOR (sample_size - 1 downto 0) := (others => '0');
     signal buf1_2, val, val_next, val2_next, val2 : STD_LOGIC := '1';
     signal for_inv, for_inv_next, start_proc_win, end_proc_win, change_memo, change_memo_next
@@ -113,7 +100,7 @@ architecture Behavioral of master_controller is
     
     type memo_state_pos is (IDLE, REST, WRITE, READ);
     signal memo_state, memo_state_next : memo_state_pos := IDLE;
-    
+        
     signal buffer_aux : STD_LOGIC_VECTOR (8 downto 0) := "111111110";
     
 begin  
@@ -148,21 +135,8 @@ begin
         reset => reset,
         data_in => DATA_IN,
         data_out => input_reg
-    );
-    
-    displays : display_interface port map (
-        clk => clk_100MHz,
-        reset => reset,
-        seg => seg,
-        an => an
-    );
-    
-    clk_gen : clk_generator port map (
-        clk_fpga => clk_fpga,
-        clk_100MHz => clk_100MHz,
-        clk_50MHz => clk_50MHz
-    );
-    
+    );      
+        
     WIN : window_controller port map (
         clk => clk_100MHz,
         reset => reset,
@@ -170,8 +144,8 @@ begin
         end_proc_win => end_proc_win,
         for_inv => for_inv, -- 1 = STFT, 0 = iSTFT
         multiplicand => multiplicand,
-        factor_buf1 => buffer1(8 downto 0),
-        factor_buf2 => buffer2(8 downto 0),
+        factor_buf1 => factor_buf1(8 downto 0),
+        factor_buf2 => factor_buf2(8 downto 0),
         buf1_2 => buf1_2,
         result1 => windowed_sample_buf1,
         result2 => windowed_sample_buf2
@@ -198,13 +172,12 @@ begin
                 buffer2_out <= (others => '0'); 
                 address_in_ref <= (others => '0');  
                 address_out_ref <= (others => '0');           
-                start_proc_win <= '0';    
-                for_inv <= '1';  
+                start_proc_win <= '0';     
                 val <= '1';     
                 val2 <= '1';
                 read_samplen <= '0';
                 read_samplenn <= '0';
-                memo_state <= IDLE;
+                memo_state <= IDLE;                
                 output_sample <= (others => '0');
             elsif rising_edge(clk_100MHz) then                
                 enable_shift <= enable_shift_next;                               
@@ -226,8 +199,7 @@ begin
                 buffer2_out <= buffer2_out_next; 
                 start_proc_win <= start_proc_win_next;         
                 address_in_ref <= address_in_ref_next;
-                address_out_ref <= address_out_ref_next;   
-                for_inv <= for_inv_next;        
+                address_out_ref <= address_out_ref_next;         
                 val <= val_next; 
                 val2 <= val2_next;    
                 memo_state <= memo_state_next;
@@ -322,30 +294,6 @@ begin
             end if;                 
     end process;
         
-    changer_memo : process (LR_W_SEL, frame_number, SCLK, MCLK, end_proc_win, val)
-        begin
-            change_memo_next <= '0';
-            change_memo_out_next <= '0';
-            val_next <= val;
-            if LR_W_SEL = '0' then                
-                if SCLK = '1' then
-                    if MCLK = '1' then
-                        if end_proc_win = '1' then
-                            if frame_number = std_logic_vector(to_unsigned(25, 5)) then
-                                if val = '1' then
-                                    change_memo_next <= '1';
-                                    val_next <= '0';
-                                end if;
-                            end if;
-                        end if;
-                    end if;
-                end if;
-            else
-                val_next <= '1';
-                val2_next <= '1';
-            end if;
-    end process;
-        
     -- Writing dac mode: takes sample from the previously loaded register and links it to output data
     write_dac : process(frame_number, start_reading, sample_towrite)
         begin 
@@ -391,8 +339,10 @@ begin
                     end if;
                     
                 when REST => -- REST
-                    if frame_number = std_logic_vector(to_unsigned(25, 5)) then
-                        memo_state_next <= WRITE;
+                    if LR_W_SEL = '0' then
+                        if frame_number = std_logic_vector(to_unsigned(25, 5)) then
+                            memo_state_next <= WRITE;
+                        end if;
                     end if;
                     
                 when WRITE => -- WRITE              
@@ -410,14 +360,13 @@ begin
                     if frame_number = std_logic_vector(to_unsigned(29, 5)) then
                        memo_state_next <= REST;
                     end if;
-                
-                    
+                                    
                 when others =>
                     memo_state_next <= IDLE;
             end case;
      end process;
-     
-     process(memo_state, sample_in_ready, for_inv, buf1_2, sample_towrite_ready, read_address, 
+          
+     process(memo_state, sample_in_ready, buf1_2, sample_towrite_ready, read_address, 
                 write_address, start_proc_win, end_proc_win, start_reading, storaged_sample,
                 read_address1, read_address2, write_address1, write_address2, windowed_sample_buf2,
                 input_reg, output_sample)
@@ -430,17 +379,21 @@ begin
             read_address_next <= read_address;
             multiplicand <= input_reg;
             output_sample_next <= output_sample;
-            
+            change_memo_next <= '0';
+            factor_buf1 <= (others => '0');
+            factor_buf2 <= (others => '0');
+            for_inv <= '0';            
             case memo_state is
                 when REST => --REST
                 
                 when WRITE => --WRITE
                     multiplicand <= input_reg;
+                    factor_buf1 <= buffer1;
+                    factor_buf2 <= buffer2;
+                    for_inv <= '1';
                     if sample_in_ready = '1' then  
                         start_proc_win_next <= '1';
-                        for_inv_next <= '1';
                     end if;
-                    if for_inv = '1' then
                         if end_proc_win = '1' then
                             if buf1_2 = '1' then
                                 write_sample <= '1';
@@ -448,14 +401,18 @@ begin
                             else
                                 write_sample <= '1';
                                 write_address_next <= write_address1;
-                                for_inv_next <= '0';
                             end if;    
                         end if;               
+                    if end_proc_win = '1' and buf1_2 = '1' then
+                        change_memo_next <= '1';
                     end if;
                     
                 when READ => --READ
                     multiplicand <= storaged_sample;
                     output_sample_next <= windowed_sample_buf2;
+                    factor_buf1 <= buffer1_out;
+                    factor_buf2 <= buffer2_out;
+                    for_inv <= '0';
                     if sample_towrite_ready = '1' then                   
                         start_proc_win_next <= '1';
                         read_samplenn_next <= '1';
@@ -463,8 +420,7 @@ begin
                     elsif buf1_2 = '1' then
                         read_samplenn_next <= '1';
                         read_address_next <= read_address1;                                         
-                    end if; 
-                                      
+                    end if;                                      
                 when others => 
             end case;
     end process;
@@ -492,7 +448,8 @@ begin
     MCLK_DAC  <= MCLK; --and start_reading;
     SCLK_DAC <= SCLK; --and start_reading;
     LR_W_SEL_DAC <= LR_W_SEL; --and start_reading;  
-    sample_towrite <= output_sample & "00000000"; --when LR_W_SEL = '0' else
-    DATA_OUT <= DATA_OUTr;
+    sample_towrite <= output_sample & "00000000" when global_state = "11" else
+                      (others => '0'); --when LR_W_SEL = '0' else
+    DATA_OUT <= DATA_OUTr; 
     
 end Behavioral;

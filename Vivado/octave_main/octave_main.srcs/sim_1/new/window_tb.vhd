@@ -25,7 +25,6 @@ architecture Behavioral of window_tb is
         end_proc_win : out STD_LOGIC;
         for_inv : in STD_LOGIC; -- 1 = STFT, 0 = iSTFT
         multiplicand : in STD_LOGIC_VECTOR (sample_size - 1 downto 0);
-        multiplicand_out : in STD_LOGIC_VECTOR (sample_size - 1 downto 0);
         factor_buf1 : in STD_LOGIC_VECTOR (8 downto 0);
         factor_buf2 : in STD_LOGIC_VECTOR (8 downto 0);
         result1 : out STD_LOGIC_VECTOR (sample_size - 1 downto 0);
@@ -46,7 +45,6 @@ begin
         end_proc_win => end_proc_win,
         for_inv => for_inv,
         multiplicand => multiplicand,
-        multiplicand_out => multiplicand_out,
         factor_buf1 => factor_buf1,
         factor_buf2 => factor_buf2,
         buf1_2 => buf1_2,
@@ -66,7 +64,6 @@ begin
     process
         begin
             multiplicand <= "0100000000000000";
-            multiplicand_out <= "0000111100000000";
 --            factor_buf1 <= "010000000"; -- "0100000000000000" tras la rom STFT
 --            factor_buf2 <= "010000000"; -- "0100000000000000" tras la rom STFT
             factor_buf1 <= "001001001"; -- "0001000000000001" tras la rom iSTFT
@@ -77,6 +74,8 @@ begin
             start_proc_win <= '1';
          wait for 10 ns;
             start_proc_win <= '0';
+        wait for 20 ns;
+            multiplicand <= "0010000000000000";
         wait;
     end process;
         

@@ -16,7 +16,7 @@ package project_trunk is
     -- Cicle in which data is read from input and written into memory
     constant reading_cicle : integer := 25;
     -- Number of samples per frame
-    constant fft_width : integer := 512;
+    constant fft_width : integer := 512; 
     
 -- Every available display letters
     constant off : STD_LOGIC_VECTOR (6 downto 0) := "1111111"; 
@@ -33,6 +33,8 @@ package project_trunk is
     constant o : STD_LOGIC_VECTOR (6 downto 0) := "1000000";
     constant p : STD_LOGIC_VECTOR (6 downto 0) := "0001100";
     constant r : STD_LOGIC_VECTOR (6 downto 0) := "0101111";
+    constant s : STD_LOGIC_VECTOR (6 downto 0) := "0010010";
+    constant u : STD_LOGIC_VECTOR (6 downto 0) := "1000001";
     constant y : STD_LOGIC_VECTOR (6 downto 0) := "0010001"; 
     
 end project_trunk;

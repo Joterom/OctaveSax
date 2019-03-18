@@ -1,5 +1,5 @@
 -- Javier Otero Martinez
--- OctaveSax project -- TFG
+-- OctaveSax project -- TFG 
 -- June 2019 
 
 library IEEE;
@@ -39,7 +39,8 @@ architecture Behavioral of window_controller is
     ); end component;
     
     signal multiplicatorSTFT, multiplicatoriSTFT : STD_LOGIC_VECTOR (15 downto 0) := (others => '0');
-    signal pre_resultSTFT_next, pre_resultiSTFT_next, pre_resultSTFT, pre_resultiSTFT : signed (31 downto 0) := (others => '0');
+    signal pre_resultSTFT_next,  pre_resultSTFT : signed (31 downto 0) := (others => '0');
+    signal pre_resultiSTFT_next, pre_resultiSTFT : STD_LOGIC_VECTOR (31 downto 0) := (others => '0');
     signal factor, factor_next : STD_LOGIC_VECTOR (8 downto 0) := (others => '0');
     signal result1_next, result2_next, mult_reg, mult_reg_next, mult_reg2, mult_reg2_next, result1buf, result2buf : STD_LOGIC_VECTOR (sample_size - 1 downto 0) := (others => '0');
     signal ended_next, count, count_next, working, working_next, buf1_2next, buf1_2reg : STD_LOGIC := '0';
@@ -129,31 +130,34 @@ begin
                         result1_next <= result1buf;
                         result2_next <= result2buf;
                 end case;
-            else
-                
+            else              
                 case value is                    
                     when "0001" =>
                         result1_next <= (others => '0');
                         result2_next <= (others => '0');                        
-                        factor_next <= factor_buf1;
+                        factor_next <= factor_buf2;
                         
                         buf1_2next <= '1';
                     when "0010" =>
                         mult_reg_next <= multiplicand;
                                              
                     when "0011" =>    -- Ciclo 3 -> Realiza la multiplicacion para el buffer 1
-                        pre_resultiSTFT_next <= signed(mult_reg)*signed(multiplicatoriSTFT);                                               
+                        pre_resultiSTFT_next <= std_logic_vector(signed(mult_reg)*signed(multiplicatoriSTFT));                                               
                         
-                    when "0101" =>    -- Ciclo 4                
+                    when "0101" =>    -- Ciclo 5                
                         --result1_next <= std_logic_vector(pre_resultiSTFT(30 downto 15));                        
-                        factor_next <= factor_buf2; 
+                        factor_next <= factor_buf1; 
                         mult_reg2_next <= multiplicand;                                            
+                        result1_next <= pre_resultiSTFT(30 downto 15);
                         
-                    when "0111" =>    -- Ciclo 5
-                        pre_resultiSTFT_next <= signed(mult_reg2)*signed(multiplicatoriSTFT)+pre_resultiSTFT;
+                    when "0110" =>    -- Ciclo 6
+                        pre_resultiSTFT_next <= std_logic_vector(signed(mult_reg2)*signed(multiplicatoriSTFT));
                                                 
-                    when "1000" =>    -- Ciclo 7 -> Trunca y almacena la operacion en el bufer 2 de salida
+                    when "0111" =>    -- Ciclo 7 -> Trunca y almacena la operacion en el bufer 2 de salida
                         result2_next <= std_logic_vector(pre_resultiSTFT(30 downto 15));                        
+                        
+                    when "1000" =>    -- Ciclo 8 -> Trunca y almacena la operacion en el bufer 2 de salida
+                        result2_next <= std_logic_vector(signed(result1buf) + signed(result2buf));                        
                         ended_next <= '1';
                     when others =>
                         result1_next <= result1buf;

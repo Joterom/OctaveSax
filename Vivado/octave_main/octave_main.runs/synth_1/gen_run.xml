@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1552855856">
-  <File Type="PA-TCL" Name="master_controller.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="master_controller_drc_synth.rpt"/>
-  <File Type="REPORTS-TCL" Name="master_controller_reports.tcl"/>
-  <File Type="RDS-RDS" Name="master_controller.vds"/>
-  <File Type="RDS-UTIL" Name="master_controller_utilization_synth.rpt"/>
-  <File Type="RDS-UTIL-PB" Name="master_controller_utilization_synth.pb"/>
-  <File Type="RDS-DCP" Name="master_controller.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="master_controller_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="master_controller_timing_summary_synth.pb"/>
+<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1552941363">
+  <File Type="PA-TCL" Name="fsm_global.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="fsm_global_drc_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="fsm_global_reports.tcl"/>
+  <File Type="RDS-RDS" Name="fsm_global.vds"/>
+  <File Type="RDS-UTIL" Name="fsm_global_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="fsm_global_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="fsm_global.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="fsm_global_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="fsm_global_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/project_trunk.vhd">
@@ -89,9 +89,15 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/new/fsm_global.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="master_controller"/>
+      <Option Name="TopModule" Val="fsm_global"/>
     </Config>
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
