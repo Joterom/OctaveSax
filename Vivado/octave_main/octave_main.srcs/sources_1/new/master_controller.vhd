@@ -51,7 +51,7 @@ architecture Behavioral of master_controller is
         enable : in STD_LOGIC;
         reset : in STD_LOGIC;
         data_in : in STD_LOGIC;
-        data_out : out STD_LOGIC_VECTOR (sample_size - 1 downto 0)
+        data_out : out signed (sample_size - 1 downto 0)
     ); end component;
     
     component memo_controller port(
@@ -59,8 +59,8 @@ architecture Behavioral of master_controller is
         write_sample : in STD_LOGIC;
         read_sample : in STD_LOGIC;
         memo_address : in STD_LOGIC_VECTOR (11 downto 0);
-        storaged_sample : out STD_LOGIC_VECTOR (sample_size - 1 downto 0);
-        writing_sample : in STD_LOGIC_VECTOR (sample_size - 1 downto 0)
+        storaged_sample : out signed (sample_size - 1 downto 0);
+        writing_sample : in signed (sample_size - 1 downto 0)
     ); end component;
                   
     component window_controller port(
@@ -69,18 +69,18 @@ architecture Behavioral of master_controller is
         start_proc_win : in STD_LOGIC;
         end_proc_win : out STD_LOGIC;
         for_inv : in STD_LOGIC; -- 1 = STFT, 0 = iSTFT
-        multiplicand : in STD_LOGIC_VECTOR (sample_size - 1 downto 0);
+        multiplicand : in signed (sample_size - 1 downto 0);
         factor_buf1 : in STD_LOGIC_VECTOR (8 downto 0);
         factor_buf2 : in STD_LOGIC_VECTOR (8 downto 0);
         buf1_2 : out STD_LOGIC;
-        result1 : out STD_LOGIC_VECTOR (sample_size - 1 downto 0);
-        result2 : out STD_LOGIC_VECTOR (sample_size - 1 downto 0)
+        result1 : out signed (sample_size - 1 downto 0);
+        result2 : out signed (sample_size - 1 downto 0)
     ); end component;
             
     signal frame_number : STD_LOGIC_VECTOR (4 downto 0) := (others => '0');
     signal enable_shift, enable_shift_next, start_proc_win_next : STD_LOGIC := '0';    
     signal input_reg, storaged_sample, multiplicand, multiplicand_out, output_sample
-           , output_sample_next : STD_LOGIC_VECTOR ((sample_size - 1) downto 0) := (others => '0');    
+           , output_sample_next : signed ((sample_size - 1) downto 0) := (others => '0');    
     signal MCLK, SCLK, LR_W_SEL : STD_LOGIC := '0';
     
     signal write_address, write_address1, write_address2, write_address_next, write_address1_next, write_address2_next
@@ -88,12 +88,12 @@ architecture Behavioral of master_controller is
            , address  : STD_LOGIC_VECTOR (11 downto 0) := (others => '0');
     signal read_sample, sample_towrite_ready, sample_in_ready, write_sample : STD_LOGIC := '0';
     signal start_reading, start_reading_next, DATA_OUT_n, DATA_OUTr : STD_LOGIC := '0';
-    signal sample_towrite : STD_LOGIC_VECTOR (23 downto 0) := (others => '0');
+    signal sample_towrite : signed (23 downto 0) := (others => '0');
     
     signal address_in_ref, address_in_ref_next, address_out_ref, address_out_ref_next : STD_LOGIC_VECTOR (11 downto 0) := (others => '0');
     signal buffer1, buffer1_next, buffer1_out, buffer1_out_next, factor_buf1 : STD_LOGIC_VECTOR (11 downto 0) := (others => '0');
     signal buffer2, buffer2_next, buffer2_out, buffer2_out_next, factor_buf2 : STD_LOGIC_VECTOR (11 downto 0) := (others => '0'); -- Set at 384 --> 3 * fft_width / 4
-    signal windowed_sample_buf1, windowed_sample_buf2, framed_sample, framed_sample_next : STD_LOGIC_VECTOR (sample_size - 1 downto 0) := (others => '0');
+    signal windowed_sample_buf1, windowed_sample_buf2, framed_sample, framed_sample_next : signed (sample_size - 1 downto 0) := (others => '0');
     signal buf1_2, val, val_next, val2_next, val2 : STD_LOGIC := '1';
     signal for_inv, for_inv_next, start_proc_win, end_proc_win, change_memo, change_memo_next
            , change_memo_out, change_memo_out_next, read_samplen, read_samplenn, read_samplenn_next : STD_LOGIC := '0';

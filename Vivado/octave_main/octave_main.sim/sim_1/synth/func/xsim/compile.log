@@ -1,0 +1,22 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/synth/func/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/synth/func/xsim/main_tb_func_synth.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity clk_generator_clk_generator_clk_wiz
+INFO: [VRFC 10-307] analyzing entity display_counter
+INFO: [VRFC 10-307] analyzing entity sampling
+INFO: [VRFC 10-307] analyzing entity shift_register
+INFO: [VRFC 10-307] analyzing entity window_controller
+INFO: [VRFC 10-307] analyzing entity ram_memory_blk_mem_gen_prim_wrapper
+INFO: [VRFC 10-307] analyzing entity \ram_memory_blk_mem_gen_prim_wrapper__parameterized0\
+INFO: [VRFC 10-307] analyzing entity clk_generator
+INFO: [VRFC 10-307] analyzing entity display_interface
+INFO: [VRFC 10-307] analyzing entity ram_memory_blk_mem_gen_prim_width
+INFO: [VRFC 10-307] analyzing entity \ram_memory_blk_mem_gen_prim_width__parameterized0\
+INFO: [VRFC 10-307] analyzing entity ram_memory_blk_mem_gen_generic_cstr
+INFO: [VRFC 10-307] analyzing entity ram_memory_blk_mem_gen_top
+INFO: [VRFC 10-307] analyzing entity ram_memory_blk_mem_gen_v8_4_1_synth
+INFO: [VRFC 10-307] analyzing entity ram_memory_blk_mem_gen_v8_4_1
+INFO: [VRFC 10-307] analyzing entity ram_memory
+INFO: [VRFC 10-307] analyzing entity memo_controller
+INFO: [VRFC 10-307] analyzing entity master_controller
+INFO: [VRFC 10-307] analyzing entity fsm_global

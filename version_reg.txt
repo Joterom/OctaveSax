@@ -96,3 +96,5 @@
 17-3-19
 4.6.7 Bufer terminados, a falta de pruebas exhaustivas. Simulacion ok.
 4.6.8 Depuracion doble bufer
+20-3-19
+4.6.8.2 Cambio de variables a signed

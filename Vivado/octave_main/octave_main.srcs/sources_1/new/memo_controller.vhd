@@ -9,8 +9,8 @@ entity memo_controller is
     write_sample : in STD_LOGIC;
     read_sample : in STD_LOGIC;
     memo_address : in STD_LOGIC_VECTOR (11 downto 0);
-    storaged_sample : out STD_LOGIC_VECTOR (sample_size - 1 downto 0);
-    writing_sample : in STD_LOGIC_VECTOR (sample_size - 1 downto 0)
+    storaged_sample : out signed (sample_size - 1 downto 0);
+    writing_sample : in signed (sample_size - 1 downto 0)
     );
 end memo_controller;
 
@@ -27,14 +27,15 @@ architecture Behavioral of memo_controller is
 
     signal wea : STD_LOGIC_VECTOR (0 downto 0) := "0";
     signal ena : STD_LOGIC;
+    signal ws, ss : STD_LOGIC_VECTOR (sample_size-1 downto 0) := (others => '0');
     
 begin
 
     ram : ram_memory port map(
         addra => memo_address,
         clka => clk,
-        dina => writing_sample,
-        douta => storaged_sample,
+        dina => ws,
+        douta => ss,
         ena => ena,
         wea => wea
     );
@@ -43,5 +44,7 @@ begin
            "0";
     
     ena <= read_sample or write_sample;
+    ws <= std_logic_vector(writing_sample);
+    storaged_sample <= signed(ss);
 
 end Behavioral;
