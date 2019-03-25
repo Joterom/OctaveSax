@@ -98,3 +98,5 @@
 4.6.8 Depuracion doble bufer
 20-3-19
 4.6.8.2 Cambio de variables a signed
+25-3-19 RESET
+5 Reseteo duro para debuggear

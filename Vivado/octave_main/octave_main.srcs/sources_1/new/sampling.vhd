@@ -117,7 +117,7 @@ begin
             end if;
     end process;
     -- Generates signals to control reading and writing stages  
-    sync : process(counter32, frame_num, lr)
+    sync : process(counter32, frame_num, lr,sc)
         begin           
             sample_in_ready_next <= '0';
             sample_towrite_ready_next <= '0';            
