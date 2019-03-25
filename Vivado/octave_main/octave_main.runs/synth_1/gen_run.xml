@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1553534463">
+<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1553544153">
   <File Type="PA-TCL" Name="fsm_global.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="fsm_global_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="fsm_global_reports.tcl"/>
   <File Type="RDS-RDS" Name="fsm_global.vds"/>
   <File Type="RDS-UTIL" Name="fsm_global_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="fsm_global_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="fsm_global.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="fsm_global_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="fsm_global_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/project_trunk.vhd">
@@ -31,6 +28,7 @@
     </File>
     <File Path="$PSRCDIR/sources_1/new/memo_controller.vhd">
       <FileInfo>
+        <Attr Name="UserDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
@@ -69,6 +67,7 @@
     </File>
     <File Path="$PSRCDIR/sources_1/imports/ROM Data/istft_window.vhd">
       <FileInfo>
+        <Attr Name="UserDisabled" Val="1"/>
         <Attr Name="ImportPath" Val="$PPRDIR/../../Matlab/ROM Data/istft_window.vhd"/>
         <Attr Name="ImportTime" Val="1551902918"/>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -77,6 +76,7 @@
     </File>
     <File Path="$PSRCDIR/sources_1/imports/ROM Data/stft_window.vhd">
       <FileInfo>
+        <Attr Name="UserDisabled" Val="1"/>
         <Attr Name="ImportPath" Val="$PPRDIR/../../Matlab/ROM Data/stft_window.vhd"/>
         <Attr Name="ImportTime" Val="1551902918"/>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -85,11 +85,18 @@
     </File>
     <File Path="$PSRCDIR/sources_1/new/window_controller.vhd">
       <FileInfo>
+        <Attr Name="UserDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
     <File Path="$PSRCDIR/sources_1/new/fsm_global.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/counter_to512.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -119,6 +126,5 @@
     <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2017"/>
     <Step Id="synth_design"/>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="ram_memory"/>
   <BlockFileSet Type="BlockSrcs" Name="clk_generator"/>
 </GenRun>

@@ -100,3 +100,4 @@
 4.6.8.2 Cambio de variables a signed
 25-3-19 RESET
 5 Reseteo duro para debuggear
+5.1 Implementacion de los dos buffer: fsms y señales de control

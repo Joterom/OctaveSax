@@ -11,10 +11,18 @@ package project_trunk is
     -- Number of bits per sample, it changes everything automatically except ram memory ip which should be
     --    set manually
     constant sample_size : integer := 16;
-    -- Cicle in which data is read from memory and transferred to output buffer
-    constant writing_cicle : integer := 27;
-    -- Cicle in which data is read from input and written into memory
-    constant reading_cicle : integer := 25;
+    -- Cicle in which input sample is read and written into buffer 1
+    constant write_cicle1 : STD_LOGIC_VECTOR (4 downto 0) := "11010";
+    -- Cicle in which input sample is read and written into buffer 2
+    constant write_cicle2 : STD_LOGIC_VECTOR (4 downto 0) := "11011";
+    -- Cicle in which data is read from memory 1 and transferred to output buffer
+    constant read_cicle1 : STD_LOGIC_VECTOR (4 downto 0) := "11101";
+    -- Cicle in which data is read from memory 2 and transferred to output buffer
+    constant read_cicle2 : STD_LOGIC_VECTOR (4 downto 0) := "11110";
+    -- Cicle just to wait
+    constant wait_cicle : STD_LOGIC_VECTOR (4 downto 0) := "11100";
+    -- Cicle in which data read is sum and preared for output
+    constant read_sum_cicle : STD_LOGIC_VECTOR (4 downto 0) := "11111";
     -- Number of samples per frame
     constant fft_width : integer := 512; 
     
