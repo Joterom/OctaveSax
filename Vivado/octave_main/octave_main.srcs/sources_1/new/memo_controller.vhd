@@ -9,7 +9,7 @@ entity memo_controller is
     write_sample : in STD_LOGIC;
     read_sample : in STD_LOGIC;
     select_memo : in STD_LOGIC; -- 1 when buffer 1, 0 when buffer 2
-    memo_address : in STD_LOGIC_VECTOR (14 downto 0);
+    memo_address : in STD_LOGIC_VECTOR (13 downto 0);
     storaged_sample : out STD_LOGIC_VECTOR (sample_size - 1 downto 0);
     writing_sample : in STD_LOGIC_VECTOR (sample_size - 1 downto 0)
     );
@@ -18,7 +18,7 @@ end memo_controller;
 architecture Behavioral of memo_controller is
 
     component ram_memo port(
-        addra : in STD_LOGIC_VECTOR (14 downto 0);
+        addra : in STD_LOGIC_VECTOR (13 downto 0);
         clka : in STD_LOGIC;
         dina : in STD_LOGIC_VECTOR (sample_size-1 downto 0);
         douta : out STD_LOGIC_VECTOR (sample_size-1 downto 0);

@@ -70,11 +70,19 @@ begin
             DATA_IN <= '0';
         wait for 63 ns;
             DATA_IN <= '1';
-        wait for 47 ns;
+        wait for 27 ns;
             DATA_IN <= '0';
-        wait for 39 ns;
+        wait for 41 ns;
             DATA_IN <= '1';
-        wait for 51 ns;
+        wait for 5 ns;
+            DATA_IN <= '0';
+        wait for 17 ns;
+            DATA_IN <= '1';
+        wait for 35 ns;
+            DATA_IN <= '0';
+        wait for 82 ns;
+            DATA_IN <= '1';
+        wait for 38 ns;
     end process;
     
 end Behavioral;

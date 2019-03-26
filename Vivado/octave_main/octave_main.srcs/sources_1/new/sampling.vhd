@@ -20,7 +20,7 @@ entity sampling is
         reset : in STD_LOGIC;
         sample_in_ready : out STD_LOGIC;
         sample_towrite_ready : out STD_LOGIC;
-        control : out STD_LOGIC_VECTOR (1 downto 0);
+        control : out STD_LOGIC_VECTOR (2 downto 0);
         -- CLKs
         MCLK : out STD_LOGIC; 
         SCLK : out STD_LOGIC;
@@ -37,7 +37,7 @@ architecture Behavioral of sampling is
     signal init, init_next : STD_LOGIC := '1'; 
     signal sample_in_ready_next, sample_towrite_ready_next : STD_LOGIC; 
     signal half_sc, half_sc_next : STD_LOGIC := '0';
-    signal control_next : STD_LOGIC_VECTOR (1 downto 0) := "00";
+    signal control_next : STD_LOGIC_VECTOR (2 downto 0) := "000";
     
 begin
       
@@ -92,7 +92,9 @@ begin
                 if lr = '1' then
                     init_next <= '0';
                 end if;
-                if frame_num = std_logic_vector(to_unsigned(27, 5))  then
+                if frame_num = std_logic_vector(to_unsigned(0, 5))  then
+                    counter32 <= counter32_next;
+                elsif frame_num = std_logic_vector(to_unsigned(27, 5))  then
                     counter32 <= counter32_next;
                 elsif frame_num = std_logic_vector(to_unsigned(26, 5)) then
                     counter32 <= counter32_next;
@@ -123,7 +125,7 @@ begin
             if reset = '1' then
                 sample_in_ready <= '0';
                 sample_towrite_ready <= '0';
-                control <= "00";
+                control <= "000";
             elsif rising_edge(clk_100MHz) then
                 sample_in_ready <= sample_in_ready_next;
                 sample_towrite_ready <= sample_towrite_ready_next;
@@ -135,21 +137,23 @@ begin
         begin           
             sample_in_ready_next <= '0';
             sample_towrite_ready_next <= '0';   
-            control_next <= "00";         
+            control_next <= "000";         
             if counter32 = std_logic_vector(to_unsigned(1, 5)) then -- Arbitrary choice, any other number between 0 and 15 would work as well
-                if frame_num = std_logic_vector(to_unsigned(25, 5)) and lr = '0' and sc = '0' then -- Constant defined at trunk, arbitrary
+                if frame_num = std_logic_vector(to_unsigned(0, 5)) and lr = '1' and sc = '0' then -- Constant defined at trunk, arbitrary
+                    control_next <= "100"; 
+                elsif frame_num = std_logic_vector(to_unsigned(25, 5)) and lr = '0' and sc = '0' then -- Constant defined at trunk, arbitrary
                     sample_in_ready_next <= '1';    
                 elsif frame_num = std_logic_vector(to_unsigned(26, 5)) and lr = '0' and sc = '0' then
-                    control_next <= "10";
+                    control_next <= "010";
                 elsif frame_num = std_logic_vector(to_unsigned(27, 5)) and lr = '0' and sc = '0' then -- Constant defined at trunk, arbitrary
                     sample_towrite_ready_next <= '1';   
-                    control_next <= "10"; 
+                    control_next <= "010"; 
                 elsif frame_num = std_logic_vector(to_unsigned(29, 5)) and lr = '0' and sc = '0' then
-                    control_next <= "01"; 
+                    control_next <= "001"; 
                 elsif frame_num = std_logic_vector(to_unsigned(30, 5)) and lr = '0' and sc = '0' then
-                    control_next <= "01"; 
+                    control_next <= "001"; 
                 elsif frame_num = std_logic_vector(to_unsigned(31, 5)) and lr = '0' and sc = '0' then
-                    control_next <= "01"; 
+                    control_next <= "001"; 
                 end if;
             end if;            
     end process;

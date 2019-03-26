@@ -2,17 +2,32 @@
 # Vivado v2017.4 (64-bit)
 # SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
 # IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
-# Start of session at: Sun Mar 10 12:28:51 2019
-# Process ID: 7224
+# Start of session at: Mon Mar 25 22:13:04 2019
+# Process ID: 4304
 # Current directory: D:/UNI/TFG/OctaveSax/Vivado/octave_main
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent3152 D:\UNI\TFG\OctaveSax\Vivado\octave_main\octave_main.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent3768 D:\UNI\TFG\OctaveSax\Vivado\octave_main\octave_main.xpr
 # Log file: D:/UNI/TFG/OctaveSax/Vivado/octave_main/vivado.log
 # Journal file: D:/UNI/TFG/OctaveSax/Vivado/octave_main\vivado.jou
 #-----------------------------------------------------------
 start_gui
 open_project D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.xpr
 launch_simulation
+launch_simulation
+launch_simulation
 open_wave_config D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sim_1/imports/octave_main/test.wcfg
 open_wave_config D:/UNI/TFG/OctaveSax/Vivado/octave_main/window_tb_behav.wcfg
-source window_tb.tcl
+source main_tb.tcl
+restart
+restart
+run 20 ms
+relaunch_sim
+restart
+run 20 ms
+restart
+run 20 ms
+relaunch_sim
+restart
+run 20 ms
+save_wave_config {D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sim_1/imports/octave_main/test.wcfg}
+save_wave_config {D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sim_1/imports/octave_main/test.wcfg}
 close_sim
