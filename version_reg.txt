@@ -102,3 +102,5 @@
 5 Reseteo duro para debuggear
 5.1 Implementacion de los dos buffer: fsms y señales de control
 5.1.1 Implementacion de los estados de escritura, fsms listas
+27-3-19
+5.2 Implementacion de lectura y escritura en el bufer 1

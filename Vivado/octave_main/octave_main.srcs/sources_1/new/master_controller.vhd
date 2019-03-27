@@ -74,10 +74,12 @@ architecture Behavioral of master_controller is
     signal counter_buf1, counter_buf1_next, counter_buf1_r, counter_buf1_r_next : UNSIGNED (8 downto 0) := (others => '0'); 
     signal counter_buf2, counter_buf2_next, counter_buf2_r, counter_buf2_r_next : UNSIGNED (8 downto 0) := (others => '0'); 
     -- Memo controller signals
-    signal write_sample_memo, read_sample_memo, write_sample_memo_next, read_sample_memo_next, select_memo, select_memo_next : STD_LOGIC := '0';
+    signal write_sample_memo, read_sample_memo, read_sample_memo_int, read_sample_memo_int2, write_sample_memo_next, read_sample_memo_next
+           , select_memo, select_memo_next : STD_LOGIC := '0';
     signal address, address_next, address_buf1, address_buf2, address_buf1_next, address_buf2_next
            , address_buf1_read, address_buf2_read, address_buf1_read_next, address_buf2_read_next : STD_LOGIC_VECTOR (13 downto 0) := (others => '0');
-    signal storaged_sample, writing_sample_memo, writing_sample_memo_next : STD_LOGIC_VECTOR (sample_size - 1 downto 0) := (others => '0');
+    signal storaged_sample, storaged_buf1, storaged_buf1_next, storaged_buf2, storaged_buf2_next
+           , writing_sample_memo, writing_sample_memo_next : STD_LOGIC_VECTOR (sample_size - 1 downto 0) := (others => '0');
     -- Control signals
     signal first, first_next, first_r, first_r_next : STD_LOGIC := '1';
     signal control_sampling : STD_LOGIC_VECTOR (2 downto 0);
@@ -145,11 +147,18 @@ begin
                 first <= '1';
                 first_r <= '1';
                 select_memo <= '0';
-                read_sample_memo <= '0';
+                --read_sample_memo <= '0';
                 write_sample_memo <= '0';
                 writing_sample_memo <= (others => '0');
                 address_buf1 <= (others => '0');
+                --address_buf2 <= (others => '0');
+                --address_buf2_read <= (others => '0');
+                address_buf1_read <= (others => '0');
                 start_reading <= '0';
+                storaged_buf1 <= (others => '0');
+                --storaged_buf2 <= (others => '0');
+                read_sample_memo_int <= '0';
+                read_sample_memo_int2 <= '0';
             elsif rising_edge(clk_100MHz) then                
                 output_sample <= output_sample_next;
                 DATA_OUTr <= DATA_OUTn;
@@ -165,13 +174,20 @@ begin
                 first <= first_next;
                 first_r <= first_r_next;
                 select_memo <= select_memo_next;
-                read_sample_memo <= read_sample_memo_next;
+                read_sample_memo_int2 <= read_sample_memo_next;
+                read_sample_memo_int <= read_sample_memo_int2;
                 write_sample_memo <= write_sample_memo_next;
                 writing_sample_memo <= writing_sample_memo_next;
                 address_buf1 <= address_buf1_next;
-                start_reading <= start_reading_next;
+                address_buf1_read <= address_buf1_read_next;
+                --address_buf2 <= address_buf2_next;
+                --address_buf2_read <= address_buf2_read_next;
+                start_reading <= start_reading_next;                                
+                storaged_buf1 <= storaged_buf1_next;
+                --storaged_buf2 <= storaged_buf2_next;
             end if;           
     end process;         
+    
     
     
     write_buffer_state_change : process(buf_fsm_w_state, counter_buf1, counter_buf2)
@@ -312,6 +328,7 @@ begin
                 case buf_fsm_w_state is    
                     when BUFFER1 =>
                         counter_buf2_next <= (others => '0');
+                        
                         if event_new_frame = '1' then
                             if first = '1' then
                                 first_next <= '0';
@@ -332,7 +349,7 @@ begin
                             counter_buf2_next <= counter_buf2 + "000000001";
                         end if;
                         
-                    when SOLAPA_FIN =>
+                    when SOLAPA_FIN =>                      
                         start_reading_next <= '1'; -- OJO PROVISIONAL
                         if event_new_frame = '1' then
                             counter_buf1_next <= counter_buf1 + "000000001";
@@ -342,7 +359,7 @@ begin
                 end case;
         end process;
         
-        read_buffer_state_output : process(buf_fsm_r_state, event_new_frame, counter_buf1_r, counter_buf2_r, first_r)-- first?
+        read_buffer_state_output : process(buf_fsm_r_state, event_new_frame, counter_buf1_r, counter_buf2_r, first_r)
             begin
                 counter_buf1_r_next <= counter_buf1_r;
                 counter_buf2_r_next <= counter_buf2_r;
@@ -379,16 +396,24 @@ begin
                 end case;
         end process;
         
-        memo_state_outputs : process(memo_fsm_state, address, select_memo, event_write, input_reg, address_buf1, address_buf1_read
-                                     , address_buf2, address_buf2_read, writing_sample_memo)
+        -- Makes every w/r operation possible by activating target signals when corresponds, depending on memory state (memo_fsm_state)
+        memo_state_outputs : process(memo_fsm_state, address, select_memo, event_write, event_read, input_reg, address_buf1, address_buf1_read
+                                     , address_buf2, address_buf2_read, writing_sample_memo, storaged_sample, storaged_buf1
+                                     , storaged_buf2)
             begin
+                -- Default values
                 address_next <= address;
                 select_memo_next <= select_memo;
                 write_sample_memo_next <= '0';
                 writing_sample_memo_next <= writing_sample_memo;
                 address_buf1_next <= address_buf1;
+                address_buf1_read_next <= address_buf1_read;
+                storaged_buf1_next <= storaged_buf1;
+                --storaged_buf2_next <= storaged_buf2;
+                read_sample_memo_next <= '0';
+                
                 case memo_fsm_state is   
-                    when WRITE1 =>
+                    when WRITE1 => -- Reads from input reg and writes this sample into memory buffer1
                         if event_write = '1' then
                             select_memo_next <= '1';
                             address_next <= address_buf1;
@@ -397,21 +422,29 @@ begin
                             address_buf1_next <= std_logic_vector(unsigned(address_buf1) + 1);
                         end if;
                         
-                    when WRITE2 =>
+                    when WRITE2 => -- Reads from input reg and writes this sample into memory buffer1
                         address_next <= address_buf2;
                         
-                    when READ1 =>
-                        address_next <= address_buf1_read;
-                        address_buf1_read_next <=  std_logic_vector(unsigned(address_buf1_read) + 1);           
-                    when READ2 =>
+                    when READ1 => -- Reads from memory 1 and registers each sample
+                        storaged_buf1_next <= storaged_sample;
+                        if event_read = '1' then
+                            address_next <= address_buf1_read;
+                            address_buf1_read_next <=  std_logic_vector(unsigned(address_buf1_read) + 1); 
+                            read_sample_memo_next <= '1';                            
+                        end if;
+                                  
+                    when READ2 => -- Reads from memory 2 and registers each sample
                         address_next <= address_buf2_read;
-                        
-                    when others =>
-                        
+                    
+                    when READ_SUM => -- Reads from both read1 and read2 registers, adding them if necessary   
+                    
+                    when others => --IDLE
+                        --read_sample_memo_next <= '1';
                         
                 end case;
         end process;
-    -- Writing dac mode: takes sample from the previously loaded register and links it to output data
+        
+    -- Writing dac mode: takes sample from the previously loaded register and links it to output data channel
     write_dac : process(frame_number, start_reading, sample_towrite, LR_W_SEL)
         begin 
             DATA_OUTn <= '0';
@@ -452,16 +485,24 @@ begin
                                     and LR_W_SEL = '0') else                         
                          '0';
                                               
-    -- Sample which is written into ram memory after first windowing  
+    read_sample_memo <= read_sample_memo_int or read_sample_memo_int2;
    
-    output_sample_next <= input_reg when LR_W_SEL = '1' else
-                          output_sample;
+    
                               
     event_read <= control_sampling(0);
     event_write <= control_sampling(1);
     event_new_frame <= control_sampling(2);
     
-    
+    -- DEPRECATED --
+    --output_sample_next <= input_reg when LR_W_SEL = '1' else
+    --                          output_sample;
+    with buf_fsm_r_state select output_sample_next <= 
+        signed(storaged_buf1) when BUFFER1,
+        signed(storaged_buf2) when BUFFER2,
+        --signed(RESULTADO DE LA SUMA) when SOLAPA_INI,
+        --signed(RESULTADO DE LA SUMA) when SOLAPA_FIN,
+        output_sample when others;
+        
     -- Output signals assignment
     MCLK_ADC <= MCLK;
     SCLK_ADC <= SCLK;
