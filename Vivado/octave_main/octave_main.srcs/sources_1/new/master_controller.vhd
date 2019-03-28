@@ -64,6 +64,17 @@ architecture Behavioral of master_controller is
         storaged_sample : out STD_LOGIC_VECTOR (sample_size - 1 downto 0);
         writing_sample : in STD_LOGIC_VECTOR (sample_size - 1 downto 0)
     ); end component;
+    
+    component window_controller port(
+        clk : in STD_LOGIC;
+        reset : in STD_LOGIC;
+        start_proc_win : in STD_LOGIC;
+        end_proc_win : out STD_LOGIC;
+        for_inv : in STD_LOGIC; -- 1 = STFT, 0 = iSTFT
+        multiplicand : in signed (sample_size - 1 downto 0);
+        sample_number : in STD_LOGIC_VECTOR (8 downto 0);
+        result : out signed (sample_size - 1 downto 0)
+    ); end component;
                               
     signal frame_number : STD_LOGIC_VECTOR (4 downto 0) := (others => '0');
     signal enable_shift, enable_shift_next, sample_in_ready, sample_towrite_ready, start_reading, start_reading_next, DATA_OUTr, DATA_OUTn : STD_LOGIC := '0';    
@@ -84,6 +95,10 @@ architecture Behavioral of master_controller is
     signal first, first_next, first_r, first_r_next : STD_LOGIC := '1';
     signal control_sampling : STD_LOGIC_VECTOR (2 downto 0);
     signal event_read, event_write, event_new_frame : STD_LOGIC;
+    -- Window signals
+    signal start_proc_win, start_proc_win_next, end_proc_win, for_inv, for_inv_next : STD_LOGIC;
+    signal multiplicand, win_result : SIGNED (sample_size - 1 downto 0) := (others => '0');
+    signal sample_number : STD_LOGIC_VECTOR (8 downto 0);
     -- FSM State signals 
     type buffer_fsm_t is (BUFFER1, BUFFER2, SOLAPA_INI, SOLAPA_FIN, REST);   
     signal buf_fsm_w_state, buf_fsm_w_state_next : buffer_fsm_t := BUFFER1;  
@@ -127,7 +142,18 @@ begin
         memo_address => address,
         storaged_sample => storaged_sample,
         writing_sample => writing_sample_memo
-    );   
+    );  
+    
+    WIN : window_controller port map(
+        clk => clk_100MHz,
+        reset => reset,
+        start_proc_win => start_proc_win,
+        end_proc_win => end_proc_win,
+        for_inv => for_inv,
+        multiplicand => multiplicand,
+        sample_number => sample_number,
+        result => win_result
+    ); 
             
     -- Register logic
     process(clk_100MHz, reset)
@@ -147,19 +173,20 @@ begin
                 first <= '1';
                 first_r <= '1';
                 select_memo <= '0';
-                --read_sample_memo <= '0';
                 write_sample_memo <= '0';
                 writing_sample_memo <= (others => '0');
                 address_buf1 <= (others => '0');
-                --address_buf2 <= (others => '0');
-                --address_buf2_read <= (others => '0');
+                address_buf2 <= (others => '0');
+                address_buf2_read <= (others => '0');
                 address_buf1_read <= (others => '0');
                 start_reading <= '0';
                 storaged_buf1 <= (others => '0');
-                --storaged_buf2 <= (others => '0');
+                storaged_buf2 <= (others => '0');
                 read_sample_memo_int <= '0';
                 read_sample_memo_int2 <= '0';
                 sum_result <= (others => '0');
+                start_proc_win <= '0';
+                for_inv <= '0';
             elsif rising_edge(clk_100MHz) then                
                 output_sample <= output_sample_next;
                 DATA_OUTr <= DATA_OUTn;
@@ -187,6 +214,8 @@ begin
                 storaged_buf1 <= storaged_buf1_next;
                 storaged_buf2 <= storaged_buf2_next;
                 sum_result <= sum_result_next;
+                start_proc_win <= start_proc_win_next;
+                for_inv <= for_inv_next;
             end if;           
     end process;         
     
@@ -401,7 +430,7 @@ begin
         -- Makes every w/r operation possible by activating target signals when corresponds, depending on memory state (memo_fsm_state)
         memo_state_outputs : process(memo_fsm_state, address, select_memo, event_write, event_read, input_reg, address_buf1, address_buf1_read
                                      , address_buf2, address_buf2_read, writing_sample_memo, storaged_sample, storaged_buf1
-                                     , storaged_buf2, sum_result)
+                                     , storaged_buf2, sum_result, for_inv, end_proc_win)
             begin
                 -- Default values
                 address_next <= address;
@@ -416,11 +445,16 @@ begin
                 storaged_buf2_next <= storaged_buf2;
                 read_sample_memo_next <= '0';
                 sum_result_next <= sum_result;
+                for_inv_next <= for_inv;
+                start_proc_win_next <= '0';
                 
                 case memo_fsm_state is   
                     when WRITE1 => -- Reads from input reg and writes this sample into memory buffer1
                         select_memo_next <= '1';
+                        for_inv_next <= '1';
                         if event_write = '1' then
+                            start_proc_win_next <= '1';
+                        elsif end_proc_win = '1' then
                             address_next <= address_buf1;
                             write_sample_memo_next <= '1';
                             writing_sample_memo_next <= std_logic_vector(input_reg);
@@ -430,7 +464,10 @@ begin
                     when WRITE2 => -- Reads from input reg and writes this sample into memory buffer1
                         --address_next <= address_buf2;
                         select_memo_next <= '0';
+                        for_inv_next <= '0';
                         if event_write = '1' then
+                            start_proc_win_next <= '1';
+                        elsif end_proc_win = '1' then
                             address_next <= address_buf2;
                             write_sample_memo_next <= '1';
                             writing_sample_memo_next <= std_logic_vector(input_reg);
@@ -440,6 +477,7 @@ begin
                     when READ1 => -- Reads from memory 1 and registers each sample
                         storaged_buf1_next <= storaged_sample;
                         select_memo_next <= '1';
+                        for_inv_next <= '1';
                         if event_read = '1' then
                             address_next <= address_buf1_read;
                             address_buf1_read_next <=  std_logic_vector(unsigned(address_buf1_read) + 1); 
@@ -449,6 +487,7 @@ begin
                     when READ2 => -- Reads from memory 2 and registers each sample
                         storaged_buf2_next <= storaged_sample;
                         select_memo_next <= '0';
+                        for_inv_next <= '0';
                         if event_read = '1' then
                             address_next <= address_buf2_read;
                             address_buf2_read_next <=  std_logic_vector(unsigned(address_buf2_read) + 1); 

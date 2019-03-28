@@ -1,6 +1,7 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
 use work.project_trunk.all; 
 
 -- Uncomment the following library declaration if using
@@ -24,32 +25,27 @@ architecture Behavioral of window_tb is
         start_proc_win : in STD_LOGIC;
         end_proc_win : out STD_LOGIC;
         for_inv : in STD_LOGIC; -- 1 = STFT, 0 = iSTFT
-        multiplicand : in STD_LOGIC_VECTOR (sample_size - 1 downto 0);
-        factor_buf1 : in STD_LOGIC_VECTOR (8 downto 0);
-        factor_buf2 : in STD_LOGIC_VECTOR (8 downto 0);
-        result1 : out STD_LOGIC_VECTOR (sample_size - 1 downto 0);
-        buf1_2 : out STD_LOGIC;
-        result2 : out STD_LOGIC_VECTOR (sample_size - 1 downto 0)
+        multiplicand : in signed (sample_size - 1 downto 0);
+        sample_number : in STD_LOGIC_VECTOR (8 downto 0);
+        result : out signed (sample_size - 1 downto 0)
     ); end component;
     
-    signal clk, start_proc_win, end_proc_win, for_inv, buf1_2 : STD_LOGIC;
-    signal multiplicand, multiplicand_out, result1, result2 : STD_LOGIC_VECTOR (sample_size - 1 downto 0);
-    signal factor_buf1, factor_buf2 : STD_LOGIC_VECTOR (8 downto 0);
+    signal clk, start_proc_win, end_proc_win, for_inv, reset: STD_LOGIC;
+    signal multiplicand, result: signed (sample_size - 1 downto 0);
+    signal sample_number : STD_LOGIC_VECTOR (8 downto 0);
+    --signal s1, s2, s3 : signed (4 downto 0);
     
 begin
 
     UUT : window_controller port map(
         clk => clk,
-        reset => '0',
+        reset => reset,
         start_proc_win => start_proc_win,
         end_proc_win => end_proc_win,
         for_inv => for_inv,
         multiplicand => multiplicand,
-        factor_buf1 => factor_buf1,
-        factor_buf2 => factor_buf2,
-        buf1_2 => buf1_2,
-        result1 => result1,
-        result2 => result2
+        sample_number => sample_number,
+        result => result
     );
     
     process
@@ -63,20 +59,16 @@ begin
         
     process
         begin
-            multiplicand <= "0100000000000000";
---            factor_buf1 <= "010000000"; -- "0100000000000000" tras la rom STFT
---            factor_buf2 <= "010000000"; -- "0100000000000000" tras la rom STFT
-            factor_buf1 <= "001001001"; -- "0001000000000001" tras la rom iSTFT
-            factor_buf2 <= "000100100"; -- "0000010000011000" tras la rom iSTFT
-            for_inv <= '0';
+            for_inv <= '1';
+            sample_number <= "010000000";
+            multiplicand <= "1100110011001100";
             start_proc_win <= '0';
-         wait for 1 us;
+            reset <= '0';
+        wait for 30 ns;
             start_proc_win <= '1';
-         wait for 10 ns;
+        wait for 10 ns;
             start_proc_win <= '0';
-        wait for 20 ns;
-            multiplicand <= "0010000000000000";
-        wait;
+        wait;  
     end process;
         
 end Behavioral;

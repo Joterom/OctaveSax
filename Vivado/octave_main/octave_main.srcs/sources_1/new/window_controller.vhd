@@ -18,11 +18,8 @@ entity window_controller is
     end_proc_win : out STD_LOGIC;
     for_inv : in STD_LOGIC; -- 1 = STFT, 0 = iSTFT
     multiplicand : in signed (sample_size - 1 downto 0);
-    factor_buf1 : in STD_LOGIC_VECTOR (8 downto 0);
-    factor_buf2 : in STD_LOGIC_VECTOR (8 downto 0);
-    result1 : out signed (sample_size - 1 downto 0);
-    buf1_2 : out STD_LOGIC;
-    result2 : out signed (sample_size - 1 downto 0)
+    sample_number : in STD_LOGIC_VECTOR (8 downto 0);
+    result : out signed (sample_size - 1 downto 0)
   );
 end window_controller;
 
@@ -38,153 +35,47 @@ architecture Behavioral of window_controller is
         out_win : out STD_LOGIC_VECTOR (15 downto 0)
     ); end component;
     
-    signal multiplicatorSTFT, multiplicatoriSTFT : STD_LOGIC_VECTOR (15 downto 0) := (others => '0');
-    signal pre_resultSTFT_next,  pre_resultSTFT : signed (31 downto 0) := (others => '0');
-    signal pre_resultiSTFT_next, pre_resultiSTFT : signed (31 downto 0) := (others => '0');
-    signal factor, factor_next : STD_LOGIC_VECTOR (8 downto 0) := (others => '0');
-    signal result1_next, result2_next, mult_reg, mult_reg_next, mult_reg2, mult_reg2_next, result1buf, result2buf : signed (sample_size - 1 downto 0) := (others => '0');
-    signal ended_next, count, count_next, working, working_next, buf1_2next, buf1_2reg : STD_LOGIC := '0';
-    signal value, value_next, proc : STD_LOGIC_VECTOR (3 downto 0) := "0000";
+    signal end_proc_win_next : STD_LOGIC := '0';
+    signal window_data, window_data_i, window_data_next, window_data_i_next, pre_win : STD_LOGIC_VECTOR (sample_size - 1 downto 0);
+    signal result_pre, result_next : signed(2*sample_size - 1 downto 0) := (others => '0');
     
 begin
     -- Instantiate STFT ROM values
     STFT : stft_window_rom port map(
-        in_frame => factor,
-        out_win => multiplicatorSTFT
+        in_frame => sample_number,
+        out_win => window_data
     );
     -- Instantiate iSTFT ROM values
     iSTFT : istft_window_rom port map(
-        in_frame => factor,
-        out_win => multiplicatoriSTFT
+        in_frame => sample_number,
+        out_win => window_data_i
     );
-    -- Operation
+    
    
-    reg : process(clk, reset)
+    reg_logic : process(clk, reset)
         begin
             if reset = '1' then
-                factor <= (others => '0');
-                mult_reg <= (others => '0');
-                mult_reg2 <= (others => '0');
-                pre_resultSTFT <= (others => '0');
-                pre_resultiSTFT <= (others => '0');
-                result1buf <= (others => '0');
-                result2buf <= (others => '0');
-                end_proc_win <= '0';
-                value <= (others => '0');
-                working <= '0';
-                buf1_2reg <= '0';
-            elsif rising_edge(clk) then         
-                factor <= factor_next;
-                mult_reg <= mult_reg_next;
-                mult_reg2 <= mult_reg2_next;
-                pre_resultSTFT <= pre_resultSTFT_next;
-                pre_resultiSTFT <= pre_resultiSTFT_next;
-                result1buf <= result1_next;
-                result2buf <= result2_next;
-                end_proc_win <= ended_next;
-                value <= value_next;
-                working <= working_next;
-                buf1_2reg <= buf1_2next;
+               result_pre <= (others => '0');
+               end_proc_win <= '0';
+            elsif rising_edge(clk) then
+               result_pre <= result_next;
+               end_proc_win <= end_proc_win_next;
             end if;
     end process;
     
-      
-    -- Depending on value, performs a different operation
-    op : process(value, factor_buf1, factor_buf2, multiplicand, mult_reg, multiplicatorSTFT, multiplicatoriSTFT, pre_resultSTFT
-            , pre_resultiSTFT, result1buf, result2buf, buf1_2reg, factor, for_inv, mult_reg2)
+    process(start_proc_win, pre_win, multiplicand)
         begin
-            ended_next <= '0';
-            result1_next <= result1buf;
-            result2_next <= result2buf;
-            buf1_2next <= buf1_2reg;
-            pre_resultSTFT_next <= pre_resultSTFT;
-            pre_resultiSTFT_next <= pre_resultiSTFT;
-            mult_reg_next <= mult_reg;
-            factor_next <= factor;
-            mult_reg2_next <= mult_reg2;
-            if for_inv = '1' then
-                case value is
-                    when "0001" =>
-                        result1_next <= (others => '0');
-                        result2_next <= (others => '0');                        
-                        factor_next <= factor_buf1;
-                        mult_reg_next <= multiplicand;      
-                                         
-                    when "0010" =>    -- Ciclo 3 -> Realiza la multiplicacion para el buffer 1
-                        pre_resultSTFT_next <= mult_reg*signed(multiplicatorSTFT);                        
-                        
-                    when "0100" =>    -- Ciclo 4                
-                        result1_next <= pre_resultSTFT(30 downto 15);                        
-                        factor_next <= factor_buf2;
-                        ended_next <= '1';
-                        buf1_2next <= '1';
-                        
-                    when "0110" =>    -- Ciclo 5
-                        pre_resultSTFT_next <= mult_reg*signed(multiplicatorSTFT);
-                                                
-                    when "0111" =>    -- Ciclo 7 -> Trunca y almacena la operacion en el bufer 2 de salida
-                        result2_next <= pre_resultSTFT(30 downto 15);                        
-                        ended_next <= '1';
-                        buf1_2next <= '0';
-                    when others =>
-                        result1_next <= result1buf;
-                        result2_next <= result2buf;
-                end case;
-            else              
-                case value is                    
-                    when "0001" =>
-                        result1_next <= (others => '0');
-                        result2_next <= (others => '0');                        
-                        factor_next <= factor_buf2;
-                        
-                        buf1_2next <= '1';
-                    when "0010" =>
-                        mult_reg_next <= multiplicand;
-                                             
-                    when "0011" =>    -- Ciclo 3 -> Realiza la multiplicacion para el buffer 1
-                        pre_resultiSTFT_next <= mult_reg*signed(multiplicatoriSTFT);                                               
-                        
-                    when "0101" =>    -- Ciclo 5                
-                        --result1_next <= std_logic_vector(pre_resultiSTFT(30 downto 15));                        
-                        factor_next <= factor_buf1; 
-                        mult_reg2_next <= multiplicand;                                            
-                        result1_next <= pre_resultiSTFT(30 downto 15);
-                        
-                    when "0110" =>    -- Ciclo 6
-                        pre_resultiSTFT_next <= mult_reg2*signed(multiplicatoriSTFT);
-                                                
-                    when "0111" =>    -- Ciclo 7 -> Trunca y almacena la operacion en el bufer 2 de salida
-                        result2_next <= pre_resultiSTFT(30 downto 15);                        
-                        
-                    when "1000" =>    -- Ciclo 8 -> Trunca y almacena la operacion en el bufer 2 de salida
-                        result2_next <= result1buf + signed(result2buf);                        
-                        ended_next <= '1';
-                    when others =>
-                        result1_next <= result1buf;
-                        result2_next <= result2buf;
-                end case;
+            result_next <= (others => '0');
+            end_proc_win_next <= '0';
+            if start_proc_win = '1' then
+                result_next <= signed(pre_win)*multiplicand;
+                end_proc_win_next <= '1';
             end if;
     end process;
-      
-    -- Up to 7 counter         
-    count_logic : process(value, start_proc_win, working)
-        begin
-            working_next <= working;
-            value_next <= value;
-            if start_proc_win = '1' or working = '1' then
-                value_next <= std_logic_vector(unsigned(value) + 1);
-                working_next <= '1';
-                if value = "1111" then
-                    value_next <= "0000";
-                    working_next <= '0';
-                end if;
-            else
-                value_next <= "0000";
-            end if;    
-    end process;
-            
-    result1 <= result1buf;
-    result2 <= result2buf;
-    buf1_2 <= buf1_2reg;
+    
+    pre_win <= window_data when for_inv = '1' else
+               window_data_i;
+               
+    result <= result_pre(30 downto 15);
     
 end Behavioral;

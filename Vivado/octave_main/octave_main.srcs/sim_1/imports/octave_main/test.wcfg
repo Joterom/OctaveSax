@@ -12,13 +12,13 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="16500891666666fs"></ZoomStartTime>
-      <ZoomEndTime time="16508101666667fs"></ZoomEndTime>
-      <Cursor1Time time="16506721667000fs"></Cursor1Time>
+      <ZoomStartTime time="305167000000fs"></ZoomStartTime>
+      <ZoomEndTime time="305872000001fs"></ZoomEndTime>
+      <Cursor1Time time="305330000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="232"></NameColumnWidth>
-      <ValueColumnWidth column_width="85"></ValueColumnWidth>
+      <ValueColumnWidth column_width="81"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="6" />
    <wvobject type="group" fp_name="group55">
@@ -262,6 +262,11 @@
          <wvobject type="array" fp_name="/main_tb/UUT/MEMO/ram2/douta">
             <obj_property name="ElementShortName">douta[15:0]</obj_property>
             <obj_property name="ObjectShortName">douta[15:0]</obj_property>
+         </wvobject>
+         <wvobject type="array" fp_name="/main_tb/UUT/SAMP/counter32">
+            <obj_property name="ElementShortName">counter32[4:0]</obj_property>
+            <obj_property name="ObjectShortName">counter32[4:0]</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
          </wvobject>
       </wvobject>
    </wvobject>

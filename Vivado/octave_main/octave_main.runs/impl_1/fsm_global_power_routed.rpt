@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
-| Date             : Wed Mar 27 18:25:50 2019
+| Date             : Thu Mar 28 16:37:49 2019
 | Host             : vhdl-2018 running 64-bit Ubuntu 18.04.1 LTS
 | Command          : report_power -file fsm_global_power_routed.rpt -pb fsm_global_power_summary_routed.pb -rpx fsm_global_power_routed.rpx
 | Design           : fsm_global
@@ -30,7 +30,7 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.224        |
+| Total On-Chip Power (W)  | 0.225        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
 | Dynamic (W)              | 0.126        |
@@ -52,9 +52,9 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Clocks         |     0.003 |       10 |       --- |             --- |
+| Clocks         |     0.004 |       10 |       --- |             --- |
 | Slice Logic    |    <0.001 |      729 |       --- |             --- |
-|   LUT as Logic |    <0.001 |      300 |     63400 |            0.47 |
+|   LUT as Logic |    <0.001 |      299 |     63400 |            0.47 |
 |   CARRY4       |    <0.001 |       35 |     15850 |            0.22 |
 |   Register     |    <0.001 |      279 |    126800 |            0.22 |
 |   Others       |     0.000 |       61 |       --- |             --- |
@@ -63,7 +63,7 @@ Table of Contents
 | MMCM           |     0.106 |        1 |         6 |           16.67 |
 | I/O            |     0.015 |       26 |       210 |           12.38 |
 | Static Power   |     0.098 |          |           |                 |
-| Total          |     0.224 |          |           |                 |
+| Total          |     0.225 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -73,7 +73,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.021 |       0.005 |      0.016 |
+| Vccint    |       1.000 |     0.022 |       0.006 |      0.016 |
 | Vccaux    |       1.800 |     0.077 |       0.059 |      0.018 |
 | Vcco33    |       3.300 |     0.008 |       0.004 |      0.004 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
@@ -150,7 +150,7 @@ Table of Contents
 | Name                                             | Power (W) |
 +--------------------------------------------------+-----------+
 | fsm_global                                       |     0.126 |
-|   CONT                                           |     0.004 |
+|   CONT                                           |     0.005 |
 |     MEMO                                         |    <0.001 |
 |       ram1                                       |    <0.001 |
 |         U0                                       |    <0.001 |

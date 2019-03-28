@@ -12,40 +12,50 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="937500000fs"></ZoomStartTime>
-      <ZoomEndTime time="1210500001fs"></ZoomEndTime>
-      <Cursor1Time time="1090000000fs"></Cursor1Time>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="70000001fs"></ZoomEndTime>
+      <Cursor1Time time="43993000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="197"></NameColumnWidth>
-      <ValueColumnWidth column_width="350"></ValueColumnWidth>
+      <ValueColumnWidth column_width="309"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="19" />
-   <wvobject fp_name="/window_tb/UUT/clk" type="logic">
+   <WVObjectSize size="10" />
+   <wvobject type="logic" fp_name="/window_tb/UUT/clk">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
    </wvobject>
-   <wvobject fp_name="/window_tb/UUT/for_inv" type="logic">
+   <wvobject type="logic" fp_name="/window_tb/UUT/for_inv">
       <obj_property name="ElementShortName">for_inv</obj_property>
       <obj_property name="ObjectShortName">for_inv</obj_property>
    </wvobject>
-   <wvobject fp_name="/window_tb/UUT/start_proc_win" type="logic">
+   <wvobject type="logic" fp_name="/window_tb/UUT/start_proc_win">
       <obj_property name="ElementShortName">start_proc_win</obj_property>
       <obj_property name="ObjectShortName">start_proc_win</obj_property>
    </wvobject>
-   <wvobject fp_name="/window_tb/end_proc_win" type="logic">
+   <wvobject type="logic" fp_name="/window_tb/end_proc_win">
       <obj_property name="ElementShortName">end_proc_win</obj_property>
       <obj_property name="ObjectShortName">end_proc_win</obj_property>
    </wvobject>
-   <wvobject fp_name="/window_tb/UUT/working" type="logic">
-      <obj_property name="ElementShortName">working</obj_property>
-      <obj_property name="ObjectShortName">working</obj_property>
+   <wvobject type="array" fp_name="/window_tb/UUT/window_data">
+      <obj_property name="ElementShortName">window_data[15:0]</obj_property>
+      <obj_property name="ObjectShortName">window_data[15:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
-   <wvobject fp_name="/window_tb/buf1_2" type="logic">
-      <obj_property name="ElementShortName">buf1_2</obj_property>
-      <obj_property name="ObjectShortName">buf1_2</obj_property>
+   <wvobject type="array" fp_name="/window_tb/UUT/window_data_i">
+      <obj_property name="ElementShortName">window_data_i[15:0]</obj_property>
+      <obj_property name="ObjectShortName">window_data_i[15:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
-   <wvobject fp_name="/window_tb/UUT/multiplicand" type="array">
+   <wvobject type="array" fp_name="/window_tb/UUT/pre_win">
+      <obj_property name="ElementShortName">pre_win[15:0]</obj_property>
+      <obj_property name="ObjectShortName">pre_win[15:0]</obj_property>
+      <obj_property name="Radix">REALRADIX</obj_property>
+      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+      <obj_property name="radix_fractionWidth">15</obj_property>
+      <obj_property name="radix_otherWidth">0</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/window_tb/UUT/multiplicand">
       <obj_property name="ElementShortName">multiplicand[15:0]</obj_property>
       <obj_property name="ObjectShortName">multiplicand[15:0]</obj_property>
       <obj_property name="Radix">REALRADIX</obj_property>
@@ -53,90 +63,14 @@
       <obj_property name="radix_fractionWidth">15</obj_property>
       <obj_property name="radix_otherWidth">0</obj_property>
    </wvobject>
-   <wvobject fp_name="/window_tb/UUT/value" type="array">
-      <obj_property name="ElementShortName">value[3:0]</obj_property>
-      <obj_property name="ObjectShortName">value[3:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/window_tb/UUT/mult_reg" type="array">
-      <obj_property name="ElementShortName">mult_reg[15:0]</obj_property>
-      <obj_property name="ObjectShortName">mult_reg[15:0]</obj_property>
-      <obj_property name="Radix">REALRADIX</obj_property>
-      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
-      <obj_property name="radix_fractionWidth">15</obj_property>
-      <obj_property name="radix_otherWidth">0</obj_property>
-   </wvobject>
-   <wvobject fp_name="/window_tb/UUT/mult_reg2" type="array">
-      <obj_property name="ElementShortName">mult_reg2[15:0]</obj_property>
-      <obj_property name="ObjectShortName">mult_reg2[15:0]</obj_property>
-      <obj_property name="Radix">REALRADIX</obj_property>
-      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
-      <obj_property name="radix_fractionWidth">15</obj_property>
-      <obj_property name="radix_otherWidth">0</obj_property>
-   </wvobject>
-   <wvobject fp_name="/window_tb/UUT/factor" type="array">
-      <obj_property name="ElementShortName">factor[8:0]</obj_property>
-      <obj_property name="ObjectShortName">factor[8:0]</obj_property>
-      <obj_property name="Radix">REALRADIX</obj_property>
-      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
-      <obj_property name="radix_fractionWidth">8</obj_property>
-      <obj_property name="radix_otherWidth">0</obj_property>
-   </wvobject>
-   <wvobject fp_name="/window_tb/factor_buf1" type="array">
-      <obj_property name="ElementShortName">factor_buf1[8:0]</obj_property>
-      <obj_property name="ObjectShortName">factor_buf1[8:0]</obj_property>
-      <obj_property name="Radix">REALRADIX</obj_property>
-      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
-      <obj_property name="radix_fractionWidth">8</obj_property>
-      <obj_property name="radix_otherWidth">0</obj_property>
-   </wvobject>
-   <wvobject fp_name="/window_tb/factor_buf2" type="array">
-      <obj_property name="ElementShortName">factor_buf2[8:0]</obj_property>
-      <obj_property name="ObjectShortName">factor_buf2[8:0]</obj_property>
-      <obj_property name="Radix">REALRADIX</obj_property>
-      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
-      <obj_property name="radix_fractionWidth">8</obj_property>
-      <obj_property name="radix_otherWidth">0</obj_property>
-   </wvobject>
-   <wvobject fp_name="/window_tb/UUT/multiplicatorSTFT" type="array">
-      <obj_property name="ElementShortName">multiplicatorSTFT[15:0]</obj_property>
-      <obj_property name="ObjectShortName">multiplicatorSTFT[15:0]</obj_property>
-      <obj_property name="Radix">REALRADIX</obj_property>
-      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
-      <obj_property name="radix_fractionWidth">15</obj_property>
-      <obj_property name="radix_otherWidth">0</obj_property>
-   </wvobject>
-   <wvobject fp_name="/window_tb/UUT/multiplicatoriSTFT" type="array">
-      <obj_property name="ElementShortName">multiplicatoriSTFT[15:0]</obj_property>
-      <obj_property name="ObjectShortName">multiplicatoriSTFT[15:0]</obj_property>
-      <obj_property name="Radix">REALRADIX</obj_property>
-      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
-      <obj_property name="radix_fractionWidth">15</obj_property>
-      <obj_property name="radix_otherWidth">0</obj_property>
-   </wvobject>
-   <wvobject fp_name="/window_tb/UUT/pre_resultSTFT" type="array">
-      <obj_property name="ElementShortName">pre_resultSTFT[31:0]</obj_property>
-      <obj_property name="ObjectShortName">pre_resultSTFT[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/window_tb/UUT/pre_resultiSTFT" type="array">
-      <obj_property name="ElementShortName">pre_resultiSTFT[31:0]</obj_property>
-      <obj_property name="ObjectShortName">pre_resultiSTFT[31:0]</obj_property>
+   <wvobject type="array" fp_name="/window_tb/UUT/result_pre">
+      <obj_property name="ElementShortName">result_pre[31:0]</obj_property>
+      <obj_property name="ObjectShortName">result_pre[31:0]</obj_property>
       <obj_property name="Radix">BINARYRADIX</obj_property>
-      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
-      <obj_property name="radix_fractionWidth">30</obj_property>
-      <obj_property name="radix_otherWidth">0</obj_property>
    </wvobject>
-   <wvobject fp_name="/window_tb/result1" type="array">
-      <obj_property name="ElementShortName">result1[15:0]</obj_property>
-      <obj_property name="ObjectShortName">result1[15:0]</obj_property>
-      <obj_property name="Radix">BINARYRADIX</obj_property>
-      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
-      <obj_property name="radix_fractionWidth">15</obj_property>
-      <obj_property name="radix_otherWidth">0</obj_property>
-   </wvobject>
-   <wvobject fp_name="/window_tb/result2" type="array">
-      <obj_property name="ElementShortName">result2[15:0]</obj_property>
-      <obj_property name="ObjectShortName">result2[15:0]</obj_property>
+   <wvobject type="array" fp_name="/window_tb/UUT/result">
+      <obj_property name="ElementShortName">result[15:0]</obj_property>
+      <obj_property name="ObjectShortName">result[15:0]</obj_property>
       <obj_property name="Radix">REALRADIX</obj_property>
       <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
       <obj_property name="radix_fractionWidth">15</obj_property>
