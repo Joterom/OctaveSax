@@ -9,6 +9,9 @@ vhdl xil_defaultlib  \
 "../../../../octave_main.srcs/sources_1/new/master_controller.vhd" \
 "../../../../octave_main.srcs/sources_1/new/display_interface.vhd" \
 "../../../../octave_main.srcs/sources_1/new/display_counter.vhd" \
+"../../../../octave_main.srcs/sources_1/imports/ROM Data/istft_window.vhd" \
+"../../../../octave_main.srcs/sources_1/imports/ROM Data/stft_window.vhd" \
+"../../../../octave_main.srcs/sources_1/new/window_controller.vhd" \
 "../../../../octave_main.srcs/sources_1/new/fsm_global.vhd" \
 "../../../../octave_main.srcs/sim_1/new/main_tb.vhd" \
 "../../../../octave_main.srcs/sim_1/new/display_test.vhd" \

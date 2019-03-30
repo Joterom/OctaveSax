@@ -97,8 +97,9 @@ architecture Behavioral of master_controller is
     signal event_read, event_write, event_new_frame : STD_LOGIC;
     -- Window signals
     signal start_proc_win, start_proc_win_next, end_proc_win, for_inv, for_inv_next : STD_LOGIC;
-    signal multiplicand, win_result : SIGNED (sample_size - 1 downto 0) := (others => '0');
-    signal sample_number : STD_LOGIC_VECTOR (8 downto 0);
+    signal multiplicand, multiplicand_next, win_result : SIGNED (sample_size - 1 downto 0) := (others => '0');
+    signal sample_number, sample_number_next : STD_LOGIC_VECTOR (8 downto 0);
+    signal reading_ready, reading_ready_n, reading_ready_nn, reading_ready_nn_next : STD_LOGIC := '0';
     -- FSM State signals 
     type buffer_fsm_t is (BUFFER1, BUFFER2, SOLAPA_INI, SOLAPA_FIN, REST);   
     signal buf_fsm_w_state, buf_fsm_w_state_next : buffer_fsm_t := BUFFER1;  
@@ -187,6 +188,11 @@ begin
                 sum_result <= (others => '0');
                 start_proc_win <= '0';
                 for_inv <= '0';
+                reading_ready <= '0';
+                reading_ready_n <= '0';    
+                reading_ready_nn <= '0';
+                sample_number <= (others => '0');
+                multiplicand <= (others => '0');
             elsif rising_edge(clk_100MHz) then                
                 output_sample <= output_sample_next;
                 DATA_OUTr <= DATA_OUTn;
@@ -216,6 +222,11 @@ begin
                 sum_result <= sum_result_next;
                 start_proc_win <= start_proc_win_next;
                 for_inv <= for_inv_next;
+                reading_ready <= reading_ready_n;
+                reading_ready_n <= reading_ready_nn;
+                reading_ready_nn <= reading_ready_nn_next;
+                sample_number <= sample_number_next;
+                multiplicand <= multiplicand_next;
             end if;           
     end process;         
     
@@ -430,7 +441,8 @@ begin
         -- Makes every w/r operation possible by activating target signals when corresponds, depending on memory state (memo_fsm_state)
         memo_state_outputs : process(memo_fsm_state, address, select_memo, event_write, event_read, input_reg, address_buf1, address_buf1_read
                                      , address_buf2, address_buf2_read, writing_sample_memo, storaged_sample, storaged_buf1
-                                     , storaged_buf2, sum_result, for_inv, end_proc_win)
+                                     , storaged_buf2, sum_result, for_inv, end_proc_win, reading_ready, sample_number, counter_buf1
+                                     , counter_buf2, counter_buf1_r, counter_buf2_r, win_result, multiplicand)
             begin
                 -- Default values
                 address_next <= address;
@@ -447,6 +459,9 @@ begin
                 sum_result_next <= sum_result;
                 for_inv_next <= for_inv;
                 start_proc_win_next <= '0';
+                reading_ready_nn_next <= '0';
+                sample_number_next <= sample_number;
+                multiplicand_next <= multiplicand;
                 
                 case memo_fsm_state is   
                     when WRITE1 => -- Reads from input reg and writes this sample into memory buffer1
@@ -454,49 +469,66 @@ begin
                         for_inv_next <= '1';
                         if event_write = '1' then
                             start_proc_win_next <= '1';
+                            sample_number_next <= std_logic_vector(counter_buf1);
+                            multiplicand_next <= input_reg;
                         elsif end_proc_win = '1' then
                             address_next <= address_buf1;
                             write_sample_memo_next <= '1';
-                            writing_sample_memo_next <= std_logic_vector(input_reg);
+                            writing_sample_memo_next <= std_logic_vector(win_result);
                             address_buf1_next <= std_logic_vector(unsigned(address_buf1) + 1);
                         end if;
                         
                     when WRITE2 => -- Reads from input reg and writes this sample into memory buffer1
                         --address_next <= address_buf2;
                         select_memo_next <= '0';
-                        for_inv_next <= '0';
+                        for_inv_next <= '1';
                         if event_write = '1' then
                             start_proc_win_next <= '1';
+                            sample_number_next <= std_logic_vector(counter_buf2);
+                            multiplicand_next <= input_reg;
                         elsif end_proc_win = '1' then
                             address_next <= address_buf2;
                             write_sample_memo_next <= '1';
-                            writing_sample_memo_next <= std_logic_vector(input_reg);
+                            writing_sample_memo_next <= std_logic_vector(win_result);
                             address_buf2_next <= std_logic_vector(unsigned(address_buf2) + 1);
                         end if;
                         
-                    when READ1 => -- Reads from memory 1 and registers each sample
-                        storaged_buf1_next <= storaged_sample;
+                    when READ1 => -- Reads from memory 1 and registers each sample                       
                         select_memo_next <= '1';
-                        for_inv_next <= '1';
+                        for_inv_next <= '0';
                         if event_read = '1' then
                             address_next <= address_buf1_read;
                             address_buf1_read_next <=  std_logic_vector(unsigned(address_buf1_read) + 1); 
-                            read_sample_memo_next <= '1';                            
+                            read_sample_memo_next <= '1';
+                            reading_ready_nn_next <= '1';                            
+                        elsif reading_ready = '1' then
+                            start_proc_win_next <= '1';
+                            sample_number_next <= std_logic_vector(counter_buf1_r);
+                            multiplicand_next <= signed(storaged_sample);
+                        elsif end_proc_win = '1' then
+                            storaged_buf1_next <= std_logic_vector(win_result);
                         end if;
-                                  
-                    when READ2 => -- Reads from memory 2 and registers each sample
-                        storaged_buf2_next <= storaged_sample;
+                                                          
+                    when READ2 => -- Reads from memory 2 and registers each sample                        
                         select_memo_next <= '0';
                         for_inv_next <= '0';
                         if event_read = '1' then
                             address_next <= address_buf2_read;
                             address_buf2_read_next <=  std_logic_vector(unsigned(address_buf2_read) + 1); 
-                            read_sample_memo_next <= '1';                            
+                            read_sample_memo_next <= '1';           
+                            reading_ready_nn_next <= '1';
+                        elsif reading_ready = '1' then
+                            start_proc_win_next <= '1';
+                            sample_number_next <= std_logic_vector(counter_buf2_r);
+                            multiplicand_next <= signed(storaged_sample);
+                        elsif end_proc_win = '1' then
+                            storaged_buf2_next <= std_logic_vector(win_result);
                         end if;
                     
                     when READ_SUM => -- Reads from both read1 and read2 registers, adding them if necessary   
                         if event_read = '1' then
-                            sum_result_next <= (signed(storaged_buf1)+signed(storaged_buf2))/2; 
+                            --sum_result_next <= (signed(storaged_buf1)+signed(storaged_buf2))/2; 
+                            sum_result_next <= (signed(storaged_buf1)+signed(storaged_buf2));
                         end if;
                     when others => --IDLE
                         --read_sample_memo_next <= '1';

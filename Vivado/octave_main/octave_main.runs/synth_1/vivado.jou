@@ -1,12 +1,12 @@
 #-----------------------------------------------------------
 # Vivado v2017.4 (64-bit)
-# SW Build 2086221 on Fri Dec 15 20:54:30 MST 2017
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
 # IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
-# Start of session at: Thu Mar 28 16:34:21 2019
-# Process ID: 15666
-# Current directory: /home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1
-# Command line: vivado -log fsm_global.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source fsm_global.tcl
-# Log file: /home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/fsm_global.vds
-# Journal file: /home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/vivado.jou
+# Start of session at: Sat Mar 30 13:22:59 2019
+# Process ID: 4336
+# Current directory: D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1
+# Command line: vivado.exe -log fsm_global.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source fsm_global.tcl
+# Log file: D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/fsm_global.vds
+# Journal file: D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
 source fsm_global.tcl -notrace

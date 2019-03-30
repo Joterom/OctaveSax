@@ -2,534 +2,22 @@
 # Vivado v2017.4 (64-bit)
 # SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
 # IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
-# Start of session at: Tue Mar 26 16:16:01 2019
-# Process ID: 2376
+# Start of session at: Sat Mar 30 11:25:44 2019
+# Process ID: 5580
 # Current directory: D:/UNI/TFG/OctaveSax/Vivado/octave_main
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent8324 D:\UNI\TFG\OctaveSax\Vivado\octave_main\octave_main.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent2500 D:\UNI\TFG\OctaveSax\Vivado\octave_main\octave_main.xpr
 # Log file: D:/UNI/TFG/OctaveSax/Vivado/octave_main/vivado.log
 # Journal file: D:/UNI/TFG/OctaveSax/Vivado/octave_main\vivado.jou
 #-----------------------------------------------------------
 start_gui
 open_project D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.xpr
+INFO: [Project 1-313] Project file moved from '/home/joterom/workspace/OctaveSax/Vivado/octave_main' since last save.
 Scanning sources...
 Finished scanning sources
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2017.4/data/ip'.
-open_project: Time (s): cpu = 00:00:10 ; elapsed = 00:00:08 . Memory (MB): peak = 746.094 ; gain = 35.828
-INFO: [Device 21-403] Loading part xc7a100tcsg324-1
-WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
-WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
-set_property -dict [list CONFIG.Write_Depth_A {16384}] [get_ips ram_memo]
-generate_target all [get_files  D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/ram_memo/ram_memo.xci]
-INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'ram_memo'...
-INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'ram_memo'...
-INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'ram_memo'...
-INFO: [IP_Flow 19-1686] Generating 'Miscellaneous' target for IP 'ram_memo'...
-INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'ram_memo'...
-catch { config_ip_cache -export [get_ips -all ram_memo] }
-export_ip_user_files -of_objects [get_files D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/ram_memo/ram_memo.xci] -no_script -sync -force -quiet
-reset_run ram_memo_synth_1
-launch_runs -jobs 2 ram_memo_synth_1
-[Tue Mar 26 16:36:44 2019] Launched ram_memo_synth_1...
-Run output will be captured here: D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/ram_memo_synth_1/runme.log
-INFO: [Vivado 12-4357] Exporting simulation files for 'ram_memo'... please wait for 'ram_memo_synth_1' run to finish...
-wait_on_run ram_memo_synth_1
-[Tue Mar 26 16:36:44 2019] Waiting for ram_memo_synth_1 to finish...
-[Tue Mar 26 16:36:49 2019] Waiting for ram_memo_synth_1 to finish...
-[Tue Mar 26 16:36:54 2019] Waiting for ram_memo_synth_1 to finish...
-[Tue Mar 26 16:36:59 2019] Waiting for ram_memo_synth_1 to finish...
-[Tue Mar 26 16:37:09 2019] Waiting for ram_memo_synth_1 to finish...
-[Tue Mar 26 16:37:19 2019] Waiting for ram_memo_synth_1 to finish...
-[Tue Mar 26 16:37:29 2019] Waiting for ram_memo_synth_1 to finish...
-[Tue Mar 26 16:37:39 2019] Waiting for ram_memo_synth_1 to finish...
-[Tue Mar 26 16:37:59 2019] Waiting for ram_memo_synth_1 to finish...
-[Tue Mar 26 16:38:20 2019] Waiting for ram_memo_synth_1 to finish...
-[Tue Mar 26 16:38:40 2019] Waiting for ram_memo_synth_1 to finish...
-
-*** Running vivado
-    with args -log ram_memo.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source ram_memo.tcl
-
-
-****** Vivado v2017.4 (64-bit)
-  **** SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
-  **** IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
-    ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
-
-source ram_memo.tcl -notrace
-Command: synth_design -top ram_memo -part xc7a100tcsg324-1 -mode out_of_context
-Starting synth_design
-Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
-INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
-INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 10260 
----------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 353.301 ; gain = 100.754
----------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'ram_memo' [d:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/ram_memo/synth/ram_memo.vhd:70]
-	Parameter C_FAMILY bound to: artix7 - type: string 
-	Parameter C_XDEVICEFAMILY bound to: artix7 - type: string 
-	Parameter C_ELABORATION_DIR bound to: ./ - type: string 
-	Parameter C_INTERFACE_TYPE bound to: 0 - type: integer 
-	Parameter C_AXI_TYPE bound to: 1 - type: integer 
-	Parameter C_AXI_SLAVE_TYPE bound to: 0 - type: integer 
-	Parameter C_USE_BRAM_BLOCK bound to: 0 - type: integer 
-	Parameter C_ENABLE_32BIT_ADDRESS bound to: 0 - type: integer 
-	Parameter C_CTRL_ECC_ALGO bound to: NONE - type: string 
-	Parameter C_HAS_AXI_ID bound to: 0 - type: integer 
-	Parameter C_AXI_ID_WIDTH bound to: 4 - type: integer 
-	Parameter C_MEM_TYPE bound to: 0 - type: integer 
-	Parameter C_BYTE_SIZE bound to: 9 - type: integer 
-	Parameter C_ALGORITHM bound to: 1 - type: integer 
-	Parameter C_PRIM_TYPE bound to: 1 - type: integer 
-	Parameter C_LOAD_INIT_FILE bound to: 0 - type: integer 
-	Parameter C_INIT_FILE_NAME bound to: no_coe_file_loaded - type: string 
-	Parameter C_INIT_FILE bound to: ram_memo.mem - type: string 
-	Parameter C_USE_DEFAULT_DATA bound to: 0 - type: integer 
-	Parameter C_DEFAULT_DATA bound to: 0 - type: string 
-	Parameter C_HAS_RSTA bound to: 0 - type: integer 
-	Parameter C_RST_PRIORITY_A bound to: CE - type: string 
-	Parameter C_RSTRAM_A bound to: 0 - type: integer 
-	Parameter C_INITA_VAL bound to: 0 - type: string 
-	Parameter C_HAS_ENA bound to: 1 - type: integer 
-	Parameter C_HAS_REGCEA bound to: 0 - type: integer 
-	Parameter C_USE_BYTE_WEA bound to: 0 - type: integer 
-	Parameter C_WEA_WIDTH bound to: 1 - type: integer 
-	Parameter C_WRITE_MODE_A bound to: NO_CHANGE - type: string 
-	Parameter C_WRITE_WIDTH_A bound to: 16 - type: integer 
-	Parameter C_READ_WIDTH_A bound to: 16 - type: integer 
-	Parameter C_WRITE_DEPTH_A bound to: 16384 - type: integer 
-	Parameter C_READ_DEPTH_A bound to: 16384 - type: integer 
-	Parameter C_ADDRA_WIDTH bound to: 14 - type: integer 
-	Parameter C_HAS_RSTB bound to: 0 - type: integer 
-	Parameter C_RST_PRIORITY_B bound to: CE - type: string 
-	Parameter C_RSTRAM_B bound to: 0 - type: integer 
-	Parameter C_INITB_VAL bound to: 0 - type: string 
-	Parameter C_HAS_ENB bound to: 0 - type: integer 
-	Parameter C_HAS_REGCEB bound to: 0 - type: integer 
-	Parameter C_USE_BYTE_WEB bound to: 0 - type: integer 
-	Parameter C_WEB_WIDTH bound to: 1 - type: integer 
-	Parameter C_WRITE_MODE_B bound to: WRITE_FIRST - type: string 
-	Parameter C_WRITE_WIDTH_B bound to: 16 - type: integer 
-	Parameter C_READ_WIDTH_B bound to: 16 - type: integer 
-	Parameter C_WRITE_DEPTH_B bound to: 16384 - type: integer 
-	Parameter C_READ_DEPTH_B bound to: 16384 - type: integer 
-	Parameter C_ADDRB_WIDTH bound to: 14 - type: integer 
-	Parameter C_HAS_MEM_OUTPUT_REGS_A bound to: 1 - type: integer 
-	Parameter C_HAS_MEM_OUTPUT_REGS_B bound to: 0 - type: integer 
-	Parameter C_HAS_MUX_OUTPUT_REGS_A bound to: 0 - type: integer 
-	Parameter C_HAS_MUX_OUTPUT_REGS_B bound to: 0 - type: integer 
-	Parameter C_MUX_PIPELINE_STAGES bound to: 0 - type: integer 
-	Parameter C_HAS_SOFTECC_INPUT_REGS_A bound to: 0 - type: integer 
-	Parameter C_HAS_SOFTECC_OUTPUT_REGS_B bound to: 0 - type: integer 
-	Parameter C_USE_SOFTECC bound to: 0 - type: integer 
-	Parameter C_USE_ECC bound to: 0 - type: integer 
-	Parameter C_EN_ECC_PIPE bound to: 0 - type: integer 
-	Parameter C_HAS_INJECTERR bound to: 0 - type: integer 
-	Parameter C_SIM_COLLISION_CHECK bound to: ALL - type: string 
-	Parameter C_COMMON_CLK bound to: 0 - type: integer 
-	Parameter C_DISABLE_WARN_BHV_COLL bound to: 0 - type: integer 
-	Parameter C_EN_SLEEP_PIN bound to: 0 - type: integer 
-	Parameter C_USE_URAM bound to: 0 - type: integer 
-	Parameter C_EN_RDADDRA_CHG bound to: 0 - type: integer 
-	Parameter C_EN_RDADDRB_CHG bound to: 0 - type: integer 
-	Parameter C_EN_DEEPSLEEP_PIN bound to: 0 - type: integer 
-	Parameter C_EN_SHUTDOWN_PIN bound to: 0 - type: integer 
-	Parameter C_EN_SAFETY_CKT bound to: 0 - type: integer 
-	Parameter C_DISABLE_WARN_BHV_RANGE bound to: 0 - type: integer 
-	Parameter C_COUNT_36K_BRAM bound to: 7 - type: string 
-	Parameter C_COUNT_18K_BRAM bound to: 1 - type: string 
-	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     9.644151 mW - type: string 
-INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_1' declared at 'd:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/ram_memo/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195313' bound to instance 'U0' of component 'blk_mem_gen_v8_4_1' [d:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/ram_memo/synth/ram_memo.vhd:234]
-INFO: [Synth 8-256] done synthesizing module 'ram_memo' (11#1) [d:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/ram_memo/synth/ram_memo.vhd:70]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port MUX_RST[0]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port MEM_LAT_RST
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port MEM_REG_RST
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port MUX_REGCE[0]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port MEM_REGCE
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port WE
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port ADDR_IN[13]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port ADDR_IN[12]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port ADDR_IN[11]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port ADDR_IN[10]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port ADDR_IN[9]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port ADDR_IN[8]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port ADDR_IN[7]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port ADDR_IN[6]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port ADDR_IN[5]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port ADDR_IN[4]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port ADDR_IN[3]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port ADDR_IN[2]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port ADDR_IN[1]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port ADDR_IN[0]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[63]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[62]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[61]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[60]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[59]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[58]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[57]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[56]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[55]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[54]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[53]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[52]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[51]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[50]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[49]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[48]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[47]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[46]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[45]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[44]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[43]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[42]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[41]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[40]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[39]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[38]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[37]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[36]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[35]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[34]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[33]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[32]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[31]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[30]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[29]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[28]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[27]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[26]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[25]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[24]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[23]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[22]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[21]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[20]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[19]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[18]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[17]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[16]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[15]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[14]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[13]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[12]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[11]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[10]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[9]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[8]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[7]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[6]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[5]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[4]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[3]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[2]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[1]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[0]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port DBITERRIN[63]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port DBITERRIN[62]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port DBITERRIN[61]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port DBITERRIN[60]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port DBITERRIN[59]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port DBITERRIN[58]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port DBITERRIN[57]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port DBITERRIN[56]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port DBITERRIN[55]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port DBITERRIN[54]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port DBITERRIN[53]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port DBITERRIN[52]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port DBITERRIN[51]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port DBITERRIN[50]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port DBITERRIN[49]
-WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port DBITERRIN[48]
-INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
----------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:01:30 ; elapsed = 00:01:32 . Memory (MB): peak = 613.559 ; gain = 361.012
----------------------------------------------------------------------------------
-
-Report Check Netlist: 
-+------+------------------+-------+---------+-------+------------------+
-|      |Item              |Errors |Warnings |Status |Description       |
-+------+------------------+-------+---------+-------+------------------+
-|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
-+------+------------------+-------+---------+-------+------------------+
----------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:01:30 ; elapsed = 00:01:32 . Memory (MB): peak = 613.559 ; gain = 361.012
----------------------------------------------------------------------------------
-INFO: [Netlist 29-17] Analyzing 8 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
-INFO: [Device 21-403] Loading part xc7a100tcsg324-1
-INFO: [Project 1-570] Preparing netlist for logic optimization
-
-Processing XDC Constraints
-Initializing timing engine
-Parsing XDC File [d:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/ram_memo/ram_memo_ooc.xdc] for cell 'U0'
-Finished Parsing XDC File [d:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/ram_memo/ram_memo_ooc.xdc] for cell 'U0'
-Parsing XDC File [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/ram_memo_synth_1/dont_touch.xdc]
-Finished Parsing XDC File [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/ram_memo_synth_1/dont_touch.xdc]
-Completed Processing XDC Constraints
-
-INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
-
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.013 . Memory (MB): peak = 713.902 ; gain = 0.000
----------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:01:43 ; elapsed = 00:01:46 . Memory (MB): peak = 713.902 ; gain = 461.355
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Loading Part and Timing Information
----------------------------------------------------------------------------------
-Loading part: xc7a100tcsg324-1
----------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:01:43 ; elapsed = 00:01:46 . Memory (MB): peak = 713.902 ; gain = 461.355
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Applying 'set_property' XDC Constraints
----------------------------------------------------------------------------------
-Applied set_property DONT_TOUCH = true for U0. (constraint file  D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/ram_memo_synth_1/dont_touch.xdc, line 9).
----------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:01:43 ; elapsed = 00:01:46 . Memory (MB): peak = 713.902 ; gain = 461.355
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:43 ; elapsed = 00:01:46 . Memory (MB): peak = 713.902 ; gain = 461.355
----------------------------------------------------------------------------------
-
-Report RTL Partitions: 
-+-+--------------+------------+----------+
-| |RTL Partition |Replication |Instances |
-+-+--------------+------------+----------+
-+-+--------------+------------+----------+
----------------------------------------------------------------------------------
-Start RTL Component Statistics 
----------------------------------------------------------------------------------
-Detailed RTL Component Info : 
-+---Registers : 
-	               14 Bit    Registers := 1     
-	                2 Bit    Registers := 3     
-+---Muxes : 
-	   4 Input     16 Bit        Muxes := 2     
-	   2 Input      1 Bit        Muxes := 9     
----------------------------------------------------------------------------------
-Finished RTL Component Statistics 
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start RTL Hierarchical Component Statistics 
----------------------------------------------------------------------------------
-Hierarchical RTL Component report 
-Module bindec 
-Detailed RTL Component Info : 
-+---Muxes : 
-	   2 Input      1 Bit        Muxes := 4     
-Module blk_mem_gen_mux 
-Detailed RTL Component Info : 
-+---Registers : 
-	               14 Bit    Registers := 1     
-	                2 Bit    Registers := 2     
-+---Muxes : 
-	   4 Input     16 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 1     
-Module blk_mem_gen_mux__parameterized0 
-Detailed RTL Component Info : 
-+---Registers : 
-	                2 Bit    Registers := 1     
-+---Muxes : 
-	   4 Input     16 Bit        Muxes := 1     
----------------------------------------------------------------------------------
-Finished RTL Hierarchical Component Statistics
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Part Resource Summary
----------------------------------------------------------------------------------
-Part Resources:
-DSPs: 240 (col length:80)
-BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
----------------------------------------------------------------------------------
-Finished Part Resource Summary
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Cross Boundary and Area Optimization
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:44 ; elapsed = 00:01:47 . Memory (MB): peak = 713.902 ; gain = 461.355
----------------------------------------------------------------------------------
-
-Report RTL Partitions: 
-+-+--------------+------------+----------+
-| |RTL Partition |Replication |Instances |
-+-+--------------+------------+----------+
-+-+--------------+------------+----------+
----------------------------------------------------------------------------------
-Start Applying XDC Timing Constraints
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:53 ; elapsed = 00:01:56 . Memory (MB): peak = 748.516 ; gain = 495.969
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Timing Optimization
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:01:53 ; elapsed = 00:01:56 . Memory (MB): peak = 749.359 ; gain = 496.813
----------------------------------------------------------------------------------
-
-Report RTL Partitions: 
-+-+--------------+------------+----------+
-| |RTL Partition |Replication |Instances |
-+-+--------------+------------+----------+
-+-+--------------+------------+----------+
----------------------------------------------------------------------------------
-Start Technology Mapping
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:01:53 ; elapsed = 00:01:56 . Memory (MB): peak = 769.145 ; gain = 516.598
----------------------------------------------------------------------------------
-
-Report RTL Partitions: 
-+-+--------------+------------+----------+
-| |RTL Partition |Replication |Instances |
-+-+--------------+------------+----------+
-+-+--------------+------------+----------+
----------------------------------------------------------------------------------
-Start IO Insertion
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Flattening Before IO Insertion
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Flattening Before IO Insertion
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Final Netlist Cleanup
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Final Netlist Cleanup
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:01:54 ; elapsed = 00:01:57 . Memory (MB): peak = 769.145 ; gain = 516.598
----------------------------------------------------------------------------------
-
-Report Check Netlist: 
-+------+------------------+-------+---------+-------+------------------+
-|      |Item              |Errors |Warnings |Status |Description       |
-+------+------------------+-------+---------+-------+------------------+
-|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
-+------+------------------+-------+---------+-------+------------------+
----------------------------------------------------------------------------------
-Start Renaming Generated Instances
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:54 ; elapsed = 00:01:57 . Memory (MB): peak = 769.145 ; gain = 516.598
----------------------------------------------------------------------------------
-
-Report RTL Partitions: 
-+-+--------------+------------+----------+
-| |RTL Partition |Replication |Instances |
-+-+--------------+------------+----------+
-+-+--------------+------------+----------+
----------------------------------------------------------------------------------
-Start Rebuilding User Hierarchy
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:54 ; elapsed = 00:01:57 . Memory (MB): peak = 769.145 ; gain = 516.598
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Renaming Generated Ports
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:54 ; elapsed = 00:01:57 . Memory (MB): peak = 769.145 ; gain = 516.598
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Handling Custom Attributes
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:54 ; elapsed = 00:01:57 . Memory (MB): peak = 769.145 ; gain = 516.598
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Renaming Generated Nets
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:01:54 ; elapsed = 00:01:57 . Memory (MB): peak = 769.145 ; gain = 516.598
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Writing Synthesis Report
----------------------------------------------------------------------------------
-
-Report BlackBoxes: 
-+-+--------------+----------+
-| |BlackBox name |Instances |
-+-+--------------+----------+
-+-+--------------+----------+
-
-Report Cell Usage: 
-+------+-----------+------+
-|      |Cell       |Count |
-+------+-----------+------+
-|1     |LUT3       |     6|
-|2     |LUT4       |     2|
-|3     |LUT6       |     9|
-|4     |RAMB18E1   |     1|
-|5     |RAMB36E1   |     3|
-|6     |RAMB36E1_1 |     4|
-|7     |FDRE       |     4|
-+------+-----------+------+
-
-Report Instance Areas: 
-+------+---------------------------------------------+-----------------------------------------+------+
-|      |Instance                                     |Module                                   |Cells |
-+------+---------------------------------------------+-----------------------------------------+------+
-|1     |top                                          |                                         |    29|
-|2     |  U0                                         |blk_mem_gen_v8_4_1                       |    29|
-|3     |    inst_blk_mem_gen                         |blk_mem_gen_v8_4_1_synth                 |    29|
-|4     |      \gnbram.gnativebmg.native_blk_mem_gen  |blk_mem_gen_top                          |    29|
-|5     |        \valid.cstr                          |blk_mem_gen_generic_cstr                 |    29|
-|6     |          \bindec_a.bindec_inst_a            |bindec                                   |     3|
-|7     |          \has_mux_a.A                       |blk_mem_gen_mux                          |    17|
-|8     |          \ramloop[0].ram.r                  |blk_mem_gen_prim_width                   |     1|
-|9     |            \prim_noinit.ram                 |blk_mem_gen_prim_wrapper                 |     1|
-|10    |          \ramloop[1].ram.r                  |blk_mem_gen_prim_width__parameterized0   |     1|
-|11    |            \prim_noinit.ram                 |blk_mem_gen_prim_wrapper__parameterized0 |     1|
-|12    |          \ramloop[2].ram.r                  |blk_mem_gen_prim_width__parameterized1   |     1|
-|13    |            \prim_noinit.ram                 |blk_mem_gen_prim_wrapper__parameterized1 |     1|
-|14    |          \ramloop[3].ram.r                  |blk_mem_gen_prim_width__parameterized2   |     1|
-|15    |            \prim_noinit.ram                 |blk_mem_gen_prim_wrapper__parameterized2 |     1|
-|16    |          \ramloop[4].ram.r                  |blk_mem_gen_prim_width__parameterized3   |     1|
-|17    |            \prim_noinit.ram                 |blk_mem_gen_prim_wrapper__parameterized3 |     1|
-|18    |          \ramloop[5].ram.r                  |blk_mem_gen_prim_width__parameterized4   |     1|
-|19    |            \prim_noinit.ram                 |blk_mem_gen_prim_wrapper__parameterized4 |     1|
-|20    |          \ramloop[6].ram.r                  |blk_mem_gen_prim_width__parameterized5   |     1|
-|21    |            \prim_noinit.ram                 |blk_mem_gen_prim_wrapper__parameterized5 |     1|
-|22    |          \ramloop[7].ram.r                  |blk_mem_gen_prim_width__parameterized6   |     2|
-|23    |            \prim_noinit.ram                 |blk_mem_gen_prim_wrapper__parameterized6 |     2|
-+------+---------------------------------------------+-----------------------------------------+------+
----------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:54 ; elapsed = 00:01:57 . Memory (MB): peak = 769.145 ; gain = 516.598
----------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 167 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:17 ; elapsed = 00:01:50 . Memory (MB): peak = 769.145 ; gain = 416.254
-Synthesis Optimization Complete : Time (s): cpu = 00:01:54 ; elapsed = 00:01:57 . Memory (MB): peak = 769.145 ; gain = 516.598
-INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 8 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
-INFO: [Project 1-570] Preparing netlist for logic optimization
-INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
-
-INFO: [Common 17-83] Releasing license: Synthesis
-17 Infos, 100 Warnings, 0 Critical Warnings and 0 Errors encountered.
-synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:56 ; elapsed = 00:01:59 . Memory (MB): peak = 770.031 ; gain = 528.957
-INFO: [Common 17-1381] The checkpoint 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/ram_memo_synth_1/ram_memo.dcp' has been generated.
-INFO: [Coretcl 2-1482] Added synthesis output to IP cache for IP d:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/ram_memo/ram_memo.xci
-INFO: [Coretcl 2-1174] Renamed 22 cell refs.
-INFO: [Common 17-1381] The checkpoint 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/ram_memo_synth_1/ram_memo.dcp' has been generated.
-INFO: [runtcl-4] Executing : report_utilization -file ram_memo_utilization_synth.rpt -pb ram_memo_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.034 . Memory (MB): peak = 770.031 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Tue Mar 26 16:38:51 2019...
-[Tue Mar 26 16:38:55 2019] ram_memo_synth_1 finished
-wait_on_run: Time (s): cpu = 00:00:02 ; elapsed = 00:02:10 . Memory (MB): peak = 1045.172 ; gain = 0.000
-export_simulation -of_objects [get_files D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/ram_memo/ram_memo.xci] -directory D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.ip_user_files/sim_scripts -ip_user_files_dir D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.ip_user_files -ipstatic_source_dir D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.ip_user_files/ipstatic -lib_map_path [list {modelsim=D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.cache/compile_simlib/modelsim} {questa=D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.cache/compile_simlib/questa} {riviera=D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.cache/compile_simlib/riviera} {activehdl=D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
-WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
-WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+open_project: Time (s): cpu = 00:00:10 ; elapsed = 00:00:07 . Memory (MB): peak = 754.418 ; gain = 64.688
 launch_simulation
 INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
 INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
@@ -537,14 +25,19 @@ INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
 INFO: [SIM-utils-51] Simulation object is 'sim_1'
 INFO: [USF-XSim-7] Finding pre-compiled libraries...
 INFO: [USF-XSim-11] File 'C:/Xilinx/Vivado/2017.4/data/xsim/ip/xsim_ip.ini' copied to run dir:'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-INFO: [SIM-utils-54] Inspecting design source files for 'main_tb' in fileset 'sim_1'...
+INFO: [SIM-utils-54] Inspecting design source files for 'window_tb' in fileset 'sim_1'...
 INFO: [USF-XSim-97] Finding global include files...
 INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
 INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
 INFO: [USF-XSim-2] XSim::Compile design
 INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-"xvlog --incr --relax -prj main_tb_vlog.prj"
-"xvhdl --incr --relax -prj main_tb_vhdl.prj"
+"xvlog --incr --relax -prj window_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+"xvhdl --incr --relax -prj window_tb_vhdl.prj"
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/clk_generator/clk_generator_sim_netlist.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity clk_generator_clk_generator_clk_wiz
+INFO: [VRFC 10-307] analyzing entity clk_generator
 INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/ram_memo/ram_memo_sim_netlist.vhdl" into library xil_defaultlib
 INFO: [VRFC 10-307] analyzing entity ram_memo_bindec
 INFO: [VRFC 10-307] analyzing entity ram_memo_blk_mem_gen_mux
@@ -569,11 +62,154 @@ INFO: [VRFC 10-307] analyzing entity ram_memo_blk_mem_gen_top
 INFO: [VRFC 10-307] analyzing entity ram_memo_blk_mem_gen_v8_4_1_synth
 INFO: [VRFC 10-307] analyzing entity ram_memo_blk_mem_gen_v8_4_1
 INFO: [VRFC 10-307] analyzing entity ram_memo
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/project_trunk.vhd" into library xil_defaultlib
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/sampling.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity sampling
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/shift_register.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity shift_register
 INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/memo_controller.vhd" into library xil_defaultlib
 INFO: [VRFC 10-307] analyzing entity memo_controller
 INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd" into library xil_defaultlib
 INFO: [VRFC 10-307] analyzing entity master_controller
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/display_interface.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity display_interface
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/display_counter.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity display_counter
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/imports/ROM Data/istft_window.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity istft_window_rom
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/imports/ROM Data/stft_window.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity stft_window_rom
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/window_controller.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity window_controller
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/fsm_global.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity fsm_global
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sim_1/new/main_tb.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity main_tb
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sim_1/new/display_test.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity display_test
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sim_1/new/tb_fft_module.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity tb_fft_ip
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sim_1/new/window_tb.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity window_tb
 INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
+Vivado Simulator 2017.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto 0c9c3a36965041288ce87ec04c26eca9 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot window_tb_behav xil_defaultlib.window_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package xil_defaultlib.project_trunk
+Compiling module xil_defaultlib.glbl
+Compiling architecture behavioral of entity xil_defaultlib.stft_window_rom [stft_window_rom_default]
+Compiling architecture behavioral of entity xil_defaultlib.istft_window_rom [istft_window_rom_default]
+Compiling architecture behavioral of entity xil_defaultlib.window_controller [window_controller_default]
+Compiling architecture behavioral of entity xil_defaultlib.window_tb
+Built simulation snapshot window_tb_behav
+
+****** Webtalk v2017.4 (64-bit)
+  **** SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+  **** IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+    ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+
+source D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim/xsim.dir/window_tb_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Sat Mar 30 11:41:25 2019...
+INFO: [USF-XSim-69] 'elaborate' step finished in '5' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "window_tb_behav -key {Behavioral:sim_1:Functional:window_tb} -tclbatch {window_tb.tcl} -view {D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sim_1/imports/octave_main/test.wcfg} -view {D:/UNI/TFG/OctaveSax/Vivado/octave_main/window_tb_behav.wcfg} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2017.4
+Time resolution is 1 ps
+open_wave_config D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sim_1/imports/octave_main/test.wcfg
+WARNING: Simulation object /main_tb/clk_100MHz was not found in the design.
+WARNING: Simulation object /main_tb/clk_50MHz was not found in the design.
+WARNING: Simulation object /main_tb/UUT/MCLK was not found in the design.
+WARNING: Simulation object /main_tb/UUT/SCLK was not found in the design.
+WARNING: Simulation object /main_tb/UUT/LR_W_SEL was not found in the design.
+WARNING: Simulation object /main_tb/UUT/frame_number was not found in the design.
+WARNING: Simulation object /main_tb/DATA_IN was not found in the design.
+WARNING: Simulation object /main_tb/UUT/DATA_OUT was not found in the design.
+WARNING: Simulation object /main_tb/UUT/output_sample was not found in the design.
+WARNING: Simulation object /main_tb/UUT/sample_towrite was not found in the design.
+WARNING: Simulation object /main_tb/UUT/input_reg was not found in the design.
+WARNING: Simulation object /main_tb/UUT/buf_fsm_w_state was not found in the design.
+WARNING: Simulation object /main_tb/UUT/event_new_frame was not found in the design.
+WARNING: Simulation object /main_tb/UUT/buf_fsm_r_state was not found in the design.
+WARNING: Simulation object /main_tb/UUT/memo_fsm_state was not found in the design.
+WARNING: Simulation object /main_tb/UUT/counter_buf1 was not found in the design.
+WARNING: Simulation object /main_tb/UUT/counter_buf2 was not found in the design.
+WARNING: Simulation object /main_tb/UUT/sample_in_ready was not found in the design.
+WARNING: Simulation object /main_tb/UUT/event_write was not found in the design.
+WARNING: Simulation object /main_tb/UUT/start_reading was not found in the design.
+WARNING: Simulation object /main_tb/UUT/counter_buf1_r was not found in the design.
+WARNING: Simulation object /main_tb/UUT/counter_buf2_r was not found in the design.
+WARNING: Simulation object /main_tb/UUT/storaged_buf1 was not found in the design.
+WARNING: Simulation object /main_tb/UUT/storaged_buf2 was not found in the design.
+WARNING: Simulation object /main_tb/UUT/sum_result was not found in the design.
+WARNING: Simulation object /main_tb/UUT/sample_towrite_ready was not found in the design.
+WARNING: Simulation object /main_tb/UUT/event_read was not found in the design.
+WARNING: Simulation object /main_tb/UUT/select_memo was not found in the design.
+WARNING: Simulation object /main_tb/UUT/address was not found in the design.
+WARNING: Simulation object /main_tb/UUT/address_buf1 was not found in the design.
+WARNING: Simulation object /main_tb/UUT/address_buf2 was not found in the design.
+WARNING: Simulation object /main_tb/UUT/address_buf1_read was not found in the design.
+WARNING: Simulation object /main_tb/UUT/address_buf2_read was not found in the design.
+WARNING: Simulation object /main_tb/UUT/MEMO/ram1/ena was not found in the design.
+WARNING: Simulation object /main_tb/UUT/MEMO/ram1/wea was not found in the design.
+WARNING: Simulation object /main_tb/UUT/MEMO/ram1/addra was not found in the design.
+WARNING: Simulation object /main_tb/UUT/MEMO/ram1/dina was not found in the design.
+WARNING: Simulation object /main_tb/UUT/MEMO/ram1/douta was not found in the design.
+WARNING: Simulation object /main_tb/UUT/MEMO/ram2/ena was not found in the design.
+WARNING: Simulation object /main_tb/UUT/MEMO/ram2/wea was not found in the design.
+WARNING: Simulation object /main_tb/UUT/MEMO/ram2/addra was not found in the design.
+WARNING: Simulation object /main_tb/UUT/MEMO/ram2/dina was not found in the design.
+WARNING: Simulation object /main_tb/UUT/MEMO/ram2/douta was not found in the design.
+WARNING: Simulation object /main_tb/UUT/SAMP/counter32 was not found in the design.
+open_wave_config D:/UNI/TFG/OctaveSax/Vivado/octave_main/window_tb_behav.wcfg
+source window_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'window_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:06 ; elapsed = 00:00:13 . Memory (MB): peak = 857.730 ; gain = 22.793
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+set_property top main_tb [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+launch_simulation
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'C:/Xilinx/Vivado/2017.4/data/xsim/ip/xsim_ip.ini' copied to run dir:'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'main_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj main_tb_vlog.prj"
+"xvhdl --incr --relax -prj main_tb_vhdl.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
 INFO: [USF-XSim-3] XSim::Elaborate design
 INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
 Vivado Simulator 2017.4
@@ -638,11 +274,22 @@ Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_v
 Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_v8_4_1 [ram_memo_blk_mem_gen_v8_4_1_defa...]
 Compiling architecture structure of entity xil_defaultlib.ram_memo [ram_memo_default]
 Compiling architecture behavioral of entity xil_defaultlib.memo_controller [memo_controller_default]
+Compiling architecture behavioral of entity xil_defaultlib.stft_window_rom [stft_window_rom_default]
+Compiling architecture behavioral of entity xil_defaultlib.istft_window_rom [istft_window_rom_default]
+Compiling architecture behavioral of entity xil_defaultlib.window_controller [window_controller_default]
 Compiling architecture behavioral of entity xil_defaultlib.master_controller [master_controller_default]
 Compiling architecture behavioral of entity xil_defaultlib.main_tb
 Built simulation snapshot main_tb_behav
-run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:07 . Memory (MB): peak = 1052.840 ; gain = 0.000
-INFO: [USF-XSim-69] 'elaborate' step finished in '7' seconds
+
+****** Webtalk v2017.4 (64-bit)
+  **** SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+  **** IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+    ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+
+source D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim/xsim.dir/main_tb_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Sat Mar 30 11:45:10 2019...
+run_program: Time (s): cpu = 00:00:01 ; elapsed = 00:00:09 . Memory (MB): peak = 874.863 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '9' seconds
 INFO: [USF-XSim-4] XSim::Simulate design
 INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
 INFO: [USF-XSim-98] *** Running xsim
@@ -656,21 +303,12 @@ WARNING: Simulation object /window_tb/UUT/clk was not found in the design.
 WARNING: Simulation object /window_tb/UUT/for_inv was not found in the design.
 WARNING: Simulation object /window_tb/UUT/start_proc_win was not found in the design.
 WARNING: Simulation object /window_tb/end_proc_win was not found in the design.
-WARNING: Simulation object /window_tb/UUT/working was not found in the design.
-WARNING: Simulation object /window_tb/buf1_2 was not found in the design.
+WARNING: Simulation object /window_tb/UUT/window_data was not found in the design.
+WARNING: Simulation object /window_tb/UUT/window_data_i was not found in the design.
+WARNING: Simulation object /window_tb/UUT/pre_win was not found in the design.
 WARNING: Simulation object /window_tb/UUT/multiplicand was not found in the design.
-WARNING: Simulation object /window_tb/UUT/value was not found in the design.
-WARNING: Simulation object /window_tb/UUT/mult_reg was not found in the design.
-WARNING: Simulation object /window_tb/UUT/mult_reg2 was not found in the design.
-WARNING: Simulation object /window_tb/UUT/factor was not found in the design.
-WARNING: Simulation object /window_tb/factor_buf1 was not found in the design.
-WARNING: Simulation object /window_tb/factor_buf2 was not found in the design.
-WARNING: Simulation object /window_tb/UUT/multiplicatorSTFT was not found in the design.
-WARNING: Simulation object /window_tb/UUT/multiplicatoriSTFT was not found in the design.
-WARNING: Simulation object /window_tb/UUT/pre_resultSTFT was not found in the design.
-WARNING: Simulation object /window_tb/UUT/pre_resultiSTFT was not found in the design.
-WARNING: Simulation object /window_tb/result1 was not found in the design.
-WARNING: Simulation object /window_tb/result2 was not found in the design.
+WARNING: Simulation object /window_tb/UUT/result_pre was not found in the design.
+WARNING: Simulation object /window_tb/UUT/result was not found in the design.
 source main_tb.tcl
 # set curr_wave [current_wave_config]
 # if { [string length $curr_wave] == 0 } {
@@ -684,17 +322,19 @@ source main_tb.tcl
 # run 1000ns
 INFO: [USF-XSim-96] XSim completed. Design snapshot 'main_tb_behav' loaded.
 INFO: [USF-XSim-97] XSim simulation ran for 1000ns
-launch_simulation: Time (s): cpu = 00:00:05 ; elapsed = 00:00:13 . Memory (MB): peak = 1052.840 ; gain = 0.000
+launch_simulation: Time (s): cpu = 00:00:05 ; elapsed = 00:00:14 . Memory (MB): peak = 874.863 ; gain = 0.000
 restart
 INFO: [Simtcl 6-17] Simulation restarted
 run 20 ms
-run: Time (s): cpu = 00:00:06 ; elapsed = 00:00:12 . Memory (MB): peak = 1057.074 ; gain = 1.766
-restart
-INFO: [Simtcl 6-17] Simulation restarted
+run: Time (s): cpu = 00:00:19 ; elapsed = 00:01:36 . Memory (MB): peak = 883.594 ; gain = 8.441
 restart
 INFO: [Simtcl 6-17] Simulation restarted
 run 20 ms
-run: Time (s): cpu = 00:00:07 ; elapsed = 00:00:18 . Memory (MB): peak = 1062.082 ; gain = 2.543
+run: Time (s): cpu = 00:00:21 ; elapsed = 00:01:36 . Memory (MB): peak = 894.344 ; gain = 4.680
+restart
+INFO: [Simtcl 6-17] Simulation restarted
+run 20 ms
+run: Time (s): cpu = 00:00:19 ; elapsed = 00:01:37 . Memory (MB): peak = 900.719 ; gain = 4.691
 relaunch_sim
 INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
 INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
@@ -780,1541 +420,107 @@ Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_v
 Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_v8_4_1 [ram_memo_blk_mem_gen_v8_4_1_defa...]
 Compiling architecture structure of entity xil_defaultlib.ram_memo [ram_memo_default]
 Compiling architecture behavioral of entity xil_defaultlib.memo_controller [memo_controller_default]
+Compiling architecture behavioral of entity xil_defaultlib.stft_window_rom [stft_window_rom_default]
+Compiling architecture behavioral of entity xil_defaultlib.istft_window_rom [istft_window_rom_default]
+Compiling architecture behavioral of entity xil_defaultlib.window_controller [window_controller_default]
 Compiling architecture behavioral of entity xil_defaultlib.master_controller [master_controller_default]
 Compiling architecture behavioral of entity xil_defaultlib.main_tb
 Built simulation snapshot main_tb_behav
-run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:07 . Memory (MB): peak = 1062.082 ; gain = 0.000
+run_program: Time (s): cpu = 00:00:01 ; elapsed = 00:00:07 . Memory (MB): peak = 904.043 ; gain = 0.000
 INFO: [USF-XSim-69] 'elaborate' step finished in '7' seconds
-launch_simulation: Time (s): cpu = 00:00:00 ; elapsed = 00:00:07 . Memory (MB): peak = 1062.082 ; gain = 0.000
+launch_simulation: Time (s): cpu = 00:00:01 ; elapsed = 00:00:07 . Memory (MB): peak = 904.043 ; gain = 0.000
 Vivado Simulator 2017.4
 Time resolution is 1 ps
-relaunch_sim: Time (s): cpu = 00:00:02 ; elapsed = 00:00:12 . Memory (MB): peak = 1062.156 ; gain = 0.074
-restart
-INFO: [Simtcl 6-17] Simulation restarted
-run 20 ms
-run: Time (s): cpu = 00:00:04 ; elapsed = 00:00:14 . Memory (MB): peak = 1064.523 ; gain = 2.184
-relaunch_sim
-INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
-INFO: [SIM-utils-51] Simulation object is 'sim_1'
-INFO: [USF-XSim-7] Finding pre-compiled libraries...
-INFO: [USF-XSim-11] File 'C:/Xilinx/Vivado/2017.4/data/xsim/ip/xsim_ip.ini' copied to run dir:'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-INFO: [SIM-utils-54] Inspecting design source files for 'main_tb' in fileset 'sim_1'...
-INFO: [USF-XSim-97] Finding global include files...
-INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
-INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
-INFO: [USF-XSim-2] XSim::Compile design
-INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-"xvlog --incr --relax -prj main_tb_vlog.prj"
-"xvhdl --incr --relax -prj main_tb_vhdl.prj"
-INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd" into library xil_defaultlib
-INFO: [VRFC 10-307] analyzing entity master_controller
-INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
-INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
-INFO: [USF-XSim-3] XSim::Elaborate design
-INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-Vivado Simulator 2017.4
-Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto 0c9c3a36965041288ce87ec04c26eca9 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot main_tb_behav xil_defaultlib.main_tb xil_defaultlib.glbl -log elaborate.log 
-Using 2 slave threads.
-Starting static elaboration
-Completed static elaboration
-Starting simulation data flow analysis
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling package std.standard
-Compiling package std.textio
-Compiling package ieee.std_logic_1164
-Compiling package ieee.numeric_std
-Compiling package xil_defaultlib.project_trunk
-Compiling package unisim.vcomponents
-Compiling package ieee.vital_timing
-Compiling package ieee.vital_primitives
-Compiling package unisim.vpkg
-Compiling package ieee.std_logic_arith
-Compiling package ieee.std_logic_signed
-Compiling package ieee.std_logic_textio
-Compiling module xil_defaultlib.glbl
-Compiling architecture behavioral of entity xil_defaultlib.sampling [sampling_default]
-Compiling architecture behavioral of entity xil_defaultlib.shift_register [shift_register_default]
-Compiling architecture gnd_v of entity unisim.GND [gnd_default]
-Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="00000010")(0,7)\]
-Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="01000000")(0,7)\]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_bindec [ram_memo_bindec_default]
-Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="11001100111111111010...]
-Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="10111000")(0,7)\]
-Compiling architecture fdre_v of entity unisim.FDRE [fdre_default]
-Compiling architecture lut4_v of entity unisim.LUT4 [\LUT4(init="1111101100001000")(0...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_mux [ram_memo_blk_mem_gen_mux_default]
-Compiling architecture rb18_internal_vhdl_v of entity unisim.RB18_INTERNAL_VHDL [\RB18_INTERNAL_VHDL(bram_size=18...]
-Compiling architecture ramb18e1_v of entity unisim.RAMB18E1 [\RAMB18E1(doa_reg=1,rdaddr_colli...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_prim_wrapper [ram_memo_blk_mem_gen_prim_wrappe...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_prim_width [ram_memo_blk_mem_gen_prim_width_...]
-Compiling architecture rb36_internal_vhdl_v of entity unisim.RB36_INTERNAL_VHDL [\RB36_INTERNAL_VHDL(doa_reg=1,in...]
-Compiling architecture ramb36e1_v of entity unisim.RAMB36E1 [\RAMB36E1(doa_reg=1,rdaddr_colli...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized0\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized0\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized1\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized1\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized2\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized2\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture rb36_internal_vhdl_v of entity unisim.RB36_INTERNAL_VHDL [\RB36_INTERNAL_VHDL(doa_reg=1,in...]
-Compiling architecture ramb36e1_v of entity unisim.RAMB36E1 [\RAMB36E1(doa_reg=1,rdaddr_colli...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized3\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized3\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized4\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized4\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized5\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized5\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="10000000")(0,7)\]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized6\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized6\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_generic_cstr [ram_memo_blk_mem_gen_generic_cst...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_top [ram_memo_blk_mem_gen_top_default]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_v8_4_1_synth [ram_memo_blk_mem_gen_v8_4_1_synt...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_v8_4_1 [ram_memo_blk_mem_gen_v8_4_1_defa...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo [ram_memo_default]
-Compiling architecture behavioral of entity xil_defaultlib.memo_controller [memo_controller_default]
-Compiling architecture behavioral of entity xil_defaultlib.master_controller [master_controller_default]
-Compiling architecture behavioral of entity xil_defaultlib.main_tb
-Built simulation snapshot main_tb_behav
-run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:07 . Memory (MB): peak = 1064.523 ; gain = 0.000
-INFO: [USF-XSim-69] 'elaborate' step finished in '7' seconds
-launch_simulation: Time (s): cpu = 00:00:00 ; elapsed = 00:00:07 . Memory (MB): peak = 1064.523 ; gain = 0.000
-Vivado Simulator 2017.4
-Time resolution is 1 ps
-relaunch_sim: Time (s): cpu = 00:00:01 ; elapsed = 00:00:12 . Memory (MB): peak = 1064.523 ; gain = 0.000
-restart
-INFO: [Simtcl 6-17] Simulation restarted
-run 20 ms
-run: Time (s): cpu = 00:00:24 ; elapsed = 00:01:34 . Memory (MB): peak = 1064.523 ; gain = 0.000
-relaunch_sim
-INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
-INFO: [SIM-utils-51] Simulation object is 'sim_1'
-INFO: [USF-XSim-7] Finding pre-compiled libraries...
-INFO: [USF-XSim-11] File 'C:/Xilinx/Vivado/2017.4/data/xsim/ip/xsim_ip.ini' copied to run dir:'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-INFO: [SIM-utils-54] Inspecting design source files for 'main_tb' in fileset 'sim_1'...
-INFO: [USF-XSim-97] Finding global include files...
-INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
-INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
-INFO: [USF-XSim-2] XSim::Compile design
-INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-"xvlog --incr --relax -prj main_tb_vlog.prj"
-"xvhdl --incr --relax -prj main_tb_vhdl.prj"
-INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd" into library xil_defaultlib
-INFO: [VRFC 10-307] analyzing entity master_controller
-INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
-INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
-INFO: [USF-XSim-3] XSim::Elaborate design
-INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-Vivado Simulator 2017.4
-Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto 0c9c3a36965041288ce87ec04c26eca9 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot main_tb_behav xil_defaultlib.main_tb xil_defaultlib.glbl -log elaborate.log 
-Using 2 slave threads.
-Starting static elaboration
-Completed static elaboration
-Starting simulation data flow analysis
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling package std.standard
-Compiling package std.textio
-Compiling package ieee.std_logic_1164
-Compiling package ieee.numeric_std
-Compiling package xil_defaultlib.project_trunk
-Compiling package unisim.vcomponents
-Compiling package ieee.vital_timing
-Compiling package ieee.vital_primitives
-Compiling package unisim.vpkg
-Compiling package ieee.std_logic_arith
-Compiling package ieee.std_logic_signed
-Compiling package ieee.std_logic_textio
-Compiling module xil_defaultlib.glbl
-Compiling architecture behavioral of entity xil_defaultlib.sampling [sampling_default]
-Compiling architecture behavioral of entity xil_defaultlib.shift_register [shift_register_default]
-Compiling architecture gnd_v of entity unisim.GND [gnd_default]
-Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="00000010")(0,7)\]
-Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="01000000")(0,7)\]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_bindec [ram_memo_bindec_default]
-Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="11001100111111111010...]
-Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="10111000")(0,7)\]
-Compiling architecture fdre_v of entity unisim.FDRE [fdre_default]
-Compiling architecture lut4_v of entity unisim.LUT4 [\LUT4(init="1111101100001000")(0...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_mux [ram_memo_blk_mem_gen_mux_default]
-Compiling architecture rb18_internal_vhdl_v of entity unisim.RB18_INTERNAL_VHDL [\RB18_INTERNAL_VHDL(bram_size=18...]
-Compiling architecture ramb18e1_v of entity unisim.RAMB18E1 [\RAMB18E1(doa_reg=1,rdaddr_colli...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_prim_wrapper [ram_memo_blk_mem_gen_prim_wrappe...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_prim_width [ram_memo_blk_mem_gen_prim_width_...]
-Compiling architecture rb36_internal_vhdl_v of entity unisim.RB36_INTERNAL_VHDL [\RB36_INTERNAL_VHDL(doa_reg=1,in...]
-Compiling architecture ramb36e1_v of entity unisim.RAMB36E1 [\RAMB36E1(doa_reg=1,rdaddr_colli...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized0\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized0\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized1\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized1\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized2\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized2\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture rb36_internal_vhdl_v of entity unisim.RB36_INTERNAL_VHDL [\RB36_INTERNAL_VHDL(doa_reg=1,in...]
-Compiling architecture ramb36e1_v of entity unisim.RAMB36E1 [\RAMB36E1(doa_reg=1,rdaddr_colli...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized3\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized3\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized4\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized4\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized5\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized5\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="10000000")(0,7)\]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized6\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized6\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_generic_cstr [ram_memo_blk_mem_gen_generic_cst...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_top [ram_memo_blk_mem_gen_top_default]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_v8_4_1_synth [ram_memo_blk_mem_gen_v8_4_1_synt...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_v8_4_1 [ram_memo_blk_mem_gen_v8_4_1_defa...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo [ram_memo_default]
-Compiling architecture behavioral of entity xil_defaultlib.memo_controller [memo_controller_default]
-Compiling architecture behavioral of entity xil_defaultlib.master_controller [master_controller_default]
-Compiling architecture behavioral of entity xil_defaultlib.main_tb
-Built simulation snapshot main_tb_behav
-run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:07 . Memory (MB): peak = 1065.891 ; gain = 0.000
-INFO: [USF-XSim-69] 'elaborate' step finished in '7' seconds
-launch_simulation: Time (s): cpu = 00:00:00 ; elapsed = 00:00:07 . Memory (MB): peak = 1065.891 ; gain = 0.000
-Vivado Simulator 2017.4
-Time resolution is 1 ps
-relaunch_sim: Time (s): cpu = 00:00:01 ; elapsed = 00:00:11 . Memory (MB): peak = 1065.891 ; gain = 0.000
-restart
-INFO: [Simtcl 6-17] Simulation restarted
-run 20 ms
-run: Time (s): cpu = 00:00:05 ; elapsed = 00:00:24 . Memory (MB): peak = 1067.949 ; gain = 0.125
-relaunch_sim
-INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
-INFO: [SIM-utils-51] Simulation object is 'sim_1'
-INFO: [USF-XSim-7] Finding pre-compiled libraries...
-INFO: [USF-XSim-11] File 'C:/Xilinx/Vivado/2017.4/data/xsim/ip/xsim_ip.ini' copied to run dir:'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-INFO: [SIM-utils-54] Inspecting design source files for 'main_tb' in fileset 'sim_1'...
-INFO: [USF-XSim-97] Finding global include files...
-INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
-INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
-INFO: [USF-XSim-2] XSim::Compile design
-INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-"xvlog --incr --relax -prj main_tb_vlog.prj"
-"xvhdl --incr --relax -prj main_tb_vhdl.prj"
-INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd" into library xil_defaultlib
-INFO: [VRFC 10-307] analyzing entity master_controller
-INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
-INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
-INFO: [USF-XSim-3] XSim::Elaborate design
-INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-Vivado Simulator 2017.4
-Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto 0c9c3a36965041288ce87ec04c26eca9 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot main_tb_behav xil_defaultlib.main_tb xil_defaultlib.glbl -log elaborate.log 
-Using 2 slave threads.
-Starting static elaboration
-Completed static elaboration
-Starting simulation data flow analysis
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling package std.standard
-Compiling package std.textio
-Compiling package ieee.std_logic_1164
-Compiling package ieee.numeric_std
-Compiling package xil_defaultlib.project_trunk
-Compiling package unisim.vcomponents
-Compiling package ieee.vital_timing
-Compiling package ieee.vital_primitives
-Compiling package unisim.vpkg
-Compiling package ieee.std_logic_arith
-Compiling package ieee.std_logic_signed
-Compiling package ieee.std_logic_textio
-Compiling module xil_defaultlib.glbl
-Compiling architecture behavioral of entity xil_defaultlib.sampling [sampling_default]
-Compiling architecture behavioral of entity xil_defaultlib.shift_register [shift_register_default]
-Compiling architecture gnd_v of entity unisim.GND [gnd_default]
-Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="00000010")(0,7)\]
-Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="01000000")(0,7)\]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_bindec [ram_memo_bindec_default]
-Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="11001100111111111010...]
-Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="10111000")(0,7)\]
-Compiling architecture fdre_v of entity unisim.FDRE [fdre_default]
-Compiling architecture lut4_v of entity unisim.LUT4 [\LUT4(init="1111101100001000")(0...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_mux [ram_memo_blk_mem_gen_mux_default]
-Compiling architecture rb18_internal_vhdl_v of entity unisim.RB18_INTERNAL_VHDL [\RB18_INTERNAL_VHDL(bram_size=18...]
-Compiling architecture ramb18e1_v of entity unisim.RAMB18E1 [\RAMB18E1(doa_reg=1,rdaddr_colli...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_prim_wrapper [ram_memo_blk_mem_gen_prim_wrappe...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_prim_width [ram_memo_blk_mem_gen_prim_width_...]
-Compiling architecture rb36_internal_vhdl_v of entity unisim.RB36_INTERNAL_VHDL [\RB36_INTERNAL_VHDL(doa_reg=1,in...]
-Compiling architecture ramb36e1_v of entity unisim.RAMB36E1 [\RAMB36E1(doa_reg=1,rdaddr_colli...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized0\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized0\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized1\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized1\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized2\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized2\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture rb36_internal_vhdl_v of entity unisim.RB36_INTERNAL_VHDL [\RB36_INTERNAL_VHDL(doa_reg=1,in...]
-Compiling architecture ramb36e1_v of entity unisim.RAMB36E1 [\RAMB36E1(doa_reg=1,rdaddr_colli...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized3\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized3\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized4\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized4\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized5\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized5\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="10000000")(0,7)\]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized6\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized6\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_generic_cstr [ram_memo_blk_mem_gen_generic_cst...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_top [ram_memo_blk_mem_gen_top_default]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_v8_4_1_synth [ram_memo_blk_mem_gen_v8_4_1_synt...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_v8_4_1 [ram_memo_blk_mem_gen_v8_4_1_defa...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo [ram_memo_default]
-Compiling architecture behavioral of entity xil_defaultlib.memo_controller [memo_controller_default]
-Compiling architecture behavioral of entity xil_defaultlib.master_controller [master_controller_default]
-Compiling architecture behavioral of entity xil_defaultlib.main_tb
-Built simulation snapshot main_tb_behav
-run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:07 . Memory (MB): peak = 1072.031 ; gain = 0.000
-INFO: [USF-XSim-69] 'elaborate' step finished in '7' seconds
-launch_simulation: Time (s): cpu = 00:00:00 ; elapsed = 00:00:07 . Memory (MB): peak = 1072.031 ; gain = 0.000
-Vivado Simulator 2017.4
-Time resolution is 1 ps
-relaunch_sim: Time (s): cpu = 00:00:01 ; elapsed = 00:00:11 . Memory (MB): peak = 1072.031 ; gain = 0.000
-restart
-INFO: [Simtcl 6-17] Simulation restarted
-run 20 ms
-run: Time (s): cpu = 00:00:21 ; elapsed = 00:01:35 . Memory (MB): peak = 1074.113 ; gain = 2.082
+relaunch_sim: Time (s): cpu = 00:00:01 ; elapsed = 00:00:14 . Memory (MB): peak = 904.043 ; gain = 0.000
 save_wave_config {D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sim_1/imports/octave_main/test.wcfg}
-relaunch_sim
-INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
-INFO: [SIM-utils-51] Simulation object is 'sim_1'
-INFO: [USF-XSim-7] Finding pre-compiled libraries...
-INFO: [USF-XSim-11] File 'C:/Xilinx/Vivado/2017.4/data/xsim/ip/xsim_ip.ini' copied to run dir:'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-INFO: [SIM-utils-54] Inspecting design source files for 'main_tb' in fileset 'sim_1'...
-INFO: [USF-XSim-97] Finding global include files...
-INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
-INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
-INFO: [USF-XSim-2] XSim::Compile design
-INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-"xvlog --incr --relax -prj main_tb_vlog.prj"
-"xvhdl --incr --relax -prj main_tb_vhdl.prj"
-INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd" into library xil_defaultlib
-INFO: [VRFC 10-307] analyzing entity master_controller
-INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sim_1/new/main_tb.vhd" into library xil_defaultlib
-INFO: [VRFC 10-307] analyzing entity main_tb
-INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
-INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
-INFO: [USF-XSim-3] XSim::Elaborate design
-INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-Vivado Simulator 2017.4
-Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto 0c9c3a36965041288ce87ec04c26eca9 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot main_tb_behav xil_defaultlib.main_tb xil_defaultlib.glbl -log elaborate.log 
-Using 2 slave threads.
-Starting static elaboration
-Completed static elaboration
-Starting simulation data flow analysis
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling package std.standard
-Compiling package std.textio
-Compiling package ieee.std_logic_1164
-Compiling package ieee.numeric_std
-Compiling package xil_defaultlib.project_trunk
-Compiling package unisim.vcomponents
-Compiling package ieee.vital_timing
-Compiling package ieee.vital_primitives
-Compiling package unisim.vpkg
-Compiling package ieee.std_logic_arith
-Compiling package ieee.std_logic_signed
-Compiling package ieee.std_logic_textio
-Compiling module xil_defaultlib.glbl
-Compiling architecture behavioral of entity xil_defaultlib.sampling [sampling_default]
-Compiling architecture behavioral of entity xil_defaultlib.shift_register [shift_register_default]
-Compiling architecture gnd_v of entity unisim.GND [gnd_default]
-Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="00000010")(0,7)\]
-Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="01000000")(0,7)\]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_bindec [ram_memo_bindec_default]
-Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="11001100111111111010...]
-Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="10111000")(0,7)\]
-Compiling architecture fdre_v of entity unisim.FDRE [fdre_default]
-Compiling architecture lut4_v of entity unisim.LUT4 [\LUT4(init="1111101100001000")(0...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_mux [ram_memo_blk_mem_gen_mux_default]
-Compiling architecture rb18_internal_vhdl_v of entity unisim.RB18_INTERNAL_VHDL [\RB18_INTERNAL_VHDL(bram_size=18...]
-Compiling architecture ramb18e1_v of entity unisim.RAMB18E1 [\RAMB18E1(doa_reg=1,rdaddr_colli...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_prim_wrapper [ram_memo_blk_mem_gen_prim_wrappe...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_prim_width [ram_memo_blk_mem_gen_prim_width_...]
-Compiling architecture rb36_internal_vhdl_v of entity unisim.RB36_INTERNAL_VHDL [\RB36_INTERNAL_VHDL(doa_reg=1,in...]
-Compiling architecture ramb36e1_v of entity unisim.RAMB36E1 [\RAMB36E1(doa_reg=1,rdaddr_colli...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized0\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized0\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized1\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized1\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized2\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized2\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture rb36_internal_vhdl_v of entity unisim.RB36_INTERNAL_VHDL [\RB36_INTERNAL_VHDL(doa_reg=1,in...]
-Compiling architecture ramb36e1_v of entity unisim.RAMB36E1 [\RAMB36E1(doa_reg=1,rdaddr_colli...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized3\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized3\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized4\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized4\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized5\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized5\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="10000000")(0,7)\]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized6\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized6\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_generic_cstr [ram_memo_blk_mem_gen_generic_cst...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_top [ram_memo_blk_mem_gen_top_default]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_v8_4_1_synth [ram_memo_blk_mem_gen_v8_4_1_synt...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_v8_4_1 [ram_memo_blk_mem_gen_v8_4_1_defa...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo [ram_memo_default]
-Compiling architecture behavioral of entity xil_defaultlib.memo_controller [memo_controller_default]
-Compiling architecture behavioral of entity xil_defaultlib.master_controller [master_controller_default]
-Compiling architecture behavioral of entity xil_defaultlib.main_tb
-Built simulation snapshot main_tb_behav
-run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:07 . Memory (MB): peak = 1074.340 ; gain = 0.000
-INFO: [USF-XSim-69] 'elaborate' step finished in '7' seconds
-launch_simulation: Time (s): cpu = 00:00:00 ; elapsed = 00:00:07 . Memory (MB): peak = 1074.340 ; gain = 0.000
-Vivado Simulator 2017.4
-Time resolution is 1 ps
-relaunch_sim: Time (s): cpu = 00:00:01 ; elapsed = 00:00:12 . Memory (MB): peak = 1074.340 ; gain = 0.000
-restart
-INFO: [Simtcl 6-17] Simulation restarted
-run 20 ms
-run: Time (s): cpu = 00:00:20 ; elapsed = 00:01:34 . Memory (MB): peak = 1075.891 ; gain = 1.551
 save_wave_config {D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sim_1/imports/octave_main/test.wcfg}
-relaunch_sim
-INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
-INFO: [SIM-utils-51] Simulation object is 'sim_1'
-INFO: [USF-XSim-7] Finding pre-compiled libraries...
-INFO: [USF-XSim-11] File 'C:/Xilinx/Vivado/2017.4/data/xsim/ip/xsim_ip.ini' copied to run dir:'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-INFO: [SIM-utils-54] Inspecting design source files for 'main_tb' in fileset 'sim_1'...
-INFO: [USF-XSim-97] Finding global include files...
-INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
-INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
-INFO: [USF-XSim-2] XSim::Compile design
-INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-"xvlog --incr --relax -prj main_tb_vlog.prj"
-"xvhdl --incr --relax -prj main_tb_vhdl.prj"
-INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd" into library xil_defaultlib
-INFO: [VRFC 10-307] analyzing entity master_controller
-INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
-INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
-INFO: [USF-XSim-3] XSim::Elaborate design
-INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-Vivado Simulator 2017.4
-Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto 0c9c3a36965041288ce87ec04c26eca9 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot main_tb_behav xil_defaultlib.main_tb xil_defaultlib.glbl -log elaborate.log 
-Using 2 slave threads.
-Starting static elaboration
-Completed static elaboration
-Starting simulation data flow analysis
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling package std.standard
-Compiling package std.textio
-Compiling package ieee.std_logic_1164
-Compiling package ieee.numeric_std
-Compiling package xil_defaultlib.project_trunk
-Compiling package unisim.vcomponents
-Compiling package ieee.vital_timing
-Compiling package ieee.vital_primitives
-Compiling package unisim.vpkg
-Compiling package ieee.std_logic_arith
-Compiling package ieee.std_logic_signed
-Compiling package ieee.std_logic_textio
-Compiling module xil_defaultlib.glbl
-Compiling architecture behavioral of entity xil_defaultlib.sampling [sampling_default]
-Compiling architecture behavioral of entity xil_defaultlib.shift_register [shift_register_default]
-Compiling architecture gnd_v of entity unisim.GND [gnd_default]
-Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="00000010")(0,7)\]
-Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="01000000")(0,7)\]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_bindec [ram_memo_bindec_default]
-Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="11001100111111111010...]
-Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="10111000")(0,7)\]
-Compiling architecture fdre_v of entity unisim.FDRE [fdre_default]
-Compiling architecture lut4_v of entity unisim.LUT4 [\LUT4(init="1111101100001000")(0...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_mux [ram_memo_blk_mem_gen_mux_default]
-Compiling architecture rb18_internal_vhdl_v of entity unisim.RB18_INTERNAL_VHDL [\RB18_INTERNAL_VHDL(bram_size=18...]
-Compiling architecture ramb18e1_v of entity unisim.RAMB18E1 [\RAMB18E1(doa_reg=1,rdaddr_colli...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_prim_wrapper [ram_memo_blk_mem_gen_prim_wrappe...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_prim_width [ram_memo_blk_mem_gen_prim_width_...]
-Compiling architecture rb36_internal_vhdl_v of entity unisim.RB36_INTERNAL_VHDL [\RB36_INTERNAL_VHDL(doa_reg=1,in...]
-Compiling architecture ramb36e1_v of entity unisim.RAMB36E1 [\RAMB36E1(doa_reg=1,rdaddr_colli...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized0\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized0\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized1\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized1\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized2\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized2\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture rb36_internal_vhdl_v of entity unisim.RB36_INTERNAL_VHDL [\RB36_INTERNAL_VHDL(doa_reg=1,in...]
-Compiling architecture ramb36e1_v of entity unisim.RAMB36E1 [\RAMB36E1(doa_reg=1,rdaddr_colli...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized3\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized3\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized4\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized4\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized5\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized5\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="10000000")(0,7)\]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized6\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized6\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_generic_cstr [ram_memo_blk_mem_gen_generic_cst...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_top [ram_memo_blk_mem_gen_top_default]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_v8_4_1_synth [ram_memo_blk_mem_gen_v8_4_1_synt...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_v8_4_1 [ram_memo_blk_mem_gen_v8_4_1_defa...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo [ram_memo_default]
-Compiling architecture behavioral of entity xil_defaultlib.memo_controller [memo_controller_default]
-Compiling architecture behavioral of entity xil_defaultlib.master_controller [master_controller_default]
-Compiling architecture behavioral of entity xil_defaultlib.main_tb
-Built simulation snapshot main_tb_behav
-run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:07 . Memory (MB): peak = 1081.203 ; gain = 0.000
-INFO: [USF-XSim-69] 'elaborate' step finished in '7' seconds
-launch_simulation: Time (s): cpu = 00:00:00 ; elapsed = 00:00:07 . Memory (MB): peak = 1081.203 ; gain = 0.000
-Vivado Simulator 2017.4
-Time resolution is 1 ps
-relaunch_sim: Time (s): cpu = 00:00:01 ; elapsed = 00:00:11 . Memory (MB): peak = 1081.203 ; gain = 0.000
-restart
-INFO: [Simtcl 6-17] Simulation restarted
-run 20 ms
-run: Time (s): cpu = 00:00:23 ; elapsed = 00:01:35 . Memory (MB): peak = 1082.715 ; gain = 0.574
-relaunch_sim
-INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
-INFO: [SIM-utils-51] Simulation object is 'sim_1'
-INFO: [USF-XSim-7] Finding pre-compiled libraries...
-INFO: [USF-XSim-11] File 'C:/Xilinx/Vivado/2017.4/data/xsim/ip/xsim_ip.ini' copied to run dir:'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-INFO: [SIM-utils-54] Inspecting design source files for 'main_tb' in fileset 'sim_1'...
-INFO: [USF-XSim-97] Finding global include files...
-INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
-INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
-INFO: [USF-XSim-2] XSim::Compile design
-INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-"xvlog --incr --relax -prj main_tb_vlog.prj"
-"xvhdl --incr --relax -prj main_tb_vhdl.prj"
-INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/sampling.vhd" into library xil_defaultlib
-INFO: [VRFC 10-307] analyzing entity sampling
-INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd" into library xil_defaultlib
-INFO: [VRFC 10-307] analyzing entity master_controller
-INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
-INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
-INFO: [USF-XSim-3] XSim::Elaborate design
-INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-Vivado Simulator 2017.4
-Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto 0c9c3a36965041288ce87ec04c26eca9 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot main_tb_behav xil_defaultlib.main_tb xil_defaultlib.glbl -log elaborate.log 
-Using 2 slave threads.
-Starting static elaboration
-ERROR: [VRFC 10-664] expression has 2 elements ; expected 3 [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/sampling.vhd:40]
-ERROR: [XSIM 43-3322] Static elaboration of top level Verilog design unit(s) in library work failed.
-INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
-INFO: [USF-XSim-99] Step results log file:'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim/elaborate.log'
-ERROR: [USF-XSim-62] 'elaborate' step failed with error(s). Please check the Tcl console output or 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim/elaborate.log' file for more information.
-ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
-ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
-ERROR: [Common 17-69] Command failed: ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
-
-relaunch_sim
-INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
-INFO: [SIM-utils-51] Simulation object is 'sim_1'
-INFO: [USF-XSim-7] Finding pre-compiled libraries...
-INFO: [USF-XSim-11] File 'C:/Xilinx/Vivado/2017.4/data/xsim/ip/xsim_ip.ini' copied to run dir:'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-INFO: [SIM-utils-54] Inspecting design source files for 'main_tb' in fileset 'sim_1'...
-INFO: [USF-XSim-97] Finding global include files...
-INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
-INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
-INFO: [USF-XSim-2] XSim::Compile design
-INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-"xvlog --incr --relax -prj main_tb_vlog.prj"
-"xvhdl --incr --relax -prj main_tb_vhdl.prj"
-INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/sampling.vhd" into library xil_defaultlib
-INFO: [VRFC 10-307] analyzing entity sampling
-INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
-INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
-INFO: [USF-XSim-3] XSim::Elaborate design
-INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-Vivado Simulator 2017.4
-Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto 0c9c3a36965041288ce87ec04c26eca9 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot main_tb_behav xil_defaultlib.main_tb xil_defaultlib.glbl -log elaborate.log 
-Using 2 slave threads.
-Starting static elaboration
-ERROR: [VRFC 10-664] expression has 2 elements ; expected 3 [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/sampling.vhd:128]
-ERROR: [XSIM 43-3322] Static elaboration of top level Verilog design unit(s) in library work failed.
-INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
-INFO: [USF-XSim-99] Step results log file:'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim/elaborate.log'
-ERROR: [USF-XSim-62] 'elaborate' step failed with error(s). Please check the Tcl console output or 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim/elaborate.log' file for more information.
-ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
-ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
-ERROR: [Common 17-69] Command failed: ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
-
-relaunch_sim
-INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
-INFO: [SIM-utils-51] Simulation object is 'sim_1'
-INFO: [USF-XSim-7] Finding pre-compiled libraries...
-INFO: [USF-XSim-11] File 'C:/Xilinx/Vivado/2017.4/data/xsim/ip/xsim_ip.ini' copied to run dir:'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-INFO: [SIM-utils-54] Inspecting design source files for 'main_tb' in fileset 'sim_1'...
-INFO: [USF-XSim-97] Finding global include files...
-INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
-INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
-INFO: [USF-XSim-2] XSim::Compile design
-INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-"xvlog --incr --relax -prj main_tb_vlog.prj"
-"xvhdl --incr --relax -prj main_tb_vhdl.prj"
-INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/sampling.vhd" into library xil_defaultlib
-INFO: [VRFC 10-307] analyzing entity sampling
-INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
-INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
-INFO: [USF-XSim-3] XSim::Elaborate design
-INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-Vivado Simulator 2017.4
-Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto 0c9c3a36965041288ce87ec04c26eca9 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot main_tb_behav xil_defaultlib.main_tb xil_defaultlib.glbl -log elaborate.log 
-Using 2 slave threads.
-Starting static elaboration
-Completed static elaboration
-Starting simulation data flow analysis
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling package std.standard
-Compiling package std.textio
-Compiling package ieee.std_logic_1164
-Compiling package ieee.numeric_std
-Compiling package xil_defaultlib.project_trunk
-Compiling package unisim.vcomponents
-Compiling package ieee.vital_timing
-Compiling package ieee.vital_primitives
-Compiling package unisim.vpkg
-Compiling package ieee.std_logic_arith
-Compiling package ieee.std_logic_signed
-Compiling package ieee.std_logic_textio
-Compiling module xil_defaultlib.glbl
-Compiling architecture behavioral of entity xil_defaultlib.sampling [sampling_default]
-Compiling architecture behavioral of entity xil_defaultlib.shift_register [shift_register_default]
-Compiling architecture gnd_v of entity unisim.GND [gnd_default]
-Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="00000010")(0,7)\]
-Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="01000000")(0,7)\]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_bindec [ram_memo_bindec_default]
-Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="11001100111111111010...]
-Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="10111000")(0,7)\]
-Compiling architecture fdre_v of entity unisim.FDRE [fdre_default]
-Compiling architecture lut4_v of entity unisim.LUT4 [\LUT4(init="1111101100001000")(0...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_mux [ram_memo_blk_mem_gen_mux_default]
-Compiling architecture rb18_internal_vhdl_v of entity unisim.RB18_INTERNAL_VHDL [\RB18_INTERNAL_VHDL(bram_size=18...]
-Compiling architecture ramb18e1_v of entity unisim.RAMB18E1 [\RAMB18E1(doa_reg=1,rdaddr_colli...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_prim_wrapper [ram_memo_blk_mem_gen_prim_wrappe...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_prim_width [ram_memo_blk_mem_gen_prim_width_...]
-Compiling architecture rb36_internal_vhdl_v of entity unisim.RB36_INTERNAL_VHDL [\RB36_INTERNAL_VHDL(doa_reg=1,in...]
-Compiling architecture ramb36e1_v of entity unisim.RAMB36E1 [\RAMB36E1(doa_reg=1,rdaddr_colli...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized0\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized0\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized1\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized1\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized2\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized2\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture rb36_internal_vhdl_v of entity unisim.RB36_INTERNAL_VHDL [\RB36_INTERNAL_VHDL(doa_reg=1,in...]
-Compiling architecture ramb36e1_v of entity unisim.RAMB36E1 [\RAMB36E1(doa_reg=1,rdaddr_colli...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized3\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized3\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized4\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized4\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized5\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized5\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="10000000")(0,7)\]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized6\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized6\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_generic_cstr [ram_memo_blk_mem_gen_generic_cst...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_top [ram_memo_blk_mem_gen_top_default]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_v8_4_1_synth [ram_memo_blk_mem_gen_v8_4_1_synt...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_v8_4_1 [ram_memo_blk_mem_gen_v8_4_1_defa...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo [ram_memo_default]
-Compiling architecture behavioral of entity xil_defaultlib.memo_controller [memo_controller_default]
-Compiling architecture behavioral of entity xil_defaultlib.master_controller [master_controller_default]
-Compiling architecture behavioral of entity xil_defaultlib.main_tb
-Built simulation snapshot main_tb_behav
-run_program: Time (s): cpu = 00:00:01 ; elapsed = 00:00:07 . Memory (MB): peak = 1087.832 ; gain = 0.000
-INFO: [USF-XSim-69] 'elaborate' step finished in '7' seconds
-launch_simulation: Time (s): cpu = 00:00:01 ; elapsed = 00:00:07 . Memory (MB): peak = 1087.832 ; gain = 0.000
-Vivado Simulator 2017.4
-Time resolution is 1 ps
-relaunch_sim: Time (s): cpu = 00:00:01 ; elapsed = 00:00:10 . Memory (MB): peak = 1087.832 ; gain = 0.000
-restart
-INFO: [Simtcl 6-17] Simulation restarted
-run 20 ms
-INFO: [Common 17-41] Interrupt caught. Command should exit soon.
-run: Time (s): cpu = 00:00:06 ; elapsed = 00:00:23 . Memory (MB): peak = 1116.945 ; gain = 0.000
-INFO: [Common 17-344] 'run' was cancelled
-relaunch_sim
-INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
-INFO: [SIM-utils-51] Simulation object is 'sim_1'
-INFO: [USF-XSim-7] Finding pre-compiled libraries...
-INFO: [USF-XSim-11] File 'C:/Xilinx/Vivado/2017.4/data/xsim/ip/xsim_ip.ini' copied to run dir:'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-INFO: [SIM-utils-54] Inspecting design source files for 'main_tb' in fileset 'sim_1'...
-INFO: [USF-XSim-97] Finding global include files...
-INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
-INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
-INFO: [USF-XSim-2] XSim::Compile design
-INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-"xvlog --incr --relax -prj main_tb_vlog.prj"
-"xvhdl --incr --relax -prj main_tb_vhdl.prj"
-INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd" into library xil_defaultlib
-INFO: [VRFC 10-307] analyzing entity master_controller
-INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
-INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
-INFO: [USF-XSim-3] XSim::Elaborate design
-INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-Vivado Simulator 2017.4
-Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto 0c9c3a36965041288ce87ec04c26eca9 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot main_tb_behav xil_defaultlib.main_tb xil_defaultlib.glbl -log elaborate.log 
-Using 2 slave threads.
-Starting static elaboration
-Completed static elaboration
-Starting simulation data flow analysis
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling package std.standard
-Compiling package std.textio
-Compiling package ieee.std_logic_1164
-Compiling package ieee.numeric_std
-Compiling package xil_defaultlib.project_trunk
-Compiling package unisim.vcomponents
-Compiling package ieee.vital_timing
-Compiling package ieee.vital_primitives
-Compiling package unisim.vpkg
-Compiling package ieee.std_logic_arith
-Compiling package ieee.std_logic_signed
-Compiling package ieee.std_logic_textio
-Compiling module xil_defaultlib.glbl
-Compiling architecture behavioral of entity xil_defaultlib.sampling [sampling_default]
-Compiling architecture behavioral of entity xil_defaultlib.shift_register [shift_register_default]
-Compiling architecture gnd_v of entity unisim.GND [gnd_default]
-Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="00000010")(0,7)\]
-Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="01000000")(0,7)\]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_bindec [ram_memo_bindec_default]
-Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="11001100111111111010...]
-Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="10111000")(0,7)\]
-Compiling architecture fdre_v of entity unisim.FDRE [fdre_default]
-Compiling architecture lut4_v of entity unisim.LUT4 [\LUT4(init="1111101100001000")(0...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_mux [ram_memo_blk_mem_gen_mux_default]
-Compiling architecture rb18_internal_vhdl_v of entity unisim.RB18_INTERNAL_VHDL [\RB18_INTERNAL_VHDL(bram_size=18...]
-Compiling architecture ramb18e1_v of entity unisim.RAMB18E1 [\RAMB18E1(doa_reg=1,rdaddr_colli...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_prim_wrapper [ram_memo_blk_mem_gen_prim_wrappe...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_prim_width [ram_memo_blk_mem_gen_prim_width_...]
-Compiling architecture rb36_internal_vhdl_v of entity unisim.RB36_INTERNAL_VHDL [\RB36_INTERNAL_VHDL(doa_reg=1,in...]
-Compiling architecture ramb36e1_v of entity unisim.RAMB36E1 [\RAMB36E1(doa_reg=1,rdaddr_colli...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized0\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized0\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized1\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized1\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized2\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized2\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture rb36_internal_vhdl_v of entity unisim.RB36_INTERNAL_VHDL [\RB36_INTERNAL_VHDL(doa_reg=1,in...]
-Compiling architecture ramb36e1_v of entity unisim.RAMB36E1 [\RAMB36E1(doa_reg=1,rdaddr_colli...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized3\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized3\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized4\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized4\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized5\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized5\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="10000000")(0,7)\]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized6\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized6\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_generic_cstr [ram_memo_blk_mem_gen_generic_cst...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_top [ram_memo_blk_mem_gen_top_default]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_v8_4_1_synth [ram_memo_blk_mem_gen_v8_4_1_synt...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_v8_4_1 [ram_memo_blk_mem_gen_v8_4_1_defa...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo [ram_memo_default]
-Compiling architecture behavioral of entity xil_defaultlib.memo_controller [memo_controller_default]
-Compiling architecture behavioral of entity xil_defaultlib.master_controller [master_controller_default]
-Compiling architecture behavioral of entity xil_defaultlib.main_tb
-Built simulation snapshot main_tb_behav
-run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:07 . Memory (MB): peak = 1116.945 ; gain = 0.000
-INFO: [USF-XSim-69] 'elaborate' step finished in '7' seconds
-launch_simulation: Time (s): cpu = 00:00:00 ; elapsed = 00:00:07 . Memory (MB): peak = 1116.945 ; gain = 0.000
-Vivado Simulator 2017.4
-Time resolution is 1 ps
-relaunch_sim: Time (s): cpu = 00:00:01 ; elapsed = 00:00:12 . Memory (MB): peak = 1116.945 ; gain = 0.000
-restart
-INFO: [Simtcl 6-17] Simulation restarted
-run 20 ms
-run: Time (s): cpu = 00:00:12 ; elapsed = 00:01:31 . Memory (MB): peak = 1116.945 ; gain = 0.000
-save_wave_config {D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sim_1/imports/octave_main/test.wcfg}
-restart
-INFO: [Simtcl 6-17] Simulation restarted
-run 20 ms
-run: Time (s): cpu = 00:00:22 ; elapsed = 00:01:33 . Memory (MB): peak = 1116.945 ; gain = 0.000
-relaunch_sim
-INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
-INFO: [SIM-utils-51] Simulation object is 'sim_1'
-INFO: [USF-XSim-7] Finding pre-compiled libraries...
-INFO: [USF-XSim-11] File 'C:/Xilinx/Vivado/2017.4/data/xsim/ip/xsim_ip.ini' copied to run dir:'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-INFO: [SIM-utils-54] Inspecting design source files for 'main_tb' in fileset 'sim_1'...
-INFO: [USF-XSim-97] Finding global include files...
-INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
-INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
-INFO: [USF-XSim-2] XSim::Compile design
-INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-"xvlog --incr --relax -prj main_tb_vlog.prj"
-"xvhdl --incr --relax -prj main_tb_vhdl.prj"
-INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd" into library xil_defaultlib
-INFO: [VRFC 10-307] analyzing entity master_controller
-INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
-INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
-INFO: [USF-XSim-3] XSim::Elaborate design
-INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-Vivado Simulator 2017.4
-Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto 0c9c3a36965041288ce87ec04c26eca9 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot main_tb_behav xil_defaultlib.main_tb xil_defaultlib.glbl -log elaborate.log 
-Using 2 slave threads.
-Starting static elaboration
-Completed static elaboration
-Starting simulation data flow analysis
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling package std.standard
-Compiling package std.textio
-Compiling package ieee.std_logic_1164
-Compiling package ieee.numeric_std
-Compiling package xil_defaultlib.project_trunk
-Compiling package unisim.vcomponents
-Compiling package ieee.vital_timing
-Compiling package ieee.vital_primitives
-Compiling package unisim.vpkg
-Compiling package ieee.std_logic_arith
-Compiling package ieee.std_logic_signed
-Compiling package ieee.std_logic_textio
-Compiling module xil_defaultlib.glbl
-Compiling architecture behavioral of entity xil_defaultlib.sampling [sampling_default]
-Compiling architecture behavioral of entity xil_defaultlib.shift_register [shift_register_default]
-Compiling architecture gnd_v of entity unisim.GND [gnd_default]
-Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="00000010")(0,7)\]
-Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="01000000")(0,7)\]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_bindec [ram_memo_bindec_default]
-Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="11001100111111111010...]
-Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="10111000")(0,7)\]
-Compiling architecture fdre_v of entity unisim.FDRE [fdre_default]
-Compiling architecture lut4_v of entity unisim.LUT4 [\LUT4(init="1111101100001000")(0...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_mux [ram_memo_blk_mem_gen_mux_default]
-Compiling architecture rb18_internal_vhdl_v of entity unisim.RB18_INTERNAL_VHDL [\RB18_INTERNAL_VHDL(bram_size=18...]
-Compiling architecture ramb18e1_v of entity unisim.RAMB18E1 [\RAMB18E1(doa_reg=1,rdaddr_colli...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_prim_wrapper [ram_memo_blk_mem_gen_prim_wrappe...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_prim_width [ram_memo_blk_mem_gen_prim_width_...]
-Compiling architecture rb36_internal_vhdl_v of entity unisim.RB36_INTERNAL_VHDL [\RB36_INTERNAL_VHDL(doa_reg=1,in...]
-Compiling architecture ramb36e1_v of entity unisim.RAMB36E1 [\RAMB36E1(doa_reg=1,rdaddr_colli...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized0\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized0\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized1\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized1\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized2\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized2\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture rb36_internal_vhdl_v of entity unisim.RB36_INTERNAL_VHDL [\RB36_INTERNAL_VHDL(doa_reg=1,in...]
-Compiling architecture ramb36e1_v of entity unisim.RAMB36E1 [\RAMB36E1(doa_reg=1,rdaddr_colli...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized3\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized3\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized4\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized4\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized5\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized5\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="10000000")(0,7)\]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized6\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized6\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_generic_cstr [ram_memo_blk_mem_gen_generic_cst...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_top [ram_memo_blk_mem_gen_top_default]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_v8_4_1_synth [ram_memo_blk_mem_gen_v8_4_1_synt...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_v8_4_1 [ram_memo_blk_mem_gen_v8_4_1_defa...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo [ram_memo_default]
-Compiling architecture behavioral of entity xil_defaultlib.memo_controller [memo_controller_default]
-Compiling architecture behavioral of entity xil_defaultlib.master_controller [master_controller_default]
-Compiling architecture behavioral of entity xil_defaultlib.main_tb
-Built simulation snapshot main_tb_behav
-run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:07 . Memory (MB): peak = 1116.945 ; gain = 0.000
-INFO: [USF-XSim-69] 'elaborate' step finished in '7' seconds
-launch_simulation: Time (s): cpu = 00:00:00 ; elapsed = 00:00:07 . Memory (MB): peak = 1116.945 ; gain = 0.000
-Vivado Simulator 2017.4
-Time resolution is 1 ps
-relaunch_sim: Time (s): cpu = 00:00:01 ; elapsed = 00:00:12 . Memory (MB): peak = 1116.945 ; gain = 0.000
-restart
-INFO: [Simtcl 6-17] Simulation restarted
-run 20 ms
-run: Time (s): cpu = 00:00:28 ; elapsed = 00:01:36 . Memory (MB): peak = 1116.945 ; gain = 0.000
-save_wave_config {D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sim_1/imports/octave_main/test.wcfg}
-reset_run synth_1
-WARNING: [Vivado 12-1017] Problems encountered:
-1. Failed to delete one or more files in run directory D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1
-
-launch_runs synth_1 -jobs 2
-[Tue Mar 26 17:46:26 2019] Launched synth_1...
-Run output will be captured here: D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/runme.log
-relaunch_sim
-INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
-INFO: [SIM-utils-51] Simulation object is 'sim_1'
-INFO: [USF-XSim-7] Finding pre-compiled libraries...
-INFO: [USF-XSim-11] File 'C:/Xilinx/Vivado/2017.4/data/xsim/ip/xsim_ip.ini' copied to run dir:'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-INFO: [SIM-utils-54] Inspecting design source files for 'main_tb' in fileset 'sim_1'...
-INFO: [USF-XSim-97] Finding global include files...
-INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
-INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
-INFO: [USF-XSim-2] XSim::Compile design
-INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-"xvlog --incr --relax -prj main_tb_vlog.prj"
-"xvhdl --incr --relax -prj main_tb_vhdl.prj"
-INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd" into library xil_defaultlib
-INFO: [VRFC 10-307] analyzing entity master_controller
-INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
-INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
-INFO: [USF-XSim-3] XSim::Elaborate design
-INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-Vivado Simulator 2017.4
-Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto 0c9c3a36965041288ce87ec04c26eca9 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot main_tb_behav xil_defaultlib.main_tb xil_defaultlib.glbl -log elaborate.log 
-Using 2 slave threads.
-Starting static elaboration
-Completed static elaboration
-Starting simulation data flow analysis
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling package std.standard
-Compiling package std.textio
-Compiling package ieee.std_logic_1164
-Compiling package ieee.numeric_std
-Compiling package xil_defaultlib.project_trunk
-Compiling package unisim.vcomponents
-Compiling package ieee.vital_timing
-Compiling package ieee.vital_primitives
-Compiling package unisim.vpkg
-Compiling package ieee.std_logic_arith
-Compiling package ieee.std_logic_signed
-Compiling package ieee.std_logic_textio
-Compiling module xil_defaultlib.glbl
-Compiling architecture behavioral of entity xil_defaultlib.sampling [sampling_default]
-Compiling architecture behavioral of entity xil_defaultlib.shift_register [shift_register_default]
-Compiling architecture gnd_v of entity unisim.GND [gnd_default]
-Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="00000010")(0,7)\]
-Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="01000000")(0,7)\]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_bindec [ram_memo_bindec_default]
-Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="11001100111111111010...]
-Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="10111000")(0,7)\]
-Compiling architecture fdre_v of entity unisim.FDRE [fdre_default]
-Compiling architecture lut4_v of entity unisim.LUT4 [\LUT4(init="1111101100001000")(0...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_mux [ram_memo_blk_mem_gen_mux_default]
-Compiling architecture rb18_internal_vhdl_v of entity unisim.RB18_INTERNAL_VHDL [\RB18_INTERNAL_VHDL(bram_size=18...]
-Compiling architecture ramb18e1_v of entity unisim.RAMB18E1 [\RAMB18E1(doa_reg=1,rdaddr_colli...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_prim_wrapper [ram_memo_blk_mem_gen_prim_wrappe...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_prim_width [ram_memo_blk_mem_gen_prim_width_...]
-Compiling architecture rb36_internal_vhdl_v of entity unisim.RB36_INTERNAL_VHDL [\RB36_INTERNAL_VHDL(doa_reg=1,in...]
-Compiling architecture ramb36e1_v of entity unisim.RAMB36E1 [\RAMB36E1(doa_reg=1,rdaddr_colli...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized0\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized0\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized1\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized1\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized2\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized2\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture rb36_internal_vhdl_v of entity unisim.RB36_INTERNAL_VHDL [\RB36_INTERNAL_VHDL(doa_reg=1,in...]
-Compiling architecture ramb36e1_v of entity unisim.RAMB36E1 [\RAMB36E1(doa_reg=1,rdaddr_colli...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized3\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized3\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized4\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized4\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized5\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized5\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="10000000")(0,7)\]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized6\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized6\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_generic_cstr [ram_memo_blk_mem_gen_generic_cst...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_top [ram_memo_blk_mem_gen_top_default]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_v8_4_1_synth [ram_memo_blk_mem_gen_v8_4_1_synt...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_v8_4_1 [ram_memo_blk_mem_gen_v8_4_1_defa...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo [ram_memo_default]
-Compiling architecture behavioral of entity xil_defaultlib.memo_controller [memo_controller_default]
-Compiling architecture behavioral of entity xil_defaultlib.master_controller [master_controller_default]
-Compiling architecture behavioral of entity xil_defaultlib.main_tb
-Built simulation snapshot main_tb_behav
-
-****** Webtalk v2017.4 (64-bit)
-  **** SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
-  **** IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
-    ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
-
-source D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim/xsim.dir/main_tb_behav/webtalk/xsim_webtalk.tcl -notrace
-INFO: [Common 17-206] Exiting Webtalk at Tue Mar 26 18:07:37 2019...
-run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:08 . Memory (MB): peak = 1116.945 ; gain = 0.000
-INFO: [USF-XSim-69] 'elaborate' step finished in '8' seconds
-launch_simulation: Time (s): cpu = 00:00:00 ; elapsed = 00:00:09 . Memory (MB): peak = 1116.945 ; gain = 0.000
-Vivado Simulator 2017.4
-Time resolution is 1 ps
-relaunch_sim: Time (s): cpu = 00:00:02 ; elapsed = 00:00:15 . Memory (MB): peak = 1116.945 ; gain = 0.000
-restart
-INFO: [Simtcl 6-17] Simulation restarted
-run 20 ms
-run: Time (s): cpu = 00:00:16 ; elapsed = 00:01:32 . Memory (MB): peak = 1116.945 ; gain = 0.000
-relaunch_sim
-INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
-INFO: [SIM-utils-51] Simulation object is 'sim_1'
-INFO: [USF-XSim-7] Finding pre-compiled libraries...
-INFO: [USF-XSim-11] File 'C:/Xilinx/Vivado/2017.4/data/xsim/ip/xsim_ip.ini' copied to run dir:'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-INFO: [SIM-utils-54] Inspecting design source files for 'main_tb' in fileset 'sim_1'...
-INFO: [USF-XSim-97] Finding global include files...
-INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
-INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
-INFO: [USF-XSim-2] XSim::Compile design
-INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-"xvlog --incr --relax -prj main_tb_vlog.prj"
-"xvhdl --incr --relax -prj main_tb_vhdl.prj"
-INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd" into library xil_defaultlib
-INFO: [VRFC 10-307] analyzing entity master_controller
-INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
-INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
-INFO: [USF-XSim-3] XSim::Elaborate design
-INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-Vivado Simulator 2017.4
-Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto 0c9c3a36965041288ce87ec04c26eca9 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot main_tb_behav xil_defaultlib.main_tb xil_defaultlib.glbl -log elaborate.log 
-Using 2 slave threads.
-Starting static elaboration
-Completed static elaboration
-Starting simulation data flow analysis
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling package std.standard
-Compiling package std.textio
-Compiling package ieee.std_logic_1164
-Compiling package ieee.numeric_std
-Compiling package xil_defaultlib.project_trunk
-Compiling package unisim.vcomponents
-Compiling package ieee.vital_timing
-Compiling package ieee.vital_primitives
-Compiling package unisim.vpkg
-Compiling package ieee.std_logic_arith
-Compiling package ieee.std_logic_signed
-Compiling package ieee.std_logic_textio
-Compiling module xil_defaultlib.glbl
-Compiling architecture behavioral of entity xil_defaultlib.sampling [sampling_default]
-Compiling architecture behavioral of entity xil_defaultlib.shift_register [shift_register_default]
-Compiling architecture gnd_v of entity unisim.GND [gnd_default]
-Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="00000010")(0,7)\]
-Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="01000000")(0,7)\]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_bindec [ram_memo_bindec_default]
-Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="11001100111111111010...]
-Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="10111000")(0,7)\]
-Compiling architecture fdre_v of entity unisim.FDRE [fdre_default]
-Compiling architecture lut4_v of entity unisim.LUT4 [\LUT4(init="1111101100001000")(0...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_mux [ram_memo_blk_mem_gen_mux_default]
-Compiling architecture rb18_internal_vhdl_v of entity unisim.RB18_INTERNAL_VHDL [\RB18_INTERNAL_VHDL(bram_size=18...]
-Compiling architecture ramb18e1_v of entity unisim.RAMB18E1 [\RAMB18E1(doa_reg=1,rdaddr_colli...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_prim_wrapper [ram_memo_blk_mem_gen_prim_wrappe...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_prim_width [ram_memo_blk_mem_gen_prim_width_...]
-Compiling architecture rb36_internal_vhdl_v of entity unisim.RB36_INTERNAL_VHDL [\RB36_INTERNAL_VHDL(doa_reg=1,in...]
-Compiling architecture ramb36e1_v of entity unisim.RAMB36E1 [\RAMB36E1(doa_reg=1,rdaddr_colli...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized0\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized0\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized1\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized1\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized2\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized2\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture rb36_internal_vhdl_v of entity unisim.RB36_INTERNAL_VHDL [\RB36_INTERNAL_VHDL(doa_reg=1,in...]
-Compiling architecture ramb36e1_v of entity unisim.RAMB36E1 [\RAMB36E1(doa_reg=1,rdaddr_colli...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized3\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized3\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized4\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized4\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized5\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized5\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="10000000")(0,7)\]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized6\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized6\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_generic_cstr [ram_memo_blk_mem_gen_generic_cst...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_top [ram_memo_blk_mem_gen_top_default]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_v8_4_1_synth [ram_memo_blk_mem_gen_v8_4_1_synt...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_v8_4_1 [ram_memo_blk_mem_gen_v8_4_1_defa...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo [ram_memo_default]
-Compiling architecture behavioral of entity xil_defaultlib.memo_controller [memo_controller_default]
-Compiling architecture behavioral of entity xil_defaultlib.master_controller [master_controller_default]
-Compiling architecture behavioral of entity xil_defaultlib.main_tb
-Built simulation snapshot main_tb_behav
-run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:07 . Memory (MB): peak = 1116.945 ; gain = 0.000
-INFO: [USF-XSim-69] 'elaborate' step finished in '7' seconds
-launch_simulation: Time (s): cpu = 00:00:00 ; elapsed = 00:00:07 . Memory (MB): peak = 1116.945 ; gain = 0.000
-Vivado Simulator 2017.4
-Time resolution is 1 ps
-relaunch_sim: Time (s): cpu = 00:00:01 ; elapsed = 00:00:12 . Memory (MB): peak = 1116.945 ; gain = 0.000
-restart
-INFO: [Simtcl 6-17] Simulation restarted
-run 20 ms
-run: Time (s): cpu = 00:00:19 ; elapsed = 00:01:34 . Memory (MB): peak = 1116.945 ; gain = 0.000
-restart
-INFO: [Simtcl 6-17] Simulation restarted
-run 20 ms
-run: Time (s): cpu = 00:00:18 ; elapsed = 00:01:33 . Memory (MB): peak = 1121.270 ; gain = 4.324
-relaunch_sim
-INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
-INFO: [SIM-utils-51] Simulation object is 'sim_1'
-INFO: [USF-XSim-7] Finding pre-compiled libraries...
-INFO: [USF-XSim-11] File 'C:/Xilinx/Vivado/2017.4/data/xsim/ip/xsim_ip.ini' copied to run dir:'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-INFO: [SIM-utils-54] Inspecting design source files for 'main_tb' in fileset 'sim_1'...
-INFO: [USF-XSim-97] Finding global include files...
-INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
-INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
-INFO: [USF-XSim-2] XSim::Compile design
-INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-"xvlog --incr --relax -prj main_tb_vlog.prj"
-"xvhdl --incr --relax -prj main_tb_vhdl.prj"
-INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd" into library xil_defaultlib
-INFO: [VRFC 10-307] analyzing entity master_controller
-INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
-INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
-INFO: [USF-XSim-3] XSim::Elaborate design
-INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-Vivado Simulator 2017.4
-Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto 0c9c3a36965041288ce87ec04c26eca9 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot main_tb_behav xil_defaultlib.main_tb xil_defaultlib.glbl -log elaborate.log 
-Using 2 slave threads.
-Starting static elaboration
-Completed static elaboration
-Starting simulation data flow analysis
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling package std.standard
-Compiling package std.textio
-Compiling package ieee.std_logic_1164
-Compiling package ieee.numeric_std
-Compiling package xil_defaultlib.project_trunk
-Compiling package unisim.vcomponents
-Compiling package ieee.vital_timing
-Compiling package ieee.vital_primitives
-Compiling package unisim.vpkg
-Compiling package ieee.std_logic_arith
-Compiling package ieee.std_logic_signed
-Compiling package ieee.std_logic_textio
-Compiling module xil_defaultlib.glbl
-Compiling architecture behavioral of entity xil_defaultlib.sampling [sampling_default]
-Compiling architecture behavioral of entity xil_defaultlib.shift_register [shift_register_default]
-Compiling architecture gnd_v of entity unisim.GND [gnd_default]
-Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="00000010")(0,7)\]
-Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="01000000")(0,7)\]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_bindec [ram_memo_bindec_default]
-Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="11001100111111111010...]
-Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="10111000")(0,7)\]
-Compiling architecture fdre_v of entity unisim.FDRE [fdre_default]
-Compiling architecture lut4_v of entity unisim.LUT4 [\LUT4(init="1111101100001000")(0...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_mux [ram_memo_blk_mem_gen_mux_default]
-Compiling architecture rb18_internal_vhdl_v of entity unisim.RB18_INTERNAL_VHDL [\RB18_INTERNAL_VHDL(bram_size=18...]
-Compiling architecture ramb18e1_v of entity unisim.RAMB18E1 [\RAMB18E1(doa_reg=1,rdaddr_colli...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_prim_wrapper [ram_memo_blk_mem_gen_prim_wrappe...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_prim_width [ram_memo_blk_mem_gen_prim_width_...]
-Compiling architecture rb36_internal_vhdl_v of entity unisim.RB36_INTERNAL_VHDL [\RB36_INTERNAL_VHDL(doa_reg=1,in...]
-Compiling architecture ramb36e1_v of entity unisim.RAMB36E1 [\RAMB36E1(doa_reg=1,rdaddr_colli...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized0\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized0\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized1\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized1\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized2\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized2\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture rb36_internal_vhdl_v of entity unisim.RB36_INTERNAL_VHDL [\RB36_INTERNAL_VHDL(doa_reg=1,in...]
-Compiling architecture ramb36e1_v of entity unisim.RAMB36E1 [\RAMB36E1(doa_reg=1,rdaddr_colli...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized3\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized3\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized4\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized4\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized5\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized5\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="10000000")(0,7)\]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized6\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized6\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_generic_cstr [ram_memo_blk_mem_gen_generic_cst...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_top [ram_memo_blk_mem_gen_top_default]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_v8_4_1_synth [ram_memo_blk_mem_gen_v8_4_1_synt...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_v8_4_1 [ram_memo_blk_mem_gen_v8_4_1_defa...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo [ram_memo_default]
-Compiling architecture behavioral of entity xil_defaultlib.memo_controller [memo_controller_default]
-Compiling architecture behavioral of entity xil_defaultlib.master_controller [master_controller_default]
-Compiling architecture behavioral of entity xil_defaultlib.main_tb
-Built simulation snapshot main_tb_behav
-run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:07 . Memory (MB): peak = 1121.270 ; gain = 0.000
-INFO: [USF-XSim-69] 'elaborate' step finished in '6' seconds
-launch_simulation: Time (s): cpu = 00:00:00 ; elapsed = 00:00:07 . Memory (MB): peak = 1121.270 ; gain = 0.000
-Vivado Simulator 2017.4
-Time resolution is 1 ps
-relaunch_sim: Time (s): cpu = 00:00:01 ; elapsed = 00:00:11 . Memory (MB): peak = 1121.270 ; gain = 0.000
-restart
-INFO: [Simtcl 6-17] Simulation restarted
-run 20 ms
-run: Time (s): cpu = 00:00:21 ; elapsed = 00:01:34 . Memory (MB): peak = 1125.750 ; gain = 4.480
-save_wave_config {D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sim_1/imports/octave_main/test.wcfg}
-relaunch_sim
-INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
-INFO: [SIM-utils-51] Simulation object is 'sim_1'
-INFO: [USF-XSim-7] Finding pre-compiled libraries...
-INFO: [USF-XSim-11] File 'C:/Xilinx/Vivado/2017.4/data/xsim/ip/xsim_ip.ini' copied to run dir:'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-INFO: [SIM-utils-54] Inspecting design source files for 'main_tb' in fileset 'sim_1'...
-INFO: [USF-XSim-97] Finding global include files...
-INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
-INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
-INFO: [USF-XSim-2] XSim::Compile design
-INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-"xvlog --incr --relax -prj main_tb_vlog.prj"
-"xvhdl --incr --relax -prj main_tb_vhdl.prj"
-INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd" into library xil_defaultlib
-INFO: [VRFC 10-307] analyzing entity master_controller
-INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
-INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
-INFO: [USF-XSim-3] XSim::Elaborate design
-INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-Vivado Simulator 2017.4
-Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto 0c9c3a36965041288ce87ec04c26eca9 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot main_tb_behav xil_defaultlib.main_tb xil_defaultlib.glbl -log elaborate.log 
-Using 2 slave threads.
-Starting static elaboration
-Completed static elaboration
-Starting simulation data flow analysis
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling package std.standard
-Compiling package std.textio
-Compiling package ieee.std_logic_1164
-Compiling package ieee.numeric_std
-Compiling package xil_defaultlib.project_trunk
-Compiling package unisim.vcomponents
-Compiling package ieee.vital_timing
-Compiling package ieee.vital_primitives
-Compiling package unisim.vpkg
-Compiling package ieee.std_logic_arith
-Compiling package ieee.std_logic_signed
-Compiling package ieee.std_logic_textio
-Compiling module xil_defaultlib.glbl
-Compiling architecture behavioral of entity xil_defaultlib.sampling [sampling_default]
-Compiling architecture behavioral of entity xil_defaultlib.shift_register [shift_register_default]
-Compiling architecture gnd_v of entity unisim.GND [gnd_default]
-Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="00000010")(0,7)\]
-Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="01000000")(0,7)\]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_bindec [ram_memo_bindec_default]
-Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="11001100111111111010...]
-Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="10111000")(0,7)\]
-Compiling architecture fdre_v of entity unisim.FDRE [fdre_default]
-Compiling architecture lut4_v of entity unisim.LUT4 [\LUT4(init="1111101100001000")(0...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_mux [ram_memo_blk_mem_gen_mux_default]
-Compiling architecture rb18_internal_vhdl_v of entity unisim.RB18_INTERNAL_VHDL [\RB18_INTERNAL_VHDL(bram_size=18...]
-Compiling architecture ramb18e1_v of entity unisim.RAMB18E1 [\RAMB18E1(doa_reg=1,rdaddr_colli...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_prim_wrapper [ram_memo_blk_mem_gen_prim_wrappe...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_prim_width [ram_memo_blk_mem_gen_prim_width_...]
-Compiling architecture rb36_internal_vhdl_v of entity unisim.RB36_INTERNAL_VHDL [\RB36_INTERNAL_VHDL(doa_reg=1,in...]
-Compiling architecture ramb36e1_v of entity unisim.RAMB36E1 [\RAMB36E1(doa_reg=1,rdaddr_colli...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized0\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized0\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized1\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized1\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized2\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized2\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture rb36_internal_vhdl_v of entity unisim.RB36_INTERNAL_VHDL [\RB36_INTERNAL_VHDL(doa_reg=1,in...]
-Compiling architecture ramb36e1_v of entity unisim.RAMB36E1 [\RAMB36E1(doa_reg=1,rdaddr_colli...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized3\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized3\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized4\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized4\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized5\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized5\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="10000000")(0,7)\]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized6\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized6\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_generic_cstr [ram_memo_blk_mem_gen_generic_cst...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_top [ram_memo_blk_mem_gen_top_default]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_v8_4_1_synth [ram_memo_blk_mem_gen_v8_4_1_synt...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_v8_4_1 [ram_memo_blk_mem_gen_v8_4_1_defa...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo [ram_memo_default]
-Compiling architecture behavioral of entity xil_defaultlib.memo_controller [memo_controller_default]
-Compiling architecture behavioral of entity xil_defaultlib.master_controller [master_controller_default]
-Compiling architecture behavioral of entity xil_defaultlib.main_tb
-Built simulation snapshot main_tb_behav
-run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:07 . Memory (MB): peak = 1125.750 ; gain = 0.000
-INFO: [USF-XSim-69] 'elaborate' step finished in '7' seconds
-launch_simulation: Time (s): cpu = 00:00:00 ; elapsed = 00:00:07 . Memory (MB): peak = 1125.750 ; gain = 0.000
-Vivado Simulator 2017.4
-Time resolution is 1 ps
-relaunch_sim: Time (s): cpu = 00:00:01 ; elapsed = 00:00:11 . Memory (MB): peak = 1125.750 ; gain = 0.000
-restart
-INFO: [Simtcl 6-17] Simulation restarted
-run 20 ms
-run: Time (s): cpu = 00:00:20 ; elapsed = 00:01:35 . Memory (MB): peak = 1125.750 ; gain = 0.000
-save_wave_config {D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sim_1/imports/octave_main/test.wcfg}
-relaunch_sim
-INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
-INFO: [SIM-utils-51] Simulation object is 'sim_1'
-INFO: [USF-XSim-7] Finding pre-compiled libraries...
-INFO: [USF-XSim-11] File 'C:/Xilinx/Vivado/2017.4/data/xsim/ip/xsim_ip.ini' copied to run dir:'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-INFO: [SIM-utils-54] Inspecting design source files for 'main_tb' in fileset 'sim_1'...
-INFO: [USF-XSim-97] Finding global include files...
-INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
-INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
-INFO: [USF-XSim-2] XSim::Compile design
-INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-"xvlog --incr --relax -prj main_tb_vlog.prj"
-"xvhdl --incr --relax -prj main_tb_vhdl.prj"
-INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd" into library xil_defaultlib
-INFO: [VRFC 10-307] analyzing entity master_controller
-INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
-INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
-INFO: [USF-XSim-3] XSim::Elaborate design
-INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-Vivado Simulator 2017.4
-Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto 0c9c3a36965041288ce87ec04c26eca9 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot main_tb_behav xil_defaultlib.main_tb xil_defaultlib.glbl -log elaborate.log 
-Using 2 slave threads.
-Starting static elaboration
-Completed static elaboration
-Starting simulation data flow analysis
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling package std.standard
-Compiling package std.textio
-Compiling package ieee.std_logic_1164
-Compiling package ieee.numeric_std
-Compiling package xil_defaultlib.project_trunk
-Compiling package unisim.vcomponents
-Compiling package ieee.vital_timing
-Compiling package ieee.vital_primitives
-Compiling package unisim.vpkg
-Compiling package ieee.std_logic_arith
-Compiling package ieee.std_logic_signed
-Compiling package ieee.std_logic_textio
-Compiling module xil_defaultlib.glbl
-Compiling architecture behavioral of entity xil_defaultlib.sampling [sampling_default]
-Compiling architecture behavioral of entity xil_defaultlib.shift_register [shift_register_default]
-Compiling architecture gnd_v of entity unisim.GND [gnd_default]
-Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="00000010")(0,7)\]
-Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="01000000")(0,7)\]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_bindec [ram_memo_bindec_default]
-Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="11001100111111111010...]
-Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="10111000")(0,7)\]
-Compiling architecture fdre_v of entity unisim.FDRE [fdre_default]
-Compiling architecture lut4_v of entity unisim.LUT4 [\LUT4(init="1111101100001000")(0...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_mux [ram_memo_blk_mem_gen_mux_default]
-Compiling architecture rb18_internal_vhdl_v of entity unisim.RB18_INTERNAL_VHDL [\RB18_INTERNAL_VHDL(bram_size=18...]
-Compiling architecture ramb18e1_v of entity unisim.RAMB18E1 [\RAMB18E1(doa_reg=1,rdaddr_colli...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_prim_wrapper [ram_memo_blk_mem_gen_prim_wrappe...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_prim_width [ram_memo_blk_mem_gen_prim_width_...]
-Compiling architecture rb36_internal_vhdl_v of entity unisim.RB36_INTERNAL_VHDL [\RB36_INTERNAL_VHDL(doa_reg=1,in...]
-Compiling architecture ramb36e1_v of entity unisim.RAMB36E1 [\RAMB36E1(doa_reg=1,rdaddr_colli...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized0\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized0\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized1\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized1\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized2\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized2\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture rb36_internal_vhdl_v of entity unisim.RB36_INTERNAL_VHDL [\RB36_INTERNAL_VHDL(doa_reg=1,in...]
-Compiling architecture ramb36e1_v of entity unisim.RAMB36E1 [\RAMB36E1(doa_reg=1,rdaddr_colli...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized3\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized3\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized4\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized4\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized5\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized5\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="10000000")(0,7)\]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized6\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized6\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_generic_cstr [ram_memo_blk_mem_gen_generic_cst...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_top [ram_memo_blk_mem_gen_top_default]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_v8_4_1_synth [ram_memo_blk_mem_gen_v8_4_1_synt...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_v8_4_1 [ram_memo_blk_mem_gen_v8_4_1_defa...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo [ram_memo_default]
-Compiling architecture behavioral of entity xil_defaultlib.memo_controller [memo_controller_default]
-Compiling architecture behavioral of entity xil_defaultlib.master_controller [master_controller_default]
-Compiling architecture behavioral of entity xil_defaultlib.main_tb
-Built simulation snapshot main_tb_behav
-run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:07 . Memory (MB): peak = 1125.750 ; gain = 0.000
-INFO: [USF-XSim-69] 'elaborate' step finished in '7' seconds
-launch_simulation: Time (s): cpu = 00:00:00 ; elapsed = 00:00:07 . Memory (MB): peak = 1125.750 ; gain = 0.000
-Vivado Simulator 2017.4
-Time resolution is 1 ps
-relaunch_sim: Time (s): cpu = 00:00:01 ; elapsed = 00:00:11 . Memory (MB): peak = 1125.750 ; gain = 0.000
-restart
-INFO: [Simtcl 6-17] Simulation restarted
-run 20 ms
-run: Time (s): cpu = 00:00:18 ; elapsed = 00:01:34 . Memory (MB): peak = 1125.750 ; gain = 0.000
-reset_run synth_1
-WARNING: [Vivado 12-1017] Problems encountered:
-1. Failed to delete one or more files in run directory D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1
-
-launch_runs synth_1 -jobs 2
-[Tue Mar 26 19:16:46 2019] Launched synth_1...
-Run output will be captured here: D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/runme.log
-reset_run synth_1
-WARNING: [Vivado 12-1017] Problems encountered:
-1. Failed to delete one or more files in run directory D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1
-
-launch_runs synth_1 -jobs 2
-[Tue Mar 26 19:21:10 2019] Launched synth_1...
-Run output will be captured here: D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/runme.log
-reset_run synth_1
-WARNING: [Vivado 12-1017] Problems encountered:
-1. Failed to delete one or more files in run directory D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1
-
-launch_runs synth_1 -jobs 2
-[Tue Mar 26 19:21:43 2019] Launched synth_1...
-Run output will be captured here: D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/runme.log
-relaunch_sim
-INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
-INFO: [SIM-utils-51] Simulation object is 'sim_1'
-INFO: [USF-XSim-7] Finding pre-compiled libraries...
-INFO: [USF-XSim-11] File 'C:/Xilinx/Vivado/2017.4/data/xsim/ip/xsim_ip.ini' copied to run dir:'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-INFO: [SIM-utils-54] Inspecting design source files for 'main_tb' in fileset 'sim_1'...
-INFO: [USF-XSim-97] Finding global include files...
-INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
-INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
-INFO: [USF-XSim-2] XSim::Compile design
-INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-"xvlog --incr --relax -prj main_tb_vlog.prj"
-"xvhdl --incr --relax -prj main_tb_vhdl.prj"
-INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd" into library xil_defaultlib
-INFO: [VRFC 10-307] analyzing entity master_controller
-INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
-INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
-INFO: [USF-XSim-3] XSim::Elaborate design
-INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
-Vivado Simulator 2017.4
-Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto 0c9c3a36965041288ce87ec04c26eca9 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot main_tb_behav xil_defaultlib.main_tb xil_defaultlib.glbl -log elaborate.log 
-Using 2 slave threads.
-Starting static elaboration
-Completed static elaboration
-Starting simulation data flow analysis
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling package std.standard
-Compiling package std.textio
-Compiling package ieee.std_logic_1164
-Compiling package ieee.numeric_std
-Compiling package xil_defaultlib.project_trunk
-Compiling package unisim.vcomponents
-Compiling package ieee.vital_timing
-Compiling package ieee.vital_primitives
-Compiling package unisim.vpkg
-Compiling package ieee.std_logic_arith
-Compiling package ieee.std_logic_signed
-Compiling package ieee.std_logic_textio
-Compiling module xil_defaultlib.glbl
-Compiling architecture behavioral of entity xil_defaultlib.sampling [sampling_default]
-Compiling architecture behavioral of entity xil_defaultlib.shift_register [shift_register_default]
-Compiling architecture gnd_v of entity unisim.GND [gnd_default]
-Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="00000010")(0,7)\]
-Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="01000000")(0,7)\]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_bindec [ram_memo_bindec_default]
-Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="11001100111111111010...]
-Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="10111000")(0,7)\]
-Compiling architecture fdre_v of entity unisim.FDRE [fdre_default]
-Compiling architecture lut4_v of entity unisim.LUT4 [\LUT4(init="1111101100001000")(0...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_mux [ram_memo_blk_mem_gen_mux_default]
-Compiling architecture rb18_internal_vhdl_v of entity unisim.RB18_INTERNAL_VHDL [\RB18_INTERNAL_VHDL(bram_size=18...]
-Compiling architecture ramb18e1_v of entity unisim.RAMB18E1 [\RAMB18E1(doa_reg=1,rdaddr_colli...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_prim_wrapper [ram_memo_blk_mem_gen_prim_wrappe...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_prim_width [ram_memo_blk_mem_gen_prim_width_...]
-Compiling architecture rb36_internal_vhdl_v of entity unisim.RB36_INTERNAL_VHDL [\RB36_INTERNAL_VHDL(doa_reg=1,in...]
-Compiling architecture ramb36e1_v of entity unisim.RAMB36E1 [\RAMB36E1(doa_reg=1,rdaddr_colli...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized0\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized0\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized1\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized1\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized2\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized2\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture rb36_internal_vhdl_v of entity unisim.RB36_INTERNAL_VHDL [\RB36_INTERNAL_VHDL(doa_reg=1,in...]
-Compiling architecture ramb36e1_v of entity unisim.RAMB36E1 [\RAMB36E1(doa_reg=1,rdaddr_colli...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized3\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized3\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized4\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized4\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized5\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized5\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="10000000")(0,7)\]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_wrapper__parameterized6\ [\ram_memo_blk_mem_gen_prim_wrapp...]
-Compiling architecture structure of entity xil_defaultlib.\ram_memo_blk_mem_gen_prim_width__parameterized6\ [\ram_memo_blk_mem_gen_prim_width...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_generic_cstr [ram_memo_blk_mem_gen_generic_cst...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_top [ram_memo_blk_mem_gen_top_default]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_v8_4_1_synth [ram_memo_blk_mem_gen_v8_4_1_synt...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_v8_4_1 [ram_memo_blk_mem_gen_v8_4_1_defa...]
-Compiling architecture structure of entity xil_defaultlib.ram_memo [ram_memo_default]
-Compiling architecture behavioral of entity xil_defaultlib.memo_controller [memo_controller_default]
-Compiling architecture behavioral of entity xil_defaultlib.master_controller [master_controller_default]
-Compiling architecture behavioral of entity xil_defaultlib.main_tb
-Built simulation snapshot main_tb_behav
-run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:07 . Memory (MB): peak = 1130.016 ; gain = 0.000
-INFO: [USF-XSim-69] 'elaborate' step finished in '7' seconds
-launch_simulation: Time (s): cpu = 00:00:00 ; elapsed = 00:00:07 . Memory (MB): peak = 1130.016 ; gain = 0.000
-Vivado Simulator 2017.4
-Time resolution is 1 ps
-relaunch_sim: Time (s): cpu = 00:00:01 ; elapsed = 00:00:12 . Memory (MB): peak = 1130.016 ; gain = 0.000
-restart
-INFO: [Simtcl 6-17] Simulation restarted
-run 20 ms
-run: Time (s): cpu = 00:00:15 ; elapsed = 00:01:33 . Memory (MB): peak = 1130.016 ; gain = 0.000
-save_wave_config {D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sim_1/imports/octave_main/test.wcfg}
-reset_run synth_1
-WARNING: [Vivado 12-1017] Problems encountered:
-1. Failed to delete one or more files in run directory D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1
-
-launch_runs impl_1 -to_step write_bitstream -jobs 2
-[Tue Mar 26 19:29:55 2019] Launched synth_1...
-Run output will be captured here: D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/runme.log
-[Tue Mar 26 19:29:55 2019] Launched impl_1...
-Run output will be captured here: D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/impl_1/runme.log
-reset_run synth_1
-WARNING: [Vivado 12-1017] Problems encountered:
-1. Failed to delete one or more files in run directory D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1
-
-launch_runs impl_1 -to_step write_bitstream -jobs 2
-[Tue Mar 26 19:32:51 2019] Launched synth_1...
-Run output will be captured here: D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/runme.log
-[Tue Mar 26 19:32:51 2019] Launched impl_1...
-Run output will be captured here: D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/impl_1/runme.log
 close_sim
 INFO: [Simtcl 6-16] Simulation closed
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+[Sat Mar 30 12:06:24 2019] Launched synth_1...
+Run output will be captured here: D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Sat Mar 30 12:38:55 2019] Launched synth_1...
+Run output will be captured here: D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/runme.log
+[Sat Mar 30 12:38:55 2019] Launched impl_1...
+Run output will be captured here: D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/impl_1/runme.log
+open_hw
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2017.4
+  **** Build date : Dec 15 2017-21:08:27
+    ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+
+
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210292AA76C7A
+set_property PROGRAM.FILE {D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/impl_1/fsm_global.bit} [get_hw_devices xc7a100t_0]
+current_hw_device [get_hw_devices xc7a100t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a100t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/impl_1/fsm_global.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Sat Mar 30 12:49:24 2019] Launched synth_1...
+Run output will be captured here: D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/runme.log
+[Sat Mar 30 12:49:24 2019] Launched impl_1...
+Run output will be captured here: D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/impl_1/fsm_global.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Sat Mar 30 13:21:49 2019] Launched synth_1...
+Run output will be captured here: D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/runme.log
+[Sat Mar 30 13:21:49 2019] Launched impl_1...
+Run output will be captured here: D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/impl_1/runme.log
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Sat Mar 30 13:22:57 2019] Launched synth_1...
+Run output will be captured here: D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/runme.log
+[Sat Mar 30 13:22:57 2019] Launched impl_1...
+Run output will be captured here: D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/impl_1/fsm_global.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
 exit
-INFO: [Common 17-206] Exiting Vivado at Tue Mar 26 19:35:28 2019...
+INFO: [Common 17-206] Exiting Vivado at Sat Mar 30 13:35:57 2019...

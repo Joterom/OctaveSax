@@ -106,3 +106,4 @@
 5.2 Implementacion de lectura y escritura en el bufer 1
 5.3 Implementacion de lectura y escritura en ambos buffer FUNCIONAL <--
 5.4 Principio de enventanado con las ROM
+5.5 Enventanado completado y FUNCIONAL, pero no lo parece por el audio

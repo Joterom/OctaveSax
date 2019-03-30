@@ -1,8 +1,8 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------
-| Tool Version     : Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
-| Date             : Thu Mar 28 16:37:49 2019
-| Host             : vhdl-2018 running 64-bit Ubuntu 18.04.1 LTS
+| Tool Version     : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
+| Date             : Sat Mar 30 13:25:18 2019
+| Host             : DESKTOP-DR3C0JT running 64-bit major release  (build 9200)
 | Command          : report_power -file fsm_global_power_routed.rpt -pb fsm_global_power_summary_routed.pb -rpx fsm_global_power_routed.rpx
 | Design           : fsm_global
 | Device           : xc7a100tcsg324-1
@@ -53,14 +53,16 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |     0.004 |       10 |       --- |             --- |
-| Slice Logic    |    <0.001 |      729 |       --- |             --- |
-|   LUT as Logic |    <0.001 |      299 |     63400 |            0.47 |
-|   CARRY4       |    <0.001 |       35 |     15850 |            0.22 |
-|   Register     |    <0.001 |      279 |    126800 |            0.22 |
-|   Others       |     0.000 |       61 |       --- |             --- |
-| Signals        |    <0.001 |      597 |       --- |             --- |
+| Slice Logic    |    <0.001 |     1124 |       --- |             --- |
+|   LUT as Logic |    <0.001 |      528 |     63400 |            0.83 |
+|   CARRY4       |    <0.001 |       25 |     15850 |            0.16 |
+|   Register     |    <0.001 |      333 |    126800 |            0.26 |
+|   F7/F8 Muxes  |    <0.001 |      127 |     63400 |            0.20 |
+|   Others       |     0.000 |       65 |       --- |             --- |
+| Signals        |    <0.001 |      730 |       --- |             --- |
 | Block RAM      |    <0.001 |       15 |       135 |           11.11 |
 | MMCM           |     0.106 |        1 |         6 |           16.67 |
+| DSPs           |    <0.001 |        1 |       240 |            0.42 |
 | I/O            |     0.015 |       26 |       210 |           12.38 |
 | Static Power   |     0.098 |          |           |                 |
 | Total          |     0.225 |          |           |                 |
@@ -200,6 +202,7 @@ Table of Contents
 |                   prim_noinit.ram                |    <0.001 |
 |     SAMP                                         |     0.002 |
 |     SHFT                                         |    <0.001 |
+|     WIN                                          |    <0.001 |
 |   clk_gen                                        |     0.107 |
 |     inst                                         |     0.107 |
 |   displays                                       |    <0.001 |

@@ -4,7 +4,7 @@
 
 
 ****** Vivado v2017.4 (64-bit)
-  **** SW Build 2086221 on Fri Dec 15 20:54:30 MST 2017
+  **** SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
   **** IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
     ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 
@@ -14,39 +14,50 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 15676 
+INFO: Helper process launched with PID 3656 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1305.152 ; gain = 86.988 ; free physical = 262 ; free virtual = 6152
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 353.902 ; gain = 101.234
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'fsm_global' [/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/fsm_global.vhd:33]
-INFO: [Synth 8-3491] module 'master_controller' declared at '/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd:11' bound to instance 'CONT' of component 'master_controller' [/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/fsm_global.vhd:77]
-INFO: [Synth 8-638] synthesizing module 'master_controller' [/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd:31]
-INFO: [Synth 8-3491] module 'sampling' declared at '/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/sampling.vhd:13' bound to instance 'SAMP' of component 'sampling' [/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd:96]
-INFO: [Synth 8-638] synthesizing module 'sampling' [/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/sampling.vhd:32]
-INFO: [Synth 8-256] done synthesizing module 'sampling' (1#1) [/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/sampling.vhd:32]
-INFO: [Synth 8-3491] module 'shift_register' declared at '/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/shift_register.vhd:11' bound to instance 'SHFT' of component 'shift_register' [/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd:114]
-INFO: [Synth 8-638] synthesizing module 'shift_register' [/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/shift_register.vhd:20]
-INFO: [Synth 8-256] done synthesizing module 'shift_register' (2#1) [/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/shift_register.vhd:20]
-INFO: [Synth 8-3491] module 'memo_controller' declared at '/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/memo_controller.vhd:6' bound to instance 'MEMO' of component 'memo_controller' [/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd:122]
-INFO: [Synth 8-638] synthesizing module 'memo_controller' [/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/memo_controller.vhd:18]
-INFO: [Synth 8-3491] module 'ram_memo' declared at '/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/.Xil/Vivado-15666-vhdl-2018/realtime/ram_memo_stub.vhdl:5' bound to instance 'ram1' of component 'ram_memo' [/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/memo_controller.vhd:36]
-INFO: [Synth 8-638] synthesizing module 'ram_memo' [/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/.Xil/Vivado-15666-vhdl-2018/realtime/ram_memo_stub.vhdl:17]
-INFO: [Synth 8-3491] module 'ram_memo' declared at '/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/.Xil/Vivado-15666-vhdl-2018/realtime/ram_memo_stub.vhdl:5' bound to instance 'ram2' of component 'ram_memo' [/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/memo_controller.vhd:45]
-INFO: [Synth 8-256] done synthesizing module 'memo_controller' (3#1) [/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/memo_controller.vhd:18]
-WARNING: [Synth 8-6014] Unused sequential element first_r_reg was removed.  [/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd:148]
-INFO: [Synth 8-256] done synthesizing module 'master_controller' (4#1) [/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd:31]
-INFO: [Synth 8-3491] module 'display_interface' declared at '/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/display_interface.vhd:12' bound to instance 'displays' of component 'display_interface' [/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/fsm_global.vhd:94]
-INFO: [Synth 8-638] synthesizing module 'display_interface' [/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/display_interface.vhd:22]
-INFO: [Synth 8-3491] module 'display_counter' declared at '/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/display_counter.vhd:12' bound to instance 'counter_assig' of component 'display_counter' [/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/display_interface.vhd:36]
-INFO: [Synth 8-638] synthesizing module 'display_counter' [/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/display_counter.vhd:20]
-INFO: [Synth 8-256] done synthesizing module 'display_counter' (5#1) [/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/display_counter.vhd:20]
-INFO: [Synth 8-226] default block is never used [/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/display_interface.vhd:111]
-INFO: [Synth 8-256] done synthesizing module 'display_interface' (6#1) [/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/display_interface.vhd:22]
-INFO: [Synth 8-3491] module 'clk_generator' declared at '/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/.Xil/Vivado-15666-vhdl-2018/realtime/clk_generator_stub.vhdl:5' bound to instance 'clk_gen' of component 'clk_generator' [/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/fsm_global.vhd:102]
-INFO: [Synth 8-638] synthesizing module 'clk_generator' [/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/.Xil/Vivado-15666-vhdl-2018/realtime/clk_generator_stub.vhdl:14]
-INFO: [Synth 8-256] done synthesizing module 'fsm_global' (7#1) [/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/fsm_global.vhd:33]
+INFO: [Synth 8-638] synthesizing module 'fsm_global' [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/fsm_global.vhd:33]
+INFO: [Synth 8-3491] module 'master_controller' declared at 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd:11' bound to instance 'CONT' of component 'master_controller' [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/fsm_global.vhd:77]
+INFO: [Synth 8-638] synthesizing module 'master_controller' [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd:31]
+INFO: [Synth 8-3491] module 'sampling' declared at 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/sampling.vhd:13' bound to instance 'SAMP' of component 'sampling' [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd:112]
+INFO: [Synth 8-638] synthesizing module 'sampling' [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/sampling.vhd:32]
+INFO: [Synth 8-256] done synthesizing module 'sampling' (1#1) [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/sampling.vhd:32]
+INFO: [Synth 8-3491] module 'shift_register' declared at 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/shift_register.vhd:11' bound to instance 'SHFT' of component 'shift_register' [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd:130]
+INFO: [Synth 8-638] synthesizing module 'shift_register' [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/shift_register.vhd:20]
+INFO: [Synth 8-256] done synthesizing module 'shift_register' (2#1) [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/shift_register.vhd:20]
+INFO: [Synth 8-3491] module 'memo_controller' declared at 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/memo_controller.vhd:6' bound to instance 'MEMO' of component 'memo_controller' [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd:138]
+INFO: [Synth 8-638] synthesizing module 'memo_controller' [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/memo_controller.vhd:18]
+INFO: [Synth 8-3491] module 'ram_memo' declared at 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/.Xil/Vivado-4336-DESKTOP-DR3C0JT/realtime/ram_memo_stub.vhdl:5' bound to instance 'ram1' of component 'ram_memo' [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/memo_controller.vhd:36]
+INFO: [Synth 8-638] synthesizing module 'ram_memo' [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/.Xil/Vivado-4336-DESKTOP-DR3C0JT/realtime/ram_memo_stub.vhdl:17]
+INFO: [Synth 8-3491] module 'ram_memo' declared at 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/.Xil/Vivado-4336-DESKTOP-DR3C0JT/realtime/ram_memo_stub.vhdl:5' bound to instance 'ram2' of component 'ram_memo' [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/memo_controller.vhd:45]
+INFO: [Synth 8-256] done synthesizing module 'memo_controller' (3#1) [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/memo_controller.vhd:18]
+INFO: [Synth 8-3491] module 'window_controller' declared at 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/window_controller.vhd:13' bound to instance 'WIN' of component 'window_controller' [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd:148]
+INFO: [Synth 8-638] synthesizing module 'window_controller' [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/window_controller.vhd:26]
+INFO: [Synth 8-3491] module 'stft_window_rom' declared at 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/imports/ROM Data/stft_window.vhd:4' bound to instance 'STFT' of component 'stft_window_rom' [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/window_controller.vhd:44]
+INFO: [Synth 8-638] synthesizing module 'stft_window_rom' [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/imports/ROM Data/stft_window.vhd:9]
+INFO: [Synth 8-226] default block is never used [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/imports/ROM Data/stft_window.vhd:13]
+INFO: [Synth 8-256] done synthesizing module 'stft_window_rom' (4#1) [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/imports/ROM Data/stft_window.vhd:9]
+INFO: [Synth 8-3491] module 'istft_window_rom' declared at 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/imports/ROM Data/istft_window.vhd:4' bound to instance 'iSTFT' of component 'istft_window_rom' [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/window_controller.vhd:49]
+INFO: [Synth 8-638] synthesizing module 'istft_window_rom' [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/imports/ROM Data/istft_window.vhd:9]
+INFO: [Synth 8-226] default block is never used [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/imports/ROM Data/istft_window.vhd:13]
+INFO: [Synth 8-256] done synthesizing module 'istft_window_rom' (5#1) [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/imports/ROM Data/istft_window.vhd:9]
+INFO: [Synth 8-256] done synthesizing module 'window_controller' (6#1) [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/window_controller.vhd:26]
+WARNING: [Synth 8-6014] Unused sequential element first_r_reg was removed.  [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd:175]
+INFO: [Synth 8-256] done synthesizing module 'master_controller' (7#1) [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd:31]
+INFO: [Synth 8-3491] module 'display_interface' declared at 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/display_interface.vhd:12' bound to instance 'displays' of component 'display_interface' [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/fsm_global.vhd:94]
+INFO: [Synth 8-638] synthesizing module 'display_interface' [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/display_interface.vhd:22]
+INFO: [Synth 8-3491] module 'display_counter' declared at 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/display_counter.vhd:12' bound to instance 'counter_assig' of component 'display_counter' [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/display_interface.vhd:36]
+INFO: [Synth 8-638] synthesizing module 'display_counter' [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/display_counter.vhd:20]
+INFO: [Synth 8-256] done synthesizing module 'display_counter' (8#1) [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/display_counter.vhd:20]
+INFO: [Synth 8-226] default block is never used [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/display_interface.vhd:111]
+INFO: [Synth 8-256] done synthesizing module 'display_interface' (9#1) [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/display_interface.vhd:22]
+INFO: [Synth 8-3491] module 'clk_generator' declared at 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/.Xil/Vivado-4336-DESKTOP-DR3C0JT/realtime/clk_generator_stub.vhdl:5' bound to instance 'clk_gen' of component 'clk_generator' [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/fsm_global.vhd:102]
+INFO: [Synth 8-638] synthesizing module 'clk_generator' [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/.Xil/Vivado-4336-DESKTOP-DR3C0JT/realtime/clk_generator_stub.vhdl:14]
+INFO: [Synth 8-256] done synthesizing module 'fsm_global' (10#1) [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/fsm_global.vhd:33]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 1347.684 ; gain = 129.520 ; free physical = 271 ; free virtual = 6164
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 407.375 ; gain = 154.707
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -56,53 +67,57 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 1347.684 ; gain = 129.520 ; free physical = 272 ; free virtual = 6164
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 407.375 ; gain = 154.707
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a100tcsg324-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/.Xil/Vivado-15666-vhdl-2018/dcp2/clk_generator_in_context.xdc] for cell 'clk_gen'
-Finished Parsing XDC File [/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/.Xil/Vivado-15666-vhdl-2018/dcp2/clk_generator_in_context.xdc] for cell 'clk_gen'
-Parsing XDC File [/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/.Xil/Vivado-15666-vhdl-2018/dcp3/ram_memo_in_context.xdc] for cell 'CONT/MEMO/ram1'
-Finished Parsing XDC File [/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/.Xil/Vivado-15666-vhdl-2018/dcp3/ram_memo_in_context.xdc] for cell 'CONT/MEMO/ram1'
-Parsing XDC File [/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/.Xil/Vivado-15666-vhdl-2018/dcp3/ram_memo_in_context.xdc] for cell 'CONT/MEMO/ram2'
-Finished Parsing XDC File [/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/.Xil/Vivado-15666-vhdl-2018/dcp3/ram_memo_in_context.xdc] for cell 'CONT/MEMO/ram2'
-Parsing XDC File [/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/constrs_1/imports/Downloads/Nexys4DDR_Master.xdc]
-Finished Parsing XDC File [/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/constrs_1/imports/Downloads/Nexys4DDR_Master.xdc]
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/constrs_1/imports/Downloads/Nexys4DDR_Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/fsm_global_propImpl.xdc].
+Parsing XDC File [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/.Xil/Vivado-4336-DESKTOP-DR3C0JT/dcp2/clk_generator_in_context.xdc] for cell 'clk_gen'
+Finished Parsing XDC File [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/.Xil/Vivado-4336-DESKTOP-DR3C0JT/dcp2/clk_generator_in_context.xdc] for cell 'clk_gen'
+Parsing XDC File [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/.Xil/Vivado-4336-DESKTOP-DR3C0JT/dcp3/ram_memo_in_context.xdc] for cell 'CONT/MEMO/ram1'
+Finished Parsing XDC File [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/.Xil/Vivado-4336-DESKTOP-DR3C0JT/dcp3/ram_memo_in_context.xdc] for cell 'CONT/MEMO/ram1'
+Parsing XDC File [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/.Xil/Vivado-4336-DESKTOP-DR3C0JT/dcp3/ram_memo_in_context.xdc] for cell 'CONT/MEMO/ram2'
+Finished Parsing XDC File [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/.Xil/Vivado-4336-DESKTOP-DR3C0JT/dcp3/ram_memo_in_context.xdc] for cell 'CONT/MEMO/ram2'
+Parsing XDC File [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/constrs_1/imports/Downloads/Nexys4DDR_Master.xdc]
+Finished Parsing XDC File [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/constrs_1/imports/Downloads/Nexys4DDR_Master.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/constrs_1/imports/Downloads/Nexys4DDR_Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/fsm_global_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/fsm_global_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 1675.324 ; gain = 0.000 ; free physical = 105 ; free virtual = 5843
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 763.805 ; gain = 0.000
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'CONT/MEMO/ram1' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'CONT/MEMO/ram2' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:28 ; elapsed = 00:00:47 . Memory (MB): peak = 1675.324 ; gain = 457.160 ; free physical = 170 ; free virtual = 5908
+Finished Constraint Validation : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 763.805 ; gain = 511.137
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:28 ; elapsed = 00:00:47 . Memory (MB): peak = 1675.324 ; gain = 457.160 ; free physical = 170 ; free virtual = 5908
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 763.805 ; gain = 511.137
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
-Applied set_property IO_BUFFER_TYPE = NONE for clk_fpga. (constraint file  /home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/.Xil/Vivado-15666-vhdl-2018/dcp2/clk_generator_in_context.xdc, line 4).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for clk_fpga. (constraint file  /home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/.Xil/Vivado-15666-vhdl-2018/dcp2/clk_generator_in_context.xdc, line 5).
+Applied set_property IO_BUFFER_TYPE = NONE for clk_fpga. (constraint file  D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/.Xil/Vivado-4336-DESKTOP-DR3C0JT/dcp2/clk_generator_in_context.xdc, line 4).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for clk_fpga. (constraint file  D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/.Xil/Vivado-4336-DESKTOP-DR3C0JT/dcp2/clk_generator_in_context.xdc, line 5).
 Applied set_property DONT_TOUCH = true for CONT/MEMO/ram1. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for CONT/MEMO/ram2. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for clk_gen. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:28 ; elapsed = 00:00:47 . Memory (MB): peak = 1675.324 ; gain = 457.160 ; free physical = 171 ; free virtual = 5909
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:19 ; elapsed = 00:00:22 . Memory (MB): peak = 763.805 ; gain = 511.137
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-6014] Unused sequential element count_reg was removed.  [/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/sampling.vhd:49]
+WARNING: [Synth 8-6014] Unused sequential element count_reg was removed.  [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/sampling.vhd:49]
+INFO: [Synth 8-4471] merging register 'reading_ready_nn_reg' into 'read_sample_memo_int2_reg' [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd:193]
+INFO: [Synth 8-4471] merging register 'reading_ready_n_reg' into 'read_sample_memo_int_reg' [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd:192]
+WARNING: [Synth 8-6014] Unused sequential element reading_ready_n_reg was removed.  [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd:192]
+WARNING: [Synth 8-6014] Unused sequential element reading_ready_nn_reg was removed.  [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd:193]
 INFO: [Synth 8-802] inferred FSM for state register 'buf_fsm_w_state_reg' in module 'master_controller'
 INFO: [Synth 8-802] inferred FSM for state register 'buf_fsm_r_state_reg' in module 'master_controller'
 INFO: [Synth 8-5546] ROM "buf_fsm_w_state_next" won't be mapped to RAM because it is too sparse
@@ -149,7 +164,7 @@ INFO: [Synth 8-3354] encoded FSM with state register 'buf_fsm_w_state_reg' using
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'buf_fsm_r_state_reg' using encoding 'sequential' in module 'master_controller'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:29 ; elapsed = 00:00:48 . Memory (MB): peak = 1675.324 ; gain = 457.160 ; free physical = 161 ; free virtual = 5900
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 763.805 ; gain = 511.137
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -162,30 +177,31 @@ Start RTL Component Statistics
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input     31 Bit       Adders := 1     
 	   2 Input     18 Bit       Adders := 1     
-	   2 Input     16 Bit       Adders := 2     
+	   2 Input     16 Bit       Adders := 1     
 	   2 Input     14 Bit       Adders := 4     
 	   2 Input     10 Bit       Adders := 1     
 	   2 Input      9 Bit       Adders := 4     
 	   2 Input      5 Bit       Adders := 2     
 	   2 Input      3 Bit       Adders := 1     
 +---Registers : 
+	               32 Bit    Registers := 1     
 	               18 Bit    Registers := 1     
-	               16 Bit    Registers := 6     
+	               16 Bit    Registers := 7     
 	               14 Bit    Registers := 5     
 	               10 Bit    Registers := 1     
-	                9 Bit    Registers := 4     
+	                9 Bit    Registers := 5     
 	                5 Bit    Registers := 1     
 	                3 Bit    Registers := 3     
 	                2 Bit    Registers := 1     
-	                1 Bit    Registers := 16    
+	                1 Bit    Registers := 20    
 +---Muxes : 
-	   2 Input     31 Bit        Muxes := 1     
+	   2 Input     32 Bit        Muxes := 1     
 	   2 Input     24 Bit        Muxes := 1     
 	   2 Input     18 Bit        Muxes := 1     
 	   2 Input     16 Bit        Muxes := 2     
 	   5 Input     16 Bit        Muxes := 1     
+	   6 Input     16 Bit        Muxes := 1     
 	   4 Input      9 Bit        Muxes := 2     
 	   5 Input      9 Bit        Muxes := 2     
 	   8 Input      8 Bit        Muxes := 1     
@@ -202,7 +218,7 @@ Detailed RTL Component Info :
 	   2 Input      1 Bit        Muxes := 28    
 	   4 Input      1 Bit        Muxes := 6     
 	   3 Input      1 Bit        Muxes := 1     
-	   6 Input      1 Bit        Muxes := 12    
+	   6 Input      1 Bit        Muxes := 15    
 	   5 Input      1 Bit        Muxes := 4     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
@@ -242,24 +258,30 @@ Module memo_controller
 Detailed RTL Component Info : 
 +---Muxes : 
 	   2 Input     16 Bit        Muxes := 1     
+Module window_controller 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+	   2 Input     16 Bit        Muxes := 1     
 Module master_controller 
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input     31 Bit       Adders := 1     
-	   2 Input     16 Bit       Adders := 2     
+	   2 Input     16 Bit       Adders := 1     
 	   2 Input     14 Bit       Adders := 4     
 	   2 Input      9 Bit       Adders := 4     
 +---Registers : 
-	               16 Bit    Registers := 5     
+	               16 Bit    Registers := 6     
 	               14 Bit    Registers := 5     
-	                9 Bit    Registers := 4     
+	                9 Bit    Registers := 5     
 	                3 Bit    Registers := 1     
-	                1 Bit    Registers := 8     
+	                1 Bit    Registers := 11    
 +---Muxes : 
-	   2 Input     31 Bit        Muxes := 1     
 	   2 Input     24 Bit        Muxes := 1     
-	   2 Input     16 Bit        Muxes := 1     
 	   5 Input     16 Bit        Muxes := 1     
+	   6 Input     16 Bit        Muxes := 1     
 	   4 Input      9 Bit        Muxes := 2     
 	   5 Input      9 Bit        Muxes := 2     
 	   3 Input      3 Bit        Muxes := 1     
@@ -270,7 +292,7 @@ Detailed RTL Component Info :
 	   2 Input      1 Bit        Muxes := 24    
 	   4 Input      1 Bit        Muxes := 5     
 	   3 Input      1 Bit        Muxes := 1     
-	   6 Input      1 Bit        Muxes := 12    
+	   6 Input      1 Bit        Muxes := 15    
 	   5 Input      1 Bit        Muxes := 4     
 Module display_counter 
 Detailed RTL Component Info : 
@@ -306,9 +328,9 @@ Finished Part Resource Summary
 ---------------------------------------------------------------------------------
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-6014] Unused sequential element CONT/SAMP/sample_in_ready_reg was removed.  [/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/sampling.vhd:126]
-WARNING: [Synth 8-6014] Unused sequential element CONT/SAMP/sample_towrite_ready_reg was removed.  [/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/sampling.vhd:127]
-WARNING: [Synth 8-6014] Unused sequential element CONT/SAMP/half_sc_reg was removed.  [/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/sampling.vhd:53]
+WARNING: [Synth 8-6014] Unused sequential element CONT/SAMP/sample_in_ready_reg was removed.  [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/sampling.vhd:126]
+WARNING: [Synth 8-6014] Unused sequential element CONT/SAMP/sample_towrite_ready_reg was removed.  [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/sampling.vhd:127]
+WARNING: [Synth 8-6014] Unused sequential element CONT/SAMP/half_sc_reg was removed.  [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/sampling.vhd:53]
 INFO: [Synth 8-5546] ROM "CONT/buf_fsm_r_state_next" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "CONT/buf_fsm_r_state_next" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "CONT/buf_fsm_r_state_next" won't be mapped to RAM because it is too sparse
@@ -317,15 +339,59 @@ INFO: [Synth 8-5546] ROM "CONT/buf_fsm_w_state_next" won't be mapped to RAM beca
 INFO: [Synth 8-5546] ROM "CONT/buf_fsm_w_state_next" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "CONT/buf_fsm_w_state_next" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "CONT/buf_fsm_w_state_next" won't be mapped to RAM because it is too sparse
-WARNING: [Synth 8-6014] Unused sequential element CONT/address_buf1_reg was removed.  [/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd:153]
-WARNING: [Synth 8-6014] Unused sequential element CONT/address_buf2_reg was removed.  [/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd:184]
-WARNING: [Synth 8-6014] Unused sequential element CONT/address_buf1_read_reg was removed.  [/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd:156]
-WARNING: [Synth 8-6014] Unused sequential element CONT/address_buf2_read_reg was removed.  [/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd:185]
-WARNING: [Synth 8-6014] Unused sequential element displays/counter_assig/counter_reg was removed.  [/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/display_counter.vhd:29]
-WARNING: [Synth 8-6014] Unused sequential element CONT/SAMP/count_reg was removed.  [/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/sampling.vhd:49]
+WARNING: [Synth 8-6014] Unused sequential element CONT/address_buf1_reg was removed.  [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd:179]
+WARNING: [Synth 8-6014] Unused sequential element CONT/address_buf2_reg was removed.  [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd:180]
+WARNING: [Synth 8-6014] Unused sequential element CONT/address_buf1_read_reg was removed.  [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd:182]
+WARNING: [Synth 8-6014] Unused sequential element CONT/address_buf2_read_reg was removed.  [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd:181]
+WARNING: [Synth 8-6014] Unused sequential element displays/counter_assig/counter_reg was removed.  [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/display_counter.vhd:29]
+WARNING: [Synth 8-6014] Unused sequential element CONT/SAMP/count_reg was removed.  [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/sampling.vhd:49]
+DSP Report: Generating DSP CONT/WIN/result_next0, operation Mode is: A*B.
+DSP Report: operator CONT/WIN/result_next0 is absorbed into DSP CONT/WIN/result_next0.
+WARNING: [Synth 8-3332] Sequential element (CONT/WIN/result_pre_reg[31]) is unused and will be removed from module fsm_global.
+WARNING: [Synth 8-3332] Sequential element (CONT/WIN/result_pre_reg[14]) is unused and will be removed from module fsm_global.
+WARNING: [Synth 8-3332] Sequential element (CONT/WIN/result_pre_reg[13]) is unused and will be removed from module fsm_global.
+WARNING: [Synth 8-3332] Sequential element (CONT/WIN/result_pre_reg[12]) is unused and will be removed from module fsm_global.
+WARNING: [Synth 8-3332] Sequential element (CONT/WIN/result_pre_reg[11]) is unused and will be removed from module fsm_global.
+WARNING: [Synth 8-3332] Sequential element (CONT/WIN/result_pre_reg[10]) is unused and will be removed from module fsm_global.
+WARNING: [Synth 8-3332] Sequential element (CONT/WIN/result_pre_reg[9]) is unused and will be removed from module fsm_global.
+WARNING: [Synth 8-3332] Sequential element (CONT/WIN/result_pre_reg[8]) is unused and will be removed from module fsm_global.
+WARNING: [Synth 8-3332] Sequential element (CONT/WIN/result_pre_reg[7]) is unused and will be removed from module fsm_global.
+WARNING: [Synth 8-3332] Sequential element (CONT/WIN/result_pre_reg[6]) is unused and will be removed from module fsm_global.
+WARNING: [Synth 8-3332] Sequential element (CONT/WIN/result_pre_reg[5]) is unused and will be removed from module fsm_global.
+WARNING: [Synth 8-3332] Sequential element (CONT/WIN/result_pre_reg[4]) is unused and will be removed from module fsm_global.
+WARNING: [Synth 8-3332] Sequential element (CONT/WIN/result_pre_reg[3]) is unused and will be removed from module fsm_global.
+WARNING: [Synth 8-3332] Sequential element (CONT/WIN/result_pre_reg[2]) is unused and will be removed from module fsm_global.
+WARNING: [Synth 8-3332] Sequential element (CONT/WIN/result_pre_reg[1]) is unused and will be removed from module fsm_global.
+WARNING: [Synth 8-3332] Sequential element (CONT/WIN/result_pre_reg[0]) is unused and will be removed from module fsm_global.
 WARNING: [Synth 8-3332] Sequential element (CONT/SAMP/counter32_reg[4]) is unused and will be removed from module fsm_global.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:30 ; elapsed = 00:00:50 . Memory (MB): peak = 1675.324 ; gain = 457.160 ; free physical = 146 ; free virtual = 5886
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 763.805 ; gain = 511.137
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+ROM:
++-----------------+------------------------+---------------+----------------+
+|Module Name      | RTL Object             | Depth x Width | Implemented As | 
++-----------------+------------------------+---------------+----------------+
+|stft_window_rom  | out_win                | 512x16        | LUT            | 
+|istft_window_rom | out_win                | 512x15        | LUT            | 
+|fsm_global       | CONT/WIN/iSTFT/out_win | 512x15        | LUT            | 
+|fsm_global       | CONT/WIN/STFT/out_win  | 512x16        | LUT            | 
++-----------------+------------------------+---------------+----------------+
+
+
+DSP: Preliminary Mapping  Report (see note below)
++------------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name       | DSP Mapping | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|window_controller | A*B         | 16     | 16     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
++------------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -340,13 +406,13 @@ INFO: [Synth 8-5578] Moved timing constraint from pin 'clk_gen/clk_100MHz' to pi
 INFO: [Synth 8-5578] Moved timing constraint from pin 'clk_gen/clk_50MHz' to pin 'clk_gen/bbstub_clk_50MHz/O'
 INFO: [Synth 8-5819] Moved 2 constraints on hierarchical pins to their respective driving/loading pins
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:38 ; elapsed = 00:01:01 . Memory (MB): peak = 1675.324 ; gain = 457.160 ; free physical = 109 ; free virtual = 5829
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:39 ; elapsed = 00:00:42 . Memory (MB): peak = 813.203 ; gain = 560.535
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:38 ; elapsed = 00:01:01 . Memory (MB): peak = 1675.324 ; gain = 457.160 ; free physical = 122 ; free virtual = 5827
+Finished Timing Optimization : Time (s): cpu = 00:00:39 ; elapsed = 00:00:42 . Memory (MB): peak = 814.949 ; gain = 562.281
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -358,8 +424,9 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-3886] merging instance 'CONT/SAMP/count_reg[0]' (FDC) to 'CONT/SAMP/mc_reg'
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd:154]
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:38 ; elapsed = 00:01:02 . Memory (MB): peak = 1675.324 ; gain = 457.160 ; free physical = 138 ; free virtual = 5830
+Finished Technology Mapping : Time (s): cpu = 00:00:40 ; elapsed = 00:00:43 . Memory (MB): peak = 836.816 ; gain = 584.148
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -383,7 +450,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:39 ; elapsed = 00:01:02 . Memory (MB): peak = 1675.324 ; gain = 457.160 ; free physical = 138 ; free virtual = 5830
+Finished IO Insertion : Time (s): cpu = 00:00:41 ; elapsed = 00:00:44 . Memory (MB): peak = 836.816 ; gain = 584.148
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -396,7 +463,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:39 ; elapsed = 00:01:02 . Memory (MB): peak = 1675.324 ; gain = 457.160 ; free physical = 138 ; free virtual = 5830
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:41 ; elapsed = 00:00:44 . Memory (MB): peak = 836.816 ; gain = 584.148
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -408,25 +475,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:39 ; elapsed = 00:01:02 . Memory (MB): peak = 1675.324 ; gain = 457.160 ; free physical = 138 ; free virtual = 5830
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:41 ; elapsed = 00:00:44 . Memory (MB): peak = 836.816 ; gain = 584.148
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:39 ; elapsed = 00:01:02 . Memory (MB): peak = 1675.324 ; gain = 457.160 ; free physical = 138 ; free virtual = 5830
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:41 ; elapsed = 00:00:44 . Memory (MB): peak = 836.816 ; gain = 584.148
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:39 ; elapsed = 00:01:02 . Memory (MB): peak = 1675.324 ; gain = 457.160 ; free physical = 138 ; free virtual = 5830
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:41 ; elapsed = 00:00:44 . Memory (MB): peak = 836.816 ; gain = 584.148
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:39 ; elapsed = 00:01:02 . Memory (MB): peak = 1675.324 ; gain = 457.160 ; free physical = 138 ; free virtual = 5830
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:41 ; elapsed = 00:00:44 . Memory (MB): peak = 836.816 ; gain = 584.148
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -447,40 +514,44 @@ Report Cell Usage:
 |1     |clk_generator_bbox_3 |     1|
 |2     |ram_memo_bbox_1      |     1|
 |3     |ram_memo_bbox_2      |     1|
-|4     |CARRY4               |    35|
-|5     |LUT1                 |    24|
-|6     |LUT2                 |    59|
-|7     |LUT3                 |    61|
-|8     |LUT4                 |    40|
-|9     |LUT5                 |    57|
-|10    |LUT6                 |    79|
-|11    |FDCE                 |   216|
-|12    |FDPE                 |     3|
-|13    |FDRE                 |    48|
-|14    |IBUF                 |     3|
-|15    |OBUF                 |    22|
+|4     |CARRY4               |    25|
+|5     |DSP48E1              |     1|
+|6     |LUT1                 |     8|
+|7     |LUT2                 |    62|
+|8     |LUT3                 |    32|
+|9     |LUT4                 |    39|
+|10    |LUT5                 |    74|
+|11    |LUT6                 |   325|
+|12    |MUXF7                |   101|
+|13    |MUXF8                |    26|
+|14    |FDCE                 |   314|
+|15    |FDPE                 |     3|
+|16    |FDRE                 |     4|
+|17    |IBUF                 |     3|
+|18    |OBUF                 |    22|
 +------+---------------------+------+
 
 Report Instance Areas: 
 +------+------------------+------------------+------+
 |      |Instance          |Module            |Cells |
 +------+------------------+------------------+------+
-|1     |top               |                  |   681|
-|2     |  CONT            |master_controller |   594|
+|1     |top               |                  |  1073|
+|2     |  CONT            |master_controller |   986|
 |3     |    MEMO          |memo_controller   |    51|
-|4     |    SAMP          |sampling          |   103|
+|4     |    SAMP          |sampling          |   101|
 |5     |    SHFT          |shift_register    |    16|
-|6     |  displays        |display_interface |    56|
-|7     |    counter_assig |display_counter   |    35|
+|6     |    WIN           |window_controller |   417|
+|7     |  displays        |display_interface |    56|
+|8     |    counter_assig |display_counter   |    35|
 +------+------------------+------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:39 ; elapsed = 00:01:02 . Memory (MB): peak = 1675.324 ; gain = 457.160 ; free physical = 138 ; free virtual = 5830
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:41 ; elapsed = 00:00:44 . Memory (MB): peak = 836.816 ; gain = 584.148
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 11 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:27 ; elapsed = 00:00:34 . Memory (MB): peak = 1675.324 ; gain = 129.520 ; free physical = 191 ; free virtual = 5883
-Synthesis Optimization Complete : Time (s): cpu = 00:00:39 ; elapsed = 00:01:02 . Memory (MB): peak = 1675.332 ; gain = 457.160 ; free physical = 200 ; free virtual = 5891
+Synthesis finished with 0 errors, 0 critical warnings and 29 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:27 ; elapsed = 00:00:36 . Memory (MB): peak = 836.816 ; gain = 227.719
+Synthesis Optimization Complete : Time (s): cpu = 00:00:41 ; elapsed = 00:00:44 . Memory (MB): peak = 836.816 ; gain = 584.148
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 38 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 156 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
@@ -488,10 +559,10 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-77 Infos, 14 Warnings, 0 Critical Warnings and 0 Errors encountered.
+91 Infos, 32 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:42 ; elapsed = 00:01:05 . Memory (MB): peak = 1675.332 ; gain = 482.004 ; free physical = 186 ; free virtual = 5878
-INFO: [Common 17-1381] The checkpoint '/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/fsm_global.dcp' has been generated.
+synth_design: Time (s): cpu = 00:00:43 ; elapsed = 00:00:47 . Memory (MB): peak = 836.816 ; gain = 595.621
+INFO: [Common 17-1381] The checkpoint 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/fsm_global.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file fsm_global_utilization_synth.rpt -pb fsm_global_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00.10 ; elapsed = 00:00:00.14 . Memory (MB): peak = 1699.336 ; gain = 0.000 ; free physical = 186 ; free virtual = 5878
-INFO: [Common 17-206] Exiting Vivado at Thu Mar 28 16:35:40 2019...
+report_utilization: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.039 . Memory (MB): peak = 836.816 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Sat Mar 30 13:23:52 2019...
