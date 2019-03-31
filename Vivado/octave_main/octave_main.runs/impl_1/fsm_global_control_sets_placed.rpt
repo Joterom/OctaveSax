@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-| Date         : Sat Mar 30 13:24:37 2019
+| Date         : Sun Mar 31 11:30:07 2019
 | Host         : DESKTOP-DR3C0JT running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file fsm_global_control_sets_placed.rpt
 | Design       : fsm_global
@@ -22,8 +22,8 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Number of unique control sets                            |    21 |
-| Unused register locations in slices containing registers |    67 |
+| Number of unique control sets                            |    22 |
+| Unused register locations in slices containing registers |    65 |
 +----------------------------------------------------------+-------+
 
 
@@ -34,10 +34,10 @@ Table of Contents
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | No           | No                    | No                     |              12 |            4 |
-| No           | No                    | Yes                    |              81 |           36 |
+| No           | No                    | Yes                    |              78 |           32 |
 | No           | Yes                   | No                     |               0 |            0 |
 | Yes          | No                    | No                     |               0 |            0 |
-| Yes          | No                    | Yes                    |             240 |           87 |
+| Yes          | No                    | Yes                    |             229 |           72 |
 | Yes          | Yes                   | No                     |               0 |            0 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
@@ -45,38 +45,39 @@ Table of Contents
 3. Detailed Control Set Information
 -----------------------------------
 
-+-------------------------------+-----------------------------------------+--------------------------------+------------------+----------------+
-|          Clock Signal         |              Enable Signal              |        Set/Reset Signal        | Slice Load Count | Bel Load Count |
-+-------------------------------+-----------------------------------------+--------------------------------+------------------+----------------+
-|  clk_gen/inst/clk_100MHz      | CONT/SAMP/counter32[3]_i_1_n_0          | reset_IBUF                     |                1 |              4 |
-| ~CONT/SAMP/frame_num_reg[4]_0 |                                         | CONT/SAMP/frame_num[4]_i_2_n_0 |                2 |              5 |
-|  clk_gen/inst/clk_100MHz      | CONT/__2/i__n_0                         | reset_IBUF                     |                4 |              9 |
-|  clk_gen/inst/clk_100MHz      | CONT/SAMP/counter_buf2_reg[8][0]        | reset_IBUF                     |                5 |              9 |
-|  clk_gen/inst/clk_100MHz      | CONT/SAMP/counter_buf2_r_reg[0][0]      | reset_IBUF                     |                4 |              9 |
-|  clk_gen/inst/clk_100MHz      | CONT/SAMP/counter_buf1_r_reg[0][0]      | reset_IBUF                     |                5 |              9 |
-|  clk_gen/inst/clk_100MHz      |                                         |                                |                4 |             12 |
-|  clk_gen/inst/clk_100MHz      | CONT/SAMP/address_buf1_read_reg[0]      | reset_IBUF                     |                4 |             14 |
-|  clk_gen/inst/clk_100MHz      | CONT/SAMP/address_buf2_read_reg[0]      | reset_IBUF                     |                4 |             14 |
-|  clk_gen/inst/clk_100MHz      | CONT/SAMP/E[0]                          | reset_IBUF                     |                4 |             14 |
-|  clk_gen/inst/clk_100MHz      | CONT/WIN/address_buf2_reg[0]            | reset_IBUF                     |                4 |             14 |
-|  clk_gen/inst/clk_100MHz      | CONT/WIN/address_buf1_reg[0]            | reset_IBUF                     |                4 |             14 |
-|  CONT/SAMP/frame_num_reg[4]_0 | CONT/enable                             | reset_IBUF                     |                4 |             16 |
-|  clk_gen/inst/clk_100MHz      | CONT/output_sample[15]_i_1_n_0          | reset_IBUF                     |                6 |             16 |
-|  clk_gen/inst/clk_100MHz      | CONT/SAMP/storaged_buf2_reg[0][0]       | reset_IBUF                     |                5 |             16 |
-|  clk_gen/inst/clk_100MHz      | CONT/SAMP/sum_result_reg[0][0]          | reset_IBUF                     |                4 |             16 |
-|  clk_gen/inst/clk_100MHz      | CONT/SAMP/writing_sample_memo_reg[0][0] | reset_IBUF                     |                8 |             16 |
-|  clk_gen/inst/clk_100MHz      | CONT/SAMP/storaged_buf1_reg[0][0]       | reset_IBUF                     |                4 |             16 |
-|  clk_gen/inst/clk_50MHz       |                                         | reset_IBUF                     |                5 |             17 |
-|  clk_gen/inst/clk_100MHz      | CONT/SAMP/multiplicand_reg[0][0]        | reset_IBUF                     |               17 |             34 |
-|  clk_gen/inst/clk_100MHz      |                                         | reset_IBUF                     |               29 |             59 |
-+-------------------------------+-----------------------------------------+--------------------------------+------------------+----------------+
++-------------------------------+------------------------------------------------+--------------------------------+------------------+----------------+
+|          Clock Signal         |                  Enable Signal                 |        Set/Reset Signal        | Slice Load Count | Bel Load Count |
++-------------------------------+------------------------------------------------+--------------------------------+------------------+----------------+
+|  clk_gen/inst/clk_100MHz      | CONT/SAMP/counter32[3]_i_1_n_0                 | reset_IBUF                     |                1 |              4 |
+|  clk_gen/inst/clk_100MHz      | CONT/FSM/FSM_onehot_buf_fsm_r_state[4]_i_1_n_0 | reset_IBUF                     |                2 |              5 |
+| ~CONT/SAMP/frame_num_reg[4]_0 |                                                | CONT/SAMP/frame_num[4]_i_2_n_0 |                2 |              5 |
+|  clk_gen/inst/clk_100MHz      | CONT/FSM/E[0]                                  | reset_IBUF                     |                4 |              9 |
+|  clk_gen/inst/clk_100MHz      | CONT/FSM/counter_buf1_r_reg[0][0]              | reset_IBUF                     |                3 |              9 |
+|  clk_gen/inst/clk_100MHz      | CONT/FSM/counter_buf1_reg[0][0]                | reset_IBUF                     |                5 |              9 |
+|  clk_gen/inst/clk_100MHz      | CONT/FSM/counter_buf2_r_reg[0][0]              | reset_IBUF                     |                4 |              9 |
+|  clk_gen/inst/clk_100MHz      |                                                |                                |                4 |             12 |
+|  clk_gen/inst/clk_100MHz      | CONT/FSM/address_buf1_reg_0_sn_1               | reset_IBUF                     |                4 |             14 |
+|  clk_gen/inst/clk_100MHz      | CONT/FSM/address_buf2_reg_0_sn_1               | reset_IBUF                     |                4 |             14 |
+|  clk_gen/inst/clk_100MHz      | CONT/FSM/address_buf1_read_reg_0_sn_1          | reset_IBUF                     |                4 |             14 |
+|  clk_gen/inst/clk_100MHz      | CONT/FSM/address_buf2_read_reg_0_sn_1          | reset_IBUF                     |                4 |             14 |
+|  clk_gen/inst/clk_100MHz      | CONT/FSM/address_reg[0][0]                     | reset_IBUF                     |                4 |             14 |
+|  clk_gen/inst/clk_100MHz      | CONT/FSM/output_sample_reg[0][0]               | reset_IBUF                     |                5 |             16 |
+|  clk_gen/inst/clk_100MHz      | CONT/FSM/storaged_buf1_reg[0][0]               | reset_IBUF                     |                3 |             16 |
+|  clk_gen/inst/clk_100MHz      | CONT/FSM/sum_result_reg[0][0]                  | reset_IBUF                     |                4 |             16 |
+|  clk_gen/inst/clk_100MHz      | CONT/FSM/storaged_buf2_reg[0][0]               | reset_IBUF                     |                3 |             16 |
+|  clk_gen/inst/clk_100MHz      | CONT/FSM/writing_sample_memo_reg[0][0]         | reset_IBUF                     |                8 |             16 |
+|  CONT/SAMP/frame_num_reg[4]_0 | CONT/enable                                    | reset_IBUF                     |                3 |             16 |
+|  clk_gen/inst/clk_50MHz       |                                                | reset_IBUF                     |                8 |             17 |
+|  clk_gen/inst/clk_100MHz      | CONT/FSM/multiplicand_reg[0][0]                | reset_IBUF                     |                7 |             18 |
+|  clk_gen/inst/clk_100MHz      |                                                | reset_IBUF                     |               22 |             56 |
++-------------------------------+------------------------------------------------+--------------------------------+------------------+----------------+
 
 
 +--------+-----------------------+
 | Fanout | Number of ControlSets |
 +--------+-----------------------+
 | 4      |                     1 |
-| 5      |                     1 |
+| 5      |                     2 |
 | 9      |                     4 |
 | 12     |                     1 |
 | 14     |                     5 |

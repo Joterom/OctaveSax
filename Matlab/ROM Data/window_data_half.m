@@ -19,21 +19,24 @@ fprintf(fileIDi, '\n\narchitecture Behavioral of istft_window_rom is\n\n\tbegin\
 fprintf(fileIDs, '\n\twith in_frame select out_win <=\n');
 fprintf(fileIDi, '\n\twith in_frame select out_win <=\n');
 
+s = 0:1:transform_length-1;
+sample_number = dec2bin(s,log2(transform_length));
+
 for i = 1:1:transform_length
     if (i >= transform_length/4+1) && (i <= transform_length*3/4)
     fprintf(fileIDs, '\t\t"0111111111111111" when "%s",\n',  sample_number(i,:));
     fprintf(fileIDi, '\t\t"0111111111111111" when "%s",\n',  sample_number(i,:));
     else
-    fprintf(fileIDs, '\t\t"0111111111111111" when "%s",\n',  sample_number(i,:));
     fprintf(fileIDi, '\t\t"0111111111111111" when "%s",\n',  sample_number(i,:));
-    %fprintf(fileIDi, '\t\t"0100000000000000" when "%s",\n',  sample_number(i,:));   
+    %fprintf(fileIDi, '\t\t"0111111111111111" when "%s",\n',  sample_number(i,:));
+    fprintf(fileIDs, '\t\t"0011111111111111" when "%s",\n',  sample_number(i,:));   
     end
 end
 
 %Default and first value
-fprintf(fileIDs, '\t\t"0111111111111111" when others;\n');
 fprintf(fileIDi, '\t\t"0111111111111111" when others;\n');
 %fprintf(fileIDi, '\t\t"0100000000000000" when others;\n');
+fprintf(fileIDs, '\t\t"0011111111111111" when others;\n');
 
 
 fprintf(fileIDs, '\nend Behavioral;');

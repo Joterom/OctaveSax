@@ -1,9 +1,14 @@
+-- Javier Otero Martinez
+-- OctaveSax project -- TFG
+-- June 2019
+
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
 entity stft_window_rom is Port (
 	in_frame : in STD_LOGIC_VECTOR(8 downto 0);
-	out_win : out STD_LOGIC_VECTOR(15 downto 0));
+	out_win : out STD_LOGIC_VECTOR(15 downto 0)
+	);
 end stft_window_rom;
 
 architecture Behavioral of stft_window_rom is
@@ -11,7 +16,6 @@ architecture Behavioral of stft_window_rom is
 	begin
 
 	with in_frame select out_win <=
-		"0000000000000000" when "000000000",
 		"0000000000000001" when "000000001",
 		"0000000000000100" when "000000010",
 		"0000000000001011" when "000000011",
@@ -524,4 +528,4 @@ architecture Behavioral of stft_window_rom is
 		"0000000000000100" when "111111110",
 		"0000000000000001" when "111111111",
 		"0000000000000000" when others;
-end Behavioral;
+end Behavioral
