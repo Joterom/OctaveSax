@@ -33,7 +33,7 @@ architecture Behavioral of tb_transform is
     signal event_frame_started, event_tlast_unexpected, event_tlast_missing, event_status_channel_halt, event_data_in_channel_halt
            , event_data_out_channel_halt, config_tvalid, config_tready, input_tvalid, input_tready, input_tlast
            , output_tvalid, output_tready, output_tlast : STD_LOGIC := '0';
-    signal config_data, output_user, im_in, re_in : STD_LOGIC_VECTOR(15 DOWNTO 0);
+    signal config_data, output_user, im_in, re_in : STD_LOGIC_VECTOR(15 DOWNTO 0) := (others => '0');
     signal input_data, output_data : STD_LOGIC_VECTOR(31 DOWNTO 0);
 begin
     
@@ -71,14 +71,16 @@ begin
     process
         begin
             enable_fft <= '1';
+            re_in <= "0100000000000000";
         wait for 25 ns;   
             config_data <= "0000001101010101";
             config_tvalid <= '1';
-        wait for 100 ns;
-            --config_tvalid <= '0';
-            re_in <= "0100000000000000";
-            im_in <= "0000000000000000";
+        wait for 95 ns;
             input_tvalid <= '1';
+        wait for 0 ns;
+            --config_tvalid <= '0';
+            re_in <= "0000000000000000";
+            im_in <= "0000000000000000";         
         wait for 10 ns;
             re_in <= "0000000000000000";
             im_in <= "0000000000000000";
