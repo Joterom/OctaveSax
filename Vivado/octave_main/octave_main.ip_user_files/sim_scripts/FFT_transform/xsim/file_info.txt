@@ -1,0 +1,2 @@
+FFT_transform.vhd,vhdl,xil_defaultlib,../../../../octave_main.srcs/sources_1/ip/FFT_transform/sim/FFT_transform.vhd,
+glbl.v,Verilog,xil_defaultlib,glbl.v

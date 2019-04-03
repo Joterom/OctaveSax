@@ -1,0 +1,81 @@
+#-----------------------------------------------------------
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Mon Apr  1 19:57:37 2019
+# Process ID: 9656
+# Current directory: D:/UNI/TFG/OctaveSax/Vivado/octave_main
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent13132 D:\UNI\TFG\OctaveSax\Vivado\octave_main\octave_main.xpr
+# Log file: D:/UNI/TFG/OctaveSax/Vivado/octave_main/vivado.log
+# Journal file: D:/UNI/TFG/OctaveSax/Vivado/octave_main\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2017.4/data/ip'.
+open_project: Time (s): cpu = 00:00:12 ; elapsed = 00:00:08 . Memory (MB): peak = 766.074 ; gain = 99.547
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+close [ open D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sim_1/new/tb_transform.vhd w ]
+add_files -fileset sim_1 D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sim_1/new/tb_transform.vhd
+set_property top tb_transform [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+set_property top tb_FFT_transform [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+set_property top tb_transform [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+launch_simulation
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'C:/Xilinx/Vivado/2017.4/data/xsim/ip/xsim_ip.ini' copied to run dir:'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_transform' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj tb_transform_vlog.prj"
+"xvhdl --incr --relax -prj tb_transform_vhdl.prj"
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/FFT_transform/sim/FFT_transform.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity FFT_transform
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/FFT_transform/demo_tb/tb_FFT_transform.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity tb_FFT_transform
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity master_controller
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/imports/ROM Data/istft_window.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity istft_window_rom
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/imports/ROM Data/stft_window.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity stft_window_rom
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/fsm_control.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity fsm_control
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/transform_controller.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity transform_controller
+ERROR: [VRFC 10-91] config_tdata is not declared [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/transform_controller.vhd:48]
+ERROR: [VRFC 10-91] input_data is not declared [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/transform_controller.vhd:51]
+ERROR: [VRFC 10-91] input_tvalid is not declared [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/transform_controller.vhd:52]
+ERROR: [VRFC 10-91] input_tready is not declared [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/transform_controller.vhd:53]
+ERROR: [VRFC 10-283] actual of formal out port s_axis_data_tready cannot be an expression [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/transform_controller.vhd:53]
+ERROR: [VRFC 10-91] input_tlast is not declared [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/transform_controller.vhd:54]
+ERROR: [VRFC 10-91] output_tdata is not declared [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/transform_controller.vhd:55]
+ERROR: [VRFC 10-283] actual of formal out port m_axis_data_tdata cannot be an expression [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/transform_controller.vhd:55]
+ERROR: [VRFC 10-91] output_tuser is not declared [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/transform_controller.vhd:56]
+ERROR: [VRFC 10-283] actual of formal out port m_axis_data_tuser cannot be an expression [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/transform_controller.vhd:56]
+ERROR: [VRFC 10-91] output_tvalid is not declared [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/transform_controller.vhd:57]
+ERROR: [VRFC 10-283] actual of formal out port m_axis_data_tvalid cannot be an expression [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/transform_controller.vhd:57]
+ERROR: [VRFC 10-91] output_tready is not declared [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/transform_controller.vhd:58]
+ERROR: [VRFC 10-91] output_tlast is not declared [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/transform_controller.vhd:59]
+ERROR: [VRFC 10-283] actual of formal out port m_axis_data_tlast cannot be an expression [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/transform_controller.vhd:59]
+ERROR: [VRFC 10-719] formal port/generic <m_axis_status_tready> is not declared in <fft_transform> [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/transform_controller.vhd:60]
+ERROR: [VRFC 10-1504] unit behavioral ignored due to previous errors [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/transform_controller.vhd:14]
+INFO: [VRFC 10-240] VHDL file D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/transform_controller.vhd ignored due to errors
+INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
+INFO: [USF-XSim-99] Step results log file:'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim/xvhdl.log'
+ERROR: [USF-XSim-62] 'compile' step failed with error(s). Please check the Tcl console output or 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim/xvhdl.log' file for more information.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+WARNING: [filemgmt 56-315] Source scanning failed during design analysis. To get more details run synthesis or simulation and check the log.

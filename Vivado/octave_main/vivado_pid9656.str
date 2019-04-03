@@ -1,0 +1,575 @@
+/*
+
+Xilinx Vivado v2017.4 (64-bit) [Major: 2017, Minor: 4]
+SW Build: 2086221 on Fri Dec 15 20:55:39 MST 2017
+IP Build: 2085800 on Fri Dec 15 22:25:07 MST 2017
+
+Process ID: 9656
+License: Customer
+
+Current time: 	Mon Apr 01 19:57:52 CEST 2019
+Time zone: 	Central European Time (Europe/Paris)
+
+OS: Windows 10
+OS Version: 10.0
+OS Architecture: amd64
+Available processors (cores): 4
+
+Screen size: 1920x1080
+Screen resolution (DPI): 96
+Available screens: 1
+Available disk space: 33 GB
+Default font: family=Dialog,name=Dialog,style=plain,size=12
+
+Java version: 	1.8.0_112 64-bit
+Java home: 	C:/Xilinx/Vivado/2017.4/tps/win64/jre
+JVM executable location: 	C:/Xilinx/Vivado/2017.4/tps/win64/jre/bin/java.exe
+
+User name: 	Javi
+User home directory: C:/Users/Javi
+User working directory: D:/UNI/TFG/OctaveSax/Vivado/octave_main
+User country: 	ES
+User language: 	es
+User locale: 	es_ES
+
+RDI_BASEROOT: C:/Xilinx/Vivado
+HDI_APPROOT: C:/Xilinx/Vivado/2017.4
+RDI_DATADIR: C:/Xilinx/Vivado/2017.4/data
+RDI_BINDIR: C:/Xilinx/Vivado/2017.4/bin
+
+Vivado preferences file location: C:/Users/Javi/AppData/Roaming/Xilinx/Vivado/2017.4/vivado.xml
+Vivado preferences directory: C:/Users/Javi/AppData/Roaming/Xilinx/Vivado/2017.4/
+Vivado layouts directory: C:/Users/Javi/AppData/Roaming/Xilinx/Vivado/2017.4/layouts
+PlanAhead jar file location: 	C:/Xilinx/Vivado/2017.4/lib/classes/planAhead.jar
+Vivado log file location: 	D:/UNI/TFG/OctaveSax/Vivado/octave_main/vivado.log
+Vivado journal file location: 	D:/UNI/TFG/OctaveSax/Vivado/octave_main/vivado.jou
+Engine tmp dir: 	D:/UNI/TFG/OctaveSax/Vivado/octave_main/.Xil/Vivado-9656-DESKTOP-DR3C0JT
+
+GUI allocated memory:	177 MB
+GUI max memory:		3,052 MB
+Engine allocated memory: 514 MB
+
+Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+
+*/
+
+// TclEventType: START_GUI
+// Tcl Message: start_gui 
+// TclEventType: PROJECT_OPEN_DIALOG
+// [GUI Memory]: 51 MB (+51476kb) [00:00:06]
+// [Engine Memory]: 458 MB (+328456kb) [00:00:06]
+// bs (cj):  Open Project : addNotify
+// Opening Vivado Project: D:\UNI\TFG\OctaveSax\Vivado\octave_main\octave_main.xpr. Version: Vivado v2017.4 
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_COMPLETED
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// TclEventType: RUN_COMPLETED
+// Tcl Message: open_project D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.xpr 
+// TclEventType: RUN_COMPLETED
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// TclEventType: RUN_CURRENT
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: PROJECT_NEW
+// [GUI Memory]: 76 MB (+23390kb) [00:00:10]
+// [Engine Memory]: 558 MB (+81215kb) [00:00:10]
+// [GUI Memory]: 85 MB (+4985kb) [00:00:12]
+// [Engine Memory]: 616 MB (+31270kb) [00:00:12]
+// [GUI Memory]: 99 MB (+10051kb) [00:00:13]
+// Tcl Message: open_project D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.xpr 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2017.4/data/ip'. 
+// HMemoryUtils.trashcanNow. Engine heap size: 627 MB. GUI used memory: 47 MB. Current time: 4/1/19 7:57:58 PM CEST
+// Tcl Message: open_project: Time (s): cpu = 00:00:12 ; elapsed = 00:00:08 . Memory (MB): peak = 766.074 ; gain = 99.547 
+// Project name: octave_main; location: D:/UNI/TFG/OctaveSax/Vivado/octave_main; part: xc7a100tcsg324-1
+dismissDialog("Open Project"); // bs (cj)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, transform_controller(Behavioral) (transform_controller.vhd)]", 2, true); // B (D, cj) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, transform_controller(Behavioral) (transform_controller.vhd)]", 2, true, false, false, false, false, true); // B (D, cj) - Double Click - Node
+// Elapsed time: 54 seconds
+selectCodeEditor("transform_controller.vhd", 206, 125); // cd (w, cj)
+selectCodeEditor("transform_controller.vhd", 176, 78); // cd (w, cj)
+selectCodeEditor("transform_controller.vhd", 176, 78, false, false, false, false, true); // cd (w, cj) - Double Click
+// Elapsed time: 64 seconds
+selectCodeEditor("transform_controller.vhd", 278, 231); // cd (w, cj)
+selectCodeEditor("transform_controller.vhd", 141, 77); // cd (w, cj)
+selectCodeEditor("transform_controller.vhd", 141, 77, false, false, false, false, true); // cd (w, cj) - Double Click
+selectCodeEditor("transform_controller.vhd", 267, 314); // cd (w, cj)
+selectCodeEditor("transform_controller.vhd", 267, 314, false, false, false, false, true); // cd (w, cj) - Double Click
+selectCodeEditor("transform_controller.vhd", 309, 356); // cd (w, cj)
+selectCodeEditor("transform_controller.vhd", 309, 356, false, false, false, false, true); // cd (w, cj) - Double Click
+selectCodeEditor("transform_controller.vhd", 330, 398); // cd (w, cj)
+selectCodeEditor("transform_controller.vhd", 329, 400); // cd (w, cj)
+selectCodeEditor("transform_controller.vhd", 329, 400, false, false, false, false, true); // cd (w, cj) - Double Click
+selectButton(PAResourceCommand.PACommandNames_ADD_SOURCES, "Sources_add_sources"); // B (f, cj)
+// Run Command: PAResourceCommand.PACommandNames_ADD_SOURCES
+// c (cj): Add Sources: addNotify
+selectRadioButton(PAResourceAtoD.AddSrcWizard_SPECIFY_SIMULATION_SPECIFIC_HDL_FILES, "Add or create simulation sources"); // a (o, c)
+selectButton("NEXT", "Next >"); // JButton (h, c)
+selectButton(PAResourceQtoS.SrcChooserPanel_CREATE_FILE, "Create File"); // a (C, c)
+// F (c): Create Source File: addNotify
+setText(PAResourceAtoD.CreateSrcFileDialog_FILE_NAME, "tb_transform"); // X (N, F)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (F)
+dismissDialog("Create Source File"); // F (c)
+// Elapsed time: 13 seconds
+selectButton("FINISH", "Finish"); // JButton (h, c)
+// 'h' command handler elapsed time: 27 seconds
+dismissDialog("Add Sources"); // c (cj)
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: set_property SOURCE_SET sources_1 [get_filesets sim_1] 
+// Tcl Message: close [ open D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sim_1/new/tb_transform.vhd w ] 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: add_files -fileset sim_1 D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sim_1/new/tb_transform.vhd 
+// I (cj): Define Module: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (I)
+// TclEventType: FILE_SET_CHANGE
+selectButton("PAResourceAtoD.DefineModulesDialog_YOU_HAVE_MADE_CHANGES_TO_MODULE_Yes", "Yes"); // JButton (A, H)
+dismissDialog("Define Module"); // I (cj)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources]", 5); // B (D, cj)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1]", 6); // B (D, cj)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, tb_transform(Behavioral) (tb_transform.vhd)]", 11, false); // B (D, cj)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, tb_transform(Behavioral) (tb_transform.vhd)]", 11, false, false, false, false, true, false); // B (D, cj) - Popup Trigger
+selectMenu(PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, "Hierarchy Update"); // Z (ai, cj)
+selectMenu(PAResourceQtoS.SrcMenu_IP_HIERARCHY, "IP Hierarchy"); // Z (ai, cj)
+selectMenuItem(PAResourceCommand.PACommandNames_SET_AS_TOP, "Set as Top"); // ac (ai, cj)
+// Run Command: PAResourceCommand.PACommandNames_SET_AS_TOP
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: set_property top tb_transform [get_filesets sim_1] 
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// Tcl Message: set_property top_lib xil_defaultlib [get_filesets sim_1] 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, fsm_global(Behavioral) (fsm_global.vhd)]", 7, true); // B (D, cj) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, fsm_global(Behavioral) (fsm_global.vhd)]", 7, true, false, false, false, false, true); // B (D, cj) - Double Click - Node
+closeView(PAResourceOtoP.PAViews_CODE, "Code"); // B
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, main_tb(Behavioral) (main_tb.vhd)]", 11, true); // B (D, cj) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, main_tb(Behavioral) (main_tb.vhd)]", 11, true, false, false, false, false, true); // B (D, cj) - Double Click - Node
+selectCodeEditor("main_tb.vhd", 28, 91); // cd (w, cj)
+typeControlKey((HResource) null, "main_tb.vhd", 'c'); // cd (w, cj)
+closeView(PAResourceOtoP.PAViews_CODE, "Code"); // B
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, tb_transform(Behavioral) (tb_transform.vhd)]", 15, false); // B (D, cj)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, tb_transform(Behavioral) (tb_transform.vhd)]", 15, false, false, false, false, false, true); // B (D, cj) - Double Click
+selectCodeEditor("tb_transform.vhd", 23, 349); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 270, 167); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 252, 190); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 40, 185); // cd (w, cj)
+typeControlKey((HResource) null, "tb_transform.vhd", 'v'); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 26, 193); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 113, 366); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 152, 230); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 147, 245); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 232, 250); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 175, 367); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 234, 353); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 152, 263); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 103, 129); // cd (w, cj)
+selectButton(RDIResourceCommand.RDICommands_SAVE_FILE, (String) null); // B (f, cj)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "transform_controller.vhd", 1); // k (j, cj)
+// Elapsed time: 318 seconds
+selectCodeEditor("transform_controller.vhd", 152, 238); // cd (w, cj)
+selectCodeEditor("transform_controller.vhd", 214, 317); // cd (w, cj)
+selectCodeEditor("transform_controller.vhd", 169, 188); // cd (w, cj)
+selectCodeEditor("transform_controller.vhd", 169, 188, false, false, false, false, true); // cd (w, cj) - Double Click
+selectCodeEditor("transform_controller.vhd", 162, 80); // cd (w, cj)
+selectCodeEditor("transform_controller.vhd", 162, 80, false, false, false, false, true); // cd (w, cj) - Double Click
+// Elapsed time: 45 seconds
+selectCodeEditor("transform_controller.vhd", 287, 128); // cd (w, cj)
+selectCodeEditor("transform_controller.vhd", 72, 425); // cd (w, cj)
+selectCodeEditor("transform_controller.vhd", 72, 418); // cd (w, cj)
+selectCodeEditor("transform_controller.vhd", 67, 415); // cd (w, cj)
+// Elapsed time: 15 seconds
+selectCodeEditor("transform_controller.vhd", 52, 397); // cd (w, cj)
+// Elapsed time: 35 seconds
+selectCodeEditor("transform_controller.vhd", 366, 354); // cd (w, cj)
+selectCodeEditor("transform_controller.vhd", 231, 87); // cd (w, cj)
+selectCodeEditor("transform_controller.vhd", 399, 211); // cd (w, cj)
+selectCodeEditor("transform_controller.vhd", 326, 307); // cd (w, cj)
+selectCodeEditor("transform_controller.vhd", 193, 405); // cd (w, cj)
+selectCodeEditor("transform_controller.vhd", 196, 419); // cd (w, cj)
+// Elapsed time: 12 seconds
+selectCodeEditor("transform_controller.vhd", 184, 409); // cd (w, cj)
+selectCodeEditor("transform_controller.vhd", 22, 454); // cd (w, cj)
+selectCodeEditor("transform_controller.vhd", 168, 396); // cd (w, cj)
+selectCodeEditor("transform_controller.vhd", 719, 144); // cd (w, cj)
+selectCodeEditor("transform_controller.vhd", 112, 412); // cd (w, cj)
+// Elapsed time: 68 seconds
+selectCodeEditor("transform_controller.vhd", 579, 258); // cd (w, cj)
+selectCodeEditor("transform_controller.vhd", 192, 362); // cd (w, cj)
+// Elapsed time: 13 seconds
+selectCodeEditor("transform_controller.vhd", 525, 212); // cd (w, cj)
+selectCodeEditor("transform_controller.vhd", 329, 140); // cd (w, cj)
+// Elapsed time: 46 seconds
+selectCodeEditor("transform_controller.vhd", 237, 197); // cd (w, cj)
+selectCodeEditor("transform_controller.vhd", 140, 196); // cd (w, cj)
+selectCodeEditor("transform_controller.vhd", 127, 309); // cd (w, cj)
+selectCodeEditor("transform_controller.vhd", 392, 338); // cd (w, cj)
+// Elapsed time: 16 seconds
+selectCodeEditor("transform_controller.vhd", 331, 279); // cd (w, cj)
+selectCodeEditor("transform_controller.vhd", 331, 279); // cd (w, cj)
+// Elapsed time: 28 seconds
+selectCodeEditor("transform_controller.vhd", 250, 333); // cd (w, cj)
+// Elapsed time: 21 seconds
+selectCodeEditor("transform_controller.vhd", 266, 125); // cd (w, cj)
+// Elapsed time: 18 seconds
+selectCodeEditor("transform_controller.vhd", 147, 397); // cd (w, cj)
+selectCodeEditor("transform_controller.vhd", 203, 397); // cd (w, cj)
+// Elapsed time: 16 seconds
+selectCodeEditor("transform_controller.vhd", 272, 234); // cd (w, cj)
+// Elapsed time: 10 seconds
+selectCodeEditor("transform_controller.vhd", 203, 260); // cd (w, cj)
+// [GUI Memory]: 106 MB (+2710kb) [00:17:09]
+// Elapsed time: 36 seconds
+typeControlKey((HResource) null, "transform_controller.vhd", 'c'); // cd (w, cj)
+typeControlKey((HResource) null, "transform_controller.vhd", 'v'); // cd (w, cj)
+typeControlKey((HResource) null, "transform_controller.vhd", 'v'); // cd (w, cj)
+typeControlKey((HResource) null, "transform_controller.vhd", 'v'); // cd (w, cj)
+// Elapsed time: 76 seconds
+selectCodeEditor("transform_controller.vhd", 337, 387); // cd (w, cj)
+// Elapsed time: 43 seconds
+selectCodeEditor("transform_controller.vhd", 486, 378); // cd (w, cj)
+// Elapsed time: 19 seconds
+selectCodeEditor("transform_controller.vhd", 32, 321); // cd (w, cj)
+// Elapsed time: 32 seconds
+selectCodeEditor("transform_controller.vhd", 763, 192); // cd (w, cj)
+selectCodeEditor("transform_controller.vhd", 577, 163); // cd (w, cj)
+selectCodeEditor("transform_controller.vhd", 106, 276); // cd (w, cj)
+// Elapsed time: 291 seconds
+selectCodeEditor("transform_controller.vhd", 246, 291); // cd (w, cj)
+selectCodeEditor("transform_controller.vhd", 123, 383); // cd (w, cj)
+// Elapsed time: 28 seconds
+selectCodeEditor("transform_controller.vhd", 483, 322); // cd (w, cj)
+selectCodeEditor("transform_controller.vhd", 175, 372); // cd (w, cj)
+selectButton(RDIResourceCommand.RDICommands_SAVE_FILE, (String) null); // B (f, cj)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed time: 14 seconds
+selectTab(PAResourceEtoH.FileSetView_TABBED_PANE, (HResource) null, "IP Sources", 1); // i (N, cj)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, IP, FFT_transform]", 2); // B (D, cj)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, IP, FFT_transform, Test Bench]", 7); // B (D, cj)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, IP, FFT_transform, Test Bench, tb_FFT_transform.vhd]", 8, false); // B (D, cj)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, IP, FFT_transform, Test Bench, tb_FFT_transform.vhd]", 8, false, false, false, false, true, false); // B (D, cj) - Popup Trigger
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, IP, FFT_transform, Test Bench, tb_FFT_transform.vhd]", 8, false); // B (D, cj)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, IP, FFT_transform, Test Bench, tb_FFT_transform.vhd]", 8, false, false, false, false, false, true); // B (D, cj) - Double Click
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, IP, FFT_transform, Test Bench, tb_FFT_transform.vhd]", 8, false); // B (D, cj)
+// Elapsed time: 27 seconds
+selectCodeEditor("tb_FFT_transform.vhd", 428, 140); // D (w, cj)
+typeControlKey((HResource) null, "tb_FFT_transform.vhd", 'c'); // D (w, cj)
+closeView(PAResourceOtoP.PAViews_CODE, "Code"); // B
+selectCodeEditor("tb_transform.vhd", 311, 254); // cd (w, cj)
+typeControlKey((HResource) null, "tb_transform.vhd", 'v'); // cd (w, cj)
+// Elapsed time: 15 seconds
+typeControlKey(null, null, 'z');
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, IP, FFT_transform, Test Bench]", 7); // B (D, cj)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, IP, FFT_transform, Simulation]", 5); // B (D, cj)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, IP, FFT_transform, Simulation, FFT_transform.vhd]", 6, false); // B (D, cj)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, IP, FFT_transform, Simulation, FFT_transform.vhd]", 6, false, false, false, false, false, true); // B (D, cj) - Double Click
+closeView(PAResourceOtoP.PAViews_CODE, "Code"); // B
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, IP, FFT_transform, Synthesis]", 4); // B (D, cj)
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, IP, FFT_transform, Synthesis]", 4); // B (D, cj)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, IP, FFT_transform, FFT_transform_stub.vhdl]", 14, false); // B (D, cj)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, IP, FFT_transform, FFT_transform_sim_netlist.vhdl]", 12, false, false, false, false, true, false); // B (D, cj) - Popup Trigger
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, IP, FFT_transform, FFT_transform_sim_netlist.v]", 11, false); // B (D, cj)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, IP, FFT_transform, Change Log]", 9, true); // B (D, cj) - Node
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, IP, FFT_transform, Test Bench]", 8); // B (D, cj)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, IP, FFT_transform, Test Bench, tb_FFT_transform.vhd]", 9, false); // B (D, cj)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, IP, FFT_transform, Test Bench, tb_FFT_transform.vhd]", 9, false, false, false, false, true, false); // B (D, cj) - Popup Trigger
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, IP, FFT_transform, Test Bench]", 8); // B (D, cj)
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, IP, FFT_transform]", 2); // B (D, cj)
+selectTab(PAResourceEtoH.FileSetView_TABBED_PANE, (HResource) null, "Libraries", 2); // i (N, cj)
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Block Sources, FFT_transform, IP]", 18); // B (D, cj)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Block Sources, FFT_transform, IP]", 18); // B (D, cj)
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Block Sources, FFT_transform]", 17); // B (D, cj)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Block Sources, FFT_transform]", 17); // B (D, cj)
+// Elapsed time: 85 seconds
+selectTab(PAResourceEtoH.FileSetView_TABBED_PANE, (HResource) null, "Hierarchy", 0); // i (N, cj)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, transform_controller(Behavioral) (transform_controller.vhd)]", 13); // B (D, cj)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, transform_controller(Behavioral) (transform_controller.vhd), FFT : FFT_transform (FFT_transform.xci)]", 14); // B (D, cj)
+// x (cj): Show IP Hierarchy: addNotify
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a (x)
+dismissDialog("Show IP Hierarchy"); // x (cj)
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources]", 0); // B (D, cj)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, transform_controller(Behavioral) (transform_controller.vhd)]", 10, true); // B (D, cj) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, transform_controller(Behavioral) (transform_controller.vhd), FFT : FFT_transform (FFT_transform.xci)]", 11, false); // B (D, cj)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, transform_controller(Behavioral) (transform_controller.vhd), FFT : FFT_transform (FFT_transform.xci)]", 11); // B (D, cj)
+// x (cj): Show IP Hierarchy: addNotify
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a (x)
+dismissDialog("Show IP Hierarchy"); // x (cj)
+// HMemoryUtils.trashcanNow. Engine heap size: 639 MB. GUI used memory: 53 MB. Current time: 4/1/19 8:28:00 PM CEST
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, transform_controller(Behavioral) (transform_controller.vhd), FFT : FFT_transform (FFT_transform.xci)]", 11); // B (D, cj)
+// x (cj): Show IP Hierarchy: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (x)
+// TclEventType: DG_GRAPH_STALE
+dismissDialog("Show IP Hierarchy"); // x (cj)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// Elapsed time: 103 seconds
+selectCodeEditor("tb_transform.vhd", 403, 302); // cd (w, cj)
+// Elapsed time: 57 seconds
+selectCodeEditor("tb_transform.vhd", 314, 278); // cd (w, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "transform_controller.vhd", 1); // k (j, cj)
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed time: 402 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, transform_controller(Behavioral) (transform_controller.vhd), FFT : FFT_transform (FFT_transform.xci), tb_FFT_transform(tb) (tb_FFT_transform.vhd)]", 14, true); // B (D, cj) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, transform_controller(Behavioral) (transform_controller.vhd), FFT : FFT_transform (FFT_transform.xci), tb_FFT_transform(tb) (tb_FFT_transform.vhd)]", 14, true, false, false, false, true, false); // B (D, cj) - Popup Trigger - Node
+selectMenu(PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, "Hierarchy Update"); // Z (ai, cj)
+selectMenu(PAResourceQtoS.SrcMenu_IP_HIERARCHY, "IP Hierarchy"); // Z (ai, cj)
+selectMenuItem(PAResourceCommand.PACommandNames_SET_AS_TOP, "Set as Top"); // ac (ai, cj)
+// Run Command: PAResourceCommand.PACommandNames_SET_AS_TOP
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: set_property top tb_FFT_transform [get_filesets sim_1] 
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// Tcl Message: set_property top_lib xil_defaultlib [get_filesets sim_1] 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// Elapsed time: 64 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, transform_controller(Behavioral) (transform_controller.vhd), FFT : FFT_transform (FFT_transform.xci), tb_FFT_transform(tb) (tb_FFT_transform.vhd)]", 14, true); // B (D, cj) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, transform_controller(Behavioral) (transform_controller.vhd), FFT : FFT_transform (FFT_transform.xci), tb_FFT_transform(tb) (tb_FFT_transform.vhd)]", 14, true, false, false, false, false, true); // B (D, cj) - Double Click - Node
+// Elapsed time: 11 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "tb_transform.vhd", 2); // k (j, cj)
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed time: 1041 seconds
+selectCodeEditor("tb_transform.vhd", 261, 371); // cd (w, cj)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, transform_controller(Behavioral) (transform_controller.vhd), FFT : FFT_transform (FFT_transform.xci), tb_FFT_transform(tb) (tb_FFT_transform.vhd)]", 14, true, false, false, false, true, false); // B (D, cj) - Popup Trigger - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, transform_controller(Behavioral) (transform_controller.vhd), FFT : FFT_transform (FFT_transform.xci), tb_FFT_transform(tb) (tb_FFT_transform.vhd)]", 14, true); // B (D, cj) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, transform_controller(Behavioral) (transform_controller.vhd), FFT : FFT_transform (FFT_transform.xci), tb_FFT_transform(tb) (tb_FFT_transform.vhd)]", 14, true, false, false, false, true, false); // B (D, cj) - Popup Trigger - Node
+selectMenu(PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, "Hierarchy Update"); // Z (ai, cj)
+selectMenu(PAResourceQtoS.SrcMenu_IP_HIERARCHY, "IP Hierarchy"); // Z (ai, cj)
+selectMenuItem(PAResourceCommand.PACommandNames_SET_AS_TOP, "Set as Top"); // ac (ai, cj)
+// Run Command: PAResourceCommand.PACommandNames_SET_AS_TOP
+selectButton(PAResourceEtoH.FileSetPanel_MESSAGES, "1"); // h (f, cj)
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Analysis Results, sim_1, [filemgmt 20-644] Circular Reference Found: '/xbip_bram18k_v3_0_4/xfft_v9_0_14_core' [D:/UNI/TFG/OctaveSax/Vivado/octave_main:0] -->> '/xfft_v9_0_14/xfft_v9_0_14_fp/xilinx' [d:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/FFT_transform/hdl/xfft_v9_0_vh_rfs.vhd:99316]. ]", 2, false); // ah (O, cj)
+messagesViewCrossProbe(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "src;-;d:\UNI\TFG\OctaveSax\Vivado\octave_main\octave_main.srcs\sources_1\ip\FFT_transform\hdl\xfft_v9_0_vh_rfs.vhd;-;;-;16;-;line;-;99316;-;;-;16;-;"); // ah (O, cj)
+// ac (cj): Unable to Open File: addNotify
+selectButton(PAResourceOtoP.OpenFileAction_CANCEL, "Cancel"); // a (ac)
+dismissDialog("Unable to Open File"); // ac (cj)
+selectCodeEditor("tb_transform.vhd", 285, 140); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 262, 221); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 220, 262); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 176, 306); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 151, 336); // cd (w, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "tb_FFT_transform.vhd", 3); // k (j, cj)
+closeView(PAResourceOtoP.PAViews_CODE, "Code"); // B
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "transform_controller.vhd", 1); // k (j, cj)
+selectCodeEditor("transform_controller.vhd", 75, 386); // cd (w, cj)
+typeControlKey((HResource) null, "transform_controller.vhd", 'c'); // cd (w, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "tb_transform.vhd", 2); // k (j, cj)
+selectCodeEditor("tb_transform.vhd", 56, 143); // cd (w, cj)
+typeControlKey((HResource) null, "tb_transform.vhd", 'v'); // cd (w, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "transform_controller.vhd", 1); // k (j, cj)
+selectCodeEditor("transform_controller.vhd", 28, 38); // cd (w, cj)
+typeControlKey((HResource) null, "transform_controller.vhd", 'c'); // cd (w, cj)
+typeControlKey((HResource) null, "transform_controller.vhd", 'c'); // cd (w, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "tb_transform.vhd", 2); // k (j, cj)
+selectCodeEditor("tb_transform.vhd", 25, 72); // cd (w, cj)
+typeControlKey((HResource) null, "tb_transform.vhd", 'v'); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 26, 40); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 35, 73); // cd (w, cj)
+typeControlKey((HResource) null, "tb_transform.vhd", 'v'); // cd (w, cj)
+// Elapsed time: 12 seconds
+selectCodeEditor("tb_transform.vhd", 49, 260); // cd (w, cj)
+// Elapsed time: 18 seconds
+selectCodeEditor("tb_transform.vhd", 463, 316); // cd (w, cj)
+// HMemoryUtils.trashcanNow. Engine heap size: 639 MB. GUI used memory: 52 MB. Current time: 4/1/19 8:58:03 PM CEST
+selectCodeEditor("tb_transform.vhd", 189, 369); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 150, 309); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 146, 303); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 284, 293); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 284, 293, false, false, false, false, true); // cd (w, cj) - Double Click
+typeControlKey((HResource) null, "tb_transform.vhd", 'c'); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 319, 182); // cd (w, cj)
+typeControlKey((HResource) null, "tb_transform.vhd", 'c'); // cd (w, cj)
+typeControlKey((HResource) null, "tb_transform.vhd", 'v'); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 216, 371); // cd (w, cj)
+typeControlKey((HResource) null, "tb_transform.vhd", 'c'); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 75, 45); // cd (w, cj)
+typeControlKey((HResource) null, "tb_transform.vhd", 'v'); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 239, 379); // cd (w, cj)
+typeControlKey((HResource) null, "tb_transform.vhd", 'c'); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 220, 35); // cd (w, cj)
+typeControlKey((HResource) null, "tb_transform.vhd", 'v'); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 214, 400); // cd (w, cj)
+typeControlKey((HResource) null, "tb_transform.vhd", 'c'); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 392, 41); // cd (w, cj)
+typeControlKey((HResource) null, "tb_transform.vhd", 'v'); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 262, 414); // cd (w, cj)
+typeControlKey((HResource) null, "tb_transform.vhd", 'c'); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 536, 45); // cd (w, cj)
+typeControlKey((HResource) null, "tb_transform.vhd", 'v'); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 267, 435); // cd (w, cj)
+typeControlKey((HResource) null, "tb_transform.vhd", 'c'); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 723, 47); // cd (w, cj)
+typeControlKey((HResource) null, "tb_transform.vhd", 'v'); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 274, 448); // cd (w, cj)
+typeControlKey((HResource) null, "tb_transform.vhd", 'c'); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 916, 46); // cd (w, cj)
+typeControlKey((HResource) null, "tb_transform.vhd", 'v'); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 820, 336); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 1114, 40); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 1200, 40); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 918, 42); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 943, 48); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 367, 59); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 160, 144); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 160, 144, false, false, false, false, true); // cd (w, cj) - Double Click
+selectCodeEditor("tb_transform.vhd", 52, 99); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 55, 92); // cd (w, cj)
+typeControlKey((HResource) null, "tb_transform.vhd", 'c'); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 445, 365); // cd (w, cj)
+typeControlKey((HResource) null, "tb_transform.vhd", 'v'); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 201, 162); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 174, 45); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 104, 182); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 54, 176); // cd (w, cj)
+typeControlKey((HResource) null, "tb_transform.vhd", 'c'); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 210, 232); // cd (w, cj)
+typeControlKey((HResource) null, "tb_transform.vhd", 'v'); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 76, 126); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 449, 219); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 253, 130); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 491, 286); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 555, 283); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 474, 176); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 282, 211); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 251, 348); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 251, 348, false, false, false, false, true); // cd (w, cj) - Double Click
+typeControlKey((HResource) null, "tb_transform.vhd", 'c'); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 290, 210); // cd (w, cj)
+typeControlKey((HResource) null, "tb_transform.vhd", 'v'); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 263, 364); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 263, 364, false, false, false, false, true); // cd (w, cj) - Double Click
+typeControlKey((HResource) null, "tb_transform.vhd", 'c'); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 390, 213); // cd (w, cj)
+typeControlKey((HResource) null, "tb_transform.vhd", 'v'); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 386, 257); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 223, 384); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 223, 384, false, false, false, false, true); // cd (w, cj) - Double Click
+selectCodeEditor("tb_transform.vhd", 154, 90); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 55, 90); // cd (w, cj)
+typeControlKey((HResource) null, "tb_transform.vhd", 'c'); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 499, 223); // cd (w, cj)
+typeControlKey((HResource) null, "tb_transform.vhd", 'v'); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 153, 246); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 126, 246); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 178, 108); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 150, 401); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 272, 431); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 531, 348); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 303, 88); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 237, 52); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 256, 316); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 280, 182); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 235, 265); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 235, 265, false, false, false, false, true); // cd (w, cj) - Double Click
+typeControlKey((HResource) null, "tb_transform.vhd", 'c'); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 491, 65); // cd (w, cj)
+typeControlKey((HResource) null, "tb_transform.vhd", 'v'); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 212, 275); // cd (w, cj)
+typeControlKey((HResource) null, "tb_transform.vhd", 'c'); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 587, 56); // cd (w, cj)
+typeControlKey((HResource) null, "tb_transform.vhd", 'v'); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 198, 340); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 203, 291); // cd (w, cj)
+typeControlKey((HResource) null, "tb_transform.vhd", 'c'); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 698, 59); // cd (w, cj)
+typeControlKey((HResource) null, "tb_transform.vhd", 'v'); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 213, 371); // cd (w, cj)
+typeControlKey((HResource) null, "tb_transform.vhd", 'c'); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 90, 72); // cd (w, cj)
+typeControlKey((HResource) null, "tb_transform.vhd", 'v'); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 210, 388); // cd (w, cj)
+typeControlKey((HResource) null, "tb_transform.vhd", 'c'); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 190, 81); // cd (w, cj)
+typeControlKey((HResource) null, "tb_transform.vhd", 'v'); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 202, 395); // cd (w, cj)
+typeControlKey((HResource) null, "tb_transform.vhd", 'c'); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 294, 72); // cd (w, cj)
+typeControlKey((HResource) null, "tb_transform.vhd", 'v'); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 322, 412); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 257, 407); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 273, 421); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 551, 433); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 548, 358); // cd (w, cj)
+selectCodeEditor("tb_transform.vhd", 397, 319); // cd (w, cj)
+// Elapsed time: 174 seconds
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, transform_controller(Behavioral) (transform_controller.vhd), FFT : FFT_transform (FFT_transform.xci)]", 13); // B (D, cj)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, tb_transform(Behavioral) (tb_transform.vhd)]", 15, false); // B (D, cj)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, tb_transform(Behavioral) (tb_transform.vhd)]", 15, false, false, false, false, true, false); // B (D, cj) - Popup Trigger
+selectMenu(PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, "Hierarchy Update"); // Z (ai, cj)
+selectMenu(PAResourceQtoS.SrcMenu_IP_HIERARCHY, "IP Hierarchy"); // Z (ai, cj)
+selectMenuItem(PAResourceCommand.PACommandNames_SET_AS_TOP, "Set as Top"); // ac (ai, cj)
+// Run Command: PAResourceCommand.PACommandNames_SET_AS_TOP
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: set_property top tb_transform [get_filesets sim_1] 
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// Tcl Message: set_property top_lib xil_defaultlib [get_filesets sim_1] 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, transform_controller(Behavioral) (transform_controller.vhd)]", 12); // B (D, cj)
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, main_tb(Behavioral) (main_tb.vhd)]", 10); // B (D, cj)
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, fsm_global(Behavioral) (fsm_global.vhd)]", 6); // B (D, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "transform_controller.vhd", 1); // k (j, cj)
+selectCodeEditor("transform_controller.vhd", 244, 242); // cd (w, cj)
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed time: 174 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Simulation, Run Simulation]", 10, false); // u (O, cj)
+expandTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Project Manager]", 0); // u (O, cj)
+selectMenuItem(PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, "Run Behavioral Simulation"); // ac (ai, cj)
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL
+// am (cj): Save Project: addNotify
+selectButton(PAResourceQtoS.SaveProjectUtils_SAVE, "Save"); // a (am)
+// bs (cj):  Save Constraints : addNotify
+// e (cj):  Run Simulation : addNotify
+dismissDialog("Save Project"); // am (cj)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: LAUNCH_SIM
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// TclEventType: LOAD_FEATURE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// Tcl Message: launch_simulation 
+// Tcl Message: INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator... INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim' INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs INFO: [SIM-utils-51] Simulation object is 'sim_1' INFO: [USF-XSim-7] Finding pre-compiled libraries... INFO: [USF-XSim-11] File 'C:/Xilinx/Vivado/2017.4/data/xsim/ip/xsim_ip.ini' copied to run dir:'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim' INFO: [SIM-utils-54] Inspecting design source files for 'tb_transform' in fileset 'sim_1'... 
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// Tcl Message: INFO: [USF-XSim-97] Finding global include files... INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)... INFO: [USF-XSim-101] Fetching design files from 'sim_1'... INFO: [USF-XSim-2] XSim::Compile design 
+// Tcl Message: INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim' 
+// Tcl Message: "xvlog --incr --relax -prj tb_transform_vlog.prj" 
+// Tcl Message: INFO: [USF-XSim-69] 'compile' step finished in '3' seconds INFO: [USF-XSim-99] Step results log file:'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim/xvhdl.log' 
+// Tcl Message: ERROR: [USF-XSim-62] 'compile' step failed with error(s). Please check the Tcl console output or 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim/xvhdl.log' file for more information. ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation. 
+// Tcl Message: ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors. 
+// CommandFailedException: ERROR: [Common 17-69] Command failed: ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.  
+// HOptionPane Error: 'ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.  (Run Simulation)'
+// 'd' command handler elapsed time: 8 seconds
+selectButton("RDIResource.ProgressDialog_ERROR_ENCOUNTERED_PLEASE_SEE_TCL_OK", "OK"); // JButton (A, G)
+// a (cj): Critical Messages: addNotify
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f (a)
+dismissDialog("Critical Messages"); // a (cj)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+selectTab((HResource) null, (HResource) null, "Tcl Console", 0); // aF (Q, cj)
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 239, 65); // dw (ad, cj)
