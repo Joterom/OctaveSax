@@ -12,8 +12,12 @@ entity transform_controller is
     clk : in STD_LOGIC;
     reset : in STD_LOGIC;
     enable_fft : in STD_LOGIC;
+    start_proc_fft : in STD_LOGIC;
+    data_in_for : in STD_LOGIC_VECTOR (15 downto 0);
     enable_ifft : in STD_LOGIC;
-    out_ctrl_for : out STD_LOGIC_VECTOR (21 downto 0)
+    data_out_for_re : out STD_LOGIC_VECTOR (15 downto 0);
+    data_out_for_im : out STD_LOGIC_VECTOR (15 downto 0);
+    out_ctrl_for : out STD_LOGIC_VECTOR (8 downto 0)
   );
 end transform_controller;
 
@@ -51,7 +55,8 @@ architecture Behavioral of transform_controller is
     ); end component;
     
     type transform_fsm is (IDLE, CONFIG, INPUT, OUTPUT, PROC);
-    signal fft_state, fft_state_next : transform_fsm;
+    signal state_fft, state_fft_next : transform_fsm;
+    signal processing, processing_next : STD_LOGIC := '0';
     -- Counter
     signal start_count, count_ended : STD_LOGIC := '0';
     signal count_value : UNSIGNED (8 downto 0) := (others => '0');
@@ -95,31 +100,36 @@ begin
         event_data_out_channel_halt => event_data_out_channel_halt
     );
     
---    reg : process(clk, reset)
---        begin
---            if reset = '1' then
---                fft_state <= IDLE;
---            elsif rising_edge(clk) then
---                fft_state <= fft_state_next;
---            end if;
---    end process;
+    process(clk, reset)
+        begin
+            if reset = '1' then
+                processing <= '0';
+                state_fft <= IDLE;
+            elsif rising_edge(clk) then
+                processing <= processing_next;
+                state_fft <= state_fft_next;
+            end if;
+    end process;
     
---    state_log : process(fft_state)
---        begin
---            case fft_state is
---            when CONFIG =>
---                if config_tready = '1' then
---                    fft_state_next <= IDLE;
---                end if;
-                
---            when INPUT =>
---            when OUTPUT =>
---            when PROC =>
---            when others => -- IDLE
---                if config_tvalid = '1' and config_tready = '1' then
---                    fft_state_next <= CONFIG;
---                end if;
---            end case;
---    end process;
- 
+    process(state_fft)
+        begin
+        -- Default
+        case state_fft is
+            when IDLE =>
+            when PROC =>
+            when others =>
+        end case;
+    end process;
+     
+    process(state_fft, start_proc_fft)
+        begin
+            if start_proc_fft = '1' then
+                processing_next <= '1';
+            end if;
+    end process;
+    
+    out_ctrl_for <= output_tuser(8 downto 0);
+    data_out_for_re <= output_data(15 downto 0);
+    data_out_for_im <= output_data(31 downto 16);
+        
 end Behavioral;

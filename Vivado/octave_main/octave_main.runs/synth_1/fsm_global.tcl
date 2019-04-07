@@ -42,6 +42,8 @@ read_vhdl -library xil_defaultlib {
   D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/window_controller.vhd
   D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/fsm_global.vhd
   D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/fsm_control.vhd
+  D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/transform_controller.vhd
+  D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/counter512.vhd
 }
 read_ip -quiet D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/clk_generator/clk_generator.xci
 set_property used_in_implementation false [get_files -all d:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/clk_generator/clk_generator_board.xdc]
@@ -50,6 +52,9 @@ set_property used_in_implementation false [get_files -all d:/UNI/TFG/OctaveSax/V
 
 read_ip -quiet D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/ram_memo/ram_memo.xci
 set_property used_in_implementation false [get_files -all d:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/ram_memo/ram_memo_ooc.xdc]
+
+read_ip -quiet D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/FFT_transform/FFT_transform.xci
+set_property used_in_implementation false [get_files -all d:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/FFT_transform/FFT_transform_ooc.xdc]
 
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the

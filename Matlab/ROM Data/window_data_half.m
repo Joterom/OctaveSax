@@ -29,14 +29,14 @@ for i = 1:1:transform_length
     else
     fprintf(fileIDi, '\t\t"0111111111111111" when "%s",\n',  sample_number(i,:));
     %fprintf(fileIDi, '\t\t"0111111111111111" when "%s",\n',  sample_number(i,:));
-    fprintf(fileIDs, '\t\t"0011111111111111" when "%s",\n',  sample_number(i,:));   
+    fprintf(fileIDs, '\t\t"0111111111111111" when "%s",\n',  sample_number(i,:));   
     end
 end
 
 %Default and first value
 fprintf(fileIDi, '\t\t"0111111111111111" when others;\n');
 %fprintf(fileIDi, '\t\t"0100000000000000" when others;\n');
-fprintf(fileIDs, '\t\t"0011111111111111" when others;\n');
+fprintf(fileIDs, '\t\t"0111111111111111" when others;\n');
 
 
 fprintf(fileIDs, '\nend Behavioral;');

@@ -4,14 +4,16 @@ use IEEE.NUMERIC_STD.ALL;
 use work.project_trunk.all;
  
 entity memo_controller is 
-  Port ( 
+  Port (  
     clk : in STD_LOGIC;
     write_sample : in STD_LOGIC;
     read_sample : in STD_LOGIC;
-    select_memo : in STD_LOGIC; -- 1 when buffer 1, 0 when buffer 2
-    memo_address : in STD_LOGIC_VECTOR (13 downto 0);
-    storaged_sample : out STD_LOGIC_VECTOR (sample_size - 1 downto 0);
-    writing_sample : in STD_LOGIC_VECTOR (sample_size - 1 downto 0)
+    memo1_address : in STD_LOGIC_VECTOR (13 downto 0);
+    memo2_address : in STD_LOGIC_VECTOR (13 downto 0);
+    storaged_sample1 : out STD_LOGIC_VECTOR (sample_size - 1 downto 0);
+    storaged_sample2 : out STD_LOGIC_VECTOR (sample_size - 1 downto 0);
+    writing_sample1 : in STD_LOGIC_VECTOR (sample_size - 1 downto 0);
+    writing_sample2 : in STD_LOGIC_VECTOR (sample_size - 1 downto 0)
     );
 end memo_controller;
 
@@ -29,23 +31,23 @@ architecture Behavioral of memo_controller is
     signal wea1, wea2 : STD_LOGIC_VECTOR (0 downto 0) := "0";
     signal ena1, ena2 : STD_LOGIC;
     --signal ws, ss : STD_LOGIC_VECTOR (sample_size-1 downto 0) := (others => '0');
-    signal storaged_sample1, storaged_sample2 : STD_LOGIC_VECTOR (sample_size - 1 downto 0);
+    --signal storaged_sample1, storaged_sample2 : STD_LOGIC_VECTOR (sample_size - 1 downto 0);
     
 begin
 
     ram1 : ram_memo port map(
-        addra => memo_address,
+        addra => memo1_address,
         clka => clk,
-        dina => writing_sample,
+        dina => writing_sample1,
         douta => storaged_sample1,
         ena => ena1,
         wea => wea1
     );
     
     ram2 : ram_memo port map(
-        addra => memo_address,
+        addra => memo2_address,
         clka => clk,
-        dina => writing_sample,
+        dina => writing_sample2,
         douta => storaged_sample2,
         ena => ena2,
         wea => wea2
@@ -57,9 +59,7 @@ begin
     wea2 <= "1" when (write_sample = '1' and read_sample = '0') else
             "0";
     
-    ena1 <= select_memo and (read_sample or write_sample);
-    ena2 <= (not select_memo) and (read_sample or write_sample);
+    ena1 <= write_sample or read_sample;
+    ena2 <= write_sample or read_sample;
 
-    storaged_sample <= storaged_sample1 when select_memo = '1' else
-                       storaged_sample2;
 end Behavioral;

@@ -55,7 +55,7 @@ begin
     reg_logic : process(clk, reset)
         begin
             if reset = '1' then
-               result_pre <= (others => '0');
+               result_pre <= (others => '0'); 
                end_proc_win <= '0';
             elsif rising_edge(clk) then
                result_pre <= result_next;
