@@ -1,0 +1,2 @@
+freq_short_memo_sim_netlist.vhdl,vhdl,xil_defaultlib,../../../../octave_main.srcs/sources_1/ip/freq_short_memo/freq_short_memo_sim_netlist.vhdl,
+glbl.v,Verilog,xil_defaultlib,glbl.v

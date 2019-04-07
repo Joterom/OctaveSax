@@ -9,7 +9,7 @@ entity memo_controller is
     write_sample : in STD_LOGIC;
     read_sample : in STD_LOGIC;
     memo1_address : in STD_LOGIC_VECTOR (13 downto 0);
-    memo2_address : in STD_LOGIC_VECTOR (13 downto 0);
+    memo2_address : in STD_LOGIC_VECTOR (13 downto 0); 
     storaged_sample1 : out STD_LOGIC_VECTOR (sample_size - 1 downto 0);
     storaged_sample2 : out STD_LOGIC_VECTOR (sample_size - 1 downto 0);
     writing_sample1 : in STD_LOGIC_VECTOR (sample_size - 1 downto 0);

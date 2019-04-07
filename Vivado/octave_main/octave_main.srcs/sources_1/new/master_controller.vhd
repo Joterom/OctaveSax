@@ -85,6 +85,15 @@ architecture Behavioral of master_controller is
         control_signals : in STD_LOGIC_VECTOR (0 downto 0);
         input_fsm : out STD_LOGIC_VECTOR (2 downto 0)
     ); end component;
+    
+    component freq_dom_controller port(
+        clk : in STD_LOGIC;
+        reset : in STD_LOGIC;
+        use_buffer : in STD_LOGIC_VECTOR (1 downto 0);
+        data_in : in SIGNED (15 downto 0);
+        cont_sample : in STD_LOGIC;
+        data_out : out SIGNED (15 downto 0)
+    ); end component;
     -- Signal declaration                          
     signal frame_number : STD_LOGIC_VECTOR (4 downto 0) := (others => '0');
     signal enable_shift, enable_shift_next, sample_in_ready, sample_towrite_ready, start_reading, start_reading_next, DATA_OUTr, DATA_OUTn : STD_LOGIC := '0';    
@@ -101,7 +110,6 @@ architecture Behavioral of master_controller is
            , address_buf2r_next : STD_LOGIC_VECTOR(13 downto 0) := (others => '0');
     signal address_buf1, address_buf1_next, address_buf3, address_buf3_next, address_buf1r, address_buf1r_next, address_buf3r
            , address_buf3r_next : STD_LOGIC_VECTOR(13 downto 0) := "00001000000000";
-    --signal counter_buf2, counter_buf2_next, counter_buf2_r, counter_buf2_r_next : UNSIGNED (8 downto 0) := (others => '0'); 
     -- Memo controller signals
     signal write_sample_memo, read_sample_memo, read_sample_memo_next, write_sample_memo_next : STD_LOGIC := '0';
     signal memo1_address, memo2_address, memo1_address_next, memo2_address_next : STD_LOGIC_VECTOR (13 downto 0) := (others => '0');
@@ -111,7 +119,6 @@ architecture Behavioral of master_controller is
     signal read_buffer0, read_buffer1, read_buffer2, read_buffer3, read_buffer0_next, read_buffer1_next, read_buffer2_next
            , read_buffer3_next : SIGNED (15 downto 0);
     -- Control signals
-    --signal first, first_next, first_r, first_r_next : STD_LOGIC := '1';
     signal control_sampling : STD_LOGIC_VECTOR (2 downto 0);
     signal event_read, event_write, event_new_frame : STD_LOGIC;
     -- Window signals
@@ -119,11 +126,16 @@ architecture Behavioral of master_controller is
            , for_inv, for_inv_next : STD_LOGIC := '0';
     signal multiplicand1, multiplicand2, multiplicand1_next, multiplicand2_next, win_result1, win_result2 : SIGNED (sample_size - 1 downto 0) := (others => '0');
     signal sample_number1, sample_number1_next, sample_number2, sample_number2_next : STD_LOGIC_VECTOR (8 downto 0);
-    --signal reading_ready, reading_ready_n, reading_ready_nn, reading_ready_nn_next : STD_LOGIC := '0';
+    -- Load FFT module signals
+    signal load_address0, load_address0_next, load_address2, load_address2_next : STD_LOGIC_VECTOR (13 downto 0) := (others => '0');
+    signal load_address1, load_address1_next, load_address3, load_address3_next : STD_LOGIC_VECTOR (13 downto 0) := "00001000000000";
+    signal start_load0, start_load0_next, start_load1, start_load1_next, start_load2, start_load2_next, start_load3
+           , start_load3_next : STD_LOGIC := '0';
+    signal fft_input, fft_input_next, fft_output : SIGNED (15 downto 0) := (others => '0');
+    signal use_buffer_fft, use_buffer_fft_next : STD_LOGIC_VECTOR (1 downto 0) := "00";
+    signal cont_sample_fft, cont_sample_fft_next : STD_LOGIC := '0';
     -- FSM State signals 
-    --type buffer_fsm_t is (BUFFER1, BUFFER2, SOLAPA_INI, SOLAPA_FIN, REST);
-    --signal write_state, read_state : buffer_fsm_t;
-    type input_fsm_t is (IDLE, WRITE_EVEN, WRITE_ODD, READ_EVEN, READ_ODD, READ_SUM);   
+    type input_fsm_t is (IDLE, WRITE_EVEN, WRITE_ODD, LOAD_FFT_EVEN, LOAD_FFT_ODD, READ_EVEN, READ_ODD, READ_SUM);   
     signal input_state : input_fsm_t := IDLE;
     signal input_fsm : STD_LOGIC_VECTOR (2 downto 0) := "000";
     signal control_signals : STD_LOGIC_VECTOR (0 downto 0) := "0";
@@ -151,7 +163,7 @@ begin
         data_out => input_reg
     );   
     
-    MEMO : memo_controller port map(            
+    INOUT_MEMO : memo_controller port map(            
         clk => clk_100MHz,
         write_sample => write_sample_memo,
         read_sample => read_sample_memo,
@@ -192,6 +204,15 @@ begin
         control_signals => control_signals,
         input_fsm => input_fsm
     );        
+    
+    FREQ : freq_dom_controller port map(
+        clk => clk_100MHz,
+        reset => reset,
+        use_buffer => use_buffer_fft,
+        cont_sample => cont_sample_fft,
+        data_in => fft_input,
+        data_out => fft_output
+    );
     -- Register logic
     process(clk_100MHz, reset)
         begin            
@@ -245,6 +266,18 @@ begin
                 writing_sample_memo1 <= (others => '0');
                 writing_sample_memo2 <= (others => '0');
                 start_reading <= '0';
+                -- FFT
+                load_address0 <= (others => '0');
+                load_address1 <= "00001000000000";
+                load_address2 <= (others => '0');
+                load_address3 <= "00001000000000";
+                start_load0 <= '0';
+                start_load1 <= '0';
+                start_load2 <= '0';
+                start_load3 <= '0';
+                fft_input <= (others => '0');
+                use_buffer_fft <= "00";
+                cont_sample_fft <= '0';
             elsif rising_edge(clk_100MHz) then                
                 output_sample <= output_sample_next;
                 DATA_OUTr <= DATA_OUTn;
@@ -294,6 +327,18 @@ begin
                 writing_sample_memo1 <= writing_sample_memo1_next;
                 writing_sample_memo2 <= writing_sample_memo2_next;
                 start_reading <= start_reading_next;
+                -- FFT
+                load_address0 <= load_address0_next;
+                load_address1 <= load_address1_next;
+                load_address2 <= load_address2_next;
+                load_address3 <= load_address3_next;
+                start_load0 <= start_load0_next;
+                start_load1 <= start_load1_next;
+                start_load2 <= start_load2_next;
+                start_load3 <= start_load3_next;
+                fft_input <= fft_input_next;
+                use_buffer_fft <= use_buffer_fft_next;
+                cont_sample_fft <= cont_sample_fft_next;
             end if;           
     end process;         
     -- Uses wrting fsm state to generate its control signals and counters
@@ -369,7 +414,19 @@ begin
                             writing_sample_memo1_next <= std_logic_vector(win_result1);
                             writing_sample_memo2_next <= std_logic_vector(win_result2);
                         end if;
+                    when LOAD_FFT_EVEN =>      -- HACER PARA QUE EMPIECE MAS TARDE, UNIR CON EL COMPONENTE                 
+                        if start_load0 = '1' then
+                            if event_read = '1' then
+                                reading_ready_nn_next <= '1';
+                                read_sample_memo_next <= '1';
+                                memo1_address_next <= load_address0;
+                                load_address0_next <= std_logic_vector(unsigned(load_address0) + 1);
+                            elsif reading_ready = '1' then
+                                read_sample_memo_next <= '0';
+                            end if;
+                        end if;
                         
+                    when LOAD_FFT_ODD =>
                     when READ_EVEN =>
                         for_inv_next <= '0';
                         if event_read = '1' then

@@ -13,11 +13,9 @@ entity transform_controller is
     reset : in STD_LOGIC;
     enable_fft : in STD_LOGIC;
     start_proc_fft : in STD_LOGIC;
-    data_in_for : in STD_LOGIC_VECTOR (15 downto 0);
-    enable_ifft : in STD_LOGIC;
+    data_in : in STD_LOGIC_VECTOR (15 downto 0);
     data_out_for_re : out STD_LOGIC_VECTOR (15 downto 0);
-    data_out_for_im : out STD_LOGIC_VECTOR (15 downto 0);
-    out_ctrl_for : out STD_LOGIC_VECTOR (8 downto 0)
+    data_out_for_im : out STD_LOGIC_VECTOR (15 downto 0)
   );
 end transform_controller;
 
@@ -111,15 +109,7 @@ begin
             end if;
     end process;
     
-    process(state_fft)
-        begin
-        -- Default
-        case state_fft is
-            when IDLE =>
-            when PROC =>
-            when others =>
-        end case;
-    end process;
+
      
     process(state_fft, start_proc_fft)
         begin
@@ -128,7 +118,6 @@ begin
             end if;
     end process;
     
-    out_ctrl_for <= output_tuser(8 downto 0);
     data_out_for_re <= output_data(15 downto 0);
     data_out_for_im <= output_data(31 downto 16);
         

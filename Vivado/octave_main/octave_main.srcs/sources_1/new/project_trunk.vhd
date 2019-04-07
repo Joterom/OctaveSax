@@ -22,7 +22,8 @@ package project_trunk is
     -- Cicle just to wait
     constant read_sum_cicle : STD_LOGIC_VECTOR (4 downto 0) := std_logic_vector(to_unsigned(31,5));
     -- Cicle in which data read is sum and preared for output
-    --constant read_sum_cicle : STD_LOGIC_VECTOR (4 downto 0) := "11111";
+    constant load_fft_even_cicle : STD_LOGIC_VECTOR (4 downto 0) := std_logic_vector(to_unsigned(23,5));
+    constant load_fft_odd_cicle : STD_LOGIC_VECTOR (4 downto 0) := std_logic_vector(to_unsigned(24,5));
     -- Number of samples per frame
     constant fft_width : integer := 512; 
     

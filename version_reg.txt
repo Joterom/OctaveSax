@@ -114,3 +114,4 @@
 5.6.1 Bckup para trabajar en casa
 07/04/19
 6.0 Implementacion de los 4 buffer para solapamiento del 75% <-- FUNCIONAL
+6.1 Comienzo trabajo en dominio de la frequencia, implementacion de la memoria de carga

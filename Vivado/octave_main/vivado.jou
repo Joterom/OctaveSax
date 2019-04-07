@@ -2,10 +2,10 @@
 # Vivado v2017.4 (64-bit)
 # SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
 # IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
-# Start of session at: Sun Apr  7 10:31:12 2019
-# Process ID: 13992
+# Start of session at: Sun Apr  7 17:30:34 2019
+# Process ID: 13164
 # Current directory: D:/UNI/TFG/OctaveSax/Vivado/octave_main
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent11300 D:\UNI\TFG\OctaveSax\Vivado\octave_main\octave_main.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent6512 D:\UNI\TFG\OctaveSax\Vivado\octave_main\octave_main.xpr
 # Log file: D:/UNI/TFG/OctaveSax/Vivado/octave_main/vivado.log
 # Journal file: D:/UNI/TFG/OctaveSax/Vivado/octave_main\vivado.jou
 #-----------------------------------------------------------
@@ -18,51 +18,23 @@ open_wave_config D:/UNI/TFG/OctaveSax/Vivado/octave_main/fft.wcfg
 source main_tb.tcl
 restart
 run 20 ms
-reset_run synth_1
-launch_runs synth_1 -jobs 2
-wait_on_run synth_1
-reset_run synth_1
-launch_runs synth_1 -jobs 2
-wait_on_run synth_1
-reset_run synth_1
+relaunch_sim
+relaunch_sim
+relaunch_sim
+restart
+relaunch_sim
+restart
+run 20 ms
 close_sim
-launch_runs synth_1 -jobs 2
-wait_on_run synth_1
-launch_simulation
-launch_simulation
-launch_simulation
-launch_simulation
-launch_simulation
-open_wave_config D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sim_1/imports/octave_main/test.wcfg
-open_wave_config D:/UNI/TFG/OctaveSax/Vivado/octave_main/window_tb_behav.wcfg
-open_wave_config D:/UNI/TFG/OctaveSax/Vivado/octave_main/fft.wcfg
-source main_tb.tcl
-restart
-run 20 ms
-restart
-run 20 ms
-relaunch_sim
-relaunch_sim
-restart
-run 20 ms
-relaunch_sim
-restart
-run 20 ms
-save_wave_config {D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sim_1/imports/octave_main/test.wcfg}
-close_sim
-reset_run synth_1
-launch_runs synth_1 -jobs 2
-wait_on_run synth_1
-launch_runs impl_1 -to_step write_bitstream -jobs 2
-wait_on_run impl_1
-open_hw
-connect_hw_server
-open_hw_target
-set_property PROGRAM.FILE {D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/impl_1/fsm_global.bit} [get_hw_devices xc7a100t_0]
-current_hw_device [get_hw_devices xc7a100t_0]
-refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a100t_0] 0]
-set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
-set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
-set_property PROGRAM.FILE {D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/impl_1/fsm_global.bit} [get_hw_devices xc7a100t_0]
-program_hw_devices [get_hw_devices xc7a100t_0]
-refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+close [ open D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/freq_dom_controller.vhd w ]
+add_files D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/freq_dom_controller.vhd
+create_ip -name blk_mem_gen -vendor xilinx.com -library ip -version 8.4 -module_name freq_short_memo -dir d:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip
+set_property -dict [list CONFIG.Component_Name {freq_short_memo} CONFIG.Write_Depth_A {1024} CONFIG.Operating_Mode_A {NO_CHANGE}] [get_ips freq_short_memo]
+generate_target {instantiation_template} [get_files d:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/freq_short_memo/freq_short_memo.xci]
+generate_target all [get_files  d:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/freq_short_memo/freq_short_memo.xci]
+catch { config_ip_cache -export [get_ips -all freq_short_memo] }
+export_ip_user_files -of_objects [get_files d:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/freq_short_memo/freq_short_memo.xci] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] d:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/freq_short_memo/freq_short_memo.xci]
+launch_runs -jobs 2 freq_short_memo_synth_1
+wait_on_run freq_short_memo_synth_1
+export_simulation -of_objects [get_files d:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/freq_short_memo/freq_short_memo.xci] -directory D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.ip_user_files/sim_scripts -ip_user_files_dir D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.ip_user_files -ipstatic_source_dir D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.ip_user_files/ipstatic -lib_map_path [list {modelsim=D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.cache/compile_simlib/modelsim} {questa=D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.cache/compile_simlib/questa} {riviera=D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.cache/compile_simlib/riviera} {activehdl=D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet

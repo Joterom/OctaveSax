@@ -98,6 +98,10 @@ begin
                     counter32 <= counter32_next;
                 elsif frame_num = std_logic_vector(to_unsigned(21, 5)) then
                     counter32 <= counter32_next;
+                elsif frame_num = std_logic_vector(to_unsigned(23, 5)) then
+                    counter32 <= counter32_next;
+                elsif frame_num = std_logic_vector(to_unsigned(24, 5)) then
+                    counter32 <= counter32_next;
                 elsif frame_num = std_logic_vector(to_unsigned(25, 5)) then
                     counter32 <= counter32_next;
                 elsif frame_num = std_logic_vector(to_unsigned(29, 5)) then
@@ -140,7 +144,11 @@ begin
             control_next <= "000";         
             if counter32 = std_logic_vector(to_unsigned(5, 5)) then -- Arbitrary choice, any other number between 0 and 15 would work as well
                 if frame_num = std_logic_vector(to_unsigned(0, 5)) and lr = '1' and sc = '0' then -- Constant defined at trunk, arbitrary
-                    control_next <= "100"; 
+                    control_next <= "100";
+                elsif frame_num = std_logic_vector(to_unsigned(24, 5)) and sc = '0' then -- Constant defined at trunk, arbitrary
+                    control_next <= "001"; 
+                elsif frame_num = std_logic_vector(to_unsigned(23, 5)) and sc = '0' then -- Constant defined at trunk, arbitrary
+                    control_next <= "001"; 
                 elsif frame_num = std_logic_vector(to_unsigned(25, 5)) and lr = '0' and sc = '0' then -- Constant defined at trunk, arbitrary
                     sample_in_ready_next <= '1';    
                 elsif frame_num = std_logic_vector(to_unsigned(20, 5)) and lr = '0' and sc = '0' then
