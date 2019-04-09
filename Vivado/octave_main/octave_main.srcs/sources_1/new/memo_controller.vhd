@@ -8,8 +8,8 @@ entity memo_controller is
     clk : in STD_LOGIC;
     write_sample : in STD_LOGIC;
     read_sample : in STD_LOGIC;
-    memo1_address : in STD_LOGIC_VECTOR (13 downto 0);
-    memo2_address : in STD_LOGIC_VECTOR (13 downto 0); 
+    memo1_address : in STD_LOGIC_VECTOR (9 downto 0);
+    memo2_address : in STD_LOGIC_VECTOR (9 downto 0); 
     storaged_sample1 : out STD_LOGIC_VECTOR (sample_size - 1 downto 0);
     storaged_sample2 : out STD_LOGIC_VECTOR (sample_size - 1 downto 0);
     writing_sample1 : in STD_LOGIC_VECTOR (sample_size - 1 downto 0);
@@ -20,7 +20,7 @@ end memo_controller;
 architecture Behavioral of memo_controller is
 
     component ram_memo port(
-        addra : in STD_LOGIC_VECTOR (13 downto 0);
+        addra : in STD_LOGIC_VECTOR (9 downto 0);
         clka : in STD_LOGIC;
         dina : in STD_LOGIC_VECTOR (sample_size-1 downto 0);
         douta : out STD_LOGIC_VECTOR (sample_size-1 downto 0);
@@ -30,8 +30,6 @@ architecture Behavioral of memo_controller is
 
     signal wea1, wea2 : STD_LOGIC_VECTOR (0 downto 0) := "0";
     signal ena1, ena2 : STD_LOGIC;
-    --signal ws, ss : STD_LOGIC_VECTOR (sample_size-1 downto 0) := (others => '0');
-    --signal storaged_sample1, storaged_sample2 : STD_LOGIC_VECTOR (sample_size - 1 downto 0);
     
 begin
 

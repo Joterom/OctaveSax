@@ -15,7 +15,7 @@ entity counter512 is
     count_value : out UNSIGNED (8 downto 0);
     count_ended : out STD_LOGIC
   );
-end counter512;
+end counter512; 
 
 architecture Behavioral of counter512 is
 
@@ -33,15 +33,15 @@ begin
             end if;
     end process;
     
-    process(count)
+    process(count, counting)
         begin
             count_next <= count;
             if counting = '1' then
-                count_next <= count + "000000001";
+                count_next <= count + 1;
             end if;
     end process;
     
-    process(start_count, counting)
+    process(start_count, counting, count_end)
         begin
             counting_next <= counting;
         if start_count = '1' then

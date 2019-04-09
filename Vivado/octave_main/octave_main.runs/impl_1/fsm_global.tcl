@@ -74,9 +74,10 @@ set rc [catch {
   set_property ip_cache_permissions {read write} [current_project]
   set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
   add_files -quiet D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/fsm_global.dcp
-  read_ip -quiet D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/clk_generator/clk_generator.xci
   read_ip -quiet D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/ram_memo/ram_memo.xci
+  read_ip -quiet D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/clk_generator/clk_generator.xci
   read_ip -quiet D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/FFT_transform/FFT_transform.xci
+  read_ip -quiet D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/freq_short_memo/freq_short_memo.xci
   read_xdc D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/constrs_1/imports/Downloads/Nexys4DDR_Master.xdc
   link_design -top fsm_global -part xc7a100tcsg324-1
   close_msg_db -file init_design.pb
