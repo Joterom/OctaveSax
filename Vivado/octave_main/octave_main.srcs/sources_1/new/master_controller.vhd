@@ -761,7 +761,9 @@ begin
         WRITE_ODD when "010",
         READ_EVEN when "011",
         READ_ODD when "100",
-        READ_SUM when "111",
+        READ_SUM when "101",
+        LOAD_FFT_EVEN when "110",
+        LOAD_FFT_ODD when "111",
         IDLE when others;        
     -- Output signals assignment
     MCLK_ADC <= MCLK;

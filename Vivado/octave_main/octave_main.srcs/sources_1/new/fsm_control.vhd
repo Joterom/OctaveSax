@@ -70,7 +70,12 @@ begin
                         end if;
                         
                     when READ_ODD =>           
-                        if frame_number = std_logic_vector(unsigned(read_odd_cicle) + 1) then
+                        if frame_number = read_sum_cicle then
+                            input_fsm_state_next <= READ_SUM;
+                        end if;
+                    
+                    when READ_SUM =>
+                        if frame_number = "00000" then
                             input_fsm_state_next <= IDLE;
                         end if;
                         

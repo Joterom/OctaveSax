@@ -117,3 +117,4 @@
 6.1 Comienzo trabajo en dominio de la frequencia, implementacion de la memoria de carga
 6.1.1 BCKP antes de comenzar a implementar las memorias de salida
 6.1.x Commit de bckp de mejora del almacenamiento en memoria
+6.2 Retroceso por los errores de la arquitectura
