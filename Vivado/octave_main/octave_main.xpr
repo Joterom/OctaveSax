@@ -136,18 +136,21 @@
       </File>
       <File Path="$PSRCDIR/sources_1/new/transform_controller.vhd">
         <FileInfo>
+          <Attr Name="UserDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
       <File Path="$PSRCDIR/sources_1/new/counter512.vhd">
         <FileInfo>
+          <Attr Name="UserDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
       <File Path="$PSRCDIR/sources_1/new/freq_dom_controller.vhd">
         <FileInfo>
+          <Attr Name="UserDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
@@ -259,6 +262,7 @@
     <FileSet Name="FFT_transform" Type="BlockSrcs" RelSrcDir="$PSRCDIR/FFT_transform">
       <File Path="$PSRCDIR/sources_1/ip/FFT_transform/FFT_transform.xci">
         <FileInfo>
+          <Attr Name="UserDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -272,6 +276,7 @@
     <FileSet Name="freq_short_memo" Type="BlockSrcs" RelSrcDir="$PSRCDIR/freq_short_memo">
       <File Path="$PSRCDIR/sources_1/ip/freq_short_memo/freq_short_memo.xci">
         <FileInfo>
+          <Attr Name="UserDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>

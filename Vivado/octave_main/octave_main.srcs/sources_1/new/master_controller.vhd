@@ -86,16 +86,16 @@ architecture Behavioral of master_controller is
         input_fsm : out STD_LOGIC_VECTOR (2 downto 0)
     ); end component;
     
-    component freq_dom_controller port(
-        clk : in STD_LOGIC;
-        reset : in STD_LOGIC;
-        use_buffer : in STD_LOGIC_VECTOR (1 downto 0);
-        data_in : in SIGNED (15 downto 0);
-        cont_sample : in STD_LOGIC;
-        req_sample : in STD_LOGIC;
-        req_sample_ready : out STD_LOGIC;
-        data_out : out SIGNED (15 downto 0)
-    ); end component;
+--    component freq_dom_controller port(
+--        clk : in STD_LOGIC;
+--        reset : in STD_LOGIC;
+--        use_buffer : in STD_LOGIC_VECTOR (1 downto 0);
+--        data_in : in SIGNED (15 downto 0);
+--        cont_sample : in STD_LOGIC;
+--        req_sample : in STD_LOGIC;
+--        req_sample_ready : out STD_LOGIC;
+--        data_out : out SIGNED (15 downto 0)
+--    ); end component;
     -- Signal declaration                          
     signal frame_number : STD_LOGIC_VECTOR (4 downto 0) := (others => '0');
     signal enable_shift, enable_shift_next, sample_in_ready, sample_towrite_ready, start_reading, start_reading_next, DATA_OUTr, DATA_OUTn : STD_LOGIC := '0';    
@@ -129,6 +129,7 @@ architecture Behavioral of master_controller is
     signal multiplicand1, multiplicand2, multiplicand1_next, multiplicand2_next, win_result1, win_result2 : SIGNED (sample_size - 1 downto 0) := (others => '0');
     signal sample_number1, sample_number1_next, sample_number2, sample_number2_next : STD_LOGIC_VECTOR (8 downto 0);
     signal win_stage, win_stage_next : STD_LOGIC_VECTOR (1 downto 0) := "00";
+    signal output_sample_ov_next : SIGNED (sample_size downto 0) := (others => '0');
     -- Load FFT module signals
     signal load_address0, load_address0_next, load_address2, load_address2_next : STD_LOGIC_VECTOR (9 downto 0) := (others => '0');
     signal load_address1, load_address1_next, load_address3, load_address3_next : STD_LOGIC_VECTOR (9 downto 0) := "1000000000";
@@ -139,7 +140,7 @@ architecture Behavioral of master_controller is
            , use_buffer_fft_unload_next : STD_LOGIC_VECTOR (1 downto 0) := "00";
     signal cont_sample_freq, cont_sample_freq_next, req_sample_freq, req_sample_freq_next, req_sample_ready_freq : STD_LOGIC := '0';
     -- FSM State signals 
-    type input_fsm_t is (IDLE, WRITE_EVEN, WRITE_ODD, LOAD_FFT_EVEN, LOAD_FFT_ODD, READ_EVEN, READ_ODD, READ_SUM);   
+    type input_fsm_t is (IDLE, WRITE_INPUT, WRITE_ODD, LOAD_FFT_EVEN, LOAD_FFT_ODD, READ_EVEN, READ_ODD, READ_SUM);   
     signal input_state : input_fsm_t := IDLE;
     signal input_fsm : STD_LOGIC_VECTOR (2 downto 0) := "000";
     signal control_signals : STD_LOGIC_VECTOR (0 downto 0) := "0";
@@ -209,16 +210,16 @@ begin
         input_fsm => input_fsm
     );        
     
-    FREQ : freq_dom_controller port map(
-        clk => clk_100MHz,
-        reset => reset,
-        use_buffer => use_buffer_fft,
-        cont_sample => cont_sample_freq,
-        req_sample => req_sample_freq,
-        req_sample_ready => req_sample_ready_freq,
-        data_in => fft_input,
-        data_out => fft_output
-    );
+--    FREQ : freq_dom_controller port map(
+--        clk => clk_100MHz,
+--        reset => reset,
+--        use_buffer => use_buffer_fft,
+--        cont_sample => cont_sample_freq,
+--        req_sample => req_sample_freq,
+--        req_sample_ready => req_sample_ready_freq,
+--        data_in => fft_input,
+--        data_out => fft_output
+--    );
     -- Register logic
     process(clk_100MHz, reset)
         begin            
@@ -289,6 +290,7 @@ begin
                 req_sample_freq <= '0';
             elsif rising_edge(clk_100MHz) then                
                 output_sample <= output_sample_next;
+                --output_sample_next <= output_sample_ov_next(sample_size downto 1);
                 DATA_OUTr <= DATA_OUTn;
                 enable_shift <= enable_shift_next;                
                 write_sample_memo <= write_sample_memo_next;              
@@ -403,7 +405,7 @@ begin
                 win_stage_next <= win_stage;
                 
                 case input_state is   
-                    when WRITE_EVEN => -- Reads from input reg and writes this sample into memory buffer 1
+                    when WRITE_INPUT => -- Reads from input reg and writes this sample into memory buffer 1
                         for_inv_next <= '1'; -- STFT window
                         if event_write = '1' then -- Start window proccessing and sets its parameters
                             -- Buffer0
@@ -559,8 +561,8 @@ begin
                             sample_number2_next <= std_logic_vector(counter_buf2r);
                             multiplicand2_next <= signed(storaged_sample2);
                         elsif end_proc_win1 = '1' or end_proc_win2 = '1' then
-                            read_buffer0_next <= win_result1;
-                            read_buffer2_next <= win_result2;
+                            read_buffer0_next <= win_result1/4;
+                            read_buffer2_next <= win_result2/4;
                         end if;
                         
                     when READ_ODD =>
@@ -579,19 +581,19 @@ begin
                             sample_number2_next <= std_logic_vector(counter_buf3r);
                             multiplicand2_next <= signed(storaged_sample2);
                         elsif end_proc_win1 = '1' or end_proc_win2 = '1' then
-                            read_buffer1_next <= win_result1;
-                            read_buffer3_next <= win_result2;
+                            read_buffer1_next <= win_result1/4;
+                            read_buffer3_next <= win_result2/4;
                         end if;
                     
                     when READ_SUM => 
                         if start_buffer1r = '0' and start_buffer2r = '0' and start_buffer3r = '0' then
                             output_sample_next <= read_buffer0;
                         elsif start_buffer1r = '1' and start_buffer2r = '0' and start_buffer3r = '0' then
-                            output_sample_next <= (read_buffer0 + read_buffer1)/2;
+                            output_sample_next <= (read_buffer0 + read_buffer1);
                         elsif start_buffer1r = '1' and start_buffer2r = '1' and start_buffer3r = '0' then
-                            output_sample_next <= (read_buffer0 + read_buffer1 + read_buffer2)/3;
+                            output_sample_next <= (read_buffer0 + read_buffer1 + read_buffer2);
                         elsif start_buffer1r = '1' and start_buffer2r = '1' and start_buffer3r = '1' then
-                            output_sample_next <= (read_buffer0 + read_buffer1 + read_buffer2 + read_buffer3)/4;
+                            output_sample_next <= (read_buffer0 + read_buffer1 + read_buffer2 + read_buffer3);
                         end if;  
                     when others => --IDLE                     
                 end case;
@@ -757,8 +759,7 @@ begin
     start_reading_next <= '1';
     -- Renames fsm states to ease coding
     with input_fsm select input_state <=
-        WRITE_EVEN when "001",
-        WRITE_ODD when "010",
+        WRITE_INPUT when "001",
         READ_EVEN when "011",
         READ_ODD when "100",
         READ_SUM when "101",

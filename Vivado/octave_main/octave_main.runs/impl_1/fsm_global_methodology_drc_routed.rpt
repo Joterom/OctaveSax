@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-| Date         : Tue Apr  9 21:46:09 2019
+| Date         : Wed Apr 10 18:27:42 2019
 | Host         : DESKTOP-DR3C0JT running 64-bit major release  (build 9200)
 | Command      : report_methodology -file fsm_global_methodology_drc_routed.rpt -pb fsm_global_methodology_drc_routed.pb -rpx fsm_global_methodology_drc_routed.rpx
 | Design       : fsm_global
@@ -23,13 +23,12 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 129
+             Violations found: 113
 +-----------+----------+------------------------------------------------+------------+
 | Rule      | Severity | Description                                    | Violations |
 +-----------+----------+------------------------------------------------+------------+
 | DPIR-1    | Warning  | Asynchronous driver check                      | 60         |
 | TIMING-6  | Warning  | No common primary clock between related clocks | 8          |
-| TIMING-16 | Warning  | Large setup violation                          | 16         |
 | TIMING-17 | Warning  | Non-clocked sequential cell                    | 21         |
 | TIMING-18 | Warning  | Missing input or output delay                  | 24         |
 +-----------+----------+------------------------------------------------+------------+
@@ -374,86 +373,6 @@ Related violations: <none>
 TIMING-6#8 Warning
 No common primary clock between related clocks  
 The clocks clk_50MHz_clk_generator_1 and clk_50MHz_clk_generator are related (timed together) but they have no common primary clock. The design could fail in hardware. To find a timing path between these clocks, run the following command: report_timing -from [get_clocks clk_50MHz_clk_generator_1] -to [get_clocks clk_50MHz_clk_generator]
-Related violations: <none>
-
-TIMING-16#1 Warning
-Large setup violation  
-There is a large setup violation of -7.569 ns between CONT/read_buffer0_reg[0]/C (clocked by clk_100MHz_clk_generator_1) and CONT/output_sample_reg[0]/D (clocked by clk_100MHz_clk_generator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#2 Warning
-Large setup violation  
-There is a large setup violation of -8.668 ns between CONT/read_buffer0_reg[0]/C (clocked by clk_100MHz_clk_generator_1) and CONT/output_sample_reg[1]/D (clocked by clk_100MHz_clk_generator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#3 Warning
-Large setup violation  
-There is a large setup violation of -8.844 ns between CONT/read_buffer0_reg[0]/C (clocked by clk_100MHz_clk_generator_1) and CONT/output_sample_reg[8]/D (clocked by clk_100MHz_clk_generator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#4 Warning
-Large setup violation  
-There is a large setup violation of -8.882 ns between CONT/read_buffer0_reg[0]/C (clocked by clk_100MHz_clk_generator_1) and CONT/output_sample_reg[4]/D (clocked by clk_100MHz_clk_generator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#5 Warning
-Large setup violation  
-There is a large setup violation of -8.884 ns between CONT/read_buffer0_reg[0]/C (clocked by clk_100MHz_clk_generator_1) and CONT/output_sample_reg[7]/D (clocked by clk_100MHz_clk_generator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#6 Warning
-Large setup violation  
-There is a large setup violation of -8.891 ns between CONT/read_buffer0_reg[0]/C (clocked by clk_100MHz_clk_generator_1) and CONT/output_sample_reg[3]/D (clocked by clk_100MHz_clk_generator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#7 Warning
-Large setup violation  
-There is a large setup violation of -8.955 ns between CONT/read_buffer0_reg[0]/C (clocked by clk_100MHz_clk_generator_1) and CONT/output_sample_reg[2]/D (clocked by clk_100MHz_clk_generator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#8 Warning
-Large setup violation  
-There is a large setup violation of -8.981 ns between CONT/read_buffer0_reg[0]/C (clocked by clk_100MHz_clk_generator_1) and CONT/output_sample_reg[13]/D (clocked by clk_100MHz_clk_generator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#9 Warning
-Large setup violation  
-There is a large setup violation of -8.999 ns between CONT/read_buffer0_reg[0]/C (clocked by clk_100MHz_clk_generator_1) and CONT/output_sample_reg[9]/D (clocked by clk_100MHz_clk_generator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#10 Warning
-Large setup violation  
-There is a large setup violation of -9.027 ns between CONT/read_buffer0_reg[0]/C (clocked by clk_100MHz_clk_generator_1) and CONT/output_sample_reg[5]/D (clocked by clk_100MHz_clk_generator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#11 Warning
-Large setup violation  
-There is a large setup violation of -9.115 ns between CONT/read_buffer0_reg[0]/C (clocked by clk_100MHz_clk_generator_1) and CONT/output_sample_reg[10]/D (clocked by clk_100MHz_clk_generator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#12 Warning
-Large setup violation  
-There is a large setup violation of -9.135 ns between CONT/read_buffer0_reg[0]/C (clocked by clk_100MHz_clk_generator_1) and CONT/output_sample_reg[6]/D (clocked by clk_100MHz_clk_generator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#13 Warning
-Large setup violation  
-There is a large setup violation of -9.151 ns between CONT/read_buffer0_reg[0]/C (clocked by clk_100MHz_clk_generator_1) and CONT/output_sample_reg[12]/D (clocked by clk_100MHz_clk_generator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#14 Warning
-Large setup violation  
-There is a large setup violation of -9.214 ns between CONT/read_buffer0_reg[0]/C (clocked by clk_100MHz_clk_generator_1) and CONT/output_sample_reg[14]/D (clocked by clk_100MHz_clk_generator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#15 Warning
-Large setup violation  
-There is a large setup violation of -9.264 ns between CONT/read_buffer0_reg[0]/C (clocked by clk_100MHz_clk_generator_1) and CONT/output_sample_reg[15]/D (clocked by clk_100MHz_clk_generator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#16 Warning
-Large setup violation  
-There is a large setup violation of -9.347 ns between CONT/read_buffer0_reg[0]/C (clocked by clk_100MHz_clk_generator_1) and CONT/output_sample_reg[11]/D (clocked by clk_100MHz_clk_generator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-17#1 Warning

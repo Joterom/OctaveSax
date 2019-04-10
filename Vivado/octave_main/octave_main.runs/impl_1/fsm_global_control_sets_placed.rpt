@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-| Date         : Tue Apr  9 21:45:32 2019
+| Date         : Wed Apr 10 18:27:07 2019
 | Host         : DESKTOP-DR3C0JT running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file fsm_global_control_sets_placed.rpt
 | Design       : fsm_global
@@ -23,7 +23,7 @@ Table of Contents
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
 | Number of unique control sets                            |    27 |
-| Unused register locations in slices containing registers |   115 |
+| Unused register locations in slices containing registers |   119 |
 +----------------------------------------------------------+-------+
 
 
@@ -34,10 +34,10 @@ Table of Contents
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | No           | No                    | No                     |               4 |            2 |
-| No           | No                    | Yes                    |             104 |           34 |
+| No           | No                    | Yes                    |             104 |           38 |
 | No           | Yes                   | No                     |               0 |            0 |
 | Yes          | No                    | No                     |              10 |            6 |
-| Yes          | No                    | Yes                    |             303 |           91 |
+| Yes          | No                    | Yes                    |             299 |          107 |
 | Yes          | Yes                   | No                     |               0 |            0 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
@@ -49,32 +49,32 @@ Table of Contents
 |       Clock Signal       |              Enable Signal              |        Set/Reset Signal        | Slice Load Count | Bel Load Count |
 +--------------------------+-----------------------------------------+--------------------------------+------------------+----------------+
 |  clk_gen/inst/clk_100MHz |                                         |                                |                2 |              4 |
-|  clk_gen/inst/clk_100MHz | CONT/SAMP/counter32[3]_i_1_n_0          | reset_IBUF                     |                1 |              4 |
-| ~CONT/SAMP/CLK           |                                         | CONT/SAMP/frame_num[4]_i_2_n_0 |                2 |              5 |
-|  clk_gen/inst/clk_100MHz | CONT/SAMP/E[0]                          | reset_IBUF                     |                2 |              9 |
-|  clk_gen/inst/clk_100MHz | CONT/SAMP/address_buf3r_reg[8][0]       | reset_IBUF                     |                2 |              9 |
+|  clk_gen/inst/clk_100MHz | CONT/SAMP/counter32[3]_i_1_n_0          | reset_IBUF                     |                2 |              4 |
+| ~CONT/SAMP/CLK           |                                         | CONT/SAMP/frame_num[4]_i_2_n_0 |                1 |              5 |
+|  clk_gen/inst/clk_100MHz | CONT/FSM/load_address0_reg[0][0]        | reset_IBUF                     |                4 |              9 |
+|  clk_gen/inst/clk_100MHz | CONT/SAMP/address_buf1_reg[0][0]        | reset_IBUF                     |                4 |              9 |
+|  clk_gen/inst/clk_100MHz | CONT/SAMP/address_buf1r_reg[0][0]       | reset_IBUF                     |                3 |              9 |
+|  clk_gen/inst/clk_100MHz | CONT/SAMP/address_buf2r_reg[0][0]       | reset_IBUF                     |                3 |              9 |
 |  clk_gen/inst/clk_100MHz | CONT/SAMP/address_buf2_reg[0][0]        | reset_IBUF                     |                2 |              9 |
-|  clk_gen/inst/clk_100MHz | CONT/SAMP/address_buf3_reg[0][0]        | reset_IBUF                     |                2 |              9 |
-|  clk_gen/inst/clk_100MHz | CONT/SAMP/address_buf1r_reg[8][0]       | reset_IBUF                     |                2 |              9 |
-|  clk_gen/inst/clk_100MHz | CONT/SAMP/address_buf1_reg[0][0]        | reset_IBUF                     |                2 |              9 |
-|  clk_gen/inst/clk_100MHz | CONT/FSM/load_address0_reg[8][0]        | reset_IBUF                     |                2 |              9 |
-|  clk_gen/inst/clk_100MHz | CONT/FSM/E[0]                           | reset_IBUF                     |                6 |             10 |
-|  clk_gen/inst/clk_100MHz | CONT/FSM/load_address1_reg[9][0]        | reset_IBUF                     |                3 |             10 |
-|  clk_gen/inst/clk_100MHz | CONT/FSM/load_address2_reg[9][0]        | reset_IBUF                     |                3 |             10 |
-|  clk_gen/inst/clk_100MHz | CONT/FSM/load_address3_reg[9][0]        | reset_IBUF                     |                3 |             10 |
-|  clk_gen/inst/clk_100MHz | CONT/FSM/memo2_address_reg[9][0]        |                                |                6 |             10 |
-|  CONT/SAMP/CLK           | CONT/enable                             | reset_IBUF                     |                4 |             16 |
-|  clk_gen/inst/clk_100MHz | CONT/FSM/multiplicand2_reg[15][0]       | reset_IBUF                     |                5 |             16 |
-|  clk_gen/inst/clk_100MHz | CONT/FSM/multiplicand1_reg[15][0]       | reset_IBUF                     |                2 |             16 |
-|  clk_gen/inst/clk_100MHz | CONT/FSM/output_sample_reg[0][0]        | reset_IBUF                     |               12 |             16 |
-|  clk_gen/inst/clk_100MHz | CONT/FSM/writing_sample_memo1_reg[0][0] | reset_IBUF                     |                4 |             16 |
+|  clk_gen/inst/clk_100MHz | CONT/SAMP/address_buf3_reg[0][0]        | reset_IBUF                     |                3 |              9 |
+|  clk_gen/inst/clk_100MHz | CONT/SAMP/address_buf3r_reg[0][0]       | reset_IBUF                     |                3 |              9 |
+|  clk_gen/inst/clk_100MHz | CONT/FSM/memo1_address_reg[0][0]        | reset_IBUF                     |                5 |             10 |
+|  clk_gen/inst/clk_100MHz | CONT/FSM/memo2_address_reg[0][0]        |                                |                6 |             10 |
+|  clk_gen/inst/clk_100MHz | CONT/FSM/load_address1_reg[0][0]        | reset_IBUF                     |                3 |             10 |
+|  clk_gen/inst/clk_100MHz | CONT/FSM/load_address3_reg[0][0]        | reset_IBUF                     |                3 |             10 |
+|  clk_gen/inst/clk_100MHz | CONT/FSM/load_address2_reg[0][0]        | reset_IBUF                     |                4 |             10 |
+|  CONT/SAMP/CLK           | CONT/enable                             | reset_IBUF                     |                3 |             16 |
+|  clk_gen/inst/clk_100MHz | CONT/FSM/E[0]                           | reset_IBUF                     |                7 |             16 |
+|  clk_gen/inst/clk_100MHz | CONT/FSM/writing_sample_memo1_reg[0][0] | reset_IBUF                     |                3 |             16 |
 |  clk_gen/inst/clk_100MHz | CONT/FSM/writing_sample_memo2_reg[0][0] | reset_IBUF                     |                4 |             16 |
-|  clk_gen/inst/clk_50MHz  |                                         | reset_IBUF                     |                5 |             17 |
-|  clk_gen/inst/clk_100MHz | CONT/SAMP/address_buf0r_reg[0][0]       | reset_IBUF                     |                5 |             18 |
-|  clk_gen/inst/clk_100MHz | CONT/SAMP/Q[2]                          | reset_IBUF                     |                4 |             18 |
-|  clk_gen/inst/clk_100MHz | CONT/FSM/read_buffer0_reg[0][0]         | reset_IBUF                     |               10 |             32 |
-|  clk_gen/inst/clk_100MHz | CONT/FSM/read_buffer1_reg[0][0]         | reset_IBUF                     |               11 |             32 |
-|  clk_gen/inst/clk_100MHz |                                         | reset_IBUF                     |               27 |             82 |
+|  clk_gen/inst/clk_100MHz | CONT/FSM/multiplicand2_reg[15][0]       | reset_IBUF                     |                4 |             16 |
+|  clk_gen/inst/clk_100MHz | CONT/FSM/multiplicand1_reg[15][0]       | reset_IBUF                     |                4 |             16 |
+|  clk_gen/inst/clk_50MHz  |                                         | reset_IBUF                     |                9 |             17 |
+|  clk_gen/inst/clk_100MHz | CONT/SAMP/Q[2]                          | reset_IBUF                     |                6 |             18 |
+|  clk_gen/inst/clk_100MHz | CONT/SAMP/E[0]                          | reset_IBUF                     |                5 |             18 |
+|  clk_gen/inst/clk_100MHz | CONT/FSM/read_buffer0_reg[0][0]         | reset_IBUF                     |               15 |             30 |
+|  clk_gen/inst/clk_100MHz | CONT/FSM/read_buffer3_reg[0][0]         | reset_IBUF                     |               17 |             30 |
+|  clk_gen/inst/clk_100MHz |                                         | reset_IBUF                     |               28 |             82 |
 +--------------------------+-----------------------------------------+--------------------------------+------------------+----------------+
 
 
