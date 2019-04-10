@@ -119,3 +119,4 @@
 6.1.x Commit de bckp de mejora del almacenamiento en memoria
 6.2 Retroceso por los errores de la arquitectura
 6.2.1 Critical warning eliminada
+6.2.2 Mejora en la arquitectura pero deja de sonar

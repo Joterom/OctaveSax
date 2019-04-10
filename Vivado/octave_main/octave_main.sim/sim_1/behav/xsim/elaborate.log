@@ -1,0 +1,42 @@
+Vivado Simulator 2017.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto 0c9c3a36965041288ce87ec04c26eca9 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot main_tb_behav xil_defaultlib.main_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package xil_defaultlib.project_trunk
+Compiling package unisim.vcomponents
+Compiling package ieee.std_logic_arith
+Compiling package ieee.std_logic_signed
+Compiling package ieee.std_logic_textio
+Compiling package ieee.vital_timing
+Compiling package ieee.vital_primitives
+Compiling package unisim.vpkg
+Compiling module xil_defaultlib.glbl
+Compiling architecture behavioral of entity xil_defaultlib.sampling [sampling_default]
+Compiling architecture behavioral of entity xil_defaultlib.shift_register [shift_register_default]
+Compiling architecture gnd_v of entity unisim.GND [gnd_default]
+Compiling architecture rb18_internal_vhdl_v of entity unisim.RB18_INTERNAL_VHDL [\RB18_INTERNAL_VHDL(bram_size=18...]
+Compiling architecture ramb18e1_v of entity unisim.RAMB18E1 [\RAMB18E1(doa_reg=1,rdaddr_colli...]
+Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_prim_wrapper [ram_memo_blk_mem_gen_prim_wrappe...]
+Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_prim_width [ram_memo_blk_mem_gen_prim_width_...]
+Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_generic_cstr [ram_memo_blk_mem_gen_generic_cst...]
+Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_top [ram_memo_blk_mem_gen_top_default]
+Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_v8_4_1_synth [ram_memo_blk_mem_gen_v8_4_1_synt...]
+Compiling architecture structure of entity xil_defaultlib.ram_memo_blk_mem_gen_v8_4_1 [ram_memo_blk_mem_gen_v8_4_1_defa...]
+Compiling architecture structure of entity xil_defaultlib.ram_memo [ram_memo_default]
+Compiling architecture behavioral of entity xil_defaultlib.memo_controller [memo_controller_default]
+Compiling architecture behavioral of entity xil_defaultlib.stft_window_rom [stft_window_rom_default]
+Compiling architecture behavioral of entity xil_defaultlib.istft_window_rom [istft_window_rom_default]
+Compiling architecture behavioral of entity xil_defaultlib.window_controller [window_controller_default]
+Compiling architecture behavioral of entity xil_defaultlib.fsm_control [fsm_control_default]
+Compiling architecture behavioral of entity xil_defaultlib.master_controller [master_controller_default]
+Compiling architecture behavioral of entity xil_defaultlib.main_tb
+Built simulation snapshot main_tb_behav

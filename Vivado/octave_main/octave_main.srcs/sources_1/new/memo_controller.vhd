@@ -8,6 +8,7 @@ entity memo_controller is
     clk : in STD_LOGIC;
     write_sample : in STD_LOGIC;
     read_sample : in STD_LOGIC;
+    stage : in STD_LOGIC_VECTOR (1 downto 0);
     memo1_address : in STD_LOGIC_VECTOR (9 downto 0);
     memo2_address : in STD_LOGIC_VECTOR (9 downto 0); 
     storaged_sample1 : out STD_LOGIC_VECTOR (sample_size - 1 downto 0);
@@ -57,7 +58,11 @@ begin
     wea2 <= "1" when (write_sample = '1' and read_sample = '0') else
             "0";
     
-    ena1 <= write_sample or read_sample;
-    ena2 <= write_sample or read_sample;
+    ena1 <= write_sample or read_sample when stage = "00" else
+            write_sample or read_sample when stage = "01" else
+            '0';
+    ena2 <= write_sample or read_sample when stage = "10" else
+            write_sample or read_sample when stage = "11" else
+            '0';
 
 end Behavioral;
