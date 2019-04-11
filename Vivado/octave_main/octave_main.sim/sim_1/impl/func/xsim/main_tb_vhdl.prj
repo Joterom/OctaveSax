@@ -1,6 +1,9 @@
 # compile vhdl design source files
 vhdl xil_defaultlib  \
 "main_tb_func_impl.vhd" \
+"../../../../../octave_main.srcs/sim_1/new/main_tb.vhd" \
+"../../../../../octave_main.srcs/sim_1/new/window_tb.vhd" \
+"../../../../../octave_main.srcs/sim_1/new/tb_transform.vhd" \
 
 # Do not sort compile order
 nosort

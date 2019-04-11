@@ -120,3 +120,4 @@
 6.2 Retroceso por los errores de la arquitectura
 6.2.1 Critical warning eliminada
 6.2.2 Mejora en la arquitectura pero deja de sonar
+6.3 Cambio radical en la arquitectura de las memorias

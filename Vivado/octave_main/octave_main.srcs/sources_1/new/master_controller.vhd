@@ -88,6 +88,19 @@ architecture Behavioral of master_controller is
         input_fsm : out STD_LOGIC_VECTOR (2 downto 0)
     ); end component;
     
+    component manager_memo port (
+        clk : in STD_LOGIC;
+        reset : in STD_LOGIC;
+        start_proc : in STD_LOGIC;
+        sample_in : in SIGNED (sample_size - 1 downto 0);
+        memo_address : in STD_LOGIC_VECTOR (9 downto 0);
+        rw : in STD_LOGIC;
+        end_proc : out STD_LOGIC;
+        memo_event : out STD_LOGIC;
+        out_rdy : out STD_LOGIC;
+        use_mem : out UNSIGNED (1 downto 0);
+        samp_out : out SIGNED (sample_size - 1 downto 0)
+    ); end component;
 --    component freq_dom_controller port(
 --        clk : in STD_LOGIC;
 --        reset : in STD_LOGIC;
@@ -117,22 +130,24 @@ architecture Behavioral of master_controller is
     signal address_buf1, address_buf1_next, address_buf3, address_buf3_next, address_buf1r, address_buf1r_next, address_buf3r 
            , address_buf3r_next : STD_LOGIC_VECTOR(9 downto 0) := "1000000000";
     -- Memo controller signals
-    signal write_sample_memo, read_sample_memo, read_sample_memo_next, write_sample_memo_next : STD_LOGIC := '0';
+    signal write_sample_memo, read_sample_memo, read_sample_memo_next, write_sample_memo_next, start_proc_inmemo, start_proc_inmemo_next, memo_event_inmemo : STD_LOGIC := '0';
     signal memo1_address, memo2_address, memo1_address_next, memo2_address_next : STD_LOGIC_VECTOR (9 downto 0) := (others => '0');
     signal storaged_sample1, storaged_sample2, writing_sample_memo1, writing_sample_memo2, writing_sample_memo1_next
            , writing_sample_memo2_next : STD_LOGIC_VECTOR (sample_size - 1 downto 0) := (others => '0');
     signal reading_ready, reading_ready_n, reading_ready_nn, reading_ready_nn_next : STD_LOGIC := '0';
     signal read_buffer0, read_buffer1, read_buffer2, read_buffer3, read_buffer0_next, read_buffer1_next, read_buffer2_next
-           , read_buffer3_next : SIGNED (15 downto 0) := (others => '0');
+           , read_buffer3_next, sample_in_inmemo, sample_in_inmemo_next : SIGNED (15 downto 0) := (others => '0');
+    signal use_mem_inmemo : UNSIGNED (1 downto 0) := "00";
     -- Control signals
     signal control_sampling : STD_LOGIC_VECTOR (2 downto 0);
     signal event_read, event_write, event_new_frame : STD_LOGIC;
     -- Window signals
-    signal start_proc_win, start_proc_win_next, end_proc_win, for_inv, for_inv_next, espera, espera_next : STD_LOGIC := '0';
+    signal start_proc_win, start_proc_win_next, end_proc_win, for_inv, for_inv_next, espera, espera_next, rw_inmemo : STD_LOGIC := '0';
     signal multiplicand, multiplicand_next, win_result : SIGNED (sample_size - 1 downto 0) := (others => '0');
     signal sample_number, sample_number_next : STD_LOGIC_VECTOR (8 downto 0);
     signal stage, win_stage, win_stage_next : STD_LOGIC_VECTOR (1 downto 0) := "00";
     signal output_sample_ov_next : SIGNED (sample_size downto 0) := (others => '0');
+    signal winbuf0, winbuf0n, winbuf1, winbuf1n, winbuf2, winbuf2n, winbuf3, winbuf3n : SIGNED := (others => '0');
     -- Load FFT module signals
     signal load_address0, load_address0_next, load_address2, load_address2_next : STD_LOGIC_VECTOR (9 downto 0) := (others => '0');
     signal load_address1, load_address1_next, load_address3, load_address3_next : STD_LOGIC_VECTOR (9 downto 0) := "1000000000";
@@ -171,7 +186,21 @@ begin
         data_out => input_reg
     );   
     
-    IN_MEMO : memo_controller port map(            
+    INPUT_MEMO : manager_memo port map(
+        clk => clk_100MHz,
+        reset => reset,
+        start_proc => start_proc_inmemo,
+        sample_in => sample_in_inmemo,
+        memo_address => address_inmemo, --MIRAR LAS DIRECCIONES
+        rw => rw_inmemo,
+        end_proc => end_proc_inmemo,
+        memo_event => memo_event_inmemo,
+        out_rdy => out_ready_inmemo,
+        use_mem => use_mem_inmemo,
+        samp_out => samp_out_inmemo
+    );
+    
+    IN_OLD_MEMO : memo_controller port map(            
         clk => clk_100MHz,
         write_sample => write_sample_memo,
         read_sample => read_sample_memo,
@@ -280,6 +309,12 @@ begin
                 cont_sample_freq <= '0';
                 req_sample_freq <= '0';
                 espera <= '0';
+                winbuf0 <= (others => '0');
+                winbuf1 <= (others => '0');
+                winbuf2 <= (others => '0');
+                winbuf3 <= (others => '0');
+                start_proc_inmemo <= '0';
+                sample_in_inmemo <= (others => '0');
             elsif rising_edge(clk_100MHz) then                
                 output_sample <= output_sample_next;
                 --output_sample_next <= output_sample_ov_next(sample_size downto 1);
@@ -343,101 +378,111 @@ begin
                 cont_sample_freq <= cont_sample_freq_next;
                 req_sample_freq <= req_sample_freq_next;
                 espera <= espera_next;
+                winbuf0 <= winbuf0n;
+                winbuf1 <= winbuf1n;
+                winbuf2 <= winbuf2n;
+                winbuf3 <= winbuf3n;
+                start_proc_inmemo <= start_proc_inmemo_next;
+                sample_in_inmemo <= sample_in_inmemo_next;
             end if;           
     end process;         
     -- Uses wrting fsm state to generate its control signals and counters
     
         
         -- Makes every w/r operation possible by activating target signals when corresponds, depending on memory state (memo_state)
-        input_state_outputs : process(input_state, event_write, counter_buf0, counter_buf1, counter_buf2, counter_buf3
-                                      , start_buffer1, start_buffer2, start_buffer3, input_reg, address_buf0, address_buf1
-                                      , address_buf2, address_buf3, win_result, end_proc_win 
-                                      , sample_number, multiplicand, reading_ready, read_sample_memo
-                                      , event_read, counter_buf0r, counter_buf1r, counter_buf2r, counter_buf3r, start_buffer1r
-                                      , start_buffer2r, start_buffer3r, address_buf0r, address_buf1r, address_buf2r, address_buf3r
-                                      , storaged_sample1, storaged_sample2, read_buffer0, read_buffer1 ,read_buffer2 ,read_buffer3
-                                      , output_sample, memo1_address, memo2_address, writing_sample_memo1, writing_sample_memo2
-                                      , start_load0, start_load1, start_load2, start_load3, load_address0, load_address1, load_address2
-                                      , load_address3, use_buffer_fft_load, use_buffer_fft_unload, fft_input, win_stage, espera)
+        input_state_outputs : process(input_state)
             begin 
                 -- Default
-                start_proc_win_next <= '0';
-                sample_number_next <= sample_number;
-                multiplicand_next <= multiplicand;
-                memo1_address_next <= memo1_address;
-                memo2_address_next <= memo2_address;
-                write_sample_memo_next <= '0';
-                writing_sample_memo1_next <= writing_sample_memo1;
-                writing_sample_memo2_next <= writing_sample_memo2;
-                for_inv_next <= '0';
-                reading_ready_nn_next <= '0';
-                read_sample_memo_next <= read_sample_memo;
-                read_buffer0_next <= read_buffer0;
-                read_buffer1_next <= read_buffer1;
-                read_buffer2_next <= read_buffer2;
-                read_buffer3_next <= read_buffer3;
-                output_sample_next <= output_sample;
-                use_buffer_fft_load_next <= use_buffer_fft_load;
-                use_buffer_fft_unload_next <= use_buffer_fft_unload;
-                cont_sample_freq_next <= '0';
-                fft_input_next <= fft_input;
-                load_address0_next <= load_address0;
-                load_address1_next <= load_address1;
-                load_address2_next <= load_address2;
-                load_address3_next <= load_address3;
-                start_load0_next <= start_load0;
-                start_load1_next <= start_load1;
-                start_load2_next <= start_load2;
-                start_load3_next <= start_load3;
-                win_stage_next <= win_stage;
-                espera_next <= '0';
                 case input_state is   
-                    when WRITE_INPUT => -- Reads from input reg and writes this sample into memory buffer 1
-                        for_inv_next <= '1'; -- STFT window
-                        if event_write = '1' then -- Start window proccessing and sets its parameters
-                            -- Buffer0
+                    when WRITE_INPUT =>
+                        for_inv_next <= '1';
+                        if event_write = '1' then
                             start_proc_win_next <= '1';
-                            sample_number_next <= std_logic_vector(counter_buf0);                   
-                            multiplicand_next <= input_reg;
+                            sample_number_next <= std_logic_vector(counter_buf0);
                             win_stage_next <= "00";
-                        elsif end_proc_win = '1' and win_stage = "00" then -- Proccessing ended, saves result in memory 1
-                            memo1_address_next <= address_buf0;
-                            write_sample_memo_next <= '1';
-                            writing_sample_memo1_next <= std_logic_vector(win_result);
-                            espera_next <= '1';
-                        elsif espera = '1' and win_stage = "00" then
-                            -- Buffer1
-                            start_proc_win_next <= '1';
-                            sample_number_next <= std_logic_vector(counter_buf1);                   
-                            multiplicand_next <= input_reg;
-                            win_stage_next <= "01";
-                        elsif end_proc_win = '1' and win_stage = "01" then -- Proccessing ended, saves result in memory 1
-                            memo1_address_next <= address_buf1;
-                            write_sample_memo_next <= '1';
-                            writing_sample_memo1_next <= std_logic_vector(win_result);
-                            espera_next <= '1';
-                        elsif espera = '1' and win_stage = "01" then
-                            -- Buffer2
-                            start_proc_win_next <= '1';
-                            sample_number_next <= std_logic_vector(counter_buf2);                   
-                            multiplicand_next <= input_reg;
-                            win_stage_next <= "10";
-                        elsif end_proc_win = '1' and win_stage = "10" then -- Proccessing ended, saves result in memory 1
-                            memo2_address_next <= address_buf2;
-                            write_sample_memo_next <= '1';
-                            writing_sample_memo2_next <= std_logic_vector(win_result);
-                            espera_next <= '1';
-                        elsif espera = '1' and win_stage = "10" then
-                            -- Buffer3
-                            start_proc_win_next <= '1';
-                            sample_number_next <= std_logic_vector(counter_buf3);                   
-                            multiplicand_next <= input_reg;
-                            win_stage_next <= "11";
-                        elsif end_proc_win = '1' and win_stage = "11" then -- Proccessing ended, saves result in memory 1
-                            memo2_address_next <= address_buf3;
-                            write_sample_memo_next <= '1';
-                            writing_sample_memo2_next <= std_logic_vector(win_result);
+                        elsif end_proc_win = '1'then
+                            if win_stage = "00" then
+                                start_proc_win_next <= '1';
+                                sample_number_next <= std_logic_vector(counter_buf1);
+                                win_stage_next <= "01";
+                                winbuf0n <= win_result;
+                            elsif win_stage = "01" then
+                                start_proc_win_next <= '1';
+                                sample_number_next <= std_logic_vector(counter_buf2);
+                                win_stage_next <= "10";
+                                winbuf1n <= win_result;
+                            elsif win_stage = "10" then
+                                start_proc_win_next <= '1';
+                                sample_number_next <= std_logic_vector(counter_buf3);
+                                winbuf2n <= win_result;
+                                win_stage_next <= "11";
+                                start_proc_inmemo_next <= '1';
+                            elsif win_stage = "11" then
+                                winbuf3n <= win_result;
+                                win_stage_next <= "00";
+                            end if;
                         end if;
+                        if memo_event_inmemo = '1' then
+                            if use_mem_inmemo = "00" then
+                                address_inmemo_next <= address_buf0;
+                                sample_in_inmemo_next <= winbuf0;
+                            elsif use_mem_inmemo = "01" then
+                                address_inmemo_next <= address_buf1;
+                                sample_in_inmemo_next <= winbuf1;
+                            elsif use_mem_inmemo = "10" then
+                                address_inmemo_next <= address_buf2;
+                                sample_in_inmemo_next <= winbuf2;
+                            else
+                                address_inmemo_next <= address_buf3;
+                                sample_in_inmemo_next <= winbuf3;
+                            end if;
+                        end if;
+--                    when WRITE_INPUT => -- Reads from input reg and writes this sample into memory buffer 1
+--                        for_inv_next <= '1'; -- STFT window
+--                        if event_write = '1' then -- Start window proccessing and sets its parameters
+--                            -- Buffer0
+--                            start_proc_win_next <= '1';
+--                            sample_number_next <= std_logic_vector(counter_buf0);                   
+--                            multiplicand_next <= input_reg;
+--                            win_stage_next <= "00";
+--                        elsif end_proc_win = '1' and win_stage = "00" then -- Proccessing ended, saves result in memory 1
+--                            memo1_address_next <= address_buf0;
+--                            write_sample_memo_next <= '1';
+--                            writing_sample_memo1_next <= std_logic_vector(win_result);
+--                            espera_next <= '1';
+--                        elsif espera = '1' and win_stage = "00" then
+--                            -- Buffer1
+--                            start_proc_win_next <= '1';
+--                            sample_number_next <= std_logic_vector(counter_buf1);                   
+--                            multiplicand_next <= input_reg;
+--                            win_stage_next <= "01";
+--                        elsif end_proc_win = '1' and win_stage = "01" then -- Proccessing ended, saves result in memory 1
+--                            memo1_address_next <= address_buf1;
+--                            write_sample_memo_next <= '1';
+--                            writing_sample_memo1_next <= std_logic_vector(win_result);
+--                            espera_next <= '1';
+--                        elsif espera = '1' and win_stage = "01" then
+--                            -- Buffer2
+--                            start_proc_win_next <= '1';
+--                            sample_number_next <= std_logic_vector(counter_buf2);                   
+--                            multiplicand_next <= input_reg;
+--                            win_stage_next <= "10";
+--                        elsif end_proc_win = '1' and win_stage = "10" then -- Proccessing ended, saves result in memory 1
+--                            memo2_address_next <= address_buf2;
+--                            write_sample_memo_next <= '1';
+--                            writing_sample_memo2_next <= std_logic_vector(win_result);
+--                            espera_next <= '1';
+--                        elsif espera = '1' and win_stage = "10" then
+--                            -- Buffer3
+--                            start_proc_win_next <= '1';
+--                            sample_number_next <= std_logic_vector(counter_buf3);                   
+--                            multiplicand_next <= input_reg;
+--                            win_stage_next <= "11";
+--                        elsif end_proc_win = '1' and win_stage = "11" then -- Proccessing ended, saves result in memory 1
+--                            memo2_address_next <= address_buf3;
+--                            write_sample_memo_next <= '1';
+--                            writing_sample_memo2_next <= std_logic_vector(win_result);
+--                        end if;
                         
 --                    when LOAD_FFT_EVEN =>           
 --                        if start_load0 = '1' then

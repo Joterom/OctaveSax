@@ -1,20 +1,35 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/impl/func/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
 INFO: [VRFC 10-163] Analyzing VHDL file "/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/impl/func/xsim/main_tb_func_impl.vhd" into library xil_defaultlib
 INFO: [VRFC 10-307] analyzing entity clk_generator_clk_generator_clk_wiz
 INFO: [VRFC 10-307] analyzing entity display_counter
+INFO: [VRFC 10-307] analyzing entity fsm_control
 INFO: [VRFC 10-307] analyzing entity sampling
 INFO: [VRFC 10-307] analyzing entity shift_register
 INFO: [VRFC 10-307] analyzing entity window_controller
-INFO: [VRFC 10-307] analyzing entity ram_memory_blk_mem_gen_prim_wrapper
-INFO: [VRFC 10-307] analyzing entity \ram_memory_blk_mem_gen_prim_wrapper__parameterized0\
+INFO: [VRFC 10-307] analyzing entity \ram_memo__blk_mem_gen_prim_wrapper\
+INFO: [VRFC 10-307] analyzing entity \ram_memo__blk_mem_gen_prim_wrapper_HD8\
 INFO: [VRFC 10-307] analyzing entity clk_generator
 INFO: [VRFC 10-307] analyzing entity display_interface
-INFO: [VRFC 10-307] analyzing entity ram_memory_blk_mem_gen_prim_width
-INFO: [VRFC 10-307] analyzing entity \ram_memory_blk_mem_gen_prim_width__parameterized0\
-INFO: [VRFC 10-307] analyzing entity ram_memory_blk_mem_gen_generic_cstr
-INFO: [VRFC 10-307] analyzing entity ram_memory_blk_mem_gen_top
-INFO: [VRFC 10-307] analyzing entity ram_memory_blk_mem_gen_v8_4_1_synth
-INFO: [VRFC 10-307] analyzing entity ram_memory_blk_mem_gen_v8_4_1
-INFO: [VRFC 10-307] analyzing entity ram_memory
+INFO: [VRFC 10-307] analyzing entity \ram_memo__blk_mem_gen_prim_width\
+INFO: [VRFC 10-307] analyzing entity \ram_memo__blk_mem_gen_prim_width_HD7\
+INFO: [VRFC 10-307] analyzing entity \ram_memo__blk_mem_gen_generic_cstr\
+INFO: [VRFC 10-307] analyzing entity \ram_memo__blk_mem_gen_generic_cstr_HD6\
+INFO: [VRFC 10-307] analyzing entity \ram_memo__blk_mem_gen_top\
+INFO: [VRFC 10-307] analyzing entity \ram_memo__blk_mem_gen_top_HD5\
+INFO: [VRFC 10-307] analyzing entity \ram_memo__blk_mem_gen_v8_4_1_synth\
+INFO: [VRFC 10-307] analyzing entity \ram_memo__blk_mem_gen_v8_4_1_synth_HD4\
+INFO: [VRFC 10-307] analyzing entity \ram_memo__blk_mem_gen_v8_4_1\
+INFO: [VRFC 10-307] analyzing entity \ram_memo__blk_mem_gen_v8_4_1_HD3\
+INFO: [VRFC 10-307] analyzing entity ram_memo
+INFO: [VRFC 10-307] analyzing entity ram_memo_HD2
 INFO: [VRFC 10-307] analyzing entity memo_controller
 INFO: [VRFC 10-307] analyzing entity master_controller
 INFO: [VRFC 10-307] analyzing entity fsm_global
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sim_1/new/main_tb.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity main_tb
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sim_1/new/window_tb.vhd" into library xil_defaultlib
+ERROR: [VRFC 10-149] 'project_trunk' is not compiled in library xil_defaultlib [/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sim_1/new/window_tb.vhd:5]
+INFO: [VRFC 10-307] analyzing entity window_tb
+ERROR: [VRFC 10-1504] unit window_tb ignored due to previous errors [/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sim_1/new/window_tb.vhd:16]
+INFO: [VRFC 10-240] VHDL file /home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sim_1/new/window_tb.vhd ignored due to errors
