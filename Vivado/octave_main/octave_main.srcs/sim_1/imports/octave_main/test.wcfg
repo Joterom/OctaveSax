@@ -12,13 +12,13 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="20000000000000fs"></ZoomEndTime>
-      <Cursor1Time time="5282960100000fs"></Cursor1Time>
+      <ZoomStartTime time="712958666334fs"></ZoomStartTime>
+      <ZoomEndTime time="713408166335fs"></ZoomEndTime>
+      <Cursor1Time time="713033583000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="232"></NameColumnWidth>
-      <ValueColumnWidth column_width="179"></ValueColumnWidth>
+      <ValueColumnWidth column_width="175"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="7" />
    <wvobject fp_name="group55" type="group">
@@ -109,6 +109,7 @@
    <wvobject fp_name="group60" type="group">
       <obj_property name="label">WRITE</obj_property>
       <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
       <wvobject fp_name="/main_tb/UUT/sample_in_ready" type="logic">
          <obj_property name="ElementShortName">sample_in_ready</obj_property>
          <obj_property name="ObjectShortName">sample_in_ready</obj_property>
@@ -137,11 +138,42 @@
          <obj_property name="ObjectShortName">counter_buf3[8:0]</obj_property>
          <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
       </wvobject>
+      <wvobject fp_name="/main_tb/UUT/winbuf0" type="array">
+         <obj_property name="ElementShortName">winbuf0[15:0]</obj_property>
+         <obj_property name="ObjectShortName">winbuf0[15:0]</obj_property>
+         <obj_property name="Radix">REALRADIX</obj_property>
+         <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+         <obj_property name="radix_fractionWidth">15</obj_property>
+         <obj_property name="radix_otherWidth">0</obj_property>
+      </wvobject>
+      <wvobject fp_name="/main_tb/UUT/winbuf1" type="array">
+         <obj_property name="ElementShortName">winbuf1[15:0]</obj_property>
+         <obj_property name="ObjectShortName">winbuf1[15:0]</obj_property>
+         <obj_property name="Radix">REALRADIX</obj_property>
+         <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+         <obj_property name="radix_fractionWidth">15</obj_property>
+         <obj_property name="radix_otherWidth">0</obj_property>
+      </wvobject>
+      <wvobject fp_name="/main_tb/UUT/winbuf2" type="array">
+         <obj_property name="ElementShortName">winbuf2[15:0]</obj_property>
+         <obj_property name="ObjectShortName">winbuf2[15:0]</obj_property>
+         <obj_property name="Radix">REALRADIX</obj_property>
+         <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+         <obj_property name="radix_fractionWidth">15</obj_property>
+         <obj_property name="radix_otherWidth">0</obj_property>
+      </wvobject>
+      <wvobject fp_name="/main_tb/UUT/winbuf3" type="array">
+         <obj_property name="ElementShortName">winbuf3[15:0]</obj_property>
+         <obj_property name="ObjectShortName">winbuf3[15:0]</obj_property>
+         <obj_property name="Radix">REALRADIX</obj_property>
+         <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+         <obj_property name="radix_fractionWidth">15</obj_property>
+         <obj_property name="radix_otherWidth">0</obj_property>
+      </wvobject>
    </wvobject>
    <wvobject fp_name="group61" type="group">
       <obj_property name="label">READ</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="isExpanded"></obj_property>
       <wvobject fp_name="/main_tb/UUT/start_reading" type="logic">
          <obj_property name="ElementShortName">start_reading</obj_property>
          <obj_property name="ObjectShortName">start_reading</obj_property>
@@ -249,121 +281,116 @@
          <obj_property name="radix_otherWidth">0</obj_property>
       </wvobject>
    </wvobject>
-   <wvobject fp_name="group53" type="group">
-      <obj_property name="label">MEMO</obj_property>
+   <wvobject fp_name="group122" type="group">
+      <obj_property name="label">MEMOS</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="isExpanded"></obj_property>
-      <wvobject fp_name="group74" type="group">
-         <obj_property name="label">ADDRESSES</obj_property>
+      <wvobject fp_name="/main_tb/UUT/INPUT_MEMO/rw" type="logic">
+         <obj_property name="ElementShortName">rw</obj_property>
+         <obj_property name="ObjectShortName">rw</obj_property>
+      </wvobject>
+      <wvobject fp_name="/main_tb/UUT/INPUT_MEMO/memo_address" type="array">
+         <obj_property name="ElementShortName">memo_address[9:0]</obj_property>
+         <obj_property name="ObjectShortName">memo_address[9:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/main_tb/UUT/INPUT_MEMO/use_mem" type="array">
+         <obj_property name="ElementShortName">use_mem[1:0]</obj_property>
+         <obj_property name="ObjectShortName">use_mem[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/main_tb/UUT/INPUT_MEMO/sample_in" type="array">
+         <obj_property name="ElementShortName">sample_in[15:0]</obj_property>
+         <obj_property name="ObjectShortName">sample_in[15:0]</obj_property>
+         <obj_property name="Radix">REALRADIX</obj_property>
+         <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+         <obj_property name="radix_fractionWidth">15</obj_property>
+         <obj_property name="radix_otherWidth">0</obj_property>
+      </wvobject>
+      <wvobject fp_name="group53" type="group">
+         <obj_property name="label">MEMO0</obj_property>
          <obj_property name="DisplayName">label</obj_property>
-         <obj_property name="isExpanded"></obj_property>
          <wvobject fp_name="/main_tb/UUT/address_buf0" type="array">
             <obj_property name="ElementShortName">address_buf0[9:0]</obj_property>
             <obj_property name="ObjectShortName">address_buf0[9:0]</obj_property>
             <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
          </wvobject>
+         <wvobject fp_name="/main_tb/UUT/INPUT_MEMO/ena0" type="logic">
+            <obj_property name="ElementShortName">ena0</obj_property>
+            <obj_property name="ObjectShortName">ena0</obj_property>
+         </wvobject>
+         <wvobject fp_name="/main_tb/UUT/INPUT_MEMO/wea0" type="array">
+            <obj_property name="ElementShortName">wea0[0:0]</obj_property>
+            <obj_property name="ObjectShortName">wea0[0:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/main_tb/UUT/INPUT_MEMO/add0" type="array">
+            <obj_property name="ElementShortName">add0[9:0]</obj_property>
+            <obj_property name="ObjectShortName">add0[9:0]</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="group123" type="group">
+         <obj_property name="label">MEMO1</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
          <wvobject fp_name="/main_tb/UUT/address_buf1" type="array">
             <obj_property name="ElementShortName">address_buf1[9:0]</obj_property>
             <obj_property name="ObjectShortName">address_buf1[9:0]</obj_property>
             <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
          </wvobject>
+         <wvobject fp_name="/main_tb/UUT/INPUT_MEMO/ena1" type="logic">
+            <obj_property name="ElementShortName">ena1</obj_property>
+            <obj_property name="ObjectShortName">ena1</obj_property>
+         </wvobject>
+         <wvobject fp_name="/main_tb/UUT/INPUT_MEMO/wea1" type="array">
+            <obj_property name="ElementShortName">wea1[0:0]</obj_property>
+            <obj_property name="ObjectShortName">wea1[0:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/main_tb/UUT/INPUT_MEMO/add1" type="array">
+            <obj_property name="ElementShortName">add1[9:0]</obj_property>
+            <obj_property name="ObjectShortName">add1[9:0]</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="group121" type="group">
+         <obj_property name="label">MEMO2</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
          <wvobject fp_name="/main_tb/UUT/address_buf2" type="array">
             <obj_property name="ElementShortName">address_buf2[9:0]</obj_property>
             <obj_property name="ObjectShortName">address_buf2[9:0]</obj_property>
             <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
          </wvobject>
+         <wvobject fp_name="/main_tb/UUT/INPUT_MEMO/ena2" type="logic">
+            <obj_property name="ElementShortName">ena2</obj_property>
+            <obj_property name="ObjectShortName">ena2</obj_property>
+         </wvobject>
+         <wvobject fp_name="/main_tb/UUT/INPUT_MEMO/wea2" type="array">
+            <obj_property name="ElementShortName">wea2[0:0]</obj_property>
+            <obj_property name="ObjectShortName">wea2[0:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/main_tb/UUT/INPUT_MEMO/add2" type="array">
+            <obj_property name="ElementShortName">add2[9:0]</obj_property>
+            <obj_property name="ObjectShortName">add2[9:0]</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="group124" type="group">
+         <obj_property name="label">MEMO3</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
          <wvobject fp_name="/main_tb/UUT/address_buf3" type="array">
             <obj_property name="ElementShortName">address_buf3[9:0]</obj_property>
             <obj_property name="ObjectShortName">address_buf3[9:0]</obj_property>
             <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
          </wvobject>
-         <wvobject fp_name="/main_tb/UUT/address_buf0r" type="array">
-            <obj_property name="ElementShortName">address_buf0r[9:0]</obj_property>
-            <obj_property name="ObjectShortName">address_buf0r[9:0]</obj_property>
+         <wvobject fp_name="/main_tb/UUT/INPUT_MEMO/ena3" type="logic">
+            <obj_property name="ElementShortName">ena3</obj_property>
+            <obj_property name="ObjectShortName">ena3</obj_property>
+         </wvobject>
+         <wvobject fp_name="/main_tb/UUT/INPUT_MEMO/wea3" type="array">
+            <obj_property name="ElementShortName">wea3[0:0]</obj_property>
+            <obj_property name="ObjectShortName">wea3[0:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/main_tb/UUT/INPUT_MEMO/add3" type="array">
+            <obj_property name="ElementShortName">add3[9:0]</obj_property>
+            <obj_property name="ObjectShortName">add3[9:0]</obj_property>
             <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/main_tb/UUT/address_buf1r" type="array">
-            <obj_property name="ElementShortName">address_buf1r[9:0]</obj_property>
-            <obj_property name="ObjectShortName">address_buf1r[9:0]</obj_property>
-            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/main_tb/UUT/address_buf2r" type="array">
-            <obj_property name="ElementShortName">address_buf2r[9:0]</obj_property>
-            <obj_property name="ObjectShortName">address_buf2r[9:0]</obj_property>
-            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/main_tb/UUT/address_buf3r" type="array">
-            <obj_property name="ElementShortName">address_buf3r[9:0]</obj_property>
-            <obj_property name="ObjectShortName">address_buf3r[9:0]</obj_property>
-            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-         </wvobject>
-      </wvobject>
-      <wvobject fp_name="/main_tb/UUT/win_stage" type="array">
-         <obj_property name="ElementShortName">win_stage[1:0]</obj_property>
-         <obj_property name="ObjectShortName">win_stage[1:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="group50" type="group">
-         <obj_property name="label">RAM1</obj_property>
-         <obj_property name="DisplayName">label</obj_property>
-         <obj_property name="isExpanded"></obj_property>
-         <wvobject fp_name="/main_tb/UUT/IN_MEMO/ram1/ena" type="logic">
-            <obj_property name="ElementShortName">ena</obj_property>
-            <obj_property name="ObjectShortName">ena</obj_property>
-         </wvobject>
-         <wvobject fp_name="/main_tb/UUT/IN_MEMO/ram1/wea" type="array">
-            <obj_property name="ElementShortName">wea[0:0]</obj_property>
-            <obj_property name="ObjectShortName">wea[0:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/main_tb/UUT/IN_MEMO/ram1/addra" type="array">
-            <obj_property name="ElementShortName">addra[9:0]</obj_property>
-            <obj_property name="ObjectShortName">addra[9:0]</obj_property>
-            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/main_tb/UUT/IN_MEMO/ram1/dina" type="array">
-            <obj_property name="ElementShortName">dina[15:0]</obj_property>
-            <obj_property name="ObjectShortName">dina[15:0]</obj_property>
-            <obj_property name="Radix">REALRADIX</obj_property>
-            <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
-            <obj_property name="radix_fractionWidth">15</obj_property>
-            <obj_property name="radix_otherWidth">0</obj_property>
-         </wvobject>
-         <wvobject fp_name="/main_tb/UUT/IN_MEMO/ram1/douta" type="array">
-            <obj_property name="ElementShortName">douta[15:0]</obj_property>
-            <obj_property name="ObjectShortName">douta[15:0]</obj_property>
-            <obj_property name="Radix">REALRADIX</obj_property>
-            <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
-            <obj_property name="radix_fractionWidth">15</obj_property>
-            <obj_property name="radix_otherWidth">0</obj_property>
-         </wvobject>
-      </wvobject>
-      <wvobject fp_name="group67" type="group">
-         <obj_property name="label">RAM2</obj_property>
-         <obj_property name="DisplayName">label</obj_property>
-         <obj_property name="isExpanded"></obj_property>
-         <wvobject fp_name="/main_tb/UUT/IN_MEMO/ram2/ena" type="logic">
-            <obj_property name="ElementShortName">ena</obj_property>
-            <obj_property name="ObjectShortName">ena</obj_property>
-         </wvobject>
-         <wvobject fp_name="/main_tb/UUT/IN_MEMO/ram2/wea" type="array">
-            <obj_property name="ElementShortName">wea[0:0]</obj_property>
-            <obj_property name="ObjectShortName">wea[0:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/main_tb/UUT/IN_MEMO/ram2/addra" type="array">
-            <obj_property name="ElementShortName">addra[9:0]</obj_property>
-            <obj_property name="ObjectShortName">addra[9:0]</obj_property>
-            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/main_tb/UUT/IN_MEMO/ram2/dina" type="array">
-            <obj_property name="ElementShortName">dina[15:0]</obj_property>
-            <obj_property name="ObjectShortName">dina[15:0]</obj_property>
-            <obj_property name="Radix">REALRADIX</obj_property>
-            <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
-            <obj_property name="radix_fractionWidth">15</obj_property>
-            <obj_property name="radix_otherWidth">0</obj_property>
-         </wvobject>
-         <wvobject fp_name="/main_tb/UUT/IN_MEMO/ram2/douta" type="array">
-            <obj_property name="ElementShortName">douta[15:0]</obj_property>
-            <obj_property name="ObjectShortName">douta[15:0]</obj_property>
          </wvobject>
       </wvobject>
    </wvobject>

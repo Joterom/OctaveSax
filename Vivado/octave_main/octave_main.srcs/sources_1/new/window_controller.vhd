@@ -65,7 +65,7 @@ begin
     
     process(start_proc_win, pre_win, multiplicand)
         begin
-            result_next <= (others => '0');
+            result_next <= result_pre;
             end_proc_win_next <= '0';
             if start_proc_win = '1' then
                 result_next <= signed(pre_win)*multiplicand;

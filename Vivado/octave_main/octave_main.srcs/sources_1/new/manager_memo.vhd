@@ -42,7 +42,7 @@ architecture Behavioral of manager_memo is
     signal douta0, douta1, douta2, douta3 : STD_LOGIC_VECTOR (15 downto 0) := (others => '0');
     signal sample_out, sample_out_next : SIGNED (sample_size - 1 downto 0) := (others => '0');
     -- Counter
-    signal contador, contador_next : UNSIGNED (4 downto 0) := (others => '0');
+    signal contador, contador_next : UNSIGNED (3 downto 0) := (others => '0');
     signal proc, proc_next : STD_LOGIC := '0';
     -- Control
     signal use_memo, use_memo_next : UNSIGNED (1 downto 0) := "00";
