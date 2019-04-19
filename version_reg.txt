@@ -122,3 +122,4 @@
 6.2.2 Mejora en la arquitectura pero deja de sonar
 6.3 Cambio radical en la arquitectura de las memorias
 6.3.1 Escritura implementada
+6.4 Arquitectura de las memorias reimplementada <-- FUNCIONAL

@@ -1,5 +1,5 @@
 -- Javier Otero Martinez
--- OctaveSax project -- TFG
+-- OctaveSax project -- TFG 
 -- June 2019 
 
 library IEEE;
@@ -13,7 +13,7 @@ entity manager_memo is
     reset : in STD_LOGIC;
     start_proc : in STD_LOGIC;
     sample_in : in SIGNED (sample_size - 1 downto 0);
-    memo_address : in STD_LOGIC_VECTOR (9 downto 0);
+    memo_address : in STD_LOGIC_VECTOR (8 downto 0);
     rw : in STD_LOGIC;
     end_proc : out STD_LOGIC;
     memo_event : out STD_LOGIC;
@@ -29,7 +29,7 @@ architecture Behavioral of manager_memo is
         clka : in STD_LOGIC;
         ena : in STD_LOGIC;
         wea : in STD_LOGIC_VECTOR ( 0 to 0 );
-        addra : in STD_LOGIC_VECTOR ( 9 downto 0 );
+        addra : in STD_LOGIC_VECTOR ( 8 downto 0 );
         dina : in STD_LOGIC_VECTOR ( 15 downto 0 );
         douta : out STD_LOGIC_VECTOR ( 15 downto 0 )
     ); end component;
@@ -37,7 +37,7 @@ architecture Behavioral of manager_memo is
     -- Memo init
     signal ena0, ena0_next, ena1, ena1_next, ena2, ena2_next, ena3, ena3_next : STD_LOGIC := '0';
     signal wea0, wea0_next, wea1, wea1_next, wea2, wea2_next, wea3, wea3_next : STD_LOGIC_VECTOR (0 downto 0) := "0";
-    signal add0, add0_next, add1, add1_next, add2, add2_next, add3, add3_next : STD_LOGIC_VECTOR (9 downto 0) := (others => '0');
+    signal add0, add0_next, add1, add1_next, add2, add2_next, add3, add3_next : STD_LOGIC_VECTOR (8 downto 0) := (others => '0');
     signal dina0, dina0_next, dina1, dina1_next, dina2, dina2_next, dina3, dina3_next : STD_LOGIC_VECTOR (15 downto 0) := (others => '0');   
     signal douta0, douta1, douta2, douta3 : STD_LOGIC_VECTOR (15 downto 0) := (others => '0');
     signal sample_out, sample_out_next : SIGNED (sample_size - 1 downto 0) := (others => '0');
@@ -157,7 +157,7 @@ begin
     end process;
     
     state_logic : process(contador, douta0, douta1, douta2, douta3, use_memo, ena0, ena1, ena2, ena3, wea0, wea1, wea2, wea3, add0, add1
-                          , add2, add3, dina0, dina1, dina2, dina3, sample_out, rw)
+                          , add2, add3, dina0, dina1, dina2, dina3, sample_out, rw, memo_address, sample_in)
         begin
             end_proc_next <= '0';
             use_memo_next <= use_memo;
@@ -182,96 +182,101 @@ begin
             sample_out_next <= sample_out;
             if rw = '0' then -- reading
                 case contador is
-                when "0000" => --0
+                when "0001" => --1
                     memo_event_next <= '1';
                     use_memo_next <= "00";
-                when "0010" => --2
+                when "0011" => --3
                     add0_next <= memo_address;
                     ena0_next <= '1';
                     wea0_next <= "0";
-                when "0011" => --3
-                    memo_event_next <= '1';
                     use_memo_next <= "01";
                 when "0100" => --4
+                    memo_event_next <= '1';                  
+                when "0101" => --5
                     ena0_next <= '0';
-                when "0101" => --5 
+                when "0110" => --6 
                     out_rdy_next <= '1';
                     sample_out_next <= signed(douta0);
                     add1_next <= memo_address;
                     ena1_next <= '1';
                     wea1_next <= "0";
-                when "0110" => --6
-                    memo_event_next <= '1';
                     use_memo_next <= "10";
                 when "0111" => --7
-                    ena1_next <= '0';
+                    memo_event_next <= '1';
+                    
                 when "1000" => --8
+                    ena1_next <= '0';
+                when "1001" => --9
                     out_rdy_next <= '1';
                     sample_out_next <= signed(douta1);
                     add2_next <= memo_address;
                     ena2_next <= '1';
                     wea2_next <= "0";
-                when "1001" => --9
-                    memo_event_next <= '1';
                     use_memo_next <= "11";
                 when "1010" => --10
-                    ena2_next <= '0';
+                    memo_event_next <= '1';
+                    
                 when "1011" => --11
+                    ena2_next <= '0';
+                when "1100" => --12
                     out_rdy_next <= '1';
                     sample_out_next <= signed(douta2);
                     add3_next <= memo_address;
                     ena3_next <= '1';
                     wea3_next <= "0";
-                when "1101" => --13
-                    ena3_next <= '0';
+                    use_memo_next <= "00";
                 when "1110" => --14
+                    ena3_next <= '0';
+                when "1111" => --15
                     out_rdy_next <= '1';
                     sample_out_next <= signed(douta3);
-                    end_proc_next <= '1';                
+                    end_proc_next <= '1';    
+                    memo_event_next <= '0';            
                 when others =>
                 end case;
             else -- writing
                 case contador is
-                when "0000" =>
+                when "0001" =>
                     memo_event_next <= '1';
                     use_memo_next <= "00";
                 when "0010" =>
+                    use_memo_next <= "01";
+                when "0011" =>
                     add0_next <= memo_address;
                     ena0_next <= '1';
                     wea0_next <= "1";
-                    dina0_next <= std_logic_vector(sample_in);
-                    use_memo_next <= "01";
+                    dina0_next <= std_logic_vector(sample_in);                    
                     memo_event_next <= '1';
-                when "0011" =>
-                    ena0_next <= '0';                    
                 when "0100" =>
+                    ena0_next <= '0';
+                    use_memo_next <= "10";                    
+                when "0101" =>
                     add1_next <= memo_address;
                     ena1_next <= '1';
                     wea1_next <= "1";
                     dina1_next <= std_logic_vector(sample_in);
                     memo_event_next <= '1';
-                when "0101" =>
-                    ena1_next <= '0'; 
                 when "0110" =>
+                    ena1_next <= '0'; 
+                    use_memo_next <= "11";
+                when "0111" =>
                     add2_next <= memo_address;
                     ena2_next <= '1';
                     wea2_next <= "1";
                     dina2_next <= std_logic_vector(sample_in);
-                    use_memo_next <= "10";
                     memo_event_next <= '1';
-                when "0111" =>
-                    ena2_next <= '0';
                 when "1000" =>
+                    ena2_next <= '0';
+                when "1001" =>
                     add3_next <= memo_address;
                     ena3_next <= '1';
                     wea3_next <= "1";
                     dina3_next <= std_logic_vector(sample_in);
-                    use_memo_next <= "11";
-                    memo_event_next <= '1';
-                when "1001" =>  
+                    use_memo_next <= "00";
+                when "1010" =>  
                     ena3_next <= '0';
                     end_proc_next <= '1';
-                    use_memo_next <= "00";
+                    memo_event_next <= '0';
                 when others =>
                 end case;
             end if;

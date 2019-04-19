@@ -55,18 +55,18 @@ architecture Behavioral of master_controller is
         data_out : out signed (sample_size - 1 downto 0)
     ); end component;
     
-    component memo_controller port(
-        clk : in STD_LOGIC;
-        write_sample : in STD_LOGIC;
-        read_sample : in STD_LOGIC;
-        stage : in STD_LOGIC_VECTOR (1 downto 0);
-        memo1_address : in STD_LOGIC_VECTOR (9 downto 0);
-        memo2_address : in STD_LOGIC_VECTOR (9 downto 0);
-        storaged_sample1 : out STD_LOGIC_VECTOR (sample_size - 1 downto 0);
-        storaged_sample2 : out STD_LOGIC_VECTOR (sample_size - 1 downto 0);
-        writing_sample1 : in STD_LOGIC_VECTOR (sample_size - 1 downto 0);
-        writing_sample2 : in STD_LOGIC_VECTOR (sample_size - 1 downto 0)
-    ); end component;
+--    component memo_controller port(
+--        clk : in STD_LOGIC;
+--        write_sample : in STD_LOGIC;
+--        read_sample : in STD_LOGIC;
+--        stage : in STD_LOGIC_VECTOR (1 downto 0);
+--        memo1_address : in STD_LOGIC_VECTOR (9 downto 0);
+--        memo2_address : in STD_LOGIC_VECTOR (9 downto 0);
+--        storaged_sample1 : out STD_LOGIC_VECTOR (sample_size - 1 downto 0);
+--        storaged_sample2 : out STD_LOGIC_VECTOR (sample_size - 1 downto 0);
+--        writing_sample1 : in STD_LOGIC_VECTOR (sample_size - 1 downto 0);
+--        writing_sample2 : in STD_LOGIC_VECTOR (sample_size - 1 downto 0)
+--    ); end component;
     
     component window_controller port(
         clk : in STD_LOGIC;
@@ -93,7 +93,7 @@ architecture Behavioral of master_controller is
         reset : in STD_LOGIC;
         start_proc : in STD_LOGIC;
         sample_in : in SIGNED (sample_size - 1 downto 0);
-        memo_address : in STD_LOGIC_VECTOR (9 downto 0);
+        memo_address : in STD_LOGIC_VECTOR (8 downto 0);
         rw : in STD_LOGIC;
         end_proc : out STD_LOGIC;
         memo_event : out STD_LOGIC;
@@ -121,14 +121,14 @@ architecture Behavioral of master_controller is
     signal sample_towrite : signed (23 downto 0) := (others => '0');
     signal start_buffer1, start_buffer2, start_buffer3, start_buffer1_next, start_buffer2_next, start_buffer3_next, start_buffer1r, start_buffer2r
            , start_buffer3r, start_buffer1r_next, start_buffer2r_next, start_buffer3r_next : STD_LOGIC := '0';
-    signal counter_buf0, counter_buf0_next, counter_buf0r, counter_buf0r_next : UNSIGNED (8 downto 0) := (others => '1'); 
+    signal counter_buf0, counter_buf0_next : UNSIGNED (8 downto 0) := (others => '1'); 
     signal counter_buf1, counter_buf1_next, counter_buf2, counter_buf2_next, counter_buf3
            , counter_buf3_next, counter_buf1r, counter_buf1r_next, counter_buf2r, counter_buf2r_next
-           , counter_buf3r, counter_buf3r_next  : UNSIGNED (8 downto 0) := (others => '0'); 
-    signal address_buf0, address_buf0_next : STD_LOGIC_VECTOR(9 downto 0) := (others => '1');
-    signal address_buf2r, address_buf2r_next, address_buf2, address_buf2_next, address_buf0r, address_buf0r_next : STD_LOGIC_VECTOR(9 downto 0) := (others => '0');
-    signal address_buf1, address_buf1_next, address_buf3, address_buf3_next, address_buf1r, address_buf1r_next, address_buf3r 
-           , address_buf3r_next : STD_LOGIC_VECTOR(9 downto 0) := "1000000000";
+           , counter_buf3r, counter_buf3r_next, counter_buf0r, counter_buf0r_next  : UNSIGNED (8 downto 0) := (others => '0'); 
+    signal address_buf0, address_buf0_next : STD_LOGIC_VECTOR(8 downto 0) := (others => '1');
+    signal address_buf2r, address_buf2r_next, address_buf2, address_buf2_next, address_buf0r, address_buf0r_next, address_buf1, address_buf1_next
+           , address_buf3, address_buf3_next, address_buf1r, address_buf1r_next, address_buf3r 
+           , address_buf3r_next : STD_LOGIC_VECTOR(8 downto 0) := "000000000";
     -- Memo controller signals
     signal write_sample_memo, read_sample_memo, read_sample_memo_next, write_sample_memo_next, start_proc_inmemo, start_proc_inmemo_next, rw_inmemo_next
            , memo_event_inmemo : STD_LOGIC := '0';
@@ -139,7 +139,8 @@ architecture Behavioral of master_controller is
     signal read_buffer0, read_buffer1, read_buffer2, read_buffer3, read_buffer0_next, read_buffer1_next, read_buffer2_next
            , read_buffer3_next, sample_in_inmemo, sample_in_inmemo_next, samp_out_inmemo : SIGNED (15 downto 0) := (others => '0');
     signal use_mem_inmemo : UNSIGNED (1 downto 0) := "00";
-    signal address_inmemo, address_inmemo_next : STD_LOGIC_VECTOR (9 downto 0) := (others => '0');
+    signal address_inmemo, address_inmemo_next : STD_LOGIC_VECTOR (8 downto 0) := (others => '0');
+    signal output_read, output_read_next : UNSIGNED (1 downto 0) := "00";
     -- Control signals
     signal control_sampling : STD_LOGIC_VECTOR (2 downto 0);
     signal event_read, event_write, event_new_frame : STD_LOGIC;
@@ -201,18 +202,18 @@ begin
         samp_out => samp_out_inmemo
     );
     
-    IN_OLD_MEMO : memo_controller port map(            
-        clk => clk_100MHz,
-        write_sample => write_sample_memo,
-        read_sample => read_sample_memo,
-        stage => stage,
-        memo1_address => memo1_address,
-        memo2_address => memo2_address,
-        storaged_sample1 => storaged_sample1,
-        storaged_sample2 => storaged_sample2,
-        writing_sample1 => writing_sample_memo1,
-        writing_sample2 => writing_sample_memo2
-    );  
+--    IN_OLD_MEMO : memo_controller port map(            
+--        clk => clk_100MHz,
+--        write_sample => write_sample_memo,
+--        read_sample => read_sample_memo,
+--        stage => stage,
+--        memo1_address => memo1_address,
+--        memo2_address => memo2_address,
+--        storaged_sample1 => storaged_sample1,
+--        storaged_sample2 => storaged_sample2,
+--        writing_sample1 => writing_sample_memo1,
+--        writing_sample2 => writing_sample_memo2
+--    );  
     
     WIN1 : window_controller port map(
         clk => clk_100MHz,
@@ -266,9 +267,9 @@ begin
                 counter_buf2 <= (others => '0');
                 counter_buf2 <= (others => '0');
                 address_buf0 <= (others => '0');
-                address_buf1 <= "1000000000";
+                address_buf1 <= (others => '0');
                 address_buf2 <= (others => '0');
-                address_buf3 <= "1000000000";
+                address_buf3 <= (others => '0');
                 start_buffer1 <= '0';
                 start_buffer3 <= '0';
                 start_buffer2 <= '0';
@@ -278,9 +279,9 @@ begin
                 counter_buf2r <= (others => '0');
                 counter_buf2r <= (others => '0');
                 address_buf0r <= (others => '0');
-                address_buf1r <= "1000000000";
+                address_buf1r <= (others => '0');
                 address_buf2r <= (others => '0');
-                address_buf3r <= "1000000000";
+                address_buf3r <= (others => '0');
                 start_buffer1r <= '0';
                 start_buffer3r <= '0';
                 start_buffer2r <= '0';
@@ -318,6 +319,7 @@ begin
                 sample_in_inmemo <= (others => '0');
                 address_inmemo <= (others => '0');
                 rw_inmemo <= '0';
+                output_read <= "00";
             elsif rising_edge(clk_100MHz) then                
                 output_sample <= output_sample_next;
                 --output_sample_next <= output_sample_ov_next(sample_size downto 1);
@@ -389,6 +391,7 @@ begin
                 sample_in_inmemo <= sample_in_inmemo_next;
                 address_inmemo <= address_inmemo_next;
                 rw_inmemo <= rw_inmemo_next;
+                output_read <= output_read_next;
             end if;           
     end process;         
     -- Uses wrting fsm state to generate its control signals and counters
@@ -396,9 +399,13 @@ begin
         
         -- Makes every w/r operation possible by activating target signals when corresponds, depending on memory state (memo_state)
         input_state_outputs : process(input_state, for_inv, start_proc_win, sample_number, win_stage, winbuf0, winbuf1, winbuf2
-                                      , winbuf3, address_inmemo, sample_in_inmemo, event_write, counter_buf0, counter_buf1, counter_buf2
+                                      , winbuf3, address_inmemo, sample_in_inmemo, event_write, event_read, counter_buf0, counter_buf1, counter_buf2
                                       , counter_buf3, end_proc_win, win_result, address_buf0, address_buf1, address_buf2, address_buf3
-                                      , input_reg, multiplicand, rw_inmemo)
+                                      , input_reg, multiplicand, rw_inmemo, memo_event_inmemo, out_ready_inmemo, output_read, samp_out_inmemo
+                                      , read_buffer0, read_buffer1, read_buffer2, read_buffer3, output_sample, use_mem_inmemo, start_buffer1
+                                      , start_buffer2, start_buffer3, start_buffer1r, start_buffer2r, start_buffer3r, address_buf0r
+                                      , address_buf1r, address_buf2r, address_buf3r, counter_buf0r, counter_buf1r, counter_buf2r
+                                      , counter_buf3r)
             begin 
                 -- Default
                 for_inv_next <= for_inv;
@@ -414,6 +421,13 @@ begin
                 start_proc_inmemo_next <= '0';
                 multiplicand_next <= multiplicand;
                 rw_inmemo_next <= rw_inmemo;
+                output_read_next <= output_read;
+                read_buffer0_next <= read_buffer0;
+                read_buffer1_next <= read_buffer1;
+                read_buffer2_next <= read_buffer2;
+                read_buffer3_next <= read_buffer3;
+                output_read_next <= output_read;
+                output_sample_next <= output_sample;
                 case input_state is                       
                     when WRITE_INPUT =>
                         for_inv_next <= '1';                       
@@ -461,15 +475,36 @@ begin
                             end if;
                         end if;
                     
-                    when READ_OUTPUT => -- REPENSAR
-                        for_inv_next <= '0';                        
+                    when READ_OUTPUT => 
+                        for_inv_next <= '0';    
+                        rw_inmemo_next <= '0';                    
                         if event_read = '1' then
                             start_proc_inmemo_next <= '1';
                         elsif memo_event_inmemo = '1' then
                             if use_mem_inmemo = "00" then
-                            if use_mem_inmemo = "00" then
-                            if use_mem_inmemo = "00" then
-                            if use_mem_inmemo = "00" then
+                                address_inmemo_next <= address_buf0r;
+                            elsif use_mem_inmemo = "01" then
+                                address_inmemo_next <= address_buf1r;
+                            elsif use_mem_inmemo = "10" then
+                                address_inmemo_next <= address_buf2r;
+                            elsif use_mem_inmemo = "11" then
+                                address_inmemo_next <= address_buf3r;
+                            end if;
+                        end if;
+                        if out_ready_inmemo = '1' then
+                            if output_read = "00" then
+                                read_buffer0_next <= samp_out_inmemo;
+                                output_read_next <= output_read + 1;
+                            elsif output_read = "01" then
+                                read_buffer1_next <= samp_out_inmemo;
+                                output_read_next <= output_read + 1;
+                            elsif output_read = "10" then
+                                read_buffer2_next <= samp_out_inmemo;
+                                output_read_next <= output_read + 1;
+                            elsif output_read = "11" then
+                                read_buffer3_next <= samp_out_inmemo;
+                                output_read_next <= output_read + 1;                            
+                            end if;
                         end if;
                     -- READ OUTPUT BCKP
 --                        for_inv_next <= '0';
@@ -526,15 +561,66 @@ begin
                         
                     
                     when READ_SUM => 
-                        if start_buffer1r = '0' and start_buffer2r = '0' and start_buffer3r = '0' then
-                            output_sample_next <= read_buffer0;
-                        elsif start_buffer1r = '1' and start_buffer2r = '0' and start_buffer3r = '0' then
-                            output_sample_next <= (read_buffer0 + read_buffer1);
-                        elsif start_buffer1r = '1' and start_buffer2r = '1' and start_buffer3r = '0' then
-                            output_sample_next <= (read_buffer0 + read_buffer1 + read_buffer2);
-                        elsif start_buffer1r = '1' and start_buffer2r = '1' and start_buffer3r = '1' then
-                            output_sample_next <= (read_buffer0 + read_buffer1 + read_buffer2 + read_buffer3);
-                        end if; 
+                        for_inv_next <= '1';
+                        if event_read = '1' then
+                            start_proc_win_next <= '1';
+                            sample_number_next <= std_logic_vector(counter_buf0r);
+                            multiplicand_next <= read_buffer0;
+                            win_stage_next <= "00";
+                        elsif end_proc_win = '1' then
+                            if win_stage = "00" then
+                                if win_result(15) = '1' then -- Signed /4 division
+                                    output_sample_next <= "11" & win_result(15 downto 2);
+                                else
+                                    output_sample_next <= "00" & win_result(15 downto 2);
+                                end if;
+                                if start_buffer1r = '1' then
+                                    start_proc_win_next <= '1';
+                                    sample_number_next <= std_logic_vector(counter_buf1r);
+                                    multiplicand_next <= read_buffer1;
+                                    win_stage_next <= "01";
+                                end if;
+                            elsif win_stage = "01" then
+                                if win_result(15) = '1' then -- Signed /4 division
+                                    output_sample_next <= ("11" & win_result(15 downto 2)) + output_sample; -- OJO
+                                else
+                                    output_sample_next <= ("00" & win_result(15 downto 2)) + output_sample;
+                                end if;
+                                if start_buffer2r = '1' then
+                                    start_proc_win_next <= '1';
+                                    sample_number_next <= std_logic_vector(counter_buf2r);
+                                    multiplicand_next <= read_buffer2;
+                                    win_stage_next <= "10";
+                                end if;
+                            elsif win_stage = "10" then
+                                if win_result(15) = '1' then -- Signed /4 division
+                                    output_sample_next <= ("11" & win_result(15 downto 2)) + output_sample; -- OJO
+                                else
+                                    output_sample_next <= ("00" & win_result(15 downto 2)) + output_sample;
+                                end if;
+                                if start_buffer3r = '1' then
+                                    start_proc_win_next <= '1';
+                                    sample_number_next <= std_logic_vector(counter_buf3r);
+                                    multiplicand_next <= read_buffer3;
+                                    win_stage_next <= "11";
+                                end if;
+                            elsif win_stage = "11" then
+                                if win_result(15) = '1' then -- Signed /4 division
+                                    output_sample_next <= ("11" & win_result(15 downto 2)) + output_sample; -- OJO
+                                else
+                                    output_sample_next <= ("00" & win_result(15 downto 2)) + output_sample;
+                                end if;
+                            end if;
+                        end if;
+--                        if start_buffer1r = '0' and start_buffer2r = '0' and start_buffer3r = '0' then
+--                            output_sample_next <= read_buffer0;
+--                        elsif start_buffer1r = '1' and start_buffer2r = '0' and start_buffer3r = '0' then
+--                            output_sample_next <= (read_buffer0 + read_buffer1);
+--                        elsif start_buffer1r = '1' and start_buffer2r = '1' and start_buffer3r = '0' then
+--                            output_sample_next <= (read_buffer0 + read_buffer1 + read_buffer2);
+--                        elsif start_buffer1r = '1' and start_buffer2r = '1' and start_buffer3r = '1' then
+--                            output_sample_next <= (read_buffer0 + read_buffer1 + read_buffer2 + read_buffer3);
+--                        end if; 
 --                    when WRITE_INPUT => -- Reads from input reg and writes this sample into memory buffer 1
 --                        for_inv_next <= '1'; -- STFT window
 --                        if event_write = '1' then -- Start window proccessing and sets its parameters
@@ -693,9 +779,10 @@ begin
             start_buffer1r_next <= start_buffer1r;
             start_buffer2r_next <= start_buffer2r;
             start_buffer3r_next <= start_buffer3r;   
-            start_reading_next <= start_reading;      
+            start_reading_next <= start_reading;  
+            --start_reading_next <= '1';     
             if event_new_frame = '1' then
-                if start_reading = '1' then
+                if start_reading = '1' then -- READING
                     counter_buf0r_next <= counter_buf0r + 1;
                     if address_buf0r = "0111111111" then
                         address_buf0r_next <= (others => '0');
@@ -704,8 +791,8 @@ begin
                     end if;
                     if start_buffer1r = '1' then
                         counter_buf1r_next <= counter_buf1r + 1;
-                        if address_buf1r = "1111111111" then
-                            address_buf1r_next <= "1000000000";
+                        if address_buf1r = "0111111111" then
+                            address_buf1r_next <= "0000000000";
                         else
                             address_buf1r_next <= std_logic_vector(unsigned(address_buf1r) + 1);
                         end if;
@@ -718,8 +805,8 @@ begin
                             end if;
                             if start_buffer3r = '1' then
                                 counter_buf3r_next <= counter_buf3r + 1;
-                                if address_buf3r = "1111111111" then
-                                    address_buf3r_next <= "1000000000";
+                                if address_buf3r = "0111111111" then
+                                    address_buf3r_next <= "0000000000";
                                 else
                                     address_buf3r_next <= std_logic_vector(unsigned(address_buf3r) + 1);
                                 end if;
@@ -727,13 +814,14 @@ begin
                         end if;
                     end if;
                     if counter_buf0r = "00000001111111" then
-                        start_buffer1r_next <= '1';
+                        start_buffer1r_next <= '1';                       
                     elsif counter_buf0r = "00000011111111" then
                         start_buffer2r_next <= '1';
                     elsif counter_buf0r = "00000101111111" then
                         start_buffer3r_next <= '1';
                     end if;         
                 end if;
+                -- WRITING
                 counter_buf0_next <= counter_buf0 + 1;
                 if address_buf0 = "0111111111" then
                     address_buf0_next <= (others => '0');
@@ -742,8 +830,8 @@ begin
                 end if;
                 if start_buffer1 = '1' then
                     counter_buf1_next <= counter_buf1 + 1;
-                    if address_buf1 = "1111111111" then
-                        address_buf1_next <= "1000000000";
+                    if address_buf1 = "0111111111" then
+                        address_buf1_next <= "0000000000";
                     else
                         address_buf1_next <= std_logic_vector(unsigned(address_buf1) + 1);
                     end if;
@@ -756,8 +844,8 @@ begin
                         end if;
                         if start_buffer3 = '1' then
                             counter_buf3_next <= counter_buf3 + 1;
-                            if address_buf3 = "1111111111" then
-                                address_buf3_next <= "1000000000";
+                            if address_buf3 = "0111111111" then
+                                address_buf3_next <= "0000000000";
                             else
                                 address_buf3_next <= std_logic_vector(unsigned(address_buf3) + 1);
                             end if;
@@ -767,9 +855,9 @@ begin
             end if;
             if counter_buf0 = "00000010000000" then
                 start_buffer1_next <= '1';
-            elsif counter_buf0 = "00000100000000" then
-                start_buffer2_next <= '1';
                 start_reading_next <= '1';
+            elsif counter_buf0 = "00000100000000" then
+                start_buffer2_next <= '1';              
             elsif counter_buf0 = "00000110000000" then
                 start_buffer3_next <= '1';
             end if;            
@@ -828,11 +916,8 @@ begin
     -- Renames fsm states to ease coding
     with input_fsm select input_state <=
         WRITE_INPUT when "001",
-        READ_OUTPUT when "011",
-        --READ_ODD when "100",
-        READ_SUM when "101",
-        LOAD_FFT_EVEN when "110",
-        LOAD_FFT_ODD when "111",
+        READ_OUTPUT when "010",
+        READ_SUM when "011",
         IDLE when others;        
     -- Output signals assignment
     MCLK_ADC <= MCLK;

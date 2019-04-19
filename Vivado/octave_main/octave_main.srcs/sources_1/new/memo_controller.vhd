@@ -3,7 +3,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 use work.project_trunk.all;
  
-entity memo_controller is 
+entity memo_controller is  
   Port (  
     clk : in STD_LOGIC;
     write_sample : in STD_LOGIC;

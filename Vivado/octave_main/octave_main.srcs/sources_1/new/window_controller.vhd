@@ -1,6 +1,6 @@
 -- Javier Otero Martinez
 -- OctaveSax project -- TFG 
--- June 2019
+-- June 2019 
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
@@ -63,7 +63,7 @@ begin
             end if;
     end process;
     
-    process(start_proc_win, pre_win, multiplicand)
+    process(start_proc_win, pre_win, multiplicand, result_pre)
         begin
             result_next <= result_pre;
             end_proc_win_next <= '0';
