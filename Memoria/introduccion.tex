@@ -1,6 +1,6 @@
-Un pedal de efectos es un dispositivo que se conecta entre un instrumento (normalmente electrófono) y su amplificador, modificando la señal de entrada y sus características fundamentales como pueden ser timbre, tono y volumen. En mi caso particular he optado por un pedal para saxofón, puesto que es el instrumento que yo toco, aunque resulta igual de válido para cualquier otro intrumento que se pueda captar con un micrófono convencional. No es habitual el uso de pedales de efectos en instrumentos de viento debido a que generalmente se busca un sonido limpio y fiel. No obstante, en multitud de producciones se pueden apreciar infinidad de efectos añadidos posteriormente ya sea digital o analógicamente. Algunos ejemplos son el \emph{reverb, chorus u octavador}. Es este último el efecto que se implementará en este proyecto, con la salvedad de que funcionará en tiempo real. 
+Un pedal de efectos es un dispositivo que se conecta entre un instrumento (normalmente electrófono) y su amplificador, modificando la señal de entrada y sus características fundamentales como pueden ser timbre, tono y volumen. En mi caso particular he optado por un pedal para saxofón, puesto que es el instrumento que yo toco, aunque resulta igual de válido para cualquier otro intrumento cuyo sonido se pueda captar con un micrófono convencional. Generalmente, no es habitual el uso de pedales de efectos en instrumentos de viento debido a que se suele buscar un sonido limpio y fiel. No obstante, en multitud de producciones se pueden apreciar efectos añadidos en postproducción ya sea digital o analógicamente. Algunos ejemplos son el \emph{reverb, chorus u octavador}. Es este último el efecto que se implementará en este proyecto, con la salvedad de que funcionará en tiempo real. 
 
-Se ha decidido el combinar un efecto común con la posibilidad de implementarlo en el formato de pedal, que se ha hecho muy popular desde su aparición, dado que los intérpretes pueden activarlo con el pie pudiendo mantaner las manos en el instrumento. En el caso del saxofón, este no suele ser el problema, ya que los músicos no precisan de estar tocando de forma continuada, si no que suele haber tiempos para descansar suficientemente largos como para operar el dispositivo que se este utilizando. A pesar de ello, se utiliza este formato por analogía con otros instrumentos.
+Se ha decidido el combinar este efecto con la posibilidad de implementarlo en formato de pedal el cual se ha hecho muy popular desde su aparición, debido a que los intérpretes pueden activarlo con el pie pudiendo mantaner las manos en el instrumento. En el caso del saxofón, esto no suele ser un problema, ya que los músicos no precisan de estar tocando de forma continuada, si no que suele haber un tiempo para descansar suficientemente largo como para operar el dispositivo que se este utilizando. A pesar de ello, resulta conveniente este formato por analogía con otros instrumentos.
 
 Este proyecto abarca todo el proceso desde la idea inicial de diseño hasta el montaje del prototipo final, por tanto, las especificaciones de funcionamiento que se han utilizado pretenden facilitar un uso profesional del prototipo, de forma que sea compatible con los estándares establecidos en el contexto musical e ingenieril al mismo tiempo.
 
@@ -15,8 +15,8 @@ Para la realización de este proyecto de forma satisfactoria se ha establecido l
 \begin{itemize}
 \item Diseño de un sistema completo, a partir de una problemática definida previamente mediante el estudio del instrumento y las señales.
 \item Implementación sobre la FPGA proporcionada.
-\item Construcción de un prototipo plenamente funcional que supone la consecución de todos los objetivos anteriores.
-\item Afianzar, debido a todo esto, conocimientos adquiridos durante el grado de diversos ámbitos como el procesamiento de señal y en concreto de la especialidad de Sistemas Electrónicos como la programación hardware, el montaje de un circuito analógico y la correcta comunicación entre todos los módulos.
+\item Construcción de un prototipo para estudiar la problemática desde la práctica.
+\item Afianzar, debido a todo esto, conocimientos adquiridos durante el Grado en diversos ámbitos como el procesamiento de señal y en concreto en la especialidad de Sistemas Electrónicos como la programación hardware, el montaje de un circuito analógico y la correcta comunicación entre todos los módulos.
 \end{itemize}
 
 \section{Metodología}
@@ -25,6 +25,6 @@ Para la realización de este proyecto de forma satisfactoria se ha establecido l
 \item Como segundo paso, se estudiará la literatura existente y se probarán distintas soluciones algorítmicas empleando MATLAB.
 \item Estudio y elección de la interfaces de entrada y salida. Selección de micrófono, ADC y DAC.
 \item Desarrollo y verificación en VHDL empleando la herramienta VIVADO de Xillinx.
-\item Montaje de un prototipo empleando la placa Nexys A7 de Digilent, el micrófono seleccionado en el punto 3 y los dispositivos necesarios.
+\item Montaje de un prototipo empleando la placa Nexys A7 de Digilent, el micrófono seleccionado anteriormente y el resto de dispositivos que fueran necesarios.
 \item Test y depuración.
 \end{itemize}

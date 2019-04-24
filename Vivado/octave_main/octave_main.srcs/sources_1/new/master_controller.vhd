@@ -22,7 +22,7 @@ entity master_controller is
         SCLK_DAC : out STD_LOGIC;
         LR_W_SEL_DAC : out STD_LOGIC;
         -- INput/OUTput       
-        global_state : in STD_LOGIC_VECTOR (1 downto 0);
+        global_state : in STD_LOGIC_VECTOR (1 downto 0); 
         DATA_IN : in STD_LOGIC;
         DATA_OUT : out STD_LOGIC         
    );
@@ -92,13 +92,11 @@ architecture Behavioral of master_controller is
     component man_out_memo port (
         clk : in STD_LOGIC;
         reset : in STD_LOGIC;
-        start_proc : in STD_LOGIC;
+        start_proc_w : in STD_LOGIC;
+        start_proc_r : in STD_LOGIC;
         sample_in : in SIGNED (sample_size - 1 downto 0);
         write_address : in STD_LOGIC_VECTOR (10 downto 0);
         read_address : in STD_LOGIC_VECTOR (10 downto 0);
-        reading : in STD_LOGIC;
-        writing : in STD_LOGIC;
-        end_proc : out STD_LOGIC;
         event_write : out STD_LOGIC;
         event_read : out STD_LOGIC;
         out_rdy : out STD_LOGIC;
@@ -134,7 +132,7 @@ architecture Behavioral of master_controller is
     signal address_inmemo, address_inmemo_next : STD_LOGIC_VECTOR (8 downto 0) := (others => '0');
     signal output_read, output_read_next : UNSIGNED (1 downto 0) := "00";
     -- Output memo
-    signal start_proc_outmemo, start_proc_outmemo_next, end_proc_outmemo, out_rdy_outmemo
+    signal start_procw_outmemo, start_procw_outmemo_next, start_procr_outmemo, start_procr_outmemo_next, end_proc_outmemo, out_rdy_outmemo
            , ev_r_outmemo, ev_w_outmemo, read_outmemo, read_outmemo_next, wr_outmemo, wr_outmemo_next : STD_LOGIC := '0';
     signal sample_in_outmemo, sample_in_outmemo_next, sample_out_outmemo: SIGNED (sample_size - 1 downto 0) := (others => '0');
     signal mem_re_outmemo, mem_wr_outmemo : UNSIGNED (1 downto 0) := "00";
@@ -194,13 +192,11 @@ begin
     OUTPUT_MEMO : man_out_memo port map(
         clk => clk_100MHz, --
         reset => reset, --
-        start_proc => start_proc_outmemo, --
+        start_proc_w => start_procw_outmemo,
+        start_proc_r => start_procr_outmemo, --
         sample_in => sample_in_outmemo,
         write_address => wa_outmemo,
         read_address => ra_outmemo,
-        reading => read_outmemo, --
-        writing => wr_outmemo, --
-        end_proc => end_proc_outmemo, --
         event_write => ev_w_outmemo, --
         event_read => ev_r_outmemo, --
         out_rdy => out_rdy_outmemo, --
@@ -280,7 +276,8 @@ begin
                 address_inmemo <= (others => '0');
                 rw_inmemo <= '0';
                 output_read <= "00";
-                start_proc_outmemo <= '0';
+                start_procw_outmemo <= '0';
+                start_procr_outmemo <= '0';
                 sample_in_outmemo <= (others => '0');
                 wa_outmemo <= (others => '0');
                 ra_outmemo <= (others => '0');
@@ -334,7 +331,8 @@ begin
                 address_inmemo <= address_inmemo_next;
                 rw_inmemo <= rw_inmemo_next;
                 output_read <= output_read_next;
-                start_proc_outmemo <= start_proc_outmemo_next;
+                start_procr_outmemo <= start_procr_outmemo_next;
+                start_procw_outmemo <= start_procw_outmemo_next;
                 sample_in_outmemo <= sample_in_outmemo_next;
                 wa_outmemo <= wa_outmemo_next;
                 ra_outmemo <= ra_outmemo_next;
@@ -369,7 +367,7 @@ begin
                 sample_in_inmemo_next <= sample_in_inmemo;
                 start_proc_inmemo_next <= '0';
                 sample_in_outmemo_next <= sample_in_outmemo;
-                start_proc_outmemo_next <= '0';
+                start_procw_outmemo_next <= '0';
                 multiplicand_next <= multiplicand;
                 rw_inmemo_next <= rw_inmemo;
                 output_read_next <= output_read;
@@ -426,6 +424,10 @@ begin
                             end if;
                         end if;
                     
+                    when LOAD_FREQ => 
+                        if event_write = '1' then
+                        end if; 
+                         
                     when READ_OUTPUT => 
                         for_inv_next <= '0';    
                         rw_inmemo_next <= '0';                    
@@ -547,73 +549,73 @@ begin
             --start_reading_next <= '1';     
             if event_new_frame = '1' then
                 if start_reading = '1' then -- READING
-                    counter_buf0r_next <= counter_buf0r + 1;
-                    if address_buf0r = "0111111111" then
-                        address_buf0r_next <= (others => '0');
-                    else
-                        address_buf0r_next <= std_logic_vector(unsigned(address_buf0r) + 1);
-                    end if;
-                    if start_buffer1r = '1' then
-                        counter_buf1r_next <= counter_buf1r + 1;
-                        if address_buf1r = "0111111111" then
-                            address_buf1r_next <= "0000000000";
-                        else
-                            address_buf1r_next <= std_logic_vector(unsigned(address_buf1r) + 1);
+                counter_buf0r_next <= counter_buf0r + 1;
+                --if address_buf0r = "0111111111" then
+                --    address_buf0r_next <= (others => '0');
+                --else
+                    address_buf0r_next <= std_logic_vector(unsigned(address_buf0r) + 1);
+                --end if;
+                if start_buffer1r = '1' then
+                    counter_buf1r_next <= counter_buf1r + 1;
+                    --if address_buf1r = "0111111111" then
+                    --    address_buf1r_next <= "0000000000";
+                    --else
+                        address_buf1r_next <= std_logic_vector(unsigned(address_buf1r) + 1);
+                    --end if;
+                    if start_buffer2r = '1' then
+                        counter_buf2r_next <= counter_buf2r + 1;
+                        --if address_buf2r = "0111111111" then
+                        --    address_buf2r_next <= (others => '0');
+                        --else
+                            address_buf2r_next <= std_logic_vector(unsigned(address_buf2r) + 1);
+                        --end if;
+                        if start_buffer3r = '1' then
+                            counter_buf3r_next <= counter_buf3r + 1;
+                            --if address_buf3r = "0111111111" then
+                            --    address_buf3r_next <= "0000000000";
+                            --else
+                                address_buf3r_next <= std_logic_vector(unsigned(address_buf3r) + 1);
+                            --end if;
                         end if;
-                        if start_buffer2r = '1' then
-                            counter_buf2r_next <= counter_buf2r + 1;
-                            if address_buf2r = "0111111111" then
-                                address_buf2r_next <= (others => '0');
-                            else
-                                address_buf2r_next <= std_logic_vector(unsigned(address_buf2r) + 1);
-                            end if;
-                            if start_buffer3r = '1' then
-                                counter_buf3r_next <= counter_buf3r + 1;
-                                if address_buf3r = "0111111111" then
-                                    address_buf3r_next <= "0000000000";
-                                else
-                                    address_buf3r_next <= std_logic_vector(unsigned(address_buf3r) + 1);
-                                end if;
-                            end if;
-                        end if;
                     end if;
-                    if counter_buf0r = "00000001111111" then
-                        start_buffer1r_next <= '1';                       
-                    elsif counter_buf0r = "00000011111111" then
-                        start_buffer2r_next <= '1';
-                    elsif counter_buf0r = "00000101111111" then
-                        start_buffer3r_next <= '1';
-                    end if;         
                 end if;
-                -- WRITING
-                counter_buf0_next <= counter_buf0 + 1;
-                if address_buf0 = "0111111111" then
-                    address_buf0_next <= (others => '0');
-                else
-                    address_buf0_next <= std_logic_vector(unsigned(address_buf0) + 1);
-                end if;
-                if start_buffer1 = '1' then
-                    counter_buf1_next <= counter_buf1 + 1;
-                    if address_buf1 = "0111111111" then
-                        address_buf1_next <= "0000000000";
-                    else
-                        address_buf1_next <= std_logic_vector(unsigned(address_buf1) + 1);
+                if counter_buf0r = "00000001111111" then
+                    start_buffer1r_next <= '1';                       
+                elsif counter_buf0r = "00000011111111" then
+                    start_buffer2r_next <= '1';
+                elsif counter_buf0r = "00000101111111" then
+                    start_buffer3r_next <= '1';
+                end if;         
+            end if;
+            -- WRITING
+            counter_buf0_next <= counter_buf0 + 1;
+            --if address_buf0 = "0111111111" then
+            --    address_buf0_next <= (others => '0');
+            --else
+                address_buf0_next <= std_logic_vector(unsigned(address_buf0) + 1);
+            --end if;
+            if start_buffer1 = '1' then
+                counter_buf1_next <= counter_buf1 + 1;
+                --if address_buf1 = "0111111111" then
+                --    address_buf1_next <= "0000000000";
+                --else
+                    address_buf1_next <= std_logic_vector(unsigned(address_buf1) + 1);
+                --end if;
+                if start_buffer2 = '1' then
+                    counter_buf2_next <= counter_buf2 + 1;
+                    --if address_buf2 = "0111111111" then
+                    --    address_buf2_next <= (others => '0');
+                    --else
+                        address_buf2_next <= std_logic_vector(unsigned(address_buf2) + 1);
+                    --end if;
+                    if start_buffer3 = '1' then
+                        counter_buf3_next <= counter_buf3 + 1;
+                        --if address_buf3 = "0111111111" then
+                        --    address_buf3_next <= "0000000000";
+                        --else
+                            address_buf3_next <= std_logic_vector(unsigned(address_buf3) + 1);
+                        --end if;
                     end if;
-                    if start_buffer2 = '1' then
-                        counter_buf2_next <= counter_buf2 + 1;
-                        if address_buf2 = "0111111111" then
-                            address_buf2_next <= (others => '0');
-                        else
-                            address_buf2_next <= std_logic_vector(unsigned(address_buf2) + 1);
-                        end if;
-                        if start_buffer3 = '1' then
-                            counter_buf3_next <= counter_buf3 + 1;
-                            if address_buf3 = "0111111111" then
-                                address_buf3_next <= "0000000000";
-                            else
-                                address_buf3_next <= std_logic_vector(unsigned(address_buf3) + 1);
-                            end if;
-                        end if;
                     end if;
                 end if;               
             end if;

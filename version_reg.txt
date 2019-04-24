@@ -126,3 +126,4 @@
 24/04/19
 6.4.1 Bckp tutoria
 6.5 Comienzo de la implementacion de memorias para FFT
+6.5.1 Preparacion para carga y descarga del dominio de la frecuencia y cambios en la memoria

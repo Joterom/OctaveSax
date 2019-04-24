@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="out_long_memo_synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1556116761">
-  <File Type="VDS-TIMING-PB" Name="out_long_memo_timing_summary_synth.pb"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="out_long_memo_timing_summary_synth.rpt"/>
   <File Type="RDS-DCP" Name="out_long_memo.dcp"/>
   <File Type="RDS-UTIL-PB" Name="out_long_memo_utilization_synth.pb"/>
   <File Type="RDS-UTIL" Name="out_long_memo_utilization_synth.rpt"/>
-  <File Type="RDS-PROPCONSTRS" Name="out_long_memo_drc_synth.rpt"/>
-  <File Type="RDS-RDS" Name="out_long_memo.vds"/>
   <File Type="REPORTS-TCL" Name="out_long_memo_reports.tcl"/>
+  <File Type="RDS-RDS" Name="out_long_memo.vds"/>
   <File Type="PA-TCL" Name="out_long_memo.tcl"/>
   <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/out_long_memo">
     <File Path="$PSRCDIR/sources_1/ip/out_long_memo/out_long_memo.xci">

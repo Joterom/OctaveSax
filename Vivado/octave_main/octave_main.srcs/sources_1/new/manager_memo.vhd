@@ -1,5 +1,5 @@
 -- Javier Otero Martinez
--- OctaveSax project -- TFG 
+-- OctaveSax project -- TFG  
 -- June 2019 
 
 library IEEE;

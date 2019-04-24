@@ -3,14 +3,6 @@ Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
 Running: C:/Xilinx/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto 0c9c3a36965041288ce87ec04c26eca9 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot main_tb_behav xil_defaultlib.main_tb xil_defaultlib.glbl -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
-WARNING: [VRFC 10-516] comparison between unequal length arrays always returns FALSE [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd:783]
-WARNING: [VRFC 10-516] comparison between unequal length arrays always returns FALSE [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd:790]
-WARNING: [VRFC 10-516] comparison between unequal length arrays always returns FALSE [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd:797]
-WARNING: [VRFC 10-516] comparison between unequal length arrays always returns FALSE [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd:804]
-WARNING: [VRFC 10-516] comparison between unequal length arrays always returns FALSE [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd:822]
-WARNING: [VRFC 10-516] comparison between unequal length arrays always returns FALSE [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd:829]
-WARNING: [VRFC 10-516] comparison between unequal length arrays always returns FALSE [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd:836]
-WARNING: [VRFC 10-516] comparison between unequal length arrays always returns FALSE [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd:843]
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
@@ -41,6 +33,16 @@ Compiling architecture structure of entity xil_defaultlib.freq_short_memo_blk_me
 Compiling architecture structure of entity xil_defaultlib.freq_short_memo_blk_mem_gen_v8_4_1 [freq_short_memo_blk_mem_gen_v8_4...]
 Compiling architecture structure of entity xil_defaultlib.freq_short_memo [freq_short_memo_default]
 Compiling architecture behavioral of entity xil_defaultlib.manager_memo [manager_memo_default]
+Compiling architecture rb36_internal_vhdl_v of entity unisim.RB36_INTERNAL_VHDL [\RB36_INTERNAL_VHDL(doa_reg=1,do...]
+Compiling architecture ramb36e1_v of entity unisim.RAMB36E1 [\RAMB36E1(doa_reg=1,dob_reg=1,re...]
+Compiling architecture structure of entity xil_defaultlib.out_long_memo_blk_mem_gen_prim_wrapper [out_long_memo_blk_mem_gen_prim_w...]
+Compiling architecture structure of entity xil_defaultlib.out_long_memo_blk_mem_gen_prim_width [out_long_memo_blk_mem_gen_prim_w...]
+Compiling architecture structure of entity xil_defaultlib.out_long_memo_blk_mem_gen_generic_cstr [out_long_memo_blk_mem_gen_generi...]
+Compiling architecture structure of entity xil_defaultlib.out_long_memo_blk_mem_gen_top [out_long_memo_blk_mem_gen_top_de...]
+Compiling architecture structure of entity xil_defaultlib.out_long_memo_blk_mem_gen_v8_4_1_synth [out_long_memo_blk_mem_gen_v8_4_1...]
+Compiling architecture structure of entity xil_defaultlib.out_long_memo_blk_mem_gen_v8_4_1 [out_long_memo_blk_mem_gen_v8_4_1...]
+Compiling architecture structure of entity xil_defaultlib.out_long_memo [out_long_memo_default]
+Compiling architecture behavioral of entity xil_defaultlib.man_out_memo [man_out_memo_default]
 Compiling architecture behavioral of entity xil_defaultlib.stft_window_rom [stft_window_rom_default]
 Compiling architecture behavioral of entity xil_defaultlib.istft_window_rom [istft_window_rom_default]
 Compiling architecture behavioral of entity xil_defaultlib.window_controller [window_controller_default]

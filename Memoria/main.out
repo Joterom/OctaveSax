@@ -6,12 +6,21 @@
 \BOOKMARK [1][-]{section.2.2}{Preamp}{chapter.2}% 6
 \BOOKMARK [1][-]{section.2.3}{Alimentaci\363n}{chapter.2}% 7
 \BOOKMARK [0][-]{chapter.3}{El algoritmo}{}% 8
-\BOOKMARK [1][-]{section.3.1}{Vocoder}{chapter.3}% 9
-\BOOKMARK [2][-]{subsection.3.1.1}{Vocoder en la m\372sica}{section.3.1}% 10
-\BOOKMARK [1][-]{section.3.2}{Transformaci\363n a frecuencia: STFT}{chapter.3}% 11
-\BOOKMARK [2][-]{subsection.3.2.1}{Transformada de Fourier: FFT e iFFT}{section.3.2}% 12
-\BOOKMARK [2][-]{subsection.3.2.2}{Solapamiento y enventanado}{section.3.2}% 13
-\BOOKMARK [1][-]{section.3.3}{Operaciones sobre la fase}{chapter.3}% 14
-\BOOKMARK [0][-]{chapter.4}{Implementaci\363n}{}% 15
-\BOOKMARK [0][-]{chapter.5}{Pruebas y depuraci\363n}{}% 16
-\BOOKMARK [0][-]{chapter.6}{Conclusiones y trabajo futuro}{}% 17
+\BOOKMARK [1][-]{section.3.1}{Aproximaciones al problema}{chapter.3}% 9
+\BOOKMARK [1][-]{section.3.2}{Vocoder}{chapter.3}% 10
+\BOOKMARK [2][-]{subsection.3.2.1}{Vocoder en la m\372sica}{section.3.2}% 11
+\BOOKMARK [1][-]{section.3.3}{Transformaci\363n a frecuencia: STFT}{chapter.3}% 12
+\BOOKMARK [2][-]{subsection.3.3.1}{Transformada de Fourier: FFT e iFFT}{section.3.3}% 13
+\BOOKMARK [2][-]{subsection.3.3.2}{Solapamiento y enventanado}{section.3.3}% 14
+\BOOKMARK [1][-]{section.3.4}{Operaciones sobre la fase}{chapter.3}% 15
+\BOOKMARK [0][-]{chapter.4}{Implementaci\363n}{}% 16
+\BOOKMARK [1][-]{section.4.1}{Gesti\363n entrada-salida}{chapter.4}% 17
+\BOOKMARK [2][-]{subsection.4.1.1}{Pmod i2s2}{section.4.1}% 18
+\BOOKMARK [2][-]{subsection.4.1.2}{Consideraciones de implementaci\363n}{section.4.1}% 19
+\BOOKMARK [1][-]{section.4.2}{Controlador de datos}{chapter.4}% 20
+\BOOKMARK [2][-]{subsection.4.2.1}{Bancos de memorias}{section.4.2}% 21
+\BOOKMARK [2][-]{subsection.4.2.2}{Core FFT}{section.4.2}% 22
+\BOOKMARK [1][-]{section.4.3}{Controlador global}{chapter.4}% 23
+\BOOKMARK [2][-]{subsection.4.3.1}{Displays}{section.4.3}% 24
+\BOOKMARK [0][-]{chapter.5}{Pruebas y depuraci\363n}{}% 25
+\BOOKMARK [0][-]{chapter.6}{Conclusiones y trabajo futuro}{}% 26

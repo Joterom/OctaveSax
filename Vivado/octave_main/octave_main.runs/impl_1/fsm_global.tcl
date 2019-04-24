@@ -65,6 +65,7 @@ start_step init_design
 set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
+  set_param xicom.use_bs_reader 1
   create_project -in_memory -part xc7a100tcsg324-1
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
@@ -76,7 +77,7 @@ set rc [catch {
   add_files -quiet D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/fsm_global.dcp
   read_ip -quiet D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/clk_generator/clk_generator.xci
   read_ip -quiet D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/freq_short_memo/freq_short_memo.xci
-  read_ip -quiet d:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/out_long_memo/out_long_memo.xci
+  read_ip -quiet D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/out_long_memo/out_long_memo.xci
   read_xdc D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/constrs_1/imports/Downloads/Nexys4DDR_Master.xdc
   link_design -top fsm_global -part xc7a100tcsg324-1
   close_msg_db -file init_design.pb

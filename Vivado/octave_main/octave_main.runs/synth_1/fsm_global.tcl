@@ -16,6 +16,7 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
+set_param xicom.use_bs_reader 1
 create_project -in_memory -part xc7a100tcsg324-1
 
 set_param project.singleFileAddWarning.threshold 0
@@ -52,7 +53,7 @@ set_property used_in_implementation false [get_files -all d:/UNI/TFG/OctaveSax/V
 read_ip -quiet D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/freq_short_memo/freq_short_memo.xci
 set_property used_in_implementation false [get_files -all d:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/freq_short_memo/freq_short_memo_ooc.xdc]
 
-read_ip -quiet d:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/out_long_memo/out_long_memo.xci
+read_ip -quiet D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/out_long_memo/out_long_memo.xci
 set_property used_in_implementation false [get_files -all d:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/out_long_memo/out_long_memo_ooc.xdc]
 
 # Mark all dcp files as not used in implementation to prevent them from being

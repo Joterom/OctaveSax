@@ -1,960 +1,766 @@
 #-----------------------------------------------------------
 # Vivado v2017.4 (64-bit)
-# SW Build 2086221 on Fri Dec 15 20:54:30 MST 2017
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
 # IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
-# Start of session at: Wed Apr 24 15:45:36 2019
-# Process ID: 21803
-# Current directory: /home/joterom/workspace/OctaveSax/Vivado/octave_main
-# Command line: vivado
-# Log file: /home/joterom/workspace/OctaveSax/Vivado/octave_main/vivado.log
-# Journal file: /home/joterom/workspace/OctaveSax/Vivado/octave_main/vivado.jou
+# Start of session at: Wed Apr 24 18:29:35 2019
+# Process ID: 15172
+# Current directory: D:/UNI/TFG/OctaveSax/Vivado/octave_main
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent11168 D:\UNI\TFG\OctaveSax\Vivado\octave_main\octave_main.xpr
+# Log file: D:/UNI/TFG/OctaveSax/Vivado/octave_main/vivado.log
+# Journal file: D:/UNI/TFG/OctaveSax/Vivado/octave_main\vivado.jou
 #-----------------------------------------------------------
 start_gui
-open_project /home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.xpr
-INFO: [Project 1-313] Project file moved from 'D:/UNI/TFG/OctaveSax/Vivado/octave_main' since last save.
+open_project D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.xpr
+INFO: [Project 1-313] Project file moved from '/home/joterom/workspace/OctaveSax/Vivado/octave_main' since last save.
 Scanning sources...
 Finished scanning sources
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
-INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx/Vivado/2017.4/data/ip'.
-open_project: Time (s): cpu = 00:00:11 ; elapsed = 00:00:09 . Memory (MB): peak = 6119.023 ; gain = 114.672 ; free physical = 102 ; free virtual = 6753
-set_property is_enabled true [get_files  /home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/freq_dom_controller.vhd]
-INFO: [Device 21-403] Loading part xc7a100tcsg324-1
-WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
-WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
-set_property -dict [list CONFIG.Memory_Type {Simple_Dual_Port_RAM} CONFIG.Enable_B {Use_ENB_Pin} CONFIG.Register_PortA_Output_of_Memory_Primitives {false} CONFIG.Register_PortB_Output_of_Memory_Primitives {true} CONFIG.Port_B_Clock {100} CONFIG.Port_B_Enable_Rate {100}] [get_ips out_long_memo]
-generate_target all [get_files  /home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/out_long_memo/out_long_memo.xci]
-INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'out_long_memo'...
-INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'out_long_memo'...
-INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'out_long_memo'...
-INFO: [IP_Flow 19-1686] Generating 'Miscellaneous' target for IP 'out_long_memo'...
-INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'out_long_memo'...
-catch { config_ip_cache -export [get_ips -all out_long_memo] }
-export_ip_user_files -of_objects [get_files /home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/out_long_memo/out_long_memo.xci] -no_script -sync -force -quiet
-reset_run out_long_memo_synth_1
-launch_runs -jobs 2 out_long_memo_synth_1
-[Wed Apr 24 15:58:36 2019] Launched out_long_memo_synth_1...
-Run output will be captured here: /home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.runs/out_long_memo_synth_1/runme.log
-INFO: [Vivado 12-4357] Exporting simulation files for 'out_long_memo'... please wait for 'out_long_memo_synth_1' run to finish...
-wait_on_run out_long_memo_synth_1
-[Wed Apr 24 15:58:37 2019] Waiting for out_long_memo_synth_1 to finish...
-[Wed Apr 24 15:58:42 2019] Waiting for out_long_memo_synth_1 to finish...
-[Wed Apr 24 15:58:47 2019] Waiting for out_long_memo_synth_1 to finish...
-[Wed Apr 24 15:58:52 2019] Waiting for out_long_memo_synth_1 to finish...
-[Wed Apr 24 15:59:02 2019] Waiting for out_long_memo_synth_1 to finish...
-[Wed Apr 24 15:59:12 2019] Waiting for out_long_memo_synth_1 to finish...
-[Wed Apr 24 15:59:22 2019] Waiting for out_long_memo_synth_1 to finish...
-[Wed Apr 24 15:59:32 2019] Waiting for out_long_memo_synth_1 to finish...
-[Wed Apr 24 15:59:52 2019] Waiting for out_long_memo_synth_1 to finish...
-[Wed Apr 24 16:00:12 2019] Waiting for out_long_memo_synth_1 to finish...
-[Wed Apr 24 16:00:32 2019] Waiting for out_long_memo_synth_1 to finish...
-[Wed Apr 24 16:00:52 2019] Waiting for out_long_memo_synth_1 to finish...
-[Wed Apr 24 16:01:32 2019] Waiting for out_long_memo_synth_1 to finish...
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2017.4/data/ip'.
+open_project: Time (s): cpu = 00:00:11 ; elapsed = 00:00:07 . Memory (MB): peak = 751.742 ; gain = 49.641
+set_property is_enabled false [get_files  D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/freq_dom_controller.vhd]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Wed Apr 24 18:30:35 2019] Launched synth_1...
+Run output will be captured here: D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/runme.log
+[Wed Apr 24 18:30:35 2019] Launched impl_1...
+Run output will be captured here: D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/impl_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+[Wed Apr 24 18:30:44 2019] Launched synth_1...
+Run output will be captured here: D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+[Wed Apr 24 18:32:57 2019] Launched synth_1...
+Run output will be captured here: D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Wed Apr 24 18:45:29 2019] Launched synth_1...
+Run output will be captured here: D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/runme.log
+[Wed Apr 24 18:45:29 2019] Launched impl_1...
+Run output will be captured here: D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/impl_1/runme.log
+open_hw
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
 
-*** Running vivado
-    with args -log out_long_memo.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source out_long_memo.tcl
+****** Xilinx hw_server v2017.4
+  **** Build date : Dec 15 2017-21:08:27
+    ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 
 
-****** Vivado v2017.4 (64-bit)
-  **** SW Build 2086221 on Fri Dec 15 20:54:30 MST 2017
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210292AA76C7A
+set_property PROGRAM.FILE {D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/impl_1/fsm_global.bit} [get_hw_devices xc7a100t_0]
+current_hw_device [get_hw_devices xc7a100t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a100t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/impl_1/fsm_global.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+launch_simulation
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'C:/Xilinx/Vivado/2017.4/data/xsim/ip/xsim_ip.ini' copied to run dir:'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'main_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj main_tb_vlog.prj"
+"xvhdl --incr --relax -prj main_tb_vhdl.prj"
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/out_long_memo/out_long_memo_sim_netlist.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity out_long_memo_blk_mem_gen_prim_wrapper
+INFO: [VRFC 10-307] analyzing entity out_long_memo_blk_mem_gen_prim_width
+INFO: [VRFC 10-307] analyzing entity out_long_memo_blk_mem_gen_generic_cstr
+INFO: [VRFC 10-307] analyzing entity out_long_memo_blk_mem_gen_top
+INFO: [VRFC 10-307] analyzing entity out_long_memo_blk_mem_gen_v8_4_1_synth
+INFO: [VRFC 10-307] analyzing entity out_long_memo_blk_mem_gen_v8_4_1
+INFO: [VRFC 10-307] analyzing entity out_long_memo
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/project_trunk.vhd" into library xil_defaultlib
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity master_controller
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/window_controller.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity window_controller
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/fsm_control.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity fsm_control
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/manager_memo.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity manager_memo
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/man_out_memo.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity man_out_memo
+INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
+Vivado Simulator 2017.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto 0c9c3a36965041288ce87ec04c26eca9 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot main_tb_behav xil_defaultlib.main_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+ERROR: [VRFC 10-113] D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim/xsim.dir/xil_defaultlib/sampling.vdb needs to be re-saved since xil_defaultlib.project_trunk changed
+ERROR: [VRFC 10-147] xil_defaultlib.sampling failed to restore
+WARNING: [VRFC 10-122] sampling remains a black-box since it has no binding entity [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd:159]
+ERROR: [XSIM 43-3322] Static elaboration of top level Verilog design unit(s) in library work failed.
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-99] Step results log file:'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim/elaborate.log'
+ERROR: [USF-XSim-62] 'elaborate' step failed with error(s). Please check the Tcl console output or 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim/elaborate.log' file for more information.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+launch_simulation: Time (s): cpu = 00:00:02 ; elapsed = 00:00:05 . Memory (MB): peak = 1469.863 ; gain = 12.660
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+launch_simulation
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'C:/Xilinx/Vivado/2017.4/data/xsim/ip/xsim_ip.ini' copied to run dir:'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'main_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj main_tb_vlog.prj"
+"xvhdl --incr --relax -prj main_tb_vhdl.prj"
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/sampling.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity sampling
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/shift_register.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity shift_register
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity master_controller
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/manager_memo.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity manager_memo
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
+Vivado Simulator 2017.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto 0c9c3a36965041288ce87ec04c26eca9 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot main_tb_behav xil_defaultlib.main_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-516] comparison between unequal length arrays always returns FALSE [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd:551]
+WARNING: [VRFC 10-516] comparison between unequal length arrays always returns FALSE [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd:558]
+WARNING: [VRFC 10-516] comparison between unequal length arrays always returns FALSE [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd:565]
+WARNING: [VRFC 10-516] comparison between unequal length arrays always returns FALSE [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd:572]
+WARNING: [VRFC 10-516] comparison between unequal length arrays always returns FALSE [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd:590]
+WARNING: [VRFC 10-516] comparison between unequal length arrays always returns FALSE [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd:597]
+WARNING: [VRFC 10-516] comparison between unequal length arrays always returns FALSE [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd:604]
+WARNING: [VRFC 10-516] comparison between unequal length arrays always returns FALSE [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd:611]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package xil_defaultlib.project_trunk
+Compiling package unisim.vcomponents
+Compiling package ieee.std_logic_arith
+Compiling package ieee.std_logic_signed
+Compiling package ieee.std_logic_textio
+Compiling package ieee.vital_timing
+Compiling package ieee.vital_primitives
+Compiling package unisim.vpkg
+Compiling module xil_defaultlib.glbl
+Compiling architecture behavioral of entity xil_defaultlib.sampling [sampling_default]
+Compiling architecture behavioral of entity xil_defaultlib.shift_register [shift_register_default]
+Compiling architecture gnd_v of entity unisim.GND [gnd_default]
+Compiling architecture rb18_internal_vhdl_v of entity unisim.RB18_INTERNAL_VHDL [\RB18_INTERNAL_VHDL(bram_size=18...]
+Compiling architecture ramb18e1_v of entity unisim.RAMB18E1 [\RAMB18E1(doa_reg=1,dob_reg=1,re...]
+Compiling architecture structure of entity xil_defaultlib.freq_short_memo_blk_mem_gen_prim_wrapper [freq_short_memo_blk_mem_gen_prim...]
+Compiling architecture structure of entity xil_defaultlib.freq_short_memo_blk_mem_gen_prim_width [freq_short_memo_blk_mem_gen_prim...]
+Compiling architecture structure of entity xil_defaultlib.freq_short_memo_blk_mem_gen_generic_cstr [freq_short_memo_blk_mem_gen_gene...]
+Compiling architecture structure of entity xil_defaultlib.freq_short_memo_blk_mem_gen_top [freq_short_memo_blk_mem_gen_top_...]
+Compiling architecture structure of entity xil_defaultlib.freq_short_memo_blk_mem_gen_v8_4_1_synth [freq_short_memo_blk_mem_gen_v8_4...]
+Compiling architecture structure of entity xil_defaultlib.freq_short_memo_blk_mem_gen_v8_4_1 [freq_short_memo_blk_mem_gen_v8_4...]
+Compiling architecture structure of entity xil_defaultlib.freq_short_memo [freq_short_memo_default]
+Compiling architecture behavioral of entity xil_defaultlib.manager_memo [manager_memo_default]
+Compiling architecture rb36_internal_vhdl_v of entity unisim.RB36_INTERNAL_VHDL [\RB36_INTERNAL_VHDL(doa_reg=1,do...]
+Compiling architecture ramb36e1_v of entity unisim.RAMB36E1 [\RAMB36E1(doa_reg=1,dob_reg=1,re...]
+Compiling architecture structure of entity xil_defaultlib.out_long_memo_blk_mem_gen_prim_wrapper [out_long_memo_blk_mem_gen_prim_w...]
+Compiling architecture structure of entity xil_defaultlib.out_long_memo_blk_mem_gen_prim_width [out_long_memo_blk_mem_gen_prim_w...]
+Compiling architecture structure of entity xil_defaultlib.out_long_memo_blk_mem_gen_generic_cstr [out_long_memo_blk_mem_gen_generi...]
+Compiling architecture structure of entity xil_defaultlib.out_long_memo_blk_mem_gen_top [out_long_memo_blk_mem_gen_top_de...]
+Compiling architecture structure of entity xil_defaultlib.out_long_memo_blk_mem_gen_v8_4_1_synth [out_long_memo_blk_mem_gen_v8_4_1...]
+Compiling architecture structure of entity xil_defaultlib.out_long_memo_blk_mem_gen_v8_4_1 [out_long_memo_blk_mem_gen_v8_4_1...]
+Compiling architecture structure of entity xil_defaultlib.out_long_memo [out_long_memo_default]
+Compiling architecture behavioral of entity xil_defaultlib.man_out_memo [man_out_memo_default]
+Compiling architecture behavioral of entity xil_defaultlib.stft_window_rom [stft_window_rom_default]
+Compiling architecture behavioral of entity xil_defaultlib.istft_window_rom [istft_window_rom_default]
+Compiling architecture behavioral of entity xil_defaultlib.window_controller [window_controller_default]
+Compiling architecture behavioral of entity xil_defaultlib.fsm_control [fsm_control_default]
+Compiling architecture behavioral of entity xil_defaultlib.master_controller [master_controller_default]
+Compiling architecture behavioral of entity xil_defaultlib.main_tb
+Built simulation snapshot main_tb_behav
+
+****** Webtalk v2017.4 (64-bit)
+  **** SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
   **** IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
     ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 
-source out_long_memo.tcl -notrace
-Command: synth_design -top out_long_memo -part xc7a100tcsg324-1 -mode out_of_context
-Starting synth_design
-Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
-INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
-INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 22126 
----------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:13 ; elapsed = 00:00:24 . Memory (MB): peak = 1304.152 ; gain = 86.996 ; free physical = 122 ; free virtual = 6219
----------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'out_long_memo' [/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/out_long_memo/synth/out_long_memo.vhd:73]
-	Parameter C_FAMILY bound to: artix7 - type: string 
-	Parameter C_XDEVICEFAMILY bound to: artix7 - type: string 
-	Parameter C_ELABORATION_DIR bound to: ./ - type: string 
-	Parameter C_INTERFACE_TYPE bound to: 0 - type: integer 
-	Parameter C_AXI_TYPE bound to: 1 - type: integer 
-	Parameter C_AXI_SLAVE_TYPE bound to: 0 - type: integer 
-	Parameter C_USE_BRAM_BLOCK bound to: 0 - type: integer 
-	Parameter C_ENABLE_32BIT_ADDRESS bound to: 0 - type: integer 
-	Parameter C_CTRL_ECC_ALGO bound to: NONE - type: string 
-	Parameter C_HAS_AXI_ID bound to: 0 - type: integer 
-	Parameter C_AXI_ID_WIDTH bound to: 4 - type: integer 
-	Parameter C_MEM_TYPE bound to: 1 - type: integer 
-	Parameter C_BYTE_SIZE bound to: 9 - type: integer 
-	Parameter C_ALGORITHM bound to: 1 - type: integer 
-	Parameter C_PRIM_TYPE bound to: 1 - type: integer 
-	Parameter C_LOAD_INIT_FILE bound to: 0 - type: integer 
-	Parameter C_INIT_FILE_NAME bound to: no_coe_file_loaded - type: string 
-	Parameter C_INIT_FILE bound to: out_long_memo.mem - type: string 
-	Parameter C_USE_DEFAULT_DATA bound to: 0 - type: integer 
-	Parameter C_DEFAULT_DATA bound to: 0 - type: string 
-	Parameter C_HAS_RSTA bound to: 0 - type: integer 
-	Parameter C_RST_PRIORITY_A bound to: CE - type: string 
-	Parameter C_RSTRAM_A bound to: 0 - type: integer 
-	Parameter C_INITA_VAL bound to: 0 - type: string 
-	Parameter C_HAS_ENA bound to: 1 - type: integer 
-	Parameter C_HAS_REGCEA bound to: 0 - type: integer 
-	Parameter C_USE_BYTE_WEA bound to: 0 - type: integer 
-	Parameter C_WEA_WIDTH bound to: 1 - type: integer 
-	Parameter C_WRITE_MODE_A bound to: NO_CHANGE - type: string 
-	Parameter C_WRITE_WIDTH_A bound to: 16 - type: integer 
-	Parameter C_READ_WIDTH_A bound to: 16 - type: integer 
-	Parameter C_WRITE_DEPTH_A bound to: 2048 - type: integer 
-	Parameter C_READ_DEPTH_A bound to: 2048 - type: integer 
-	Parameter C_ADDRA_WIDTH bound to: 11 - type: integer 
-	Parameter C_HAS_RSTB bound to: 0 - type: integer 
-	Parameter C_RST_PRIORITY_B bound to: CE - type: string 
-	Parameter C_RSTRAM_B bound to: 0 - type: integer 
-	Parameter C_INITB_VAL bound to: 0 - type: string 
-	Parameter C_HAS_ENB bound to: 1 - type: integer 
-	Parameter C_HAS_REGCEB bound to: 0 - type: integer 
-	Parameter C_USE_BYTE_WEB bound to: 0 - type: integer 
-	Parameter C_WEB_WIDTH bound to: 1 - type: integer 
-	Parameter C_WRITE_MODE_B bound to: WRITE_FIRST - type: string 
-	Parameter C_WRITE_WIDTH_B bound to: 16 - type: integer 
-	Parameter C_READ_WIDTH_B bound to: 16 - type: integer 
-	Parameter C_WRITE_DEPTH_B bound to: 2048 - type: integer 
-	Parameter C_READ_DEPTH_B bound to: 2048 - type: integer 
-	Parameter C_ADDRB_WIDTH bound to: 11 - type: integer 
-	Parameter C_HAS_MEM_OUTPUT_REGS_A bound to: 0 - type: integer 
-	Parameter C_HAS_MEM_OUTPUT_REGS_B bound to: 1 - type: integer 
-	Parameter C_HAS_MUX_OUTPUT_REGS_A bound to: 0 - type: integer 
-	Parameter C_HAS_MUX_OUTPUT_REGS_B bound to: 0 - type: integer 
-	Parameter C_MUX_PIPELINE_STAGES bound to: 0 - type: integer 
-	Parameter C_HAS_SOFTECC_INPUT_REGS_A bound to: 0 - type: integer 
-	Parameter C_HAS_SOFTECC_OUTPUT_REGS_B bound to: 0 - type: integer 
-	Parameter C_USE_SOFTECC bound to: 0 - type: integer 
-	Parameter C_USE_ECC bound to: 0 - type: integer 
-	Parameter C_EN_ECC_PIPE bound to: 0 - type: integer 
-	Parameter C_HAS_INJECTERR bound to: 0 - type: integer 
-	Parameter C_SIM_COLLISION_CHECK bound to: ALL - type: string 
-	Parameter C_COMMON_CLK bound to: 0 - type: integer 
-	Parameter C_DISABLE_WARN_BHV_COLL bound to: 0 - type: integer 
-	Parameter C_EN_SLEEP_PIN bound to: 0 - type: integer 
-	Parameter C_USE_URAM bound to: 0 - type: integer 
-	Parameter C_EN_RDADDRA_CHG bound to: 0 - type: integer 
-	Parameter C_EN_RDADDRB_CHG bound to: 0 - type: integer 
-	Parameter C_EN_DEEPSLEEP_PIN bound to: 0 - type: integer 
-	Parameter C_EN_SHUTDOWN_PIN bound to: 0 - type: integer 
-	Parameter C_EN_SAFETY_CKT bound to: 0 - type: integer 
-	Parameter C_DISABLE_WARN_BHV_RANGE bound to: 0 - type: integer 
-	Parameter C_COUNT_36K_BRAM bound to: 1 - type: string 
-	Parameter C_COUNT_18K_BRAM bound to: 0 - type: string 
-	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     4.7745 mW - type: string 
-INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_1' declared at '/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/out_long_memo/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195313' bound to instance 'U0' of component 'blk_mem_gen_v8_4_1' [/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/out_long_memo/synth/out_long_memo.vhd:241]
-INFO: [Synth 8-256] done synthesizing module 'out_long_memo' (9#1) [/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/out_long_memo/synth/out_long_memo.vhd:73]
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port SSRA
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port REGCEA
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port SSRB
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port WEB[0]
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port DINB[17]
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port DINB[16]
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port DINB[15]
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port DINB[14]
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port DINB[13]
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port DINB[12]
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port DINB[11]
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port DINB[10]
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port DINB[9]
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port DINB[8]
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port DINB[7]
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port DINB[6]
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port DINB[5]
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port DINB[4]
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port DINB[3]
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port DINB[2]
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port DINB[1]
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port DINB[0]
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port SLEEP
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port INJECTSBITERR
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port INJECTDBITERR
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port ECCPIPECE
-WARNING: [Synth 8-3331] design blk_mem_gen_generic_cstr has unconnected port REGCEA[0]
-WARNING: [Synth 8-3331] design blk_mem_gen_generic_cstr has unconnected port WEA[1]
-WARNING: [Synth 8-3331] design blk_mem_gen_generic_cstr has unconnected port RSTB[0]
-WARNING: [Synth 8-3331] design blk_mem_gen_generic_cstr has unconnected port WEB[1]
-WARNING: [Synth 8-3331] design blk_mem_gen_generic_cstr has unconnected port INJECTSBITERR
-WARNING: [Synth 8-3331] design blk_mem_gen_generic_cstr has unconnected port INJECTDBITERR
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port CLKB
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTA_I[15]
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTA_I[14]
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTA_I[13]
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTA_I[12]
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTA_I[11]
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTA_I[10]
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTA_I[9]
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTA_I[8]
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTA_I[7]
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTA_I[6]
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTA_I[5]
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTA_I[4]
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTA_I[3]
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTA_I[2]
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTA_I[1]
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTA_I[0]
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port SBITERR_I
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DBITERR_I
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port RDADDRECC_I[10]
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port RDADDRECC_I[9]
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port RDADDRECC_I[8]
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port RDADDRECC_I[7]
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port RDADDRECC_I[6]
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port RDADDRECC_I[5]
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port RDADDRECC_I[4]
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port RDADDRECC_I[3]
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port RDADDRECC_I[2]
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port RDADDRECC_I[1]
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port RDADDRECC_I[0]
-WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port RSTA
-WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port REGCEA
-WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port RSTB
-WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port REGCEB
-WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port WEB[0]
-WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port DINB[15]
-WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port DINB[14]
-WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port DINB[13]
-WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port DINB[12]
-WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port DINB[11]
-WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port DINB[10]
-WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port DINB[9]
-WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port DINB[8]
-WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port DINB[7]
-WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port DINB[6]
-WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port DINB[5]
-WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port DINB[4]
-WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port DINB[3]
-WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port DINB[2]
-WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port DINB[1]
-WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port DINB[0]
-WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port INJECTDBITERR
-WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port INJECTSBITERR
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AClk
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_ARESETN
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_AWID[3]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_AWID[2]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_AWID[1]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_AWID[0]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_AWADDR[31]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_AWADDR[30]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_AWADDR[29]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_AWADDR[28]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_AWADDR[27]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_AWADDR[26]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_AWADDR[25]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_AWADDR[24]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_AWADDR[23]
-INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
----------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:01:28 ; elapsed = 00:01:51 . Memory (MB): peak = 1507.605 ; gain = 290.449 ; free physical = 311 ; free virtual = 6218
----------------------------------------------------------------------------------
+source D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim/xsim.dir/main_tb_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Wed Apr 24 19:02:53 2019...
+run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:08 . Memory (MB): peak = 1475.238 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '8' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "main_tb_behav -key {Behavioral:sim_1:Functional:main_tb} -tclbatch {main_tb.tcl} -view {D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sim_1/imports/octave_main/test.wcfg} -view {D:/UNI/TFG/OctaveSax/Vivado/octave_main/window_tb_behav.wcfg} -view {D:/UNI/TFG/OctaveSax/Vivado/octave_main/fft.wcfg} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2017.4
+Time resolution is 1 ps
+open_wave_config D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sim_1/imports/octave_main/test.wcfg
+WARNING: Simulation object /main_tb/UUT/espera was not found in the design.
+open_wave_config D:/UNI/TFG/OctaveSax/Vivado/octave_main/window_tb_behav.wcfg
+WARNING: Simulation object /window_tb/UUT/clk was not found in the design.
+WARNING: Simulation object /window_tb/UUT/for_inv was not found in the design.
+WARNING: Simulation object /window_tb/UUT/start_proc_win was not found in the design.
+WARNING: Simulation object /window_tb/end_proc_win was not found in the design.
+WARNING: Simulation object /window_tb/UUT/window_data was not found in the design.
+WARNING: Simulation object /window_tb/UUT/window_data_i was not found in the design.
+WARNING: Simulation object /window_tb/UUT/pre_win was not found in the design.
+WARNING: Simulation object /window_tb/UUT/multiplicand was not found in the design.
+WARNING: Simulation object /window_tb/UUT/result_pre was not found in the design.
+WARNING: Simulation object /window_tb/UUT/result was not found in the design.
+open_wave_config D:/UNI/TFG/OctaveSax/Vivado/octave_main/fft.wcfg
+WARNING: Simulation object /tb_transform/clk was not found in the design.
+WARNING: Simulation object /tb_transform/enable_fft was not found in the design.
+WARNING: Simulation object /tb_transform/event_frame_started was not found in the design.
+WARNING: Simulation object /tb_transform/event_tlast_unexpected was not found in the design.
+WARNING: Simulation object /tb_transform/event_tlast_missing was not found in the design.
+WARNING: Simulation object /tb_transform/event_status_channel_halt was not found in the design.
+WARNING: Simulation object /tb_transform/event_data_in_channel_halt was not found in the design.
+WARNING: Simulation object /tb_transform/event_data_out_channel_halt was not found in the design.
+WARNING: Simulation object /tb_transform/config_tvalid was not found in the design.
+WARNING: Simulation object /tb_transform/config_tready was not found in the design.
+WARNING: Simulation object /tb_transform/input_tvalid was not found in the design.
+WARNING: Simulation object /tb_transform/input_tready was not found in the design.
+WARNING: Simulation object /tb_transform/input_tlast was not found in the design.
+WARNING: Simulation object /tb_transform/output_tvalid was not found in the design.
+WARNING: Simulation object /tb_transform/output_tready was not found in the design.
+WARNING: Simulation object /tb_transform/output_tlast was not found in the design.
+WARNING: Simulation object /tb_transform/config_data was not found in the design.
+WARNING: Simulation object /tb_transform/output_user was not found in the design.
+WARNING: Simulation object /tb_transform/input_data was not found in the design.
+WARNING: Simulation object /tb_transform/re_in was not found in the design.
+WARNING: Simulation object /tb_transform/im_in was not found in the design.
+WARNING: Simulation object /tb_transform/output_data was not found in the design.
+WARNING: Simulation object /tb_transform/re_out was not found in the design.
+WARNING: Simulation object /tb_transform/im_out was not found in the design.
+source main_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'main_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:08 ; elapsed = 00:00:14 . Memory (MB): peak = 1489.438 ; gain = 14.199
+restart
+INFO: [Simtcl 6-17] Simulation restarted
+run 20 ms
+run: Time (s): cpu = 00:00:27 ; elapsed = 00:00:56 . Memory (MB): peak = 1505.434 ; gain = 10.910
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Wed Apr 24 19:04:31 2019] Launched synth_1...
+Run output will be captured here: D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/runme.log
+[Wed Apr 24 19:04:31 2019] Launched impl_1...
+Run output will be captured here: D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/impl_1/fsm_global.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Wed Apr 24 19:09:14 2019] Launched synth_1...
+Run output will be captured here: D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/runme.log
+[Wed Apr 24 19:09:14 2019] Launched impl_1...
+Run output will be captured here: D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/impl_1/runme.log
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Wed Apr 24 19:13:31 2019] Launched synth_1...
+Run output will be captured here: D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/runme.log
+[Wed Apr 24 19:13:31 2019] Launched impl_1...
+Run output will be captured here: D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/impl_1/fsm_global.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Wed Apr 24 19:17:23 2019] Launched synth_1...
+Run output will be captured here: D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/runme.log
+[Wed Apr 24 19:17:23 2019] Launched impl_1...
+Run output will be captured here: D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/impl_1/fsm_global.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Wed Apr 24 19:20:40 2019] Launched synth_1...
+Run output will be captured here: D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/runme.log
+[Wed Apr 24 19:20:40 2019] Launched impl_1...
+Run output will be captured here: D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/impl_1/fsm_global.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Wed Apr 24 19:24:34 2019] Launched synth_1...
+Run output will be captured here: D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/runme.log
+[Wed Apr 24 19:24:34 2019] Launched impl_1...
+Run output will be captured here: D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/impl_1/fsm_global.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+close_hw
+launch_simulation
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'C:/Xilinx/Vivado/2017.4/data/xsim/ip/xsim_ip.ini' copied to run dir:'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'main_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj main_tb_vlog.prj"
+"xvhdl --incr --relax -prj main_tb_vhdl.prj"
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity master_controller
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
+Vivado Simulator 2017.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto 0c9c3a36965041288ce87ec04c26eca9 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot main_tb_behav xil_defaultlib.main_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package xil_defaultlib.project_trunk
+Compiling package unisim.vcomponents
+Compiling package ieee.std_logic_arith
+Compiling package ieee.std_logic_signed
+Compiling package ieee.std_logic_textio
+Compiling package ieee.vital_timing
+Compiling package ieee.vital_primitives
+Compiling package unisim.vpkg
+Compiling module xil_defaultlib.glbl
+Compiling architecture behavioral of entity xil_defaultlib.sampling [sampling_default]
+Compiling architecture behavioral of entity xil_defaultlib.shift_register [shift_register_default]
+Compiling architecture gnd_v of entity unisim.GND [gnd_default]
+Compiling architecture rb18_internal_vhdl_v of entity unisim.RB18_INTERNAL_VHDL [\RB18_INTERNAL_VHDL(bram_size=18...]
+Compiling architecture ramb18e1_v of entity unisim.RAMB18E1 [\RAMB18E1(doa_reg=1,dob_reg=1,re...]
+Compiling architecture structure of entity xil_defaultlib.freq_short_memo_blk_mem_gen_prim_wrapper [freq_short_memo_blk_mem_gen_prim...]
+Compiling architecture structure of entity xil_defaultlib.freq_short_memo_blk_mem_gen_prim_width [freq_short_memo_blk_mem_gen_prim...]
+Compiling architecture structure of entity xil_defaultlib.freq_short_memo_blk_mem_gen_generic_cstr [freq_short_memo_blk_mem_gen_gene...]
+Compiling architecture structure of entity xil_defaultlib.freq_short_memo_blk_mem_gen_top [freq_short_memo_blk_mem_gen_top_...]
+Compiling architecture structure of entity xil_defaultlib.freq_short_memo_blk_mem_gen_v8_4_1_synth [freq_short_memo_blk_mem_gen_v8_4...]
+Compiling architecture structure of entity xil_defaultlib.freq_short_memo_blk_mem_gen_v8_4_1 [freq_short_memo_blk_mem_gen_v8_4...]
+Compiling architecture structure of entity xil_defaultlib.freq_short_memo [freq_short_memo_default]
+Compiling architecture behavioral of entity xil_defaultlib.manager_memo [manager_memo_default]
+Compiling architecture rb36_internal_vhdl_v of entity unisim.RB36_INTERNAL_VHDL [\RB36_INTERNAL_VHDL(doa_reg=1,do...]
+Compiling architecture ramb36e1_v of entity unisim.RAMB36E1 [\RAMB36E1(doa_reg=1,dob_reg=1,re...]
+Compiling architecture structure of entity xil_defaultlib.out_long_memo_blk_mem_gen_prim_wrapper [out_long_memo_blk_mem_gen_prim_w...]
+Compiling architecture structure of entity xil_defaultlib.out_long_memo_blk_mem_gen_prim_width [out_long_memo_blk_mem_gen_prim_w...]
+Compiling architecture structure of entity xil_defaultlib.out_long_memo_blk_mem_gen_generic_cstr [out_long_memo_blk_mem_gen_generi...]
+Compiling architecture structure of entity xil_defaultlib.out_long_memo_blk_mem_gen_top [out_long_memo_blk_mem_gen_top_de...]
+Compiling architecture structure of entity xil_defaultlib.out_long_memo_blk_mem_gen_v8_4_1_synth [out_long_memo_blk_mem_gen_v8_4_1...]
+Compiling architecture structure of entity xil_defaultlib.out_long_memo_blk_mem_gen_v8_4_1 [out_long_memo_blk_mem_gen_v8_4_1...]
+Compiling architecture structure of entity xil_defaultlib.out_long_memo [out_long_memo_default]
+Compiling architecture behavioral of entity xil_defaultlib.man_out_memo [man_out_memo_default]
+Compiling architecture behavioral of entity xil_defaultlib.stft_window_rom [stft_window_rom_default]
+Compiling architecture behavioral of entity xil_defaultlib.istft_window_rom [istft_window_rom_default]
+Compiling architecture behavioral of entity xil_defaultlib.window_controller [window_controller_default]
+Compiling architecture behavioral of entity xil_defaultlib.fsm_control [fsm_control_default]
+Compiling architecture behavioral of entity xil_defaultlib.master_controller [master_controller_default]
+Compiling architecture behavioral of entity xil_defaultlib.main_tb
+Built simulation snapshot main_tb_behav
+run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:05 . Memory (MB): peak = 1507.105 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '5' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "main_tb_behav -key {Behavioral:sim_1:Functional:main_tb} -tclbatch {main_tb.tcl} -view {D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sim_1/imports/octave_main/test.wcfg} -view {D:/UNI/TFG/OctaveSax/Vivado/octave_main/window_tb_behav.wcfg} -view {D:/UNI/TFG/OctaveSax/Vivado/octave_main/fft.wcfg} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2017.4
+Time resolution is 1 ps
+open_wave_config D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sim_1/imports/octave_main/test.wcfg
+WARNING: Simulation object /main_tb/UUT/espera was not found in the design.
+open_wave_config D:/UNI/TFG/OctaveSax/Vivado/octave_main/window_tb_behav.wcfg
+WARNING: Simulation object /window_tb/UUT/clk was not found in the design.
+WARNING: Simulation object /window_tb/UUT/for_inv was not found in the design.
+WARNING: Simulation object /window_tb/UUT/start_proc_win was not found in the design.
+WARNING: Simulation object /window_tb/end_proc_win was not found in the design.
+WARNING: Simulation object /window_tb/UUT/window_data was not found in the design.
+WARNING: Simulation object /window_tb/UUT/window_data_i was not found in the design.
+WARNING: Simulation object /window_tb/UUT/pre_win was not found in the design.
+WARNING: Simulation object /window_tb/UUT/multiplicand was not found in the design.
+WARNING: Simulation object /window_tb/UUT/result_pre was not found in the design.
+WARNING: Simulation object /window_tb/UUT/result was not found in the design.
+open_wave_config D:/UNI/TFG/OctaveSax/Vivado/octave_main/fft.wcfg
+WARNING: Simulation object /tb_transform/clk was not found in the design.
+WARNING: Simulation object /tb_transform/enable_fft was not found in the design.
+WARNING: Simulation object /tb_transform/event_frame_started was not found in the design.
+WARNING: Simulation object /tb_transform/event_tlast_unexpected was not found in the design.
+WARNING: Simulation object /tb_transform/event_tlast_missing was not found in the design.
+WARNING: Simulation object /tb_transform/event_status_channel_halt was not found in the design.
+WARNING: Simulation object /tb_transform/event_data_in_channel_halt was not found in the design.
+WARNING: Simulation object /tb_transform/event_data_out_channel_halt was not found in the design.
+WARNING: Simulation object /tb_transform/config_tvalid was not found in the design.
+WARNING: Simulation object /tb_transform/config_tready was not found in the design.
+WARNING: Simulation object /tb_transform/input_tvalid was not found in the design.
+WARNING: Simulation object /tb_transform/input_tready was not found in the design.
+WARNING: Simulation object /tb_transform/input_tlast was not found in the design.
+WARNING: Simulation object /tb_transform/output_tvalid was not found in the design.
+WARNING: Simulation object /tb_transform/output_tready was not found in the design.
+WARNING: Simulation object /tb_transform/output_tlast was not found in the design.
+WARNING: Simulation object /tb_transform/config_data was not found in the design.
+WARNING: Simulation object /tb_transform/output_user was not found in the design.
+WARNING: Simulation object /tb_transform/input_data was not found in the design.
+WARNING: Simulation object /tb_transform/re_in was not found in the design.
+WARNING: Simulation object /tb_transform/im_in was not found in the design.
+WARNING: Simulation object /tb_transform/output_data was not found in the design.
+WARNING: Simulation object /tb_transform/re_out was not found in the design.
+WARNING: Simulation object /tb_transform/im_out was not found in the design.
+source main_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'main_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:05 ; elapsed = 00:00:11 . Memory (MB): peak = 1516.043 ; gain = 8.938
+restart
+INFO: [Simtcl 6-17] Simulation restarted
+run 20 ms
+run: Time (s): cpu = 00:00:24 ; elapsed = 00:00:54 . Memory (MB): peak = 1525.496 ; gain = 9.453
+relaunch_sim
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'C:/Xilinx/Vivado/2017.4/data/xsim/ip/xsim_ip.ini' copied to run dir:'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'main_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj main_tb_vlog.prj"
+"xvhdl --incr --relax -prj main_tb_vhdl.prj"
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/sampling.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity sampling
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
+Vivado Simulator 2017.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto 0c9c3a36965041288ce87ec04c26eca9 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot main_tb_behav xil_defaultlib.main_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package xil_defaultlib.project_trunk
+Compiling package unisim.vcomponents
+Compiling package ieee.std_logic_arith
+Compiling package ieee.std_logic_signed
+Compiling package ieee.std_logic_textio
+Compiling package ieee.vital_timing
+Compiling package ieee.vital_primitives
+Compiling package unisim.vpkg
+Compiling module xil_defaultlib.glbl
+Compiling architecture behavioral of entity xil_defaultlib.sampling [sampling_default]
+Compiling architecture behavioral of entity xil_defaultlib.shift_register [shift_register_default]
+Compiling architecture gnd_v of entity unisim.GND [gnd_default]
+Compiling architecture rb18_internal_vhdl_v of entity unisim.RB18_INTERNAL_VHDL [\RB18_INTERNAL_VHDL(bram_size=18...]
+Compiling architecture ramb18e1_v of entity unisim.RAMB18E1 [\RAMB18E1(doa_reg=1,dob_reg=1,re...]
+Compiling architecture structure of entity xil_defaultlib.freq_short_memo_blk_mem_gen_prim_wrapper [freq_short_memo_blk_mem_gen_prim...]
+Compiling architecture structure of entity xil_defaultlib.freq_short_memo_blk_mem_gen_prim_width [freq_short_memo_blk_mem_gen_prim...]
+Compiling architecture structure of entity xil_defaultlib.freq_short_memo_blk_mem_gen_generic_cstr [freq_short_memo_blk_mem_gen_gene...]
+Compiling architecture structure of entity xil_defaultlib.freq_short_memo_blk_mem_gen_top [freq_short_memo_blk_mem_gen_top_...]
+Compiling architecture structure of entity xil_defaultlib.freq_short_memo_blk_mem_gen_v8_4_1_synth [freq_short_memo_blk_mem_gen_v8_4...]
+Compiling architecture structure of entity xil_defaultlib.freq_short_memo_blk_mem_gen_v8_4_1 [freq_short_memo_blk_mem_gen_v8_4...]
+Compiling architecture structure of entity xil_defaultlib.freq_short_memo [freq_short_memo_default]
+Compiling architecture behavioral of entity xil_defaultlib.manager_memo [manager_memo_default]
+Compiling architecture rb36_internal_vhdl_v of entity unisim.RB36_INTERNAL_VHDL [\RB36_INTERNAL_VHDL(doa_reg=1,do...]
+Compiling architecture ramb36e1_v of entity unisim.RAMB36E1 [\RAMB36E1(doa_reg=1,dob_reg=1,re...]
+Compiling architecture structure of entity xil_defaultlib.out_long_memo_blk_mem_gen_prim_wrapper [out_long_memo_blk_mem_gen_prim_w...]
+Compiling architecture structure of entity xil_defaultlib.out_long_memo_blk_mem_gen_prim_width [out_long_memo_blk_mem_gen_prim_w...]
+Compiling architecture structure of entity xil_defaultlib.out_long_memo_blk_mem_gen_generic_cstr [out_long_memo_blk_mem_gen_generi...]
+Compiling architecture structure of entity xil_defaultlib.out_long_memo_blk_mem_gen_top [out_long_memo_blk_mem_gen_top_de...]
+Compiling architecture structure of entity xil_defaultlib.out_long_memo_blk_mem_gen_v8_4_1_synth [out_long_memo_blk_mem_gen_v8_4_1...]
+Compiling architecture structure of entity xil_defaultlib.out_long_memo_blk_mem_gen_v8_4_1 [out_long_memo_blk_mem_gen_v8_4_1...]
+Compiling architecture structure of entity xil_defaultlib.out_long_memo [out_long_memo_default]
+Compiling architecture behavioral of entity xil_defaultlib.man_out_memo [man_out_memo_default]
+Compiling architecture behavioral of entity xil_defaultlib.stft_window_rom [stft_window_rom_default]
+Compiling architecture behavioral of entity xil_defaultlib.istft_window_rom [istft_window_rom_default]
+Compiling architecture behavioral of entity xil_defaultlib.window_controller [window_controller_default]
+Compiling architecture behavioral of entity xil_defaultlib.fsm_control [fsm_control_default]
+Compiling architecture behavioral of entity xil_defaultlib.master_controller [master_controller_default]
+Compiling architecture behavioral of entity xil_defaultlib.main_tb
+Built simulation snapshot main_tb_behav
+run_program: Time (s): cpu = 00:00:01 ; elapsed = 00:00:05 . Memory (MB): peak = 1526.266 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '5' seconds
+launch_simulation: Time (s): cpu = 00:00:01 ; elapsed = 00:00:05 . Memory (MB): peak = 1526.266 ; gain = 0.000
+Vivado Simulator 2017.4
+Time resolution is 1 ps
+relaunch_sim: Time (s): cpu = 00:00:02 ; elapsed = 00:00:10 . Memory (MB): peak = 1526.461 ; gain = 0.195
+restart
+INFO: [Simtcl 6-17] Simulation restarted
+run 20 ms
+run: Time (s): cpu = 00:00:19 ; elapsed = 00:00:52 . Memory (MB): peak = 1530.031 ; gain = 3.418
+add_bp {D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/man_out_memo.vhd} 258
+relaunch_sim
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'C:/Xilinx/Vivado/2017.4/data/xsim/ip/xsim_ip.ini' copied to run dir:'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'main_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj main_tb_vlog.prj"
+"xvhdl --incr --relax -prj main_tb_vhdl.prj"
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity master_controller
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/man_out_memo.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity man_out_memo
+ERROR: [VRFC 10-91] end_procw_next is not declared [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/man_out_memo.vhd:276]
+ERROR: [VRFC 10-91] end_procw_next is not declared [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/man_out_memo.vhd:287]
+ERROR: [VRFC 10-91] end_procw_next is not declared [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/man_out_memo.vhd:338]
+ERROR: [VRFC 10-1504] unit behavioral ignored due to previous errors [D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/man_out_memo.vhd:28]
+INFO: [VRFC 10-240] VHDL file D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/man_out_memo.vhd ignored due to errors
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-99] Step results log file:'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim/xvhdl.log'
+ERROR: [USF-XSim-62] 'compile' step failed with error(s). Please check the Tcl console output or 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim/xvhdl.log' file for more information.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+ERROR: [Common 17-69] Command failed: ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
 
-Report Check Netlist: 
-+------+------------------+-------+---------+-------+------------------+
-|      |Item              |Errors |Warnings |Status |Description       |
-+------+------------------+-------+---------+-------+------------------+
-|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
-+------+------------------+-------+---------+-------+------------------+
----------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:01:28 ; elapsed = 00:01:51 . Memory (MB): peak = 1507.605 ; gain = 290.449 ; free physical = 316 ; free virtual = 6223
----------------------------------------------------------------------------------
-INFO: [Netlist 29-17] Analyzing 1 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
-INFO: [Device 21-403] Loading part xc7a100tcsg324-1
-INFO: [Project 1-570] Preparing netlist for logic optimization
+relaunch_sim
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'C:/Xilinx/Vivado/2017.4/data/xsim/ip/xsim_ip.ini' copied to run dir:'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'main_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj main_tb_vlog.prj"
+"xvhdl --incr --relax -prj main_tb_vhdl.prj"
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/master_controller.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity master_controller
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/man_out_memo.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity man_out_memo
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.sim/sim_1/behav/xsim'
+Vivado Simulator 2017.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto 0c9c3a36965041288ce87ec04c26eca9 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot main_tb_behav xil_defaultlib.main_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package xil_defaultlib.project_trunk
+Compiling package unisim.vcomponents
+Compiling package ieee.std_logic_arith
+Compiling package ieee.std_logic_signed
+Compiling package ieee.std_logic_textio
+Compiling package ieee.vital_timing
+Compiling package ieee.vital_primitives
+Compiling package unisim.vpkg
+Compiling module xil_defaultlib.glbl
+Compiling architecture behavioral of entity xil_defaultlib.sampling [sampling_default]
+Compiling architecture behavioral of entity xil_defaultlib.shift_register [shift_register_default]
+Compiling architecture gnd_v of entity unisim.GND [gnd_default]
+Compiling architecture rb18_internal_vhdl_v of entity unisim.RB18_INTERNAL_VHDL [\RB18_INTERNAL_VHDL(bram_size=18...]
+Compiling architecture ramb18e1_v of entity unisim.RAMB18E1 [\RAMB18E1(doa_reg=1,dob_reg=1,re...]
+Compiling architecture structure of entity xil_defaultlib.freq_short_memo_blk_mem_gen_prim_wrapper [freq_short_memo_blk_mem_gen_prim...]
+Compiling architecture structure of entity xil_defaultlib.freq_short_memo_blk_mem_gen_prim_width [freq_short_memo_blk_mem_gen_prim...]
+Compiling architecture structure of entity xil_defaultlib.freq_short_memo_blk_mem_gen_generic_cstr [freq_short_memo_blk_mem_gen_gene...]
+Compiling architecture structure of entity xil_defaultlib.freq_short_memo_blk_mem_gen_top [freq_short_memo_blk_mem_gen_top_...]
+Compiling architecture structure of entity xil_defaultlib.freq_short_memo_blk_mem_gen_v8_4_1_synth [freq_short_memo_blk_mem_gen_v8_4...]
+Compiling architecture structure of entity xil_defaultlib.freq_short_memo_blk_mem_gen_v8_4_1 [freq_short_memo_blk_mem_gen_v8_4...]
+Compiling architecture structure of entity xil_defaultlib.freq_short_memo [freq_short_memo_default]
+Compiling architecture behavioral of entity xil_defaultlib.manager_memo [manager_memo_default]
+Compiling architecture rb36_internal_vhdl_v of entity unisim.RB36_INTERNAL_VHDL [\RB36_INTERNAL_VHDL(doa_reg=1,do...]
+Compiling architecture ramb36e1_v of entity unisim.RAMB36E1 [\RAMB36E1(doa_reg=1,dob_reg=1,re...]
+Compiling architecture structure of entity xil_defaultlib.out_long_memo_blk_mem_gen_prim_wrapper [out_long_memo_blk_mem_gen_prim_w...]
+Compiling architecture structure of entity xil_defaultlib.out_long_memo_blk_mem_gen_prim_width [out_long_memo_blk_mem_gen_prim_w...]
+Compiling architecture structure of entity xil_defaultlib.out_long_memo_blk_mem_gen_generic_cstr [out_long_memo_blk_mem_gen_generi...]
+Compiling architecture structure of entity xil_defaultlib.out_long_memo_blk_mem_gen_top [out_long_memo_blk_mem_gen_top_de...]
+Compiling architecture structure of entity xil_defaultlib.out_long_memo_blk_mem_gen_v8_4_1_synth [out_long_memo_blk_mem_gen_v8_4_1...]
+Compiling architecture structure of entity xil_defaultlib.out_long_memo_blk_mem_gen_v8_4_1 [out_long_memo_blk_mem_gen_v8_4_1...]
+Compiling architecture structure of entity xil_defaultlib.out_long_memo [out_long_memo_default]
+Compiling architecture behavioral of entity xil_defaultlib.man_out_memo [man_out_memo_default]
+Compiling architecture behavioral of entity xil_defaultlib.stft_window_rom [stft_window_rom_default]
+Compiling architecture behavioral of entity xil_defaultlib.istft_window_rom [istft_window_rom_default]
+Compiling architecture behavioral of entity xil_defaultlib.window_controller [window_controller_default]
+Compiling architecture behavioral of entity xil_defaultlib.fsm_control [fsm_control_default]
+Compiling architecture behavioral of entity xil_defaultlib.master_controller [master_controller_default]
+Compiling architecture behavioral of entity xil_defaultlib.main_tb
+Built simulation snapshot main_tb_behav
+run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:05 . Memory (MB): peak = 1534.633 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '5' seconds
+launch_simulation: Time (s): cpu = 00:00:00 ; elapsed = 00:00:05 . Memory (MB): peak = 1534.633 ; gain = 0.000
+Vivado Simulator 2017.4
+Time resolution is 1 ps
+relaunch_sim: Time (s): cpu = 00:00:01 ; elapsed = 00:00:10 . Memory (MB): peak = 1534.633 ; gain = 0.000
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1
 
-Processing XDC Constraints
-Initializing timing engine
-Parsing XDC File [/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/out_long_memo/out_long_memo_ooc.xdc] for cell 'U0'
-Finished Parsing XDC File [/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/out_long_memo/out_long_memo_ooc.xdc] for cell 'U0'
-Parsing XDC File [/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.runs/out_long_memo_synth_1/dont_touch.xdc]
-Finished Parsing XDC File [/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.runs/out_long_memo_synth_1/dont_touch.xdc]
-Completed Processing XDC Constraints
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Wed Apr 24 19:50:38 2019] Launched synth_1...
+Run output will be captured here: D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/synth_1/runme.log
+[Wed Apr 24 19:50:38 2019] Launched impl_1...
+Run output will be captured here: D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/impl_1/runme.log
+remove_bps -file {D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/new/man_out_memo.vhd} -line 258
+open_hw
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
 
-INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
-
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 1590.621 ; gain = 0.000 ; free physical = 104 ; free virtual = 5975
----------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:01:48 ; elapsed = 00:02:29 . Memory (MB): peak = 1590.621 ; gain = 373.465 ; free physical = 182 ; free virtual = 6053
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Loading Part and Timing Information
----------------------------------------------------------------------------------
-Loading part: xc7a100tcsg324-1
----------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:01:48 ; elapsed = 00:02:29 . Memory (MB): peak = 1590.621 ; gain = 373.465 ; free physical = 182 ; free virtual = 6053
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Applying 'set_property' XDC Constraints
----------------------------------------------------------------------------------
-Applied set_property DONT_TOUCH = true for U0. (constraint file  /home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.runs/out_long_memo_synth_1/dont_touch.xdc, line 9).
----------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:01:48 ; elapsed = 00:02:29 . Memory (MB): peak = 1590.621 ; gain = 373.465 ; free physical = 184 ; free virtual = 6055
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:49 ; elapsed = 00:02:29 . Memory (MB): peak = 1590.621 ; gain = 373.465 ; free physical = 176 ; free virtual = 6047
----------------------------------------------------------------------------------
-
-Report RTL Partitions: 
-+-+--------------+------------+----------+
-| |RTL Partition |Replication |Instances |
-+-+--------------+------------+----------+
-+-+--------------+------------+----------+
----------------------------------------------------------------------------------
-Start RTL Component Statistics 
----------------------------------------------------------------------------------
-Detailed RTL Component Info : 
----------------------------------------------------------------------------------
-Finished RTL Component Statistics 
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start RTL Hierarchical Component Statistics 
----------------------------------------------------------------------------------
-Hierarchical RTL Component report 
----------------------------------------------------------------------------------
-Finished RTL Hierarchical Component Statistics
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Part Resource Summary
----------------------------------------------------------------------------------
-Part Resources:
-DSPs: 240 (col length:80)
-BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
----------------------------------------------------------------------------------
-Finished Part Resource Summary
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Cross Boundary and Area Optimization
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:49 ; elapsed = 00:02:29 . Memory (MB): peak = 1590.621 ; gain = 373.465 ; free physical = 176 ; free virtual = 6047
----------------------------------------------------------------------------------
-
-Report RTL Partitions: 
-+-+--------------+------------+----------+
-| |RTL Partition |Replication |Instances |
-+-+--------------+------------+----------+
-+-+--------------+------------+----------+
----------------------------------------------------------------------------------
-Start Applying XDC Timing Constraints
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:57 ; elapsed = 00:02:41 . Memory (MB): peak = 1628.621 ; gain = 411.465 ; free physical = 120 ; free virtual = 5926
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Timing Optimization
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:01:57 ; elapsed = 00:02:41 . Memory (MB): peak = 1628.621 ; gain = 411.465 ; free physical = 119 ; free virtual = 5925
----------------------------------------------------------------------------------
-
-Report RTL Partitions: 
-+-+--------------+------------+----------+
-| |RTL Partition |Replication |Instances |
-+-+--------------+------------+----------+
-+-+--------------+------------+----------+
----------------------------------------------------------------------------------
-Start Technology Mapping
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:01:57 ; elapsed = 00:02:41 . Memory (MB): peak = 1638.637 ; gain = 421.480 ; free physical = 118 ; free virtual = 5924
----------------------------------------------------------------------------------
-
-Report RTL Partitions: 
-+-+--------------+------------+----------+
-| |RTL Partition |Replication |Instances |
-+-+--------------+------------+----------+
-+-+--------------+------------+----------+
----------------------------------------------------------------------------------
-Start IO Insertion
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Flattening Before IO Insertion
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Flattening Before IO Insertion
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Final Netlist Cleanup
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Final Netlist Cleanup
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:01:57 ; elapsed = 00:02:42 . Memory (MB): peak = 1638.637 ; gain = 421.480 ; free physical = 118 ; free virtual = 5924
----------------------------------------------------------------------------------
-
-Report Check Netlist: 
-+------+------------------+-------+---------+-------+------------------+
-|      |Item              |Errors |Warnings |Status |Description       |
-+------+------------------+-------+---------+-------+------------------+
-|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
-+------+------------------+-------+---------+-------+------------------+
----------------------------------------------------------------------------------
-Start Renaming Generated Instances
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:57 ; elapsed = 00:02:42 . Memory (MB): peak = 1638.637 ; gain = 421.480 ; free physical = 118 ; free virtual = 5924
----------------------------------------------------------------------------------
-
-Report RTL Partitions: 
-+-+--------------+------------+----------+
-| |RTL Partition |Replication |Instances |
-+-+--------------+------------+----------+
-+-+--------------+------------+----------+
----------------------------------------------------------------------------------
-Start Rebuilding User Hierarchy
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:57 ; elapsed = 00:02:42 . Memory (MB): peak = 1638.637 ; gain = 421.480 ; free physical = 118 ; free virtual = 5924
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Renaming Generated Ports
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:57 ; elapsed = 00:02:42 . Memory (MB): peak = 1638.637 ; gain = 421.480 ; free physical = 118 ; free virtual = 5924
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Handling Custom Attributes
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:57 ; elapsed = 00:02:42 . Memory (MB): peak = 1638.637 ; gain = 421.480 ; free physical = 118 ; free virtual = 5924
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Renaming Generated Nets
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:01:57 ; elapsed = 00:02:42 . Memory (MB): peak = 1638.637 ; gain = 421.480 ; free physical = 118 ; free virtual = 5924
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Writing Synthesis Report
----------------------------------------------------------------------------------
-
-Report BlackBoxes: 
-+-+--------------+----------+
-| |BlackBox name |Instances |
-+-+--------------+----------+
-+-+--------------+----------+
-
-Report Cell Usage: 
-+------+---------+------+
-|      |Cell     |Count |
-+------+---------+------+
-|1     |RAMB36E1 |     1|
-+------+---------+------+
-
-Report Instance Areas: 
-+------+---------------------------------------------+-------------------------+------+
-|      |Instance                                     |Module                   |Cells |
-+------+---------------------------------------------+-------------------------+------+
-|1     |top                                          |                         |     1|
-|2     |  U0                                         |blk_mem_gen_v8_4_1       |     1|
-|3     |    inst_blk_mem_gen                         |blk_mem_gen_v8_4_1_synth |     1|
-|4     |      \gnbram.gnativebmg.native_blk_mem_gen  |blk_mem_gen_top          |     1|
-|5     |        \valid.cstr                          |blk_mem_gen_generic_cstr |     1|
-|6     |          \ramloop[0].ram.r                  |blk_mem_gen_prim_width   |     1|
-|7     |            \prim_noinit.ram                 |blk_mem_gen_prim_wrapper |     1|
-+------+---------------------------------------------+-------------------------+------+
----------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:57 ; elapsed = 00:02:42 . Memory (MB): peak = 1638.637 ; gain = 421.480 ; free physical = 118 ; free virtual = 5924
----------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 152 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:01:44 ; elapsed = 00:02:12 . Memory (MB): peak = 1638.637 ; gain = 338.465 ; free physical = 174 ; free virtual = 5980
-Synthesis Optimization Complete : Time (s): cpu = 00:01:57 ; elapsed = 00:02:42 . Memory (MB): peak = 1638.645 ; gain = 421.480 ; free physical = 174 ; free virtual = 5980
-INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 1 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
-INFO: [Project 1-570] Preparing netlist for logic optimization
-INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
-
-INFO: [Common 17-83] Releasing license: Synthesis
-17 Infos, 100 Warnings, 0 Critical Warnings and 0 Errors encountered.
-synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:59 ; elapsed = 00:02:43 . Memory (MB): peak = 1644.637 ; gain = 452.309 ; free physical = 168 ; free virtual = 5975
-INFO: [Common 17-1381] The checkpoint '/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.runs/out_long_memo_synth_1/out_long_memo.dcp' has been generated.
-INFO: [Coretcl 2-1482] Added synthesis output to IP cache for IP /home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/out_long_memo/out_long_memo.xci
-INFO: [Coretcl 2-1174] Renamed 6 cell refs.
-INFO: [Common 17-1381] The checkpoint '/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.runs/out_long_memo_synth_1/out_long_memo.dcp' has been generated.
-INFO: [runtcl-4] Executing : report_utilization -file out_long_memo_utilization_synth.rpt -pb out_long_memo_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00.10 ; elapsed = 00:00:00.15 . Memory (MB): peak = 1660.645 ; gain = 0.000 ; free physical = 167 ; free virtual = 5976
-INFO: [Common 17-206] Exiting Vivado at Wed Apr 24 16:01:35 2019...
-[Wed Apr 24 16:01:36 2019] out_long_memo_synth_1 finished
-wait_on_run: Time (s): cpu = 00:02:21 ; elapsed = 00:02:59 . Memory (MB): peak = 6488.469 ; gain = 15.008 ; free physical = 733 ; free virtual = 6548
-export_simulation -of_objects [get_files /home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/out_long_memo/out_long_memo.xci] -directory /home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.ip_user_files/sim_scripts -ip_user_files_dir /home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.ip_user_files -ipstatic_source_dir /home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.ip_user_files/ipstatic -lib_map_path [list {modelsim=/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.cache/compile_simlib/modelsim} {questa=/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.cache/compile_simlib/questa} {ies=/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.cache/compile_simlib/ies} {vcs=/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.cache/compile_simlib/vcs} {riviera=/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.cache/compile_simlib/riviera}] -use_ip_compiled_libs -force -quiet
-WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
-WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
-set_property -dict [list CONFIG.Memory_Type {True_Dual_Port_RAM} CONFIG.Register_PortA_Output_of_Memory_Primitives {true} CONFIG.Port_B_Write_Rate {50}] [get_ips out_long_memo]
-generate_target all [get_files  /home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/out_long_memo/out_long_memo.xci]
-INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'out_long_memo'...
-INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'out_long_memo'...
-INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'out_long_memo'...
-INFO: [IP_Flow 19-1686] Generating 'Miscellaneous' target for IP 'out_long_memo'...
-INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'out_long_memo'...
-catch { config_ip_cache -export [get_ips -all out_long_memo] }
-export_ip_user_files -of_objects [get_files /home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/out_long_memo/out_long_memo.xci] -no_script -sync -force -quiet
-reset_run out_long_memo_synth_1
-launch_runs -jobs 2 out_long_memo_synth_1
-[Wed Apr 24 16:39:21 2019] Launched out_long_memo_synth_1...
-Run output will be captured here: /home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.runs/out_long_memo_synth_1/runme.log
-INFO: [Vivado 12-4357] Exporting simulation files for 'out_long_memo'... please wait for 'out_long_memo_synth_1' run to finish...
-wait_on_run out_long_memo_synth_1
-[Wed Apr 24 16:39:21 2019] Waiting for out_long_memo_synth_1 to finish...
-[Wed Apr 24 16:39:26 2019] Waiting for out_long_memo_synth_1 to finish...
-[Wed Apr 24 16:39:31 2019] Waiting for out_long_memo_synth_1 to finish...
-[Wed Apr 24 16:39:36 2019] Waiting for out_long_memo_synth_1 to finish...
-[Wed Apr 24 16:39:46 2019] Waiting for out_long_memo_synth_1 to finish...
-[Wed Apr 24 16:39:56 2019] Waiting for out_long_memo_synth_1 to finish...
-[Wed Apr 24 16:40:06 2019] Waiting for out_long_memo_synth_1 to finish...
-[Wed Apr 24 16:40:16 2019] Waiting for out_long_memo_synth_1 to finish...
-[Wed Apr 24 16:40:36 2019] Waiting for out_long_memo_synth_1 to finish...
-[Wed Apr 24 16:40:56 2019] Waiting for out_long_memo_synth_1 to finish...
-[Wed Apr 24 16:41:16 2019] Waiting for out_long_memo_synth_1 to finish...
-[Wed Apr 24 16:41:36 2019] Waiting for out_long_memo_synth_1 to finish...
-[Wed Apr 24 16:42:16 2019] Waiting for out_long_memo_synth_1 to finish...
-
-*** Running vivado
-    with args -log out_long_memo.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source out_long_memo.tcl
-
-
-****** Vivado v2017.4 (64-bit)
-  **** SW Build 2086221 on Fri Dec 15 20:54:30 MST 2017
-  **** IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+****** Xilinx hw_server v2017.4
+  **** Build date : Dec 15 2017-21:08:27
     ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 
-source out_long_memo.tcl -notrace
-Command: synth_design -top out_long_memo -part xc7a100tcsg324-1 -mode out_of_context
-Starting synth_design
-Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
-INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
-INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 23596 
----------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:13 ; elapsed = 00:00:24 . Memory (MB): peak = 1304.156 ; gain = 86.996 ; free physical = 346 ; free virtual = 6190
----------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'out_long_memo' [/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/out_long_memo/synth/out_long_memo.vhd:76]
-	Parameter C_FAMILY bound to: artix7 - type: string 
-	Parameter C_XDEVICEFAMILY bound to: artix7 - type: string 
-	Parameter C_ELABORATION_DIR bound to: ./ - type: string 
-	Parameter C_INTERFACE_TYPE bound to: 0 - type: integer 
-	Parameter C_AXI_TYPE bound to: 1 - type: integer 
-	Parameter C_AXI_SLAVE_TYPE bound to: 0 - type: integer 
-	Parameter C_USE_BRAM_BLOCK bound to: 0 - type: integer 
-	Parameter C_ENABLE_32BIT_ADDRESS bound to: 0 - type: integer 
-	Parameter C_CTRL_ECC_ALGO bound to: NONE - type: string 
-	Parameter C_HAS_AXI_ID bound to: 0 - type: integer 
-	Parameter C_AXI_ID_WIDTH bound to: 4 - type: integer 
-	Parameter C_MEM_TYPE bound to: 2 - type: integer 
-	Parameter C_BYTE_SIZE bound to: 9 - type: integer 
-	Parameter C_ALGORITHM bound to: 1 - type: integer 
-	Parameter C_PRIM_TYPE bound to: 1 - type: integer 
-	Parameter C_LOAD_INIT_FILE bound to: 0 - type: integer 
-	Parameter C_INIT_FILE_NAME bound to: no_coe_file_loaded - type: string 
-	Parameter C_INIT_FILE bound to: out_long_memo.mem - type: string 
-	Parameter C_USE_DEFAULT_DATA bound to: 0 - type: integer 
-	Parameter C_DEFAULT_DATA bound to: 0 - type: string 
-	Parameter C_HAS_RSTA bound to: 0 - type: integer 
-	Parameter C_RST_PRIORITY_A bound to: CE - type: string 
-	Parameter C_RSTRAM_A bound to: 0 - type: integer 
-	Parameter C_INITA_VAL bound to: 0 - type: string 
-	Parameter C_HAS_ENA bound to: 1 - type: integer 
-	Parameter C_HAS_REGCEA bound to: 0 - type: integer 
-	Parameter C_USE_BYTE_WEA bound to: 0 - type: integer 
-	Parameter C_WEA_WIDTH bound to: 1 - type: integer 
-	Parameter C_WRITE_MODE_A bound to: NO_CHANGE - type: string 
-	Parameter C_WRITE_WIDTH_A bound to: 16 - type: integer 
-	Parameter C_READ_WIDTH_A bound to: 16 - type: integer 
-	Parameter C_WRITE_DEPTH_A bound to: 2048 - type: integer 
-	Parameter C_READ_DEPTH_A bound to: 2048 - type: integer 
-	Parameter C_ADDRA_WIDTH bound to: 11 - type: integer 
-	Parameter C_HAS_RSTB bound to: 0 - type: integer 
-	Parameter C_RST_PRIORITY_B bound to: CE - type: string 
-	Parameter C_RSTRAM_B bound to: 0 - type: integer 
-	Parameter C_INITB_VAL bound to: 0 - type: string 
-	Parameter C_HAS_ENB bound to: 1 - type: integer 
-	Parameter C_HAS_REGCEB bound to: 0 - type: integer 
-	Parameter C_USE_BYTE_WEB bound to: 0 - type: integer 
-	Parameter C_WEB_WIDTH bound to: 1 - type: integer 
-	Parameter C_WRITE_MODE_B bound to: WRITE_FIRST - type: string 
-	Parameter C_WRITE_WIDTH_B bound to: 16 - type: integer 
-	Parameter C_READ_WIDTH_B bound to: 16 - type: integer 
-	Parameter C_WRITE_DEPTH_B bound to: 2048 - type: integer 
-	Parameter C_READ_DEPTH_B bound to: 2048 - type: integer 
-	Parameter C_ADDRB_WIDTH bound to: 11 - type: integer 
-	Parameter C_HAS_MEM_OUTPUT_REGS_A bound to: 1 - type: integer 
-	Parameter C_HAS_MEM_OUTPUT_REGS_B bound to: 1 - type: integer 
-	Parameter C_HAS_MUX_OUTPUT_REGS_A bound to: 0 - type: integer 
-	Parameter C_HAS_MUX_OUTPUT_REGS_B bound to: 0 - type: integer 
-	Parameter C_MUX_PIPELINE_STAGES bound to: 0 - type: integer 
-	Parameter C_HAS_SOFTECC_INPUT_REGS_A bound to: 0 - type: integer 
-	Parameter C_HAS_SOFTECC_OUTPUT_REGS_B bound to: 0 - type: integer 
-	Parameter C_USE_SOFTECC bound to: 0 - type: integer 
-	Parameter C_USE_ECC bound to: 0 - type: integer 
-	Parameter C_EN_ECC_PIPE bound to: 0 - type: integer 
-	Parameter C_HAS_INJECTERR bound to: 0 - type: integer 
-	Parameter C_SIM_COLLISION_CHECK bound to: ALL - type: string 
-	Parameter C_COMMON_CLK bound to: 0 - type: integer 
-	Parameter C_DISABLE_WARN_BHV_COLL bound to: 0 - type: integer 
-	Parameter C_EN_SLEEP_PIN bound to: 0 - type: integer 
-	Parameter C_USE_URAM bound to: 0 - type: integer 
-	Parameter C_EN_RDADDRA_CHG bound to: 0 - type: integer 
-	Parameter C_EN_RDADDRB_CHG bound to: 0 - type: integer 
-	Parameter C_EN_DEEPSLEEP_PIN bound to: 0 - type: integer 
-	Parameter C_EN_SHUTDOWN_PIN bound to: 0 - type: integer 
-	Parameter C_EN_SAFETY_CKT bound to: 0 - type: integer 
-	Parameter C_DISABLE_WARN_BHV_RANGE bound to: 0 - type: integer 
-	Parameter C_COUNT_36K_BRAM bound to: 1 - type: string 
-	Parameter C_COUNT_18K_BRAM bound to: 0 - type: string 
-	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     5.01345 mW - type: string 
-INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_1' declared at '/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/out_long_memo/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195313' bound to instance 'U0' of component 'blk_mem_gen_v8_4_1' [/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/out_long_memo/synth/out_long_memo.vhd:247]
-INFO: [Synth 8-256] done synthesizing module 'out_long_memo' (9#1) [/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/out_long_memo/synth/out_long_memo.vhd:76]
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port SSRA
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port SSRB
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port SLEEP
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port INJECTSBITERR
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port INJECTDBITERR
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port ECCPIPECE
-WARNING: [Synth 8-3331] design blk_mem_gen_generic_cstr has unconnected port RSTA[0]
-WARNING: [Synth 8-3331] design blk_mem_gen_generic_cstr has unconnected port WEA[1]
-WARNING: [Synth 8-3331] design blk_mem_gen_generic_cstr has unconnected port RSTB[0]
-WARNING: [Synth 8-3331] design blk_mem_gen_generic_cstr has unconnected port WEB[1]
-WARNING: [Synth 8-3331] design blk_mem_gen_generic_cstr has unconnected port INJECTSBITERR
-WARNING: [Synth 8-3331] design blk_mem_gen_generic_cstr has unconnected port INJECTDBITERR
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port CLKB
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port SBITERR_I
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DBITERR_I
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port RDADDRECC_I[10]
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port RDADDRECC_I[9]
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port RDADDRECC_I[8]
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port RDADDRECC_I[7]
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port RDADDRECC_I[6]
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port RDADDRECC_I[5]
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port RDADDRECC_I[4]
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port RDADDRECC_I[3]
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port RDADDRECC_I[2]
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port RDADDRECC_I[1]
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port RDADDRECC_I[0]
-WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port RSTA
-WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port REGCEA
-WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port RSTB
-WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port REGCEB
-WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port INJECTDBITERR
-WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port INJECTSBITERR
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AClk
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_ARESETN
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_AWID[3]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_AWID[2]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_AWID[1]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_AWID[0]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_AWADDR[31]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_AWADDR[30]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_AWADDR[29]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_AWADDR[28]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_AWADDR[27]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_AWADDR[26]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_AWADDR[25]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_AWADDR[24]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_AWADDR[23]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_AWADDR[22]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_AWADDR[21]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_AWADDR[20]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_AWADDR[19]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_AWADDR[18]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_AWADDR[17]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_AWADDR[16]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_AWADDR[15]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_AWADDR[14]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_AWADDR[13]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_AWADDR[12]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_AWADDR[11]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_AWADDR[10]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_AWADDR[9]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_AWADDR[8]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_AWADDR[7]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_AWADDR[6]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_AWADDR[5]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_AWADDR[4]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_AWADDR[3]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_AWADDR[2]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_AWADDR[1]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_AWADDR[0]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_AWLEN[7]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_AWLEN[6]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_AWLEN[5]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_AWLEN[4]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_AWLEN[3]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_AWLEN[2]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_AWLEN[1]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_AWLEN[0]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_AWSIZE[2]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_AWSIZE[1]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_AWSIZE[0]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_AWBURST[1]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_AWBURST[0]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_AWVALID
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_WDATA[15]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_WDATA[14]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_WDATA[13]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_WDATA[12]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_WDATA[11]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_WDATA[10]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_WDATA[9]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_WDATA[8]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_WDATA[7]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_WDATA[6]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_WDATA[5]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_WDATA[4]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_WDATA[3]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_WDATA[2]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_WDATA[1]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth has unconnected port S_AXI_WDATA[0]
-INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
----------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:01:28 ; elapsed = 00:01:50 . Memory (MB): peak = 1507.609 ; gain = 290.449 ; free physical = 338 ; free virtual = 6182
----------------------------------------------------------------------------------
 
-Report Check Netlist: 
-+------+------------------+-------+---------+-------+------------------+
-|      |Item              |Errors |Warnings |Status |Description       |
-+------+------------------+-------+---------+-------+------------------+
-|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
-+------+------------------+-------+---------+-------+------------------+
----------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:01:28 ; elapsed = 00:01:50 . Memory (MB): peak = 1507.609 ; gain = 290.449 ; free physical = 341 ; free virtual = 6186
----------------------------------------------------------------------------------
-INFO: [Netlist 29-17] Analyzing 1 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
-INFO: [Device 21-403] Loading part xc7a100tcsg324-1
-INFO: [Project 1-570] Preparing netlist for logic optimization
-
-Processing XDC Constraints
-Initializing timing engine
-Parsing XDC File [/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/out_long_memo/out_long_memo_ooc.xdc] for cell 'U0'
-Finished Parsing XDC File [/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/out_long_memo/out_long_memo_ooc.xdc] for cell 'U0'
-Parsing XDC File [/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.runs/out_long_memo_synth_1/dont_touch.xdc]
-Finished Parsing XDC File [/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.runs/out_long_memo_synth_1/dont_touch.xdc]
-Completed Processing XDC Constraints
-
-INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
-
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1591.625 ; gain = 0.000 ; free physical = 127 ; free virtual = 5939
----------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:01:48 ; elapsed = 00:02:27 . Memory (MB): peak = 1591.625 ; gain = 374.465 ; free physical = 205 ; free virtual = 6017
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Loading Part and Timing Information
----------------------------------------------------------------------------------
-Loading part: xc7a100tcsg324-1
----------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:01:48 ; elapsed = 00:02:27 . Memory (MB): peak = 1591.625 ; gain = 374.465 ; free physical = 205 ; free virtual = 6017
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Applying 'set_property' XDC Constraints
----------------------------------------------------------------------------------
-Applied set_property DONT_TOUCH = true for U0. (constraint file  /home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.runs/out_long_memo_synth_1/dont_touch.xdc, line 9).
----------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:01:48 ; elapsed = 00:02:27 . Memory (MB): peak = 1591.625 ; gain = 374.465 ; free physical = 207 ; free virtual = 6019
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:48 ; elapsed = 00:02:28 . Memory (MB): peak = 1591.625 ; gain = 374.465 ; free physical = 200 ; free virtual = 6011
----------------------------------------------------------------------------------
-
-Report RTL Partitions: 
-+-+--------------+------------+----------+
-| |RTL Partition |Replication |Instances |
-+-+--------------+------------+----------+
-+-+--------------+------------+----------+
----------------------------------------------------------------------------------
-Start RTL Component Statistics 
----------------------------------------------------------------------------------
-Detailed RTL Component Info : 
----------------------------------------------------------------------------------
-Finished RTL Component Statistics 
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start RTL Hierarchical Component Statistics 
----------------------------------------------------------------------------------
-Hierarchical RTL Component report 
----------------------------------------------------------------------------------
-Finished RTL Hierarchical Component Statistics
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Part Resource Summary
----------------------------------------------------------------------------------
-Part Resources:
-DSPs: 240 (col length:80)
-BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
----------------------------------------------------------------------------------
-Finished Part Resource Summary
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Cross Boundary and Area Optimization
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:49 ; elapsed = 00:02:28 . Memory (MB): peak = 1591.625 ; gain = 374.465 ; free physical = 200 ; free virtual = 6011
----------------------------------------------------------------------------------
-
-Report RTL Partitions: 
-+-+--------------+------------+----------+
-| |RTL Partition |Replication |Instances |
-+-+--------------+------------+----------+
-+-+--------------+------------+----------+
----------------------------------------------------------------------------------
-Start Applying XDC Timing Constraints
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:56 ; elapsed = 00:02:40 . Memory (MB): peak = 1628.625 ; gain = 411.465 ; free physical = 116 ; free virtual = 5888
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Timing Optimization
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:01:56 ; elapsed = 00:02:40 . Memory (MB): peak = 1628.625 ; gain = 411.465 ; free physical = 117 ; free virtual = 5889
----------------------------------------------------------------------------------
-
-Report RTL Partitions: 
-+-+--------------+------------+----------+
-| |RTL Partition |Replication |Instances |
-+-+--------------+------------+----------+
-+-+--------------+------------+----------+
----------------------------------------------------------------------------------
-Start Technology Mapping
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:01:57 ; elapsed = 00:02:40 . Memory (MB): peak = 1638.641 ; gain = 421.480 ; free physical = 115 ; free virtual = 5888
----------------------------------------------------------------------------------
-
-Report RTL Partitions: 
-+-+--------------+------------+----------+
-| |RTL Partition |Replication |Instances |
-+-+--------------+------------+----------+
-+-+--------------+------------+----------+
----------------------------------------------------------------------------------
-Start IO Insertion
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Flattening Before IO Insertion
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Flattening Before IO Insertion
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Final Netlist Cleanup
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Final Netlist Cleanup
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:01:57 ; elapsed = 00:02:40 . Memory (MB): peak = 1638.641 ; gain = 421.480 ; free physical = 115 ; free virtual = 5888
----------------------------------------------------------------------------------
-
-Report Check Netlist: 
-+------+------------------+-------+---------+-------+------------------+
-|      |Item              |Errors |Warnings |Status |Description       |
-+------+------------------+-------+---------+-------+------------------+
-|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
-+------+------------------+-------+---------+-------+------------------+
----------------------------------------------------------------------------------
-Start Renaming Generated Instances
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:57 ; elapsed = 00:02:40 . Memory (MB): peak = 1638.641 ; gain = 421.480 ; free physical = 115 ; free virtual = 5888
----------------------------------------------------------------------------------
-
-Report RTL Partitions: 
-+-+--------------+------------+----------+
-| |RTL Partition |Replication |Instances |
-+-+--------------+------------+----------+
-+-+--------------+------------+----------+
----------------------------------------------------------------------------------
-Start Rebuilding User Hierarchy
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:57 ; elapsed = 00:02:40 . Memory (MB): peak = 1638.641 ; gain = 421.480 ; free physical = 115 ; free virtual = 5888
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Renaming Generated Ports
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:57 ; elapsed = 00:02:40 . Memory (MB): peak = 1638.641 ; gain = 421.480 ; free physical = 115 ; free virtual = 5888
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Handling Custom Attributes
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:57 ; elapsed = 00:02:40 . Memory (MB): peak = 1638.641 ; gain = 421.480 ; free physical = 115 ; free virtual = 5888
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Renaming Generated Nets
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:01:57 ; elapsed = 00:02:40 . Memory (MB): peak = 1638.641 ; gain = 421.480 ; free physical = 115 ; free virtual = 5888
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Writing Synthesis Report
----------------------------------------------------------------------------------
-
-Report BlackBoxes: 
-+-+--------------+----------+
-| |BlackBox name |Instances |
-+-+--------------+----------+
-+-+--------------+----------+
-
-Report Cell Usage: 
-+------+---------+------+
-|      |Cell     |Count |
-+------+---------+------+
-|1     |RAMB36E1 |     1|
-+------+---------+------+
-
-Report Instance Areas: 
-+------+---------------------------------------------+-------------------------+------+
-|      |Instance                                     |Module                   |Cells |
-+------+---------------------------------------------+-------------------------+------+
-|1     |top                                          |                         |     1|
-|2     |  U0                                         |blk_mem_gen_v8_4_1       |     1|
-|3     |    inst_blk_mem_gen                         |blk_mem_gen_v8_4_1_synth |     1|
-|4     |      \gnbram.gnativebmg.native_blk_mem_gen  |blk_mem_gen_top          |     1|
-|5     |        \valid.cstr                          |blk_mem_gen_generic_cstr |     1|
-|6     |          \ramloop[0].ram.r                  |blk_mem_gen_prim_width   |     1|
-|7     |            \prim_noinit.ram                 |blk_mem_gen_prim_wrapper |     1|
-+------+---------------------------------------------+-------------------------+------+
----------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:57 ; elapsed = 00:02:40 . Memory (MB): peak = 1638.641 ; gain = 421.480 ; free physical = 115 ; free virtual = 5888
----------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 135 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:01:44 ; elapsed = 00:02:12 . Memory (MB): peak = 1638.641 ; gain = 337.465 ; free physical = 171 ; free virtual = 5944
-Synthesis Optimization Complete : Time (s): cpu = 00:01:57 ; elapsed = 00:02:40 . Memory (MB): peak = 1638.648 ; gain = 421.480 ; free physical = 180 ; free virtual = 5952
-INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 1 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
-INFO: [Project 1-570] Preparing netlist for logic optimization
-INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
-
-INFO: [Common 17-83] Releasing license: Synthesis
-17 Infos, 100 Warnings, 0 Critical Warnings and 0 Errors encountered.
-synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:59 ; elapsed = 00:02:41 . Memory (MB): peak = 1644.641 ; gain = 452.309 ; free physical = 171 ; free virtual = 5929
-INFO: [Common 17-1381] The checkpoint '/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.runs/out_long_memo_synth_1/out_long_memo.dcp' has been generated.
-INFO: [Coretcl 2-1482] Added synthesis output to IP cache for IP /home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/out_long_memo/out_long_memo.xci
-INFO: [Coretcl 2-1174] Renamed 6 cell refs.
-INFO: [Common 17-1381] The checkpoint '/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.runs/out_long_memo_synth_1/out_long_memo.dcp' has been generated.
-INFO: [runtcl-4] Executing : report_utilization -file out_long_memo_utilization_synth.rpt -pb out_long_memo_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00.10 ; elapsed = 00:00:00.14 . Memory (MB): peak = 1660.648 ; gain = 0.000 ; free physical = 172 ; free virtual = 5931
-INFO: [Common 17-206] Exiting Vivado at Wed Apr 24 16:42:19 2019...
-[Wed Apr 24 16:42:19 2019] out_long_memo_synth_1 finished
-wait_on_run: Time (s): cpu = 00:02:19 ; elapsed = 00:02:58 . Memory (MB): peak = 6613.113 ; gain = 0.000 ; free physical = 745 ; free virtual = 6503
-export_simulation -of_objects [get_files /home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/out_long_memo/out_long_memo.xci] -directory /home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.ip_user_files/sim_scripts -ip_user_files_dir /home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.ip_user_files -ipstatic_source_dir /home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.ip_user_files/ipstatic -lib_map_path [list {modelsim=/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.cache/compile_simlib/modelsim} {questa=/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.cache/compile_simlib/questa} {ies=/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.cache/compile_simlib/ies} {vcs=/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.cache/compile_simlib/vcs} {riviera=/home/joterom/workspace/OctaveSax/Vivado/octave_main/octave_main.cache/compile_simlib/riviera}] -use_ip_compiled_libs -force -quiet
-WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
-WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
-WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
-WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210292AA76C7A
+ERROR: [Labtools 27-2269] No devices detected on target localhost:3121/xilinx_tcf/Digilent/210292AA76C7A.
+Check cable connectivity and that the target board is powered up then
+use the disconnect_hw_server and connect_hw_server to re-register this hardware target.
+ERROR: [Common 17-39] 'open_hw_target' failed due to earlier errors.
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/impl_1/fsm_global.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+close_hw
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
 exit
-INFO: [Common 17-206] Exiting Vivado at Wed Apr 24 16:58:17 2019...
+INFO: [Common 17-206] Exiting Vivado at Wed Apr 24 20:04:11 2019...
