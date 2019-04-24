@@ -1,0 +1,4 @@
+vhdl xil_defaultlib  \
+"../../../../octave_main.srcs/sources_1/ip/out_long_memo/out_long_memo_sim_netlist.vhdl" \
+
+nosort

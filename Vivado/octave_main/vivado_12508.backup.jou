@@ -1,0 +1,65 @@
+#-----------------------------------------------------------
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Fri Apr 19 11:29:24 2019
+# Process ID: 12508
+# Current directory: D:/UNI/TFG/OctaveSax/Vivado/octave_main
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent11016 D:\UNI\TFG\OctaveSax\Vivado\octave_main\octave_main.xpr
+# Log file: D:/UNI/TFG/OctaveSax/Vivado/octave_main/vivado.log
+# Journal file: D:/UNI/TFG/OctaveSax/Vivado/octave_main\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.xpr
+set_property is_enabled false [get_files  D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sources_1/ip/ram_memo/ram_memo.xci]
+launch_simulation
+open_wave_config D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sim_1/imports/octave_main/test.wcfg
+open_wave_config D:/UNI/TFG/OctaveSax/Vivado/octave_main/window_tb_behav.wcfg
+open_wave_config D:/UNI/TFG/OctaveSax/Vivado/octave_main/fft.wcfg
+source main_tb.tcl
+restart
+run 20 ms
+relaunch_sim
+restart
+run 20 ms
+relaunch_sim
+relaunch_sim
+restart
+relaunch_sim
+restart
+run 20 ms
+restart
+run 20 ms
+restart
+run 20 ms
+relaunch_sim
+restart
+run 20 ms
+relaunch_sim
+restart
+run 20 ms
+save_wave_config {D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.srcs/sim_1/imports/octave_main/test.wcfg}
+relaunch_sim
+restart
+run 20 ms
+relaunch_sim
+restart
+run 20 ms
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+wait_on_run synth_1
+close_sim
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+wait_on_run synth_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+wait_on_run impl_1
+open_hw
+connect_hw_server
+open_hw_target
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {D:/UNI/TFG/OctaveSax/Vivado/octave_main/octave_main.runs/impl_1/fsm_global.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
