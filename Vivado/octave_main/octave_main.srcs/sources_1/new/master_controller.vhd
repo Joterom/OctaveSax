@@ -94,12 +94,16 @@ architecture Behavioral of master_controller is
         reset : in STD_LOGIC;
         start_proc : in STD_LOGIC;
         sample_in : in SIGNED (sample_size - 1 downto 0);
-        memo_address : in STD_LOGIC_VECTOR (10 downto 0);
-        rw : in STD_LOGIC;
+        write_address : in STD_LOGIC_VECTOR (10 downto 0);
+        read_address : in STD_LOGIC_VECTOR (10 downto 0);
+        reading : in STD_LOGIC;
+        writing : in STD_LOGIC;
         end_proc : out STD_LOGIC;
-        memo_event : out STD_LOGIC;
+        event_write : out STD_LOGIC;
+        event_read : out STD_LOGIC;
         out_rdy : out STD_LOGIC;
-        use_mem : out UNSIGNED (1 downto 0);
+        memw : out UNSIGNED (1 downto 0);
+        memr : out UNSIGNED (1 downto 0);
         samp_out : out SIGNED (sample_size - 1 downto 0)
     ); end component;
 
@@ -130,11 +134,11 @@ architecture Behavioral of master_controller is
     signal address_inmemo, address_inmemo_next : STD_LOGIC_VECTOR (8 downto 0) := (others => '0');
     signal output_read, output_read_next : UNSIGNED (1 downto 0) := "00";
     -- Output memo
-    signal start_proc_outmemo, start_proc_outmemo_next, rw_outmemo, rw_outmemo_next, end_proc_outmemo, out_ready_outmemo
-           , memo_event_outmemo : STD_LOGIC := '0';
-    signal sample_in_outmemo, sample_in_outmemo_next, samp_out_outmemo: SIGNED (sample_size - 1 downto 0) := (others => '0');
-    signal use_mem_outmemo : UNSIGNED (1 downto 0) := "00";
-    signal address_outmemo, address_outmemo_next : STD_LOGIC_VECTOR (10 downto 0) := (others => '0');
+    signal start_proc_outmemo, start_proc_outmemo_next, end_proc_outmemo, out_rdy_outmemo
+           , ev_r_outmemo, ev_w_outmemo, read_outmemo, read_outmemo_next, wr_outmemo, wr_outmemo_next : STD_LOGIC := '0';
+    signal sample_in_outmemo, sample_in_outmemo_next, sample_out_outmemo: SIGNED (sample_size - 1 downto 0) := (others => '0');
+    signal mem_re_outmemo, mem_wr_outmemo : UNSIGNED (1 downto 0) := "00";
+    signal wa_outmemo, wa_outmemo_next, ra_outmemo, ra_outmemo_next : STD_LOGIC_VECTOR (10 downto 0) := (others => '0');
     -- Control signals
     signal control_sampling : STD_LOGIC_VECTOR (2 downto 0);
     signal event_read, event_write, event_new_frame : STD_LOGIC;
@@ -144,17 +148,8 @@ architecture Behavioral of master_controller is
     signal sample_number, sample_number_next : STD_LOGIC_VECTOR (8 downto 0);
     signal stage, win_stage, win_stage_next : STD_LOGIC_VECTOR (1 downto 0) := "00";
     signal winbuf0, winbuf0n, winbuf1, winbuf1n, winbuf2, winbuf2n, winbuf3, winbuf3n : SIGNED (sample_size - 1 downto 0) := (others => '0');
-    -- Load FFT module signals
-    --signal load_address0, load_address0_next, load_address2, load_address2_next : STD_LOGIC_VECTOR (9 downto 0) := (others => '0');
-    --signal load_address1, load_address1_next, load_address3, load_address3_next : STD_LOGIC_VECTOR (9 downto 0) := "1000000000";
---    signal start_load0, start_load0_next, start_load1, start_load1_next, start_load2, start_load2_next, start_load3
---           , start_load3_next : STD_LOGIC := '0';
---    signal fft_input, fft_input_next, fft_output : SIGNED (15 downto 0) := (others => '0');
---    signal use_buffer_fft, use_buffer_fft_load, use_buffer_fft_load_next, use_buffer_fft_unload
---           , use_buffer_fft_unload_next : STD_LOGIC_VECTOR (1 downto 0) := "00";
---    signal cont_sample_freq, cont_sample_freq_next, req_sample_freq, req_sample_freq_next, req_sample_ready_freq : STD_LOGIC := '0';
     -- FSM State signals 
-    type input_fsm_t is (IDLE, WRITE_INPUT, WRITE_ODD, LOAD_FFT_EVEN, LOAD_FFT_ODD, READ_OUTPUT, READ_ODD, READ_SUM);   
+    type input_fsm_t is (IDLE, WRITE_INPUT, LOAD_FREQ, UNLOAD_FREQ, READ_OUTPUT, READ_SUM);   
     signal input_state : input_fsm_t := IDLE;
     signal input_fsm : STD_LOGIC_VECTOR (2 downto 0) := "000";
     signal control_signals : STD_LOGIC_VECTOR (0 downto 0) := "0";
@@ -187,7 +182,7 @@ begin
         reset => reset,
         start_proc => start_proc_inmemo,
         sample_in => sample_in_inmemo,
-        memo_address => address_inmemo, --MIRAR LAS DIRECCIONES
+        memo_address => address_inmemo,
         rw => rw_inmemo,
         end_proc => end_proc_inmemo,
         memo_event => memo_event_inmemo,
@@ -197,17 +192,21 @@ begin
     );
     
     OUTPUT_MEMO : man_out_memo port map(
-        clk => clk_100MHz,
-        reset => reset,
-        start_proc => start_proc_outmemo,
+        clk => clk_100MHz, --
+        reset => reset, --
+        start_proc => start_proc_outmemo, --
         sample_in => sample_in_outmemo,
-        memo_address => address_outmemo,
-        rw => rw_outmemo,
-        end_proc => end_proc_outmemo,
-        memo_event => memo_event_outmemo,
-        out_rdy => out_ready_outmemo,
-        use_mem => use_mem_outmemo,
-        samp_out => samp_out_outmemo
+        write_address => wa_outmemo,
+        read_address => ra_outmemo,
+        reading => read_outmemo, --
+        writing => wr_outmemo, --
+        end_proc => end_proc_outmemo, --
+        event_write => ev_w_outmemo, --
+        event_read => ev_r_outmemo, --
+        out_rdy => out_rdy_outmemo, --
+        memw => mem_wr_outmemo, --
+        memr => mem_re_outmemo, 
+        samp_out => sample_out_outmemo
     );
     
     WIN1 : window_controller port map(
@@ -272,19 +271,6 @@ begin
                 read_buffer3 <= (others => '0');
                 start_reading <= '0';
                 -- FFT
-                --load_address0 <= (others => '0');
-                --load_address1 <= "1000000000";
-                --load_address2 <= (others => '0');
-                --load_address3 <= "1000000000";
---                start_load0 <= '0';
---                start_load1 <= '0';
---                start_load2 <= '0';
---                start_load3 <= '0';
---                fft_input <= (others => '0');
---                use_buffer_fft_load <= "00";
---                use_buffer_fft_unload <= "00";
---                cont_sample_freq <= '0';
---                req_sample_freq <= '0';
                 winbuf0 <= (others => '0');
                 winbuf1 <= (others => '0');
                 winbuf2 <= (others => '0');
@@ -296,8 +282,10 @@ begin
                 output_read <= "00";
                 start_proc_outmemo <= '0';
                 sample_in_outmemo <= (others => '0');
-                address_outmemo <= (others => '0');
-                rw_outmemo <= '0';
+                wa_outmemo <= (others => '0');
+                ra_outmemo <= (others => '0');
+                read_outmemo <= '0';
+                wr_outmemo <= '0';
             elsif rising_edge(clk_100MHz) then                
                 output_sample <= output_sample_next;
                 DATA_OUTr <= DATA_OUTn;
@@ -337,19 +325,6 @@ begin
                 read_buffer3 <= read_buffer3_next;
                 start_reading <= start_reading_next;
                 -- FFT
-                --load_address0 <= load_address0_next;
-                --load_address1 <= load_address1_next;
-                --load_address2 <= load_address2_next;
-                --load_address3 <= load_address3_next;
---                start_load0 <= start_load0_next;
---                start_load1 <= start_load1_next;
---                start_load2 <= start_load2_next;
---                start_load3 <= start_load3_next;
---                fft_input <= fft_input_next;
---                use_buffer_fft_load <= use_buffer_fft_load_next;
---                use_buffer_fft_unload <= use_buffer_fft_unload_next;
---                cont_sample_freq <= cont_sample_freq_next;
---                req_sample_freq <= req_sample_freq_next;
                 winbuf0 <= winbuf0n;
                 winbuf1 <= winbuf1n;
                 winbuf2 <= winbuf2n;
@@ -361,8 +336,10 @@ begin
                 output_read <= output_read_next;
                 start_proc_outmemo <= start_proc_outmemo_next;
                 sample_in_outmemo <= sample_in_outmemo_next;
-                address_outmemo <= address_outmemo_next;
-                rw_outmemo <= rw_outmemo_next;
+                wa_outmemo <= wa_outmemo_next;
+                ra_outmemo <= ra_outmemo_next;
+                read_outmemo <= read_outmemo_next;
+                wr_outmemo <= wr_outmemo_next;
             end if;           
     end process;         
     -- Uses wrting fsm state to generate its control signals and counters
@@ -376,7 +353,8 @@ begin
                                       , read_buffer0, read_buffer1, read_buffer2, read_buffer3, output_sample, use_mem_inmemo, start_buffer1
                                       , start_buffer2, start_buffer3, start_buffer1r, start_buffer2r, start_buffer3r, address_buf0r
                                       , address_buf1r, address_buf2r, address_buf3r, counter_buf0r, counter_buf1r, counter_buf2r
-                                      , counter_buf3r, rw_outmemo, memo_event_outmemo, out_ready_outmemo, use_mem_outmemo, address_outmemo, sample_in_outmemo)
+                                      , counter_buf3r, read_outmemo, wr_outmemo, ev_r_outmemo, out_rdy_outmemo, mem_re_outmemo, wa_outmemo
+                                      , sample_in_outmemo, mem_wr_outmemo, ev_w_outmemo)
             begin 
                 -- Default
                 for_inv_next <= for_inv;
@@ -390,12 +368,10 @@ begin
                 address_inmemo_next <= address_inmemo;
                 sample_in_inmemo_next <= sample_in_inmemo;
                 start_proc_inmemo_next <= '0';
-                address_outmemo_next <= address_outmemo;
                 sample_in_outmemo_next <= sample_in_outmemo;
                 start_proc_outmemo_next <= '0';
                 multiplicand_next <= multiplicand;
                 rw_inmemo_next <= rw_inmemo;
-                rw_outmemo_next <= rw_outmemo;
                 output_read_next <= output_read;
                 read_buffer0_next <= read_buffer0;
                 read_buffer1_next <= read_buffer1;
@@ -684,9 +660,6 @@ begin
                     end case;
             end if;
     end process;      
---    use_buffer_fft <= use_buffer_fft_load when input_state = LOAD_FFT_EVEN else
---                      use_buffer_fft_load when input_state = LOAD_FFT_ODD else
---                      use_buffer_fft_unload;
     -- Generates enable signal used by the shift-register
     enable_shift_next <= '1' when (frame_number >= std_logic_vector(to_unsigned(1, 5)) and frame_number <= std_logic_vector(to_unsigned(sample_size, 5)) 
                                     and LR_W_SEL = '0') else                         
@@ -706,6 +679,8 @@ begin
         WRITE_INPUT when "001",
         READ_OUTPUT when "010",
         READ_SUM when "011",
+        LOAD_FREQ when "101",
+        UNLOAD_FREQ when "111" ,
         IDLE when others;        
     -- Output signals assignment
     MCLK_ADC <= MCLK;

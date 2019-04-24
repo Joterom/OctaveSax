@@ -1,68 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="impl_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1555755266">
-  <File Type="PWROPT-DCP" Name="fsm_global_pwropt.dcp"/>
-  <File Type="ROUTE-PWR" Name="fsm_global_power_routed.rpt"/>
-  <File Type="PA-TCL" Name="fsm_global.tcl"/>
-  <File Type="ROUTE-PWR-SUM" Name="fsm_global_power_summary_routed.pb"/>
-  <File Type="REPORTS-TCL" Name="fsm_global_reports.tcl"/>
-  <File Type="BG-DRC" Name="fsm_global.drc"/>
-  <File Type="OPT-METHODOLOGY-DRC" Name="fsm_global_methodology_drc_opted.rpt"/>
-  <File Type="INIT-TIMING" Name="fsm_global_timing_summary_init.rpt"/>
-  <File Type="OPT-HWDEF" Name="fsm_global.hwdef"/>
-  <File Type="OPT-DCP" Name="fsm_global_opt.dcp"/>
-  <File Type="OPT-DRC" Name="fsm_global_drc_opted.rpt"/>
-  <File Type="OPT-TIMING" Name="fsm_global_timing_summary_opted.rpt"/>
-  <File Type="PWROPT-DRC" Name="fsm_global_drc_pwropted.rpt"/>
-  <File Type="PWROPT-TIMING" Name="fsm_global_timing_summary_pwropted.rpt"/>
-  <File Type="PLACE-DCP" Name="fsm_global_placed.dcp"/>
+  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
+  <File Type="BITSTR-SYSDEF" Name="fsm_global.sysdef"/>
+  <File Type="BITSTR-LTX" Name="fsm_global.ltx"/>
+  <File Type="BITSTR-MMI" Name="fsm_global.mmi"/>
+  <File Type="BITSTR-BMM" Name="fsm_global_bd.bmm"/>
+  <File Type="BITSTR-NKY" Name="fsm_global.nky"/>
+  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="fsm_global_postroute_physopt_bb.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-DCP" Name="fsm_global_postroute_physopt.dcp"/>
+  <File Type="ROUTE-CLK" Name="fsm_global_clock_utilization_routed.rpt"/>
+  <File Type="ROUTE-TIMING-RPX" Name="fsm_global_timing_summary_routed.rpx"/>
+  <File Type="ROUTE-TIMING-PB" Name="fsm_global_timing_summary_routed.pb"/>
+  <File Type="ROUTE-TIMINGSUMMARY" Name="fsm_global_timing_summary_routed.rpt"/>
+  <File Type="ROUTE-STATUS-PB" Name="fsm_global_route_status.pb"/>
+  <File Type="ROUTE-STATUS" Name="fsm_global_route_status.rpt"/>
+  <File Type="ROUTE-PWR-RPX" Name="fsm_global_power_routed.rpx"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="fsm_global_methodology_drc_routed.pb"/>
+  <File Type="BG-BIN" Name="fsm_global.bin"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="fsm_global_methodology_drc_routed.rpx"/>
+  <File Type="BITSTR-RBT" Name="fsm_global.rbt"/>
+  <File Type="ROUTE-METHODOLOGY-DRC" Name="fsm_global_methodology_drc_routed.rpt"/>
+  <File Type="BG-BGN" Name="fsm_global.bgn"/>
   <File Type="PLACE-IO" Name="fsm_global_io_placed.rpt"/>
-  <File Type="PLACE-CLK" Name="fsm_global_clock_utilization_placed.rpt"/>
+  <File Type="RDI-RDI" Name="fsm_global.vdi"/>
+  <File Type="OPT-HWDEF" Name="fsm_global.hwdef"/>
+  <File Type="OPT-DRC" Name="fsm_global_drc_opted.rpt"/>
+  <File Type="OPT-DCP" Name="fsm_global_opt.dcp"/>
+  <File Type="PLACE-PRE-SIMILARITY" Name="fsm_global_incremental_reuse_pre_placed.rpt"/>
+  <File Type="ROUTE-PWR" Name="fsm_global_power_routed.rpt"/>
+  <File Type="ROUTE-DRC-RPX" Name="fsm_global_drc_routed.rpx"/>
+  <File Type="REPORTS-TCL" Name="fsm_global_reports.tcl"/>
+  <File Type="PWROPT-DCP" Name="fsm_global_pwropt.dcp"/>
+  <File Type="ROUTE-PWR-SUM" Name="fsm_global_power_summary_routed.pb"/>
+  <File Type="PLACE-DCP" Name="fsm_global_placed.dcp"/>
+  <File Type="PA-TCL" Name="fsm_global.tcl"/>
+  <File Type="BITSTR-MSK" Name="fsm_global.msk"/>
+  <File Type="BG-DRC" Name="fsm_global.drc"/>
+  <File Type="ROUTE-ERROR-DCP" Name="fsm_global_routed_error.dcp"/>
   <File Type="PLACE-UTIL" Name="fsm_global_utilization_placed.rpt"/>
   <File Type="PLACE-UTIL-PB" Name="fsm_global_utilization_placed.pb"/>
   <File Type="PLACE-CTRL" Name="fsm_global_control_sets_placed.rpt"/>
-  <File Type="PLACE-SIMILARITY" Name="fsm_global_incremental_reuse_placed.rpt"/>
-  <File Type="PLACE-PRE-SIMILARITY" Name="fsm_global_incremental_reuse_pre_placed.rpt"/>
-  <File Type="PLACE-TIMING" Name="fsm_global_timing_summary_placed.rpt"/>
   <File Type="POSTPLACE-PWROPT-DCP" Name="fsm_global_postplace_pwropt.dcp"/>
-  <File Type="POSTPLACE-PWROPT-TIMING" Name="fsm_global_timing_summary_postplace_pwropted.rpt"/>
   <File Type="PHYSOPT-DCP" Name="fsm_global_physopt.dcp"/>
-  <File Type="PHYSOPT-DRC" Name="fsm_global_drc_physopted.rpt"/>
   <File Type="BG-BIT" Name="fsm_global.bit"/>
-  <File Type="PHYSOPT-TIMING" Name="fsm_global_timing_summary_physopted.rpt"/>
-  <File Type="ROUTE-ERROR-DCP" Name="fsm_global_routed_error.dcp"/>
   <File Type="ROUTE-DCP" Name="fsm_global_routed.dcp"/>
   <File Type="ROUTE-BLACKBOX-DCP" Name="fsm_global_routed_bb.dcp"/>
   <File Type="ROUTE-DRC" Name="fsm_global_drc_routed.rpt"/>
   <File Type="ROUTE-DRC-PB" Name="fsm_global_drc_routed.pb"/>
-  <File Type="BITSTR-MSK" Name="fsm_global.msk"/>
-  <File Type="ROUTE-DRC-RPX" Name="fsm_global_drc_routed.rpx"/>
-  <File Type="BG-BGN" Name="fsm_global.bgn"/>
-  <File Type="ROUTE-METHODOLOGY-DRC" Name="fsm_global_methodology_drc_routed.rpt"/>
-  <File Type="BITSTR-RBT" Name="fsm_global.rbt"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="fsm_global_methodology_drc_routed.rpx"/>
-  <File Type="BG-BIN" Name="fsm_global.bin"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="fsm_global_methodology_drc_routed.pb"/>
-  <File Type="ROUTE-PWR-RPX" Name="fsm_global_power_routed.rpx"/>
-  <File Type="ROUTE-STATUS" Name="fsm_global_route_status.rpt"/>
-  <File Type="ROUTE-STATUS-PB" Name="fsm_global_route_status.pb"/>
-  <File Type="ROUTE-TIMINGSUMMARY" Name="fsm_global_timing_summary_routed.rpt"/>
-  <File Type="ROUTE-TIMING-PB" Name="fsm_global_timing_summary_routed.pb"/>
-  <File Type="ROUTE-TIMING-RPX" Name="fsm_global_timing_summary_routed.rpx"/>
-  <File Type="ROUTE-SIMILARITY" Name="fsm_global_incremental_reuse_routed.rpt"/>
-  <File Type="RDI-RDI" Name="fsm_global.vdi"/>
-  <File Type="ROUTE-CLK" Name="fsm_global_clock_utilization_routed.rpt"/>
-  <File Type="POSTROUTE-PHYSOPT-DCP" Name="fsm_global_postroute_physopt.dcp"/>
-  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="fsm_global_postroute_physopt_bb.dcp"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="fsm_global_timing_summary_postroute_physopted.rpt"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="fsm_global_timing_summary_postroute_physopted.pb"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="fsm_global_timing_summary_postroute_physopted.rpx"/>
-  <File Type="BITSTR-NKY" Name="fsm_global.nky"/>
-  <File Type="BITSTR-BMM" Name="fsm_global_bd.bmm"/>
-  <File Type="BITSTR-MMI" Name="fsm_global.mmi"/>
-  <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
-  <File Type="BITSTR-LTX" Name="fsm_global.ltx"/>
-  <File Type="BITSTR-SYSDEF" Name="fsm_global.sysdef"/>
-  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/project_trunk.vhd">
@@ -200,7 +184,7 @@
     <Step Id="post_route_phys_opt_design"/>
     <Step Id="write_bitstream"/>
   </Strategy>
+  <BlockFileSet Type="BlockSrcs" Name="freq_short_memo"/>
   <BlockFileSet Type="BlockSrcs" Name="clk_generator"/>
   <BlockFileSet Type="BlockSrcs" Name="out_long_memo"/>
-  <BlockFileSet Type="BlockSrcs" Name="freq_short_memo"/>
 </GenRun>

@@ -14,9 +14,9 @@ package project_trunk is
     -- Cicle in which input sample is read and written into buffer 1
     constant write_input_cicle : STD_LOGIC_VECTOR (4 downto 0) := std_logic_vector(to_unsigned(20,5));
     -- Cicle in which input sample is read and written into buffer 2
-    --constant write_odd_cicle : STD_LOGIC_VECTOR (4 downto 0) := std_logic_vector(to_unsigned(21,5));
+    constant load_freq_cicle : STD_LOGIC_VECTOR (4 downto 0) := std_logic_vector(to_unsigned(22,5));
     -- Cicle in which data is read from memory 1 and transferred to output buffer
-    --constant read_even_cicle : STD_LOGIC_VECTOR (4 downto 0) := std_logic_vector(to_unsigned(29,5));
+    constant unload_freq_cicle : STD_LOGIC_VECTOR (4 downto 0) := std_logic_vector(to_unsigned(24,5));
     -- Cicle in which data is read from memory 2 and transferred to output buffer
     constant read_output_cicle : STD_LOGIC_VECTOR (4 downto 0) := std_logic_vector(to_unsigned(30,5));
     -- Cicle just to wait

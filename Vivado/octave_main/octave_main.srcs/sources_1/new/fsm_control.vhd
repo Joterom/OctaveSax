@@ -24,7 +24,7 @@ architecture Behavioral of fsm_control is
     --type buffer_fsm_t is (BUFFER1, BUFFER2, SOLAPA_INI, SOLAPA_FIN, REST);   
     --signal buf_fsm_w_state, buf_fsm_w_state_next : buffer_fsm_t := BUFFER1;  
     --signal buf_fsm_r_state, buf_fsm_r_state_next : buffer_fsm_t := REST;
-    type memo_fsm_t is (IDLE, WRITE_INPUT, READ_OUTPUT, READ_SUM);   
+    type memo_fsm_t is (IDLE, WRITE_INPUT, READ_OUTPUT, READ_SUM, LOAD_FREQ, UNLOAD_FREQ);   
     signal input_fsm_state, input_fsm_state_next : memo_fsm_t := IDLE;
     --Control
     signal LR_W_SEL, event_new_frame, start_reading : STD_LOGIC := '0';
@@ -49,6 +49,16 @@ begin
                         if frame_number = std_logic_vector(unsigned(write_input_cicle) + 1) then
                             input_fsm_state_next <= IDLE;
                         end if;
+                    
+                    when LOAD_FREQ =>
+                        if frame_number = std_logic_vector(unsigned(load_freq_cicle) + 1) then
+                            input_fsm_state_next <= IDLE;
+                        end if;
+                        
+                    when UNLOAD_FREQ =>
+                        if frame_number = std_logic_vector(unsigned(unload_freq_cicle) + 1) then
+                            input_fsm_state_next <= IDLE;
+                        end if;
                                                 
                     when READ_OUTPUT =>           
                         if frame_number = std_logic_vector(unsigned(read_output_cicle) + 1) then
@@ -64,6 +74,10 @@ begin
                         if LR_W_SEL = '0' then
                             if frame_number = write_input_cicle then
                                 input_fsm_state_next <= WRITE_INPUT;
+                            elsif frame_number = load_freq_cicle then
+                                input_fsm_state_next <= LOAD_FREQ;
+                            elsif frame_number = unload_freq_cicle then
+                                input_fsm_state_next <= UNLOAD_FREQ;
                             elsif frame_number = read_output_cicle then
                                 if start_output = '1' then
                                     input_fsm_state_next <= READ_OUTPUT;
@@ -83,6 +97,8 @@ begin
         "001" when WRITE_INPUT,
         "010" when READ_OUTPUT,
         "011" when READ_SUM,
+        "101" when LOAD_FREQ,
+        "111" when UNLOAD_FREQ,
         "000" when others;
     
 end Behavioral;
