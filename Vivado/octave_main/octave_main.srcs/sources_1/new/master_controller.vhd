@@ -104,6 +104,21 @@ architecture Behavioral of master_controller is
         memr : out UNSIGNED (1 downto 0);
         samp_out : out SIGNED (sample_size - 1 downto 0)
     ); end component;
+    
+    component freq_dom_controller port(
+        clk : in STD_LOGIC;
+        reset : in STD_LOGIC;
+        state : in STD_LOGIC_VECTOR (2 downto 0);
+        add_req : in STD_LOGIC; -- Cuando requiere una direccion -> event_write
+        load_even : in STD_LOGIC; -- Cuando tiene que cargar en la memoria par
+        load_odd : in STD_LOGIC; -- Cuando tiene que cargar en la memoria impar
+        even_mem : in STD_LOGIC; -- 0 para la memoria 0 y 1 para la 2
+        odd_mem : in STD_LOGIC; -- 0 para la memoria 1 y 1 para la 3
+        end_load_even : out STD_LOGIC;
+        end_load_odd : out STD_LOGIC;
+        load_add_even : out STD_LOGIC_VECTOR (10 downto 0);
+        load_add_odd : out STD_LOGIC_VECTOR (10 downto 0)
+    ); end component;
 
     -- Signal declaration                          
     signal frame_number : STD_LOGIC_VECTOR (4 downto 0) := (others => '0');
@@ -151,6 +166,8 @@ architecture Behavioral of master_controller is
     signal input_state : input_fsm_t := IDLE;
     signal input_fsm : STD_LOGIC_VECTOR (2 downto 0) := "000";
     signal control_signals : STD_LOGIC_VECTOR (0 downto 0) := "0";
+    -- Freq. dom signals
+    signal end_load_even, end_load_odd, even_mem, even_mem_nn, odd_mem, odd_mem_nn : STD_LOGIC := '0';
     
 begin  
 
@@ -223,7 +240,22 @@ begin
         control_signals => control_signals,
         start_output => start_output,
         input_fsm => input_fsm
-    );        
+    ); 
+    
+    FREQ : freq_dom_controller port map (
+        clk => clk_100MHz,
+        state => input_fsm,
+        reset => reset,
+        add_req => event_write,
+        load_even => load_even, -- Cuando tiene que cargar en la memoria par
+        load_odd => load_odd, -- Cuando tiene que cargar en la memoria impar
+        even_mem => even_mem, -- 0 para la memoria 0 y 1 para la 2
+        odd_mem => odd_mem, -- 0 para la memoria 1 y 1 para la 3
+        end_load_even => end_load_even,
+        end_load_odd => end_load_odd,
+        load_add_even => load_add_even,
+        load_add_odd => load_add_odd
+    );       
 
     -- Register logic
     process(clk_100MHz, reset)
@@ -283,6 +315,9 @@ begin
                 ra_outmemo <= (others => '0');
                 read_outmemo <= '0';
                 wr_outmemo <= '0';
+                -- Freq
+                even_mem <= '0';
+                odd_mem <= '0';
             elsif rising_edge(clk_100MHz) then                
                 output_sample <= output_sample_next;
                 DATA_OUTr <= DATA_OUTn;
@@ -338,6 +373,8 @@ begin
                 ra_outmemo <= ra_outmemo_next;
                 read_outmemo <= read_outmemo_next;
                 wr_outmemo <= wr_outmemo_next;
+                even_mem <= even_mem_nn;
+                odd_mem <= odd_mem_nn;
             end if;           
     end process;         
     -- Uses wrting fsm state to generate its control signals and counters
@@ -368,6 +405,7 @@ begin
                 start_proc_inmemo_next <= '0';
                 sample_in_outmemo_next <= sample_in_outmemo;
                 start_procw_outmemo_next <= '0';
+                start_procr_outmemo_next <= '0';
                 multiplicand_next <= multiplicand;
                 rw_inmemo_next <= rw_inmemo;
                 output_read_next <= output_read;
@@ -376,7 +414,7 @@ begin
                 read_buffer2_next <= read_buffer2;
                 read_buffer3_next <= read_buffer3;
                 output_read_next <= output_read;
-                output_sample_next <= output_sample;
+                output_sample_next <= output_sample;              
                 case input_state is                       
                     when WRITE_INPUT =>
                         for_inv_next <= '1';                       
@@ -425,8 +463,49 @@ begin
                         end if;
                     
                     when LOAD_FREQ => 
-                        if event_write = '1' then
-                        end if; 
+                        if event_read = '1' then
+                            start_proc_inmemo_next <= '1';
+                        elsif memo_event_inmemo = '1' then
+                            if use_mem_inmemo = "00" then
+                                address_inmemo_next <= address_buf0r;
+                            elsif use_mem_inmemo = "01" then
+                                address_inmemo_next <= address_buf1r;
+                            elsif use_mem_inmemo = "10" then
+                                address_inmemo_next <= address_buf2r;
+                            elsif use_mem_inmemo = "11" then
+                                address_inmemo_next <= address_buf3r;
+                            end if;
+                        end if;
+                        if out_ready_inmemo = '1' then
+                            if output_read = "00" then
+                                read_buffer0_next <= samp_out_inmemo;
+                                output_read_next <= output_read + 1;
+                            elsif output_read = "01" then
+                                read_buffer1_next <= samp_out_inmemo;
+                                output_read_next <= output_read + 1;
+                            elsif output_read = "10" then
+                                read_buffer2_next <= samp_out_inmemo;
+                                output_read_next <= output_read + 1;
+                            elsif output_read = "11" then
+                                read_buffer3_next <= samp_out_inmemo;
+                                output_read_next <= output_read + 1;                            
+                            end if;
+                        end if;
+--                        if ev_w_outmemo = '1' then
+--                            if mem_wr_outmemo = "00" then
+--                                address_inmemo_next <= address_buf0;
+--                                sample_in_inmemo_next <= winbuf0;
+--                            elsif mem_wr_outmemo = "01" and start_buffer1 = '1' then
+--                                address_inmemo_next <= address_buf1;
+--                                sample_in_inmemo_next <= winbuf1;
+--                            elsif mem_wr_outmemo = "10" and start_buffer2 = '1' then
+--                                address_inmemo_next <= address_buf2;
+--                                sample_in_inmemo_next <= winbuf2;
+--                            elsif mem_wr_outmemo = "11" and start_buffer3 = '1' then
+--                                address_inmemo_next <= address_buf3;
+--                                sample_in_inmemo_next <= winbuf3;
+--                            end if;
+--                        end if;
                          
                     when READ_OUTPUT => 
                         for_inv_next <= '0';    
@@ -661,7 +740,19 @@ begin
                         when others => DATA_OUTn <= '0';
                     end case;
             end if;
-    end process;      
+    end process;
+    
+    process(end_load_even, end_load_odd)
+        begin
+            even_mem_nn <= even_mem;
+            odd_mem_nn <= odd_mem;
+            if end_load_even = '1' then
+                even_mem_nn <= not even_mem;
+            end if;
+            if end_load_odd = '1' then
+                odd_mem_nn <= not odd_mem;
+            end if;
+    end process;
     -- Generates enable signal used by the shift-register
     enable_shift_next <= '1' when (frame_number >= std_logic_vector(to_unsigned(1, 5)) and frame_number <= std_logic_vector(to_unsigned(sample_size, 5)) 
                                     and LR_W_SEL = '0') else                         

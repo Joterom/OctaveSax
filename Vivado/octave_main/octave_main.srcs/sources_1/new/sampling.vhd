@@ -151,9 +151,9 @@ begin
                     control_next <= "001"; 
                 elsif frame_num = std_logic_vector(to_unsigned(25, 5)) and lr = '0' and sc = '0' then -- Constant defined at trunk, arbitrary
                     sample_in_ready_next <= '1';    
-                elsif frame_num = std_logic_vector(to_unsigned(20, 5)) and lr = '0' and sc = '0' then
+                elsif frame_num = std_logic_vector(to_unsigned(20, 5)) and sc = '0' then
                     control_next <= "010";
-                elsif frame_num = std_logic_vector(to_unsigned(22, 5)) and lr = '0' and sc = '0' then -- Constant defined at trunk, arbitrary
+                elsif frame_num = std_logic_vector(to_unsigned(22, 5)) and sc = '0' then -- Constant defined at trunk, arbitrary
                     sample_towrite_ready_next <= '1';   
                     control_next <= "010"; 
                 elsif frame_num = std_logic_vector(to_unsigned(29, 5)) and lr = '0' and sc = '0' then

@@ -87,6 +87,12 @@ begin
                                     input_fsm_state_next <= READ_SUM;
                                 end if;
                             end if;
+                        else
+                            if frame_number = load_freq_cicle then
+                                input_fsm_state_next <= LOAD_FREQ;
+                            elsif frame_number = unload_freq_cicle then
+                                input_fsm_state_next <= UNLOAD_FREQ;
+                            end if;
                         end if;
                 end case;
         end process;
