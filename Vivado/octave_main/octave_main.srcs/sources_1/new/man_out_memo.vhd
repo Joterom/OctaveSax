@@ -216,7 +216,8 @@ begin
                end if;
        end process;
     
-    read_logic : process (sample_out, memro, read_address, enb0, enb1, enb2, enb3, adr0, adr1, adr2, adr3, cont_r)
+    read_logic : process (sample_out, memro, read_address, enb0, enb1, enb2, enb3, adr0, adr1, adr2, adr3, cont_r, douta0
+                          , douta1, douta2, douta3)
         begin
             adr0_next <= adr0;
             adr1_next <= adr1;
@@ -273,7 +274,7 @@ begin
             when "1111" => --15
                 out_rdy_next <= '1';
                 sample_out_next <= signed(douta3);   
-                event_write_next <= '0';            
+                event_read_next <= '0';            
             when others =>
             end case;                  
     end process;

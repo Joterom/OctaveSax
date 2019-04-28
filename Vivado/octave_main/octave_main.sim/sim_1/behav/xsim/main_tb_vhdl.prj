@@ -1,6 +1,8 @@
 # compile vhdl design source files
 vhdl xil_defaultlib  \
 "../../../../octave_main.srcs/sources_1/ip/clk_generator/clk_generator_sim_netlist.vhdl" \
+"../../../../octave_main.srcs/sources_1/ip/FFT_transform/sim/FFT_transform.vhd" \
+"../../../../octave_main.srcs/sources_1/ip/FFT_transform/demo_tb/tb_FFT_transform.vhd" \
 "../../../../octave_main.srcs/sources_1/ip/freq_short_memo/freq_short_memo_sim_netlist.vhdl" \
 "../../../../octave_main.srcs/sources_1/ip/out_long_memo/out_long_memo_sim_netlist.vhdl" \
 "../../../../octave_main.srcs/sources_1/new/project_trunk.vhd" \
@@ -14,7 +16,7 @@ vhdl xil_defaultlib  \
 "../../../../octave_main.srcs/sources_1/new/window_controller.vhd" \
 "../../../../octave_main.srcs/sources_1/new/fsm_global.vhd" \
 "../../../../octave_main.srcs/sources_1/new/fsm_control.vhd" \
-"../../../../octave_main.srcs/sources_1/new/freq_dom_controller.vhd" \
+"../../../../octave_main.srcs/sources_1/new/transform_controller.vhd" \
 "../../../../octave_main.srcs/sources_1/new/manager_memo.vhd" \
 "../../../../octave_main.srcs/sources_1/new/man_out_memo.vhd" \
 "../../../../octave_main.srcs/sim_1/new/main_tb.vhd" \

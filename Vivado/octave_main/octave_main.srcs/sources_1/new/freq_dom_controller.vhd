@@ -19,8 +19,8 @@ entity freq_dom_controller is
     odd_mem : in STD_LOGIC; -- 0 para la memoria 1 y 1 para la 3
     end_load_even : out STD_LOGIC;
     end_load_odd : out STD_LOGIC;
-    load_add_even : out STD_LOGIC_VECTOR (10 downto 0);
-    load_add_odd : out STD_LOGIC_VECTOR (10 downto 0)    
+    load_add_even : out STD_LOGIC_VECTOR (8 downto 0);
+    load_add_odd : out STD_LOGIC_VECTOR (8 downto 0)    
   );
 end freq_dom_controller;
 

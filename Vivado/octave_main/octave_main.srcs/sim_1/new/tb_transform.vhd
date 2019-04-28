@@ -6,99 +6,61 @@ entity tb_transform is
 end tb_transform;
 
 architecture Behavioral of tb_transform is
-    component FFT_transform port (
-        aclk : IN STD_LOGIC;
-        aclken : IN STD_LOGIC;
-        s_axis_config_tdata : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-        s_axis_config_tvalid : IN STD_LOGIC;
-        s_axis_config_tready : OUT STD_LOGIC;
-        s_axis_data_tdata : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-        s_axis_data_tvalid : IN STD_LOGIC;
-        s_axis_data_tready : OUT STD_LOGIC;
-        s_axis_data_tlast : IN STD_LOGIC;
-        m_axis_data_tdata : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-        m_axis_data_tuser : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-        m_axis_data_tvalid : OUT STD_LOGIC;
-        m_axis_data_tready : IN STD_LOGIC;
-        m_axis_data_tlast : OUT STD_LOGIC;
-        event_frame_started : OUT STD_LOGIC;
-        event_tlast_unexpected : OUT STD_LOGIC;
-        event_tlast_missing : OUT STD_LOGIC;
-        event_status_channel_halt : OUT STD_LOGIC;
-        event_data_in_channel_halt : OUT STD_LOGIC;
-        event_data_out_channel_halt : OUT STD_LOGIC
+    
+    component transform_controller port (
+        clk : in STD_LOGIC;
+        reset : in STD_LOGIC;
+        enable_fft : in STD_LOGIC;
+        start_proc_fft : in STD_LOGIC;
+        input_ready : in STD_LOGIC;
+        data_in : in STD_LOGIC_VECTOR (15 downto 0)
+        --data_out_for_re : out STD_LOGIC_VECTOR (15 downto 0);
+        --data_out_for_im : out STD_LOGIC_VECTOR (15 downto 0)
     ); end component;
-       
-    signal clk, enable_fft : STD_LOGIC;
-    signal event_frame_started, event_tlast_unexpected, event_tlast_missing, event_status_channel_halt, event_data_in_channel_halt
-           , event_data_out_channel_halt, config_tvalid, config_tready, input_tvalid, input_tready, input_tlast
-           , output_tvalid, output_tready, output_tlast : STD_LOGIC := '0';
-    signal config_data, output_user, im_in, re_in, re_out, im_out : STD_LOGIC_VECTOR(15 DOWNTO 0) := (others => '0');
-    signal input_data, output_data : STD_LOGIC_VECTOR(31 DOWNTO 0);
+    
+    signal clk : STD_LOGIC := '1';   
+    signal enable_fft, reset, start_proc_fft, input_ready : STD_LOGIC := '0';
+    signal data_in : STD_LOGIC_VECTOR (15 downto 0) := (others => '0');
+    
 begin
     
-    FFT : FFT_transform port map (
-        aclk => clk,
-        aclken => enable_fft,
-        s_axis_config_tdata => config_data,
-        s_axis_config_tvalid => config_tvalid,
-        s_axis_config_tready => config_tready,
-        s_axis_data_tdata => input_data,
-        s_axis_data_tvalid => input_tvalid,
-        s_axis_data_tready => input_tready,
-        s_axis_data_tlast => input_tlast,
-        m_axis_data_tdata => output_data,
-        m_axis_data_tuser => output_user,
-        m_axis_data_tvalid => output_tvalid,
-        m_axis_data_tready => output_tready,
-        m_axis_data_tlast => output_tlast,
-        event_frame_started => event_frame_started,
-        event_tlast_unexpected => event_tlast_unexpected,
-        event_tlast_missing => event_tlast_missing,
-        event_status_channel_halt => event_status_channel_halt,
-        event_data_in_channel_halt => event_data_in_channel_halt,
-        event_data_out_channel_halt => event_data_out_channel_halt
+    FFT : transform_controller port map (
+        clk => clk,
+        reset => reset,
+        enable_fft => enable_fft,
+        start_proc_fft => start_proc_fft,
+        input_ready => input_ready,
+        data_in => data_in        
     );
     
     clk_gen : process
         begin
-            clk <= '1';
         wait for 5 ns;
             clk <= '0';
         wait for 5 ns;
+            clk <= '1';        
     end process;
     
     process
         begin
-            enable_fft <= '1';
-            re_in <= "0100000000000000";
-        wait for 25 ns;   
-            config_data <= "0000001100000001";
-            config_tvalid <= '1';
-        wait for 95 ns;
-            input_tvalid <= '1';
+        wait for 70 ns;
+            input_ready <= '1';
         wait for 10 ns;
-            --config_tvalid <= '0';
-            input_tvalid <= '0';
-            re_in <= "0010000000000000";
-            im_in <= "0000000000000000";   
-        wait for 20 ns;
-            input_tvalid <= '1';          
-        wait for 10 ns;
-            re_in <= "0000000000000000";
-            im_in <= "0000000000000000";
-        wait for 55 ns;
-            config_tvalid <= '0';
-        wait for 5075 ns;
-            input_tlast <= '1';
-        wait for 10 ns;
-            input_tlast <= '0';
-            input_tvalid <= '0';
-            output_tready <= '1';
-        wait;
+            input_ready <= '0';
+        wait for 20 us;
     end process;
     
-    re_out <= output_data(15 downto 0);
-    im_out <= output_data(31 downto 16);
-    input_data <= im_in & re_in;
+    process
+        begin
+            reset <= '0';
+            enable_fft <= '1';
+        wait for 60 ns;
+            start_proc_fft <= '1';
+        wait for 10 ns;
+            start_proc_fft <= '0';
+            data_in <= "0100000000000000";
+        wait for 70 ns;
+            data_in <= "0010000000000000";
+        wait;
+    end process;
 end Behavioral;

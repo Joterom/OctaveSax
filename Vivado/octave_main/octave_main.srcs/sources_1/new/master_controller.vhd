@@ -116,8 +116,8 @@ architecture Behavioral of master_controller is
         odd_mem : in STD_LOGIC; -- 0 para la memoria 1 y 1 para la 3
         end_load_even : out STD_LOGIC;
         end_load_odd : out STD_LOGIC;
-        load_add_even : out STD_LOGIC_VECTOR (10 downto 0);
-        load_add_odd : out STD_LOGIC_VECTOR (10 downto 0)
+        load_add_even : out STD_LOGIC_VECTOR (8 downto 0);
+        load_add_odd : out STD_LOGIC_VECTOR (8 downto 0)
     ); end component;
 
     -- Signal declaration                          
@@ -168,6 +168,8 @@ architecture Behavioral of master_controller is
     signal control_signals : STD_LOGIC_VECTOR (0 downto 0) := "0";
     -- Freq. dom signals
     signal end_load_even, end_load_odd, even_mem, even_mem_nn, odd_mem, odd_mem_nn : STD_LOGIC := '0';
+    signal load_even, load_odd : STD_LOGIC; -- OJOOO
+    signal load_add_even, load_add_odd : STD_LOGIC_VECTOR (8 downto 0);
     
 begin  
 
@@ -179,7 +181,7 @@ begin
         sample_in_ready => sample_in_ready,
         sample_towrite_ready => sample_towrite_ready,
         control => control_sampling,   
-        MCLK => MCLK,
+        MCLK => MCLK, 
         SCLK => SCLK,        
         LR_W_SEL => LR_W_SEL        
     );
@@ -242,20 +244,20 @@ begin
         input_fsm => input_fsm
     ); 
     
-    FREQ : freq_dom_controller port map (
-        clk => clk_100MHz,
-        state => input_fsm,
-        reset => reset,
-        add_req => event_write,
-        load_even => load_even, -- Cuando tiene que cargar en la memoria par
-        load_odd => load_odd, -- Cuando tiene que cargar en la memoria impar
-        even_mem => even_mem, -- 0 para la memoria 0 y 1 para la 2
-        odd_mem => odd_mem, -- 0 para la memoria 1 y 1 para la 3
-        end_load_even => end_load_even,
-        end_load_odd => end_load_odd,
-        load_add_even => load_add_even,
-        load_add_odd => load_add_odd
-    );       
+--    FREQ : freq_dom_controller port map (
+--        clk => clk_100MHz,
+--        state => input_fsm,
+--        reset => reset,
+--        add_req => event_write,
+--        load_even => load_even, -- Cuando tiene que cargar en la memoria par
+--        load_odd => load_odd, -- Cuando tiene que cargar en la memoria impar
+--        even_mem => even_mem, -- 0 para la memoria 0 y 1 para la 2
+--        odd_mem => odd_mem, -- 0 para la memoria 1 y 1 para la 3
+--        end_load_even => end_load_even,
+--        end_load_odd => end_load_odd,
+--        load_add_even => load_add_even,
+--        load_add_odd => load_add_odd
+--    );       
 
     -- Register logic
     process(clk_100MHz, reset)
@@ -462,35 +464,35 @@ begin
                             end if;
                         end if;
                     
-                    when LOAD_FREQ => 
-                        if event_read = '1' then
-                            start_proc_inmemo_next <= '1';
-                        elsif memo_event_inmemo = '1' then
-                            if use_mem_inmemo = "00" then
-                                address_inmemo_next <= address_buf0r;
-                            elsif use_mem_inmemo = "01" then
-                                address_inmemo_next <= address_buf1r;
-                            elsif use_mem_inmemo = "10" then
-                                address_inmemo_next <= address_buf2r;
-                            elsif use_mem_inmemo = "11" then
-                                address_inmemo_next <= address_buf3r;
-                            end if;
-                        end if;
-                        if out_ready_inmemo = '1' then
-                            if output_read = "00" then
-                                read_buffer0_next <= samp_out_inmemo;
-                                output_read_next <= output_read + 1;
-                            elsif output_read = "01" then
-                                read_buffer1_next <= samp_out_inmemo;
-                                output_read_next <= output_read + 1;
-                            elsif output_read = "10" then
-                                read_buffer2_next <= samp_out_inmemo;
-                                output_read_next <= output_read + 1;
-                            elsif output_read = "11" then
-                                read_buffer3_next <= samp_out_inmemo;
-                                output_read_next <= output_read + 1;                            
-                            end if;
-                        end if;
+--                    when LOAD_FREQ => 
+--                        if event_read = '1' then
+--                            start_proc_inmemo_next <= '1';
+--                        elsif memo_event_inmemo = '1' then
+--                            if use_mem_inmemo = "00" then
+--                                address_inmemo_next <= address_buf0r;
+--                            elsif use_mem_inmemo = "01" then
+--                                address_inmemo_next <= address_buf1r;
+--                            elsif use_mem_inmemo = "10" then
+--                                address_inmemo_next <= address_buf2r;
+--                            elsif use_mem_inmemo = "11" then
+--                                address_inmemo_next <= address_buf3r;
+--                            end if;
+--                        end if;
+--                        if out_ready_inmemo = '1' then
+--                            if output_read = "00" then
+--                                read_buffer0_next <= samp_out_inmemo;
+--                                output_read_next <= output_read + 1;
+--                            elsif output_read = "01" then
+--                                read_buffer1_next <= samp_out_inmemo;
+--                                output_read_next <= output_read + 1;
+--                            elsif output_read = "10" then
+--                                read_buffer2_next <= samp_out_inmemo;
+--                                output_read_next <= output_read + 1;
+--                            elsif output_read = "11" then
+--                                read_buffer3_next <= samp_out_inmemo;
+--                                output_read_next <= output_read + 1;                            
+--                            end if;
+--                        end if;
 --                        if ev_w_outmemo = '1' then
 --                            if mem_wr_outmemo = "00" then
 --                                address_inmemo_next <= address_buf0;
@@ -742,17 +744,17 @@ begin
             end if;
     end process;
     
-    process(end_load_even, end_load_odd)
-        begin
-            even_mem_nn <= even_mem;
-            odd_mem_nn <= odd_mem;
-            if end_load_even = '1' then
-                even_mem_nn <= not even_mem;
-            end if;
-            if end_load_odd = '1' then
-                odd_mem_nn <= not odd_mem;
-            end if;
-    end process;
+--    process(end_load_even, end_load_odd, even_mem, odd_mem)
+--        begin
+--            even_mem_nn <= even_mem;
+--            odd_mem_nn <= odd_mem;
+--            if end_load_even = '1' then
+--                even_mem_nn <= not even_mem;
+--            end if;
+--            if end_load_odd = '1' then
+--                odd_mem_nn <= not odd_mem;
+--            end if;
+--    end process;
     -- Generates enable signal used by the shift-register
     enable_shift_next <= '1' when (frame_number >= std_logic_vector(to_unsigned(1, 5)) and frame_number <= std_logic_vector(to_unsigned(sample_size, 5)) 
                                     and LR_W_SEL = '0') else                         

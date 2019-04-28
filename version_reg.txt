@@ -128,3 +128,5 @@
 6.5 Comienzo de la implementacion de memorias para FFT
 6.5.1 Preparacion para carga y descarga del dominio de la frecuencia y cambios en la memoria
 6.5.2 Bckp traslado
+28/04/19
+6.5.3 transform_controller planteado a falta de iFFT
