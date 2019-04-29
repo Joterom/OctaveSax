@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="out_long_memo_synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1556116761">
-  <File Type="RDS-UTIL-PB" Name="out_long_memo_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="out_long_memo.dcp"/>
   <File Type="PA-TCL" Name="out_long_memo.tcl"/>
+  <File Type="RDS-UTIL-PB" Name="out_long_memo_utilization_synth.pb"/>
   <File Type="RDS-UTIL" Name="out_long_memo_utilization_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="out_long_memo_reports.tcl"/>
   <File Type="RDS-RDS" Name="out_long_memo.vds"/>

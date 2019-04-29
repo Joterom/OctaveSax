@@ -67,7 +67,7 @@ architecture Behavioral of transform_controller is
     signal processing, processing_next : STD_LOGIC := '0';
     -- Counter
     --signal start_count, count_ended : STD_LOGIC := '0';
-    signal count_value, count_valuenn : UNSIGNED (8 downto 0) := (others => '1');
+    signal count_value, count_valuenn, count_read, count_readnn : UNSIGNED (8 downto 0) := (others => '1');
     --FFT module
     signal config_tready, input_tvalid, input_tvalidnn, input_tready, input_tlast, input_tlastnn, output_tvalid
         , output_tready, output_treadynn, output_tlast : STD_LOGIC := '0';
@@ -76,14 +76,23 @@ architecture Behavioral of transform_controller is
         , event_data_in_channel_halt, event_data_out_channel_halt : STD_LOGIC := '0';
     signal output_tuser, data_out_for_re, data_out_for_im : STD_LOGIC_VECTOR (15 downto 0) := (others => '0');
     signal input_data, input_data_next, output_data : STD_LOGIC_VECTOR (31 downto 0) := (others => '0');
+    -- iFFT module
+    signal config_tready_inv, input_tvalid_inv, input_tvalidnn_inv, input_tready_inv, input_tlast_inv, input_tlastnn_inv, output_tvalid_inv
+        , output_tready_inv, output_treadynn_inv, output_tlast_inv : STD_LOGIC := '0';
+    signal config_tvalidnn_inv, config_tvalid_inv : STD_LOGIC := '1';
+    signal event_frame_started_inv, event_tlast_unexpected_inv, event_tlast_missing_inv, event_status_channel_halt_inv
+        , event_data_in_channel_halt_inv, event_data_out_channel_halt_inv : STD_LOGIC := '0';
+    signal output_tuser_inv, data_out_for_re_inv, data_out_for_im_inv : STD_LOGIC_VECTOR (15 downto 0) := (others => '0');
+    signal input_data_inv, input_data_next_inv, output_data_inv : STD_LOGIC_VECTOR (31 downto 0) := (others => '0');
     --
     signal in_data_im : STD_LOGIC_VECTOR (15 downto 0) := (others => '0');
     signal stage, stagenn : STD_LOGIC := '0';
     --
     signal ena, ena_next : STD_LOGIC := '0';
-    signal douta, dina, dina_next : STD_LOGIC_VECTOR (31 downto 0) := (others => '0');
+    signal douta, dina, dina_next, membuf, membufn : STD_LOGIC_VECTOR (31 downto 0) := (others => '0');
     signal wea, wea_next : STD_LOGIC_VECTOR (0 downto 0) := "0";
     signal addra, addra_next : STD_LOGIC_VECTOR (8 downto 0) := (others => '1');
+    signal warn2, warn2n, warn2nn, start_read, start_readn, read_next, read_nextn : STD_LOGIC := '0';
     
 begin
 
@@ -117,6 +126,29 @@ begin
         event_data_out_channel_halt => event_data_out_channel_halt
     );
     
+    iFFT : FFT_transform port map (
+        aclk => clk,
+        aclken => enable_fft,
+        s_axis_config_tdata => config_tdata_inv,
+        s_axis_config_tvalid => config_tvalid_inv,
+        s_axis_config_tready => config_tready_inv,
+        s_axis_data_tdata => input_data_inv,
+        s_axis_data_tvalid => input_tvalid_inv,
+        s_axis_data_tready => input_tready_inv,
+        s_axis_data_tlast => input_tlast_inv,
+        m_axis_data_tdata => output_data_inv,
+        m_axis_data_tuser => output_tuser_inv,
+        m_axis_data_tvalid => output_tvalid_inv,
+        m_axis_data_tready => output_tready_inv,
+        m_axis_data_tlast => output_tlast_inv,
+        event_frame_started => event_frame_started_inv,
+        event_tlast_unexpected => event_tlast_unexpected_inv,
+        event_tlast_missing => event_tlast_missing_inv,
+        event_status_channel_halt => event_status_channel_halt_inv,
+        event_data_in_channel_halt => event_data_in_channel_halt_inv,
+        event_data_out_channel_halt => event_data_out_channel_halt_inv
+    );
+    
     MEMO : freq_memo port map (
         douta => douta,
         clka => clk,
@@ -141,6 +173,11 @@ begin
                 dina <= (others => '0');
                 ena <= '0';
                 wea <= "0";
+                warn2 <= '0';
+                warn2n <= '0'; 
+                start_read <= '0';
+                read_next <= '0';
+                count_read <= (others => '0');
             elsif rising_edge(clk) then
                 processing <= processing_next;
                 input_data <= input_data_next;
@@ -154,13 +191,23 @@ begin
                 dina <= dina_next;
                 ena <= ena_next;
                 wea <= wea_next;
+                warn2 <= warn2n;
+                warn2n <= warn2nn;
+                start_read <= start_readn;
+                read_next <= read_nextn;
+                input_tvalid_inv <= input_tvalidnn_inv;
+                config_tvalid_inv <= config_tvalidnn_inv;
+                input_tlast_inv <= input_tlastnn_inv;
+                output_tready_inv <= output_treadynn_inv;
+                membuf <= membufn;
+                count_read <= count_readnn;
             end if;
     end process;
     
 
      
     process(start_proc_fft, processing, input_data, input_ready, in_data_im, stage, config_tvalid, count_value, output_tready
-            )
+            , start_read)
         begin
             processing_next <= processing;
             input_data_next <= input_data;
@@ -170,6 +217,7 @@ begin
             count_valuenn <= count_value;
             input_tlastnn <= '0';
             output_treadynn <= output_tready;
+            start_readn <= '0';
             if start_proc_fft = '1' then
                 processing_next <= '1';
                 config_tvalidnn <= '0';
@@ -184,16 +232,20 @@ begin
                 if count_value = to_unsigned(511,9) then
                     input_tlastnn <= '1';
                     output_treadynn <= '1';
+                    processing_next <= '0';
+                    start_readn <= '1';
                 end if;
             end if;
     end process;
     
-    process (output_data, output_tvalid, output_tready, addra, dina, ena, wea, douta)
+    process (output_data, output_tvalid, output_tready, addra, dina, ena, wea, douta, warn2, start_read, douta)
         begin
             addra_next <= addra;
             wea_next <= wea;
             ena_next <= '0';
             dina_next <= dina;
+            warn2nn <= '0';
+            read_nextn <= '0'; 
             if output_tready = '1' then
                 if output_tvalid = '1' then
                     addra_next <= std_logic_vector(unsigned(addra) + 1);
@@ -202,6 +254,20 @@ begin
                     dina_next <= output_data;
                 end if;
             end if; 
+            if start_read = '1' then
+                if warn2 = '0' then
+                    addra_next <= std_logic_vector(unsigned(addra) + 1);
+                    wea_next <= "0";
+                    ena_next <= '1';
+                    warn2nn <= '1';
+                else
+                    ena_next <= '0';
+                    read_nextn <= '1'; 
+                end if;
+            end if;
+            if read_next = '1' then
+                membufn <= douta;
+            end if;
     end process;
     
     data_out_for_re <= output_data(15 downto 0);

@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="freq_memo_synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1556472146">
+  <File Type="RDS-DCP" Name="freq_memo.dcp"/>
   <File Type="PA-TCL" Name="freq_memo.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="freq_memo_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="freq_memo_reports.tcl"/>
   <File Type="RDS-RDS" Name="freq_memo.vds"/>
   <File Type="RDS-UTIL" Name="freq_memo_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="freq_memo_utilization_synth.pb"/>
-  <File Type="RDS-DCP" Name="freq_memo.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="freq_memo_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="freq_memo_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/freq_memo">
     <File Path="$PSRCDIR/sources_1/ip/freq_memo/freq_memo.xci">
       <FileInfo>
@@ -36,9 +33,7 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2017">
-      <Desc>Vivado Synthesis Defaults</Desc>
-    </StratHandle>
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2017"/>
     <Step Id="synth_design"/>
   </Strategy>
 </GenRun>

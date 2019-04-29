@@ -25,7 +25,7 @@ package project_trunk is
     -- Number of samples per frame
     constant fft_width : integer := 512; 
     constant config_tdata_for : STD_LOGIC_VECTOR (15 downto 0) := "0000001100000001";
-    constant config_tdata_inv : STD_LOGIC_VECTOR (15 downto 0) := "0000001100000001";
+    constant config_tdata_inv : STD_LOGIC_VECTOR (15 downto 0) := "0000001100000000";
     
 -- Every available display letters
     constant off : STD_LOGIC_VECTOR (6 downto 0) := "1111111"; 

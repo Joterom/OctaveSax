@@ -13,150 +13,171 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="117600000001fs"></ZoomEndTime>
-      <Cursor1Time time="8500000000fs"></Cursor1Time>
+      <ZoomEndTime time="10170000000001fs"></ZoomEndTime>
+      <Cursor1Time time="81630000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="240"></NameColumnWidth>
-      <ValueColumnWidth column_width="208"></ValueColumnWidth>
+      <ValueColumnWidth column_width="204"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="10" />
-   <wvobject fp_name="/tb_transform/clk" type="logic">
+   <wvobject type="logic" fp_name="/tb_transform/clk">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_transform/enable_fft" type="logic">
+   <wvobject type="logic" fp_name="/tb_transform/enable_fft">
       <obj_property name="ElementShortName">enable_fft</obj_property>
       <obj_property name="ObjectShortName">enable_fft</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_transform/reset" type="logic">
+   <wvobject type="logic" fp_name="/tb_transform/reset">
       <obj_property name="ElementShortName">reset</obj_property>
       <obj_property name="ObjectShortName">reset</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_transform/start_proc_fft" type="logic">
+   <wvobject type="logic" fp_name="/tb_transform/start_proc_fft">
       <obj_property name="ElementShortName">start_proc_fft</obj_property>
       <obj_property name="ObjectShortName">start_proc_fft</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_transform/input_ready" type="logic">
+   <wvobject type="logic" fp_name="/tb_transform/input_ready">
       <obj_property name="ElementShortName">input_ready</obj_property>
       <obj_property name="ObjectShortName">input_ready</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_transform/data_in" type="array">
+   <wvobject type="array" fp_name="/tb_transform/data_in">
       <obj_property name="ElementShortName">data_in[15:0]</obj_property>
       <obj_property name="ObjectShortName">data_in[15:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_transform/FFT/processing" type="logic">
+   <wvobject type="logic" fp_name="/tb_transform/FFT/processing">
       <obj_property name="ElementShortName">processing</obj_property>
       <obj_property name="ObjectShortName">processing</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_transform/FFT/count_value" type="array">
+   <wvobject type="array" fp_name="/tb_transform/FFT/count_value">
       <obj_property name="ElementShortName">count_value[8:0]</obj_property>
       <obj_property name="ObjectShortName">count_value[8:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
-   <wvobject fp_name="group125" type="group">
+   <wvobject type="group" fp_name="group125">
       <obj_property name="label">CORE</obj_property>
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="isExpanded"></obj_property>
-      <wvobject fp_name="/tb_transform/FFT/FFT/s_axis_config_tdata" type="array">
+      <wvobject type="array" fp_name="/tb_transform/FFT/FFT/s_axis_config_tdata">
          <obj_property name="ElementShortName">s_axis_config_tdata[15:0]</obj_property>
          <obj_property name="ObjectShortName">s_axis_config_tdata[15:0]</obj_property>
          <obj_property name="Radix">BINARYRADIX</obj_property>
       </wvobject>
-      <wvobject fp_name="/tb_transform/FFT/FFT/s_axis_config_tvalid" type="logic">
+      <wvobject type="logic" fp_name="/tb_transform/FFT/FFT/s_axis_config_tvalid">
          <obj_property name="ElementShortName">s_axis_config_tvalid</obj_property>
          <obj_property name="ObjectShortName">s_axis_config_tvalid</obj_property>
       </wvobject>
-      <wvobject fp_name="/tb_transform/FFT/FFT/s_axis_config_tready" type="logic">
+      <wvobject type="logic" fp_name="/tb_transform/FFT/FFT/s_axis_config_tready">
          <obj_property name="ElementShortName">s_axis_config_tready</obj_property>
          <obj_property name="ObjectShortName">s_axis_config_tready</obj_property>
       </wvobject>
-      <wvobject fp_name="/tb_transform/FFT/FFT/s_axis_data_tdata" type="array">
+      <wvobject type="array" fp_name="/tb_transform/FFT/FFT/s_axis_data_tdata">
          <obj_property name="ElementShortName">s_axis_data_tdata[31:0]</obj_property>
          <obj_property name="ObjectShortName">s_axis_data_tdata[31:0]</obj_property>
       </wvobject>
-      <wvobject fp_name="/tb_transform/FFT/FFT/s_axis_data_tvalid" type="logic">
+      <wvobject type="logic" fp_name="/tb_transform/FFT/FFT/s_axis_data_tvalid">
          <obj_property name="ElementShortName">s_axis_data_tvalid</obj_property>
          <obj_property name="ObjectShortName">s_axis_data_tvalid</obj_property>
       </wvobject>
-      <wvobject fp_name="/tb_transform/FFT/FFT/s_axis_data_tready" type="logic">
+      <wvobject type="logic" fp_name="/tb_transform/FFT/FFT/s_axis_data_tready">
          <obj_property name="ElementShortName">s_axis_data_tready</obj_property>
          <obj_property name="ObjectShortName">s_axis_data_tready</obj_property>
       </wvobject>
-      <wvobject fp_name="/tb_transform/FFT/FFT/s_axis_data_tlast" type="logic">
+      <wvobject type="logic" fp_name="/tb_transform/FFT/FFT/s_axis_data_tlast">
          <obj_property name="ElementShortName">s_axis_data_tlast</obj_property>
          <obj_property name="ObjectShortName">s_axis_data_tlast</obj_property>
       </wvobject>
-      <wvobject fp_name="/tb_transform/FFT/FFT/m_axis_data_tdata" type="array">
+      <wvobject type="array" fp_name="/tb_transform/FFT/FFT/m_axis_data_tdata">
          <obj_property name="ElementShortName">m_axis_data_tdata[31:0]</obj_property>
          <obj_property name="ObjectShortName">m_axis_data_tdata[31:0]</obj_property>
       </wvobject>
-      <wvobject fp_name="/tb_transform/FFT/FFT/m_axis_data_tuser" type="array">
+      <wvobject type="array" fp_name="/tb_transform/FFT/FFT/m_axis_data_tuser">
          <obj_property name="ElementShortName">m_axis_data_tuser[15:0]</obj_property>
          <obj_property name="ObjectShortName">m_axis_data_tuser[15:0]</obj_property>
          <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
       </wvobject>
-      <wvobject fp_name="/tb_transform/FFT/FFT/m_axis_data_tvalid" type="logic">
+      <wvobject type="logic" fp_name="/tb_transform/FFT/FFT/m_axis_data_tvalid">
          <obj_property name="ElementShortName">m_axis_data_tvalid</obj_property>
          <obj_property name="ObjectShortName">m_axis_data_tvalid</obj_property>
       </wvobject>
-      <wvobject fp_name="/tb_transform/FFT/FFT/m_axis_data_tready" type="logic">
+      <wvobject type="logic" fp_name="/tb_transform/FFT/FFT/m_axis_data_tready">
          <obj_property name="ElementShortName">m_axis_data_tready</obj_property>
          <obj_property name="ObjectShortName">m_axis_data_tready</obj_property>
       </wvobject>
-      <wvobject fp_name="/tb_transform/FFT/FFT/m_axis_data_tlast" type="logic">
+      <wvobject type="logic" fp_name="/tb_transform/FFT/FFT/m_axis_data_tlast">
          <obj_property name="ElementShortName">m_axis_data_tlast</obj_property>
          <obj_property name="ObjectShortName">m_axis_data_tlast</obj_property>
       </wvobject>
-      <wvobject fp_name="/tb_transform/FFT/FFT/event_frame_started" type="logic">
+      <wvobject type="logic" fp_name="/tb_transform/FFT/FFT/event_frame_started">
          <obj_property name="ElementShortName">event_frame_started</obj_property>
          <obj_property name="ObjectShortName">event_frame_started</obj_property>
       </wvobject>
-      <wvobject fp_name="/tb_transform/FFT/FFT/event_tlast_unexpected" type="logic">
+      <wvobject type="logic" fp_name="/tb_transform/FFT/FFT/event_tlast_unexpected">
          <obj_property name="ElementShortName">event_tlast_unexpected</obj_property>
          <obj_property name="ObjectShortName">event_tlast_unexpected</obj_property>
       </wvobject>
-      <wvobject fp_name="/tb_transform/FFT/FFT/event_tlast_missing" type="logic">
+      <wvobject type="logic" fp_name="/tb_transform/FFT/FFT/event_tlast_missing">
          <obj_property name="ElementShortName">event_tlast_missing</obj_property>
          <obj_property name="ObjectShortName">event_tlast_missing</obj_property>
       </wvobject>
-      <wvobject fp_name="/tb_transform/FFT/FFT/event_status_channel_halt" type="logic">
+      <wvobject type="logic" fp_name="/tb_transform/FFT/FFT/event_status_channel_halt">
          <obj_property name="ElementShortName">event_status_channel_halt</obj_property>
          <obj_property name="ObjectShortName">event_status_channel_halt</obj_property>
       </wvobject>
-      <wvobject fp_name="/tb_transform/FFT/FFT/event_data_in_channel_halt" type="logic">
+      <wvobject type="logic" fp_name="/tb_transform/FFT/FFT/event_data_in_channel_halt">
          <obj_property name="ElementShortName">event_data_in_channel_halt</obj_property>
          <obj_property name="ObjectShortName">event_data_in_channel_halt</obj_property>
       </wvobject>
-      <wvobject fp_name="/tb_transform/FFT/FFT/event_data_out_channel_halt" type="logic">
+      <wvobject type="logic" fp_name="/tb_transform/FFT/FFT/event_data_out_channel_halt">
          <obj_property name="ElementShortName">event_data_out_channel_halt</obj_property>
          <obj_property name="ObjectShortName">event_data_out_channel_halt</obj_property>
       </wvobject>
    </wvobject>
-   <wvobject fp_name="group160" type="group">
+   <wvobject type="group" fp_name="group160">
       <obj_property name="label">MEMO</obj_property>
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="isExpanded"></obj_property>
-      <wvobject fp_name="/tb_transform/FFT/ena" type="logic">
+      <wvobject type="logic" fp_name="/tb_transform/FFT/ena">
          <obj_property name="ElementShortName">ena</obj_property>
          <obj_property name="ObjectShortName">ena</obj_property>
       </wvobject>
-      <wvobject fp_name="/tb_transform/FFT/dina" type="array">
+      <wvobject type="array" fp_name="/tb_transform/FFT/dina">
          <obj_property name="ElementShortName">dina[31:0]</obj_property>
          <obj_property name="ObjectShortName">dina[31:0]</obj_property>
       </wvobject>
-      <wvobject fp_name="/tb_transform/FFT/douta" type="array">
+      <wvobject type="array" fp_name="/tb_transform/FFT/douta">
          <obj_property name="ElementShortName">douta[31:0]</obj_property>
          <obj_property name="ObjectShortName">douta[31:0]</obj_property>
       </wvobject>
-      <wvobject fp_name="/tb_transform/FFT/wea" type="array">
+      <wvobject type="array" fp_name="/tb_transform/FFT/wea">
          <obj_property name="ElementShortName">wea[0:0]</obj_property>
          <obj_property name="ObjectShortName">wea[0:0]</obj_property>
       </wvobject>
-      <wvobject fp_name="/tb_transform/FFT/addra" type="array">
+      <wvobject type="array" fp_name="/tb_transform/FFT/addra">
          <obj_property name="ElementShortName">addra[8:0]</obj_property>
          <obj_property name="ObjectShortName">addra[8:0]</obj_property>
          <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_transform/FFT/count_read">
+         <obj_property name="ElementShortName">count_read[8:0]</obj_property>
+         <obj_property name="ObjectShortName">count_read[8:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_transform/FFT/warn2">
+         <obj_property name="ElementShortName">warn2</obj_property>
+         <obj_property name="ObjectShortName">warn2</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_transform/FFT/start_read">
+         <obj_property name="ElementShortName">start_read</obj_property>
+         <obj_property name="ObjectShortName">start_read</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_transform/FFT/read_next">
+         <obj_property name="ElementShortName">read_next</obj_property>
+         <obj_property name="ObjectShortName">read_next</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_transform/FFT/membuf">
+         <obj_property name="ElementShortName">membuf[31:0]</obj_property>
+         <obj_property name="ObjectShortName">membuf[31:0]</obj_property>
       </wvobject>
    </wvobject>
 </wave_config>
