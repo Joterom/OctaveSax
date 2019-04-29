@@ -1,18 +1,29 @@
-El propósito de un octavador es proporcionar una señal una octava inferior a la señal introducida. La octava descendente musical equivale a dividir la frecuencia entre 2 por lo que parece que existe una relación evidente con el dominio de Fourier. En el siguiente apartado se discuten diferentes maneras de abordar esta problemática.
-
+El propósito de un octavador es proporcionar una señal una octava inferior a la señal introducida. El primer paso es establecer la relación entre las frecuencias musicales que entran en juego. Como la octavación será descendente, la frecuencia octavada en la salida se corresponderá con la mitad de la frecuencia de entrada para cada muestra en cada instante de tiempo.
+Evidentemente, lo primero que salta a la vista es la manifiesta relación con la transformada de Fourier para obtener el espectro en la entrada, sin embargo, el coste computacional y temporal de implementar esta operación matemática es elevado. Es por ello que se estudian diferentes posibilidades para abordar la problemática.
 \section{Aproximaciones al problema}
-Lo primero que pensé cuando abordé el problema fue que se trataba de algo relativamente sencillo: simplemente basta con realizar un diezmado de factor 2 en el dominio de la frecuencia para que al realizar la transformada inversa se obtenga la señal octavada.
-Evidentemente, esta solución plantea innumerables problemas. Teniendo en cuenta que las frecuencias del sonido son arbitrarias, no se puede aplicar ningún tipo de filtro antisolapamiento. En consecuencia, al reconstruir la señal se produce el mencionado solapamiento, haciendo la señal totalmente irreconocible.
-\begin{figure}
-\begin{center}
-\includegraphics[width=5cm]{img/solapamiento.png}
-\caption{Problema de solapamiento tras diezmado}
-\end{center}
-\end{figure}
-Además, el funcionamiento en tiempo real condiciona en gran medida el algoritmo, ya que para poder aplicar la transformación de Fourier debemos tener un conjunto finito de muestras. Por ello se centré mis esfuerzos en encontrar una solución que precisara de transformación a frecuencia.
+El primer pensamiento es que se trata de algo sencillo: basta con eliminar una de cada dos muestras en el espectro, es decir, un diezmado en frecuencia, para obtener a la salida una señal con las frecuencias divididas por dos. Sin embargo las propiedades de la transformación hacen imposible realizar esta operación.
+Como las frecuencias de entrada son numerosas y variables, no basta con eliminar algunas muestras, ya que el desajuste en la fase produce un desplazamiento circular en la señal de salida (ecuación~\ref{eq:DESP}). 
 
-Durante todo el siglo XX se han ido desarrollando diferentes técnicas de tratamiento y codificación para la voz, conforme iba la tecnología en aumento. La consecuencia de ello es la aparición de diversos algoritmos que permiten este tipo de operaciones con una carga computacional relativamente baja. Para este proyecto, se realizará una aproximación de \emph{"Vocoder de fase"}\footnote{Del inglés "phase vocoder"} que se podrá aplicar tanto a la voz como a cualquier instrumento, como se verá más adelante.
+\begin{equation}
+\label{eq:DESP}
+Si~~~~~\mathscr{F}(\{x_{n}\})_{k} = X_{k}~~~~~Entonces~~~~~\mathscr{F}(\{x_{n}e^{\frac{2\pi i}{N}nm}\})_{k}= X_{k-m} 
+\end{equation}
+
+La consecuencia es que si la señal de entrada no es una única nota invariante, la salida resulta irreconocible, por lo que se descarta  de inmediato este algoritmo.
+
+Adicionalmente, hay que sumar el condicionante del funcionamiento en tiempo real ya que la expresión de la transformada solo se puede aplicar sobre conjuntos finitos de muestras.
+
+\subsection{Prescindiendo de Fourier}
+Hablar de sluciones alternativas como la raiz, el coseno etc
+Paper del buffer para alante y para atras
+Hilbert
+\subsection{Retorno a la transformada}
+Vocoder
+Ellis
+PONER QUE SE UTILIZA VOCODER DE FASE
 \section{Vocoder}
+Durante todo el siglo XX se han ido desarrollando diferentes técnicas de tratamiento y codificación para la voz, conforme iba la tecnología en aumento. La consecuencia de ello es la aparición de diversos algoritmos que permiten este tipo de operaciones con una carga computacional relativamente baja. 
+
 Un \emph{Vocoder}\footnote{Del inglés voice (voz) junto a encoder (codificador)} es generalemente cualquier aparato que analiza y/o sintetiza la voz humana para lograr algún objetivo concreto, como compresión de datos, multiplexación o encriptación en la mayoría de los casos.
 
 El Vocoder de canal\footnote{Del inglés "channel vocoder"}, desarrollado por los famosos \emph{Bell Labs} en 1928, utilizaba varios filtros multibanda seguidos por detectores de envolvente cuyas señales de control se transmitían al decodificador del receptor. Estas señales de control son mucho más lentas que la señal original a transmitir, por lo que se puede reducir el ancho de banda permitiendo a un mismo medio de transmisión soportar un mayor número de canales, ya sea por radio o cable. Finalmente, el decodificador amplifica estas señales de control y las introduce en los filtros correspondientes a cada banda para poder sintetizar de nuevo la señal original. Además de las ventajas sobre el ancho de banda, también se ayuda a proteger la señal para que no se pueda interceptar. Encriptando las señales de control y modificando los parámetros de los filtros, se puede hacer muy difícil su correcta reinterpretación si no se sincronizan el codificador y el decodificador. Esto popularizó su uso durante la Segunda Guerra Mundial en el bando aliado patentándose diversos diseños.
