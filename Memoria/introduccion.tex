@@ -28,3 +28,24 @@ Para la realización de este proyecto de forma satisfactoria se ha establecido l
 \item Montaje de un prototipo empleando la placa Nexys A7 de Digilent, el micrófono seleccionado anteriormente y el resto de dispositivos que fueran necesarios.
 \item Test y depuración.
 \end{itemize}
+
+\section{Fundamentos del sonido y teoría musical}
+Considero necesario hacer un pequeña introducción a algunos conceptos que tendrán importancia para el desarrollo del tranajo en relación con la física del sonido y la teoría musical, para facilitar la comprensión del documento por un público no especializado en estos ámbitos. 
+En primer lugar cabe destacar que como cualquier fenómeno físico, un sonido lleva asociados una serie de parámetros matemáticos que lo definen pero tradicionalmente, estos términos han recibido otro nombre en el ámbito musical, con el que se enseñan en escuelas y conservatorios. Es importante, por tanto, tener clara la relación entre la nomenclatura musical y la equivalencia física y matemática.
+\begin{itemize}
+\item \textbf{Tono:} hace referencia a la altura de la nota en cuanto a grave o aguda. En parámetro que la define es la frecuencia, que se mide en $Hz$. Aunque el oído humano puede llegar a percibir señales de hasta 20kHz, las notas fundamentales rara 
+\item \textbf{Volumen:} equivale a la intensidad que posee la señal tanto eléctricamente como cuando se propaga por el aire como una onda de presión. Cuando se mide en un circuito eléctrico se utilizan unidades de tensión mientras que como onda se suelen utilizar los dB dado su carácter logarítmico, sin embargo, posee unidades de intensidad acústica: $W/m^{2}$.
+\item\textbf{Timbre:} es característico de cada fuente de sonido y es lo que nos permite diferenciar un instrumento de otro, o voces humanas entre si aún produciendo la misma nota.
+\end{itemize}
+
+La lista de aqui arriba muestra los tres parámetros fundamentales de un sonido musical, sin embargo se puede apreciar como he sido evasivo en cuanto al carácter matemático del timbre, y es que la explicación es mucho más interesante invloucrando a un número más elevado de conceptos. 
+
+\subsection{Timbre, armónicos y serie armónica}
+Cualquier estudiente de ingeniería ha estudiado la generación de armónicos cuando se producen vibraciones debido los diferentes modos de propagación de las ondas. Sin embargo, no puede que no tantos se hayan preguntado como se \emph{oyen} estos modos o si se pueden percibir. La respuesta es sí, y además con mucha claridad. En lo que se refiere a la música, tanto los instrumentos musicales como la voz humana son estructuras complejas que producen sonidos a muchas frecuencias diferentes al mismo tiempo. Nuestro cerebro, cuando oye un sonido se encarga de mezclar e interpretar la señal recibida mezclando y sumando las frecuencias recibidas para producir un sonido concreto identificable. 
+
+Es inevitable establecer una analogía entre este funcionamiento y el terorema de Fourier, que dice que podemos descomponer cualquier señal como suma de una o varias componentes sinusoidales. Esta poderosa afirmación explica como funciona la generación de cualquier sonido musical.
+
+Cuando se produce una nota con un instrumento, generamos vibraciones a varias frecuencias diferentes para que más adelante, el cerebro la interprete como una sola nota, en consecuencia, es la relación entre estas componentes lo que modifica el timbre de la nota genrada y nos permite identificarla. La trampa está en que las frecuencias que se producen no son aleatorias, son una serie de notas que guardan una estrecha relación unas con otras, que reciben el nombre de \emph{serie armónica}. Cada uno de los componetes de esta serie recibe el nombre de \emph{armónico} y es totalmente equivalente con la definición física de la generación de armónicos. [PONER FOTO SERIE ARMÖNICA]
+
+Así pues, podemos concluir con que cada nota está a su vez formada por varias notas que reciben el nombre de armónicos y que se presentan en diferente proporción entre ellas, el armónico que define el sonido es el primero de la serie y recibe el nombre de fundamental. Los músicos, para ponerse de acuerdo, establecen un convenio de afinación que consiste en fijar la frecuencia de la nota La del piano generalmente en 440Hz.
+Las operaciones que vamos realizar en la señal de entrada tienen como objetivo modificar el tono de una nota introducida mientras mantenemos inalterados su volumen y su timbre. En la práctica veremos como tanto el algoritmo como la FPGA introducen desviaciones y realidades que nos permiten elaborar y clasificar diferentes operativas y algoritmos.
