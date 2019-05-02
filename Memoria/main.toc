@@ -10,22 +10,22 @@
 \contentsline {section}{\numberline {2.3}Alimentaci\IeC {\'o}n}{8}
 \contentsline {chapter}{\numberline {3}El algoritmo}{10}
 \contentsline {section}{\numberline {3.1}Aproximaciones al problema}{10}
-\contentsline {subsection}{\numberline {3.1.1}Prescindiendo de Fourier}{11}
-\contentsline {subsection}{\numberline {3.1.2}Retorno a la transformada}{11}
+\contentsline {subsection}{\numberline {3.1.1}Prescindiendo de Fourier}{10}
+\contentsline {subsection}{\numberline {3.1.2}Retorno a la transformada}{12}
 \contentsline {section}{\numberline {3.2}Vocoder}{12}
-\contentsline {subsection}{\numberline {3.2.1}Vocoder en la m\IeC {\'u}sica}{12}
-\contentsline {section}{\numberline {3.3}Transformaci\IeC {\'o}n a frecuencia: STFT}{13}
+\contentsline {subsection}{\numberline {3.2.1}Vocoder en la m\IeC {\'u}sica}{13}
+\contentsline {section}{\numberline {3.3}Transformaci\IeC {\'o}n a frecuencia: STFT}{14}
 \contentsline {subsection}{\numberline {3.3.1}Transformada de Fourier: FFT e iFFT}{14}
 \contentsline {subsection}{\numberline {3.3.2}Solapamiento y enventanado}{15}
-\contentsline {section}{\numberline {3.4}Operaciones sobre la fase}{17}
-\contentsline {chapter}{\numberline {4}Implementaci\IeC {\'o}n}{18}
-\contentsline {section}{\numberline {4.1}Gesti\IeC {\'o}n entrada-salida}{18}
-\contentsline {subsection}{\numberline {4.1.1}Pmod i2s2}{18}
-\contentsline {subsection}{\numberline {4.1.2}Consideraciones de implementaci\IeC {\'o}n}{18}
-\contentsline {section}{\numberline {4.2}Controlador de datos}{18}
-\contentsline {subsection}{\numberline {4.2.1}Bancos de memorias}{18}
-\contentsline {subsection}{\numberline {4.2.2}Core FFT}{18}
-\contentsline {section}{\numberline {4.3}Controlador global}{18}
-\contentsline {subsection}{\numberline {4.3.1}Displays}{19}
-\contentsline {chapter}{\numberline {5}Pruebas y depuraci\IeC {\'o}n}{20}
-\contentsline {chapter}{\numberline {6}Conclusiones y trabajo futuro}{21}
+\contentsline {section}{\numberline {3.4}Operaciones sobre la fase}{18}
+\contentsline {chapter}{\numberline {4}Implementaci\IeC {\'o}n}{19}
+\contentsline {section}{\numberline {4.1}Gesti\IeC {\'o}n entrada-salida}{19}
+\contentsline {subsection}{\numberline {4.1.1}Pmod i2s2}{19}
+\contentsline {subsection}{\numberline {4.1.2}Consideraciones de implementaci\IeC {\'o}n}{19}
+\contentsline {section}{\numberline {4.2}Controlador de datos}{19}
+\contentsline {subsection}{\numberline {4.2.1}Bancos de memorias}{19}
+\contentsline {subsection}{\numberline {4.2.2}Core FFT}{19}
+\contentsline {section}{\numberline {4.3}Controlador global}{19}
+\contentsline {subsection}{\numberline {4.3.1}Displays}{20}
+\contentsline {chapter}{\numberline {5}Pruebas y depuraci\IeC {\'o}n}{21}
+\contentsline {chapter}{\numberline {6}Conclusiones y trabajo futuro}{22}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.17)  1 MAY 2019 19:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.17)  2 MAY 2019 21:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -538,25 +538,25 @@ Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is use
 less on input line 41.
 
 (./main.aux
-LaTeX Info: Redefining \. on input line 23.
-LaTeX Info: Redefining \% on input line 23.
+LaTeX Info: Redefining \. on input line 6.
+LaTeX Info: Redefining \% on input line 6.
 )
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Info: Redefining \. on input line 53.
-LaTeX Info: Redefining \% on input line 53.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Info: Redefining \. on input line 55.
+LaTeX Info: Redefining \% on input line 55.
 \AtBeginShipoutBox=\box30
  (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -631,7 +631,7 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 <img/LOGO_ESCUELA.png, id=1, 708.246pt x 221.3871pt>
 File: img/LOGO_ESCUELA.png Graphic file (type png)
 <use img/LOGO_ESCUELA.png>
-Package pdftex.def Info: img/LOGO_ESCUELA.png  used on input line 60.
+Package pdftex.def Info: img/LOGO_ESCUELA.png  used on input line 62.
 (pdftex.def)             Requested size: 256.0748pt x 80.04723pt.
  [1
 
@@ -678,8 +678,8 @@ File: img/armonicos.jpg Graphic file (type jpg)
 Package pdftex.def Info: img/armonicos.jpg  used on input line 52.
 (pdftex.def)             Requested size: 284.52756pt x 350.73955pt.
 )
-LaTeX Info: Redefining \. on input line 127.
-LaTeX Info: Redefining \% on input line 127.
+LaTeX Info: Redefining \. on input line 129.
+LaTeX Info: Redefining \% on input line 129.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.5pt): 
@@ -688,8 +688,8 @@ Package Fancyhdr Warning: \headheight is too small (12.5pt):
  This may cause the page layout to be inconsistent, however.
 
 [3]
-LaTeX Info: Redefining \. on input line 128.
-LaTeX Info: Redefining \% on input line 128.
+LaTeX Info: Redefining \. on input line 130.
+LaTeX Info: Redefining \% on input line 130.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.5pt): 
@@ -744,8 +744,8 @@ File: img/circuito.png Graphic file (type png)
 Package pdftex.def Info: img/circuito.png  used on input line 58.
 (pdftex.def)             Requested size: 398.33858pt x 194.39772pt.
 )
-LaTeX Info: Redefining \. on input line 131.
-LaTeX Info: Redefining \% on input line 131.
+LaTeX Info: Redefining \. on input line 133.
+LaTeX Info: Redefining \% on input line 133.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.5pt): 
@@ -754,8 +754,8 @@ Package Fancyhdr Warning: \headheight is too small (12.5pt):
  This may cause the page layout to be inconsistent, however.
 
 [8 <./img/canonyjack.png>]
-LaTeX Info: Redefining \. on input line 131.
-LaTeX Info: Redefining \% on input line 131.
+LaTeX Info: Redefining \. on input line 133.
+LaTeX Info: Redefining \% on input line 133.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.5pt): 
@@ -768,8 +768,13 @@ Cap\'{\i }tulo 3.
 (./algoritmo.tex [10
 
 ]
-LaTeX Info: Redefining \. on input line 29.
-LaTeX Info: Redefining \% on input line 29.
+<img/dft.png, id=80, 778.40813pt x 621.82312pt>
+File: img/dft.png Graphic file (type png)
+<use img/dft.png>
+Package pdftex.def Info: img/dft.png  used on input line 26.
+(pdftex.def)             Requested size: 284.52756pt x 227.30038pt.
+LaTeX Info: Redefining \. on input line 32.
+LaTeX Info: Redefining \% on input line 32.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.5pt): 
@@ -778,8 +783,8 @@ Package Fancyhdr Warning: \headheight is too small (12.5pt):
  This may cause the page layout to be inconsistent, however.
 
 [11]
-LaTeX Info: Redefining \. on input line 38.
-LaTeX Info: Redefining \% on input line 38.
+LaTeX Info: Redefining \. on input line 50.
+LaTeX Info: Redefining \% on input line 50.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.5pt): 
@@ -787,14 +792,14 @@ Package Fancyhdr Warning: \headheight is too small (12.5pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[12]
-<img/music_vocoder.png, id=86, 245.91875pt x 220.825pt>
+[12 <./img/dft.png>]
+<img/music_vocoder.png, id=89, 245.91875pt x 220.825pt>
 File: img/music_vocoder.png Graphic file (type png)
 <use img/music_vocoder.png>
-Package pdftex.def Info: img/music_vocoder.png  used on input line 41.
+Package pdftex.def Info: img/music_vocoder.png  used on input line 58.
 (pdftex.def)             Requested size: 199.16928pt x 178.85378pt.
-LaTeX Info: Redefining \. on input line 57.
-LaTeX Info: Redefining \% on input line 57.
+LaTeX Info: Redefining \. on input line 66.
+LaTeX Info: Redefining \% on input line 66.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.5pt): 
@@ -802,54 +807,58 @@ Package Fancyhdr Warning: \headheight is too small (12.5pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[13 <./img/music_vocoder.png>]
-<img/dft.png, id=91, 778.40813pt x 621.82312pt>
+[13]
+LaTeX Info: Redefining \. on input line 74.
+LaTeX Info: Redefining \% on input line 74.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.5pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[14 <./img/music_vocoder.png>]
 File: img/dft.png Graphic file (type png)
 <use img/dft.png>
-Package pdftex.def Info: img/dft.png  used on input line 60.
+Package pdftex.def Info: img/dft.png  used on input line 77.
 (pdftex.def)             Requested size: 284.52756pt x 227.30038pt.
-LaTeX Info: Redefining \. on input line 76.
-LaTeX Info: Redefining \% on input line 76.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.5pt): 
- Make it at least 13.59999pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[14 <./img/dft.png>]
 <img/problem_fft.png, id=97, 1177.39874pt x 594.72188pt>
 File: img/problem_fft.png Graphic file (type png)
 <use img/problem_fft.png>
-Package pdftex.def Info: img/problem_fft.png  used on input line 82.
+Package pdftex.def Info: img/problem_fft.png  used on input line 99.
 (pdftex.def)             Requested size: 398.33858pt x 201.20454pt.
+LaTeX Info: Redefining \. on input line 105.
+LaTeX Info: Redefining \% on input line 105.
 
-Overfull \hbox (33.65381pt too wide) in paragraph at lines 87--88
-[]\OT1/cmr/m/n/10.95 En la fi-gu-ra 3.3Se~nal si-noi-dal y su FFT con pe-rio-do
-s en-te-ros, re-cor-ta-da y enventanadafigure.3.3[]
- []
 
-<img/ventanas_grafica.png, id=98, 361.35pt x 219.06844pt>
+Package Fancyhdr Warning: \headheight is too small (12.5pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[15]
+<img/ventanas_grafica.png, id=101, 361.35pt x 219.06844pt>
 File: img/ventanas_grafica.png Graphic file (type png)
 <use img/ventanas_grafica.png>
-Package pdftex.def Info: img/ventanas_grafica.png  used on input line 95.
+Package pdftex.def Info: img/ventanas_grafica.png  used on input line 112.
 (pdftex.def)             Requested size: 284.52756pt x 172.49724pt.
-LaTeX Info: Redefining \. on input line 101.
-LaTeX Info: Redefining \% on input line 101.
+LaTeX Info: Redefining \. on input line 122.
+LaTeX Info: Redefining \% on input line 122.
+
 
 Package Fancyhdr Warning: \headheight is too small (12.5pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[15 <./img/problem_fft.png>]
-<img/ventana_utilizada.png, id=103, 1156.32pt x 599.99156pt>
+[16 <./img/problem_fft.png>]
+<img/ventana_utilizada.png, id=106, 1156.32pt x 599.99156pt>
 File: img/ventana_utilizada.png Graphic file (type png)
 <use img/ventana_utilizada.png>
-Package pdftex.def Info: img/ventana_utilizada.png  used on input line 108.
+Package pdftex.def Info: img/ventana_utilizada.png  used on input line 125.
 (pdftex.def)             Requested size: 426.79134pt x 221.45325pt.
-LaTeX Info: Redefining \. on input line 121.
-LaTeX Info: Redefining \% on input line 121.
+LaTeX Info: Redefining \. on input line 138.
+LaTeX Info: Redefining \% on input line 138.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.5pt): 
@@ -857,9 +866,9 @@ Package Fancyhdr Warning: \headheight is too small (12.5pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[16 <./img/ventanas_grafica.png>])
-LaTeX Info: Redefining \. on input line 134.
-LaTeX Info: Redefining \% on input line 134.
+[17 <./img/ventanas_grafica.png> <./img/ventana_utilizada.png>])
+LaTeX Info: Redefining \. on input line 136.
+LaTeX Info: Redefining \% on input line 136.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.5pt): 
@@ -867,13 +876,13 @@ Package Fancyhdr Warning: \headheight is too small (12.5pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[17 <./img/ventana_utilizada.png>]
+[18]
 Cap\'{\i }tulo 4.
-(./implementacion.tex) [18
+(./implementacion.tex) [19
 
 ]
-LaTeX Info: Redefining \. on input line 137.
-LaTeX Info: Redefining \% on input line 137.
+LaTeX Info: Redefining \. on input line 139.
+LaTeX Info: Redefining \% on input line 139.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.5pt): 
@@ -881,60 +890,56 @@ Package Fancyhdr Warning: \headheight is too small (12.5pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[19]
+[20]
 Cap\'{\i }tulo 5.
-(./pruebas.tex) [20
+(./pruebas.tex) [21
 
 ]
 Cap\'{\i }tulo 6.
-(./conclusiones.tex) [21
+(./conclusiones.tex) [22
 
 ]
-Overfull \hbox (3.30971pt too wide) in paragraph at lines 164--167
+Overfull \hbox (3.30971pt too wide) in paragraph at lines 166--169
 []\OT1/cmr/m/sc/10.95 Digilent\OT1/cmr/m/n/10.95 , \OT1/cmr/m/it/10.95 Nexys A7
  Re-fe-ren-ce Ma-nual\OT1/cmr/m/n/10.95 . https://reference.digilentinc.com/ref
 erence/
  []
 
-[22
+[23
 
 ] (./main.aux
 LaTeX Info: Redefining \. on input line 6.
 LaTeX Info: Redefining \% on input line 6.
-)
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+) ) 
 Here is how much of TeX's memory you used:
- 4896 strings out of 492982
- 65406 string characters out of 6134895
- 147228 words of memory out of 5000000
- 8315 multiletter control sequences out of 15000+600000
+ 4890 strings out of 492982
+ 65292 string characters out of 6134895
+ 147361 words of memory out of 5000000
+ 8309 multiletter control sequences out of 15000+600000
  12962 words of font info for 48 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,12n,44p,1328b,568s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb
-></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/rsfs/rsfs10.pfb>
-Output written on main.pdf (28 pages, 1313612 bytes).
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/rsfs/rsfs10.pfb>
+Output written on main.pdf (29 pages, 1317640 bytes).
 PDF statistics:
- 186 PDF objects out of 1000 (max. 8388607)
- 118 compressed objects within 2 object streams
+ 189 PDF objects out of 1000 (max. 8388607)
+ 120 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  56 words of extra memory for PDF output out of 10000 (max. 10000000)
 
