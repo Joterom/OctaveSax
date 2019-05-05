@@ -37,50 +37,60 @@
 \newlabel{eq:DESP}{{3.1}{10}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1.1}Prescindiendo de Fourier}{10}}
 \citation{nfctsm}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.1.1}Algoritmo NFC-TSM}{11}}
+\citation{hilbert}
 \@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces [A\IeC {\~N}ADIR LA FIGURA 1 Y 2 DEL PAPER EN LA MISMA IMAGEN]}}{12}}
 \newlabel{fig:tsm}{{3.1}{12}}
 \newlabel{eq:amdf}{{3.2}{12}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.2}Retorno a la transformada}{12}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.2}Vocoder}{12}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}Vocoder en la m\IeC {\'u}sica}{13}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces Esquema del funcionamiento de un vocoder musical}}{14}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.3}Transformaci\IeC {\'o}n a frecuencia: STFT}{14}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.1}Transformada de Fourier: FFT e iFFT}{14}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces Esquema del algoritmo para la realizaci\IeC {\'o}n de la FFT}}{15}}
-\newlabel{fig:fft}{{3.3}{15}}
-\newlabel{eq:FFT}{{3.3}{15}}
-\newlabel{eq:iFFT}{{3.4}{15}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.2}Solapamiento y enventanado}{15}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.1.2}Algortimo de baja latencia}{12}}
+\newlabel{rhilbert}{{3.1.1.2}{12}}
+\citation{hilbert}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces Esquema del algoritmo de baja latencia. FS es cada resta de frecuencia}}{13}}
+\newlabel{fig:fshil}{{3.2}{13}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces Esquema de cada etapa de restado en el dominio del tiempo}}{14}}
+\newlabel{fig:restahil}{{3.3}{14}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.2}Retorno a la transformada}{14}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}Vocoder}{14}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}Vocoder en la m\IeC {\'u}sica}{15}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.4}{\ignorespaces Esquema del funcionamiento de un vocoder musical}}{16}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.3}Transformaci\IeC {\'o}n a frecuencia: STFT}{16}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.1}Transformada de Fourier: FFT e iFFT}{16}}
+\newlabel{eq:FFT}{{3.3}{16}}
+\newlabel{eq:iFFT}{{3.4}{16}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.5}{\ignorespaces Esquema del algoritmo para la realizaci\IeC {\'o}n de la FFT}}{17}}
+\newlabel{fig:fft}{{3.5}{17}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.2}Solapamiento y enventanado}{17}}
 \citation{Ellis}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.4}{\ignorespaces Se\IeC {\~n}al sinoidal y su FFT con periodos enteros, recortada y enventanada}}{16}}
-\newlabel{fig:probfft}{{3.4}{16}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.6}{\ignorespaces Se\IeC {\~n}al sinoidal y su FFT con periodos enteros, recortada y enventanada}}{18}}
+\newlabel{fig:probfft}{{3.6}{18}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.7}{\ignorespaces Comparativa de las ventanas m\IeC {\'a}s utilizadas}}{18}}
+\newlabel{fig:compven}{{3.7}{18}}
 \citation{Ellis}
-\newlabel{eq:Hann}{{3.5}{17}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.5}{\ignorespaces Comparativa de las ventanas m\IeC {\'a}s utilizadas}}{17}}
-\newlabel{fig:compven}{{3.5}{17}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.6}{\ignorespaces Ventana de Hann para $N = 512$ en Matlab}}{17}}
-\newlabel{fig:used_win}{{3.6}{17}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.4}Operaciones sobre la fase}{18}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {4}Implementaci\IeC {\'o}n}{19}}
+\newlabel{eq:Hann}{{3.5}{19}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.4}Operaciones sobre la fase}{19}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.8}{\ignorespaces Ventana de Hann para $N = 512$ en Matlab}}{19}}
+\newlabel{fig:used_win}{{3.8}{19}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}Implementaci\IeC {\'o}n}{20}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {4.1}Gesti\IeC {\'o}n entrada-salida}{19}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.1}Pmod i2s2}{19}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.2}Consideraciones de implementaci\IeC {\'o}n}{19}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}Controlador de datos}{19}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Bancos de memorias}{19}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Core FFT}{19}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}Controlador global}{19}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}Displays}{20}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Pruebas y depuraci\IeC {\'o}n}{21}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}Gesti\IeC {\'o}n entrada-salida}{20}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.1}Pmod i2s2}{20}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.2}Consideraciones de implementaci\IeC {\'o}n}{20}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}Controlador de datos}{20}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Bancos de memorias}{20}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Core FFT}{20}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}Controlador global}{20}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}Displays}{21}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Pruebas y depuraci\IeC {\'o}n}{22}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {chapter}{\numberline {6}Conclusiones y trabajo futuro}{22}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}Conclusiones y trabajo futuro}{23}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \bibcite{Ellis}{Ell}
 \bibcite{Oppenheim}{Opp}
-\bibcite{nfctsm}{PSh}
+\bibcite{nfctsm}{TSM}
 \bibcite{Nexys}{Nex}
 \bibcite{Mic}{Aud}
+\bibcite{hilbert}{LLA}
 \bibcite{Preamp}{PAm}

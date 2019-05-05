@@ -11,21 +11,23 @@
 \contentsline {chapter}{\numberline {3}El algoritmo}{10}
 \contentsline {section}{\numberline {3.1}Aproximaciones al problema}{10}
 \contentsline {subsection}{\numberline {3.1.1}Prescindiendo de Fourier}{10}
-\contentsline {subsection}{\numberline {3.1.2}Retorno a la transformada}{12}
-\contentsline {section}{\numberline {3.2}Vocoder}{12}
-\contentsline {subsection}{\numberline {3.2.1}Vocoder en la m\IeC {\'u}sica}{13}
-\contentsline {section}{\numberline {3.3}Transformaci\IeC {\'o}n a frecuencia: STFT}{14}
-\contentsline {subsection}{\numberline {3.3.1}Transformada de Fourier: FFT e iFFT}{14}
-\contentsline {subsection}{\numberline {3.3.2}Solapamiento y enventanado}{15}
-\contentsline {section}{\numberline {3.4}Operaciones sobre la fase}{18}
-\contentsline {chapter}{\numberline {4}Implementaci\IeC {\'o}n}{19}
-\contentsline {section}{\numberline {4.1}Gesti\IeC {\'o}n entrada-salida}{19}
-\contentsline {subsection}{\numberline {4.1.1}Pmod i2s2}{19}
-\contentsline {subsection}{\numberline {4.1.2}Consideraciones de implementaci\IeC {\'o}n}{19}
-\contentsline {section}{\numberline {4.2}Controlador de datos}{19}
-\contentsline {subsection}{\numberline {4.2.1}Bancos de memorias}{19}
-\contentsline {subsection}{\numberline {4.2.2}Core FFT}{19}
-\contentsline {section}{\numberline {4.3}Controlador global}{19}
-\contentsline {subsection}{\numberline {4.3.1}Displays}{20}
-\contentsline {chapter}{\numberline {5}Pruebas y depuraci\IeC {\'o}n}{21}
-\contentsline {chapter}{\numberline {6}Conclusiones y trabajo futuro}{22}
+\contentsline {subsubsection}{\numberline {3.1.1.1}Algoritmo NFC-TSM}{11}
+\contentsline {subsubsection}{\numberline {3.1.1.2}Algortimo de baja latencia}{12}
+\contentsline {subsection}{\numberline {3.1.2}Retorno a la transformada}{14}
+\contentsline {section}{\numberline {3.2}Vocoder}{14}
+\contentsline {subsection}{\numberline {3.2.1}Vocoder en la m\IeC {\'u}sica}{15}
+\contentsline {section}{\numberline {3.3}Transformaci\IeC {\'o}n a frecuencia: STFT}{16}
+\contentsline {subsection}{\numberline {3.3.1}Transformada de Fourier: FFT e iFFT}{16}
+\contentsline {subsection}{\numberline {3.3.2}Solapamiento y enventanado}{17}
+\contentsline {section}{\numberline {3.4}Operaciones sobre la fase}{19}
+\contentsline {chapter}{\numberline {4}Implementaci\IeC {\'o}n}{20}
+\contentsline {section}{\numberline {4.1}Gesti\IeC {\'o}n entrada-salida}{20}
+\contentsline {subsection}{\numberline {4.1.1}Pmod i2s2}{20}
+\contentsline {subsection}{\numberline {4.1.2}Consideraciones de implementaci\IeC {\'o}n}{20}
+\contentsline {section}{\numberline {4.2}Controlador de datos}{20}
+\contentsline {subsection}{\numberline {4.2.1}Bancos de memorias}{20}
+\contentsline {subsection}{\numberline {4.2.2}Core FFT}{20}
+\contentsline {section}{\numberline {4.3}Controlador global}{20}
+\contentsline {subsection}{\numberline {4.3.1}Displays}{21}
+\contentsline {chapter}{\numberline {5}Pruebas y depuraci\IeC {\'o}n}{22}
+\contentsline {chapter}{\numberline {6}Conclusiones y trabajo futuro}{23}
