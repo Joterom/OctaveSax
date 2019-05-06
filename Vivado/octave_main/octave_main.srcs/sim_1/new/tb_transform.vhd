@@ -13,6 +13,7 @@ architecture Behavioral of tb_transform is
         enable_fft : in STD_LOGIC;
         start_proc_fft : in STD_LOGIC;
         input_ready : in STD_LOGIC;
+        start_readn : in STD_LOGIC;
         data_in : in STD_LOGIC_VECTOR (15 downto 0)
         --data_out_for_re : out STD_LOGIC_VECTOR (15 downto 0);
         --data_out_for_im : out STD_LOGIC_VECTOR (15 downto 0)
@@ -21,6 +22,7 @@ architecture Behavioral of tb_transform is
     signal clk : STD_LOGIC := '1';   
     signal enable_fft, reset, start_proc_fft, input_ready : STD_LOGIC := '0';
     signal data_in : STD_LOGIC_VECTOR (15 downto 0) := (others => '0');
+    signal start_readn : STD_LOGIC := '0';
     
 begin
     
@@ -30,6 +32,7 @@ begin
         enable_fft => enable_fft,
         start_proc_fft => start_proc_fft,
         input_ready => input_ready,
+        start_readn => start_readn,
         data_in => data_in        
     );
     
@@ -55,12 +58,15 @@ begin
             reset <= '0';
             enable_fft <= '1';
         wait for 60 ns;
-            start_proc_fft <= '1';
+            start_proc_fft <= '1';          
         wait for 10 ns;
             start_proc_fft <= '0';
             data_in <= "0100000000000000";
         wait for 70 ns;
             data_in <= "0010000000000000";
+            start_readn <= '1';
+        wait for 4915200 ns;
+            start_readn <= '0';
         wait;
     end process;
 end Behavioral;
