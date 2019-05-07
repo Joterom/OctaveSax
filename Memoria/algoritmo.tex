@@ -11,6 +11,7 @@ Si~~~~~\mathscr{F}(\{x_{n}\})_{k} = X_{k}~~~~~Entonces~~~~~\mathscr{F}(\{x_{n}e^
 La consecuencia es que si la señal de entrada no es una única nota invariante, la salida resulta irreconocible, descartando inmediatamente este proceder. [GRAFICA DE LA ENTRADA/SALIDA EN ESTE CASO MATLAB] Otra consideración que no hay que dejar de lado es la pretensión de operar en tiempo real. Esto supone que se debe tener en cuenta un mecanismo que permita trocear la señal en conjuntos finitos para poder aplicar la transformación de Fourier. Este proceso, junto con la propia implementación de la transformada va a complicar en gran medida la arquitectura, es por ello que se decide en primer lugar evaluar los algortimos que no precisan de la esta operativa.
 
 \subsection{Prescindiendo de Fourier}
+\label{nofourier}
 De cara a obtener un pedal de efectos para un instrumento más grave, se podría haber pensado en optar por un octavador ascendente. Esto, aunque parece que plantea los mismos problemas, resulta mucho más sencillo de implementar precisamente por ser 2 el factor de multiplicación. La fácil solución consiste en elevar cada muestra al cuadrado y realizar un filrado pertinente que aisle las componentes que nos interesan, de forma que $X_{out} = X_{in}^{2}$, según vemos en el gráfico [INSERTAR GRAFIO MATLAB]. Como se puede apreciar, se produce un aumento llamativo de los armónicos produciendo una ligera variación en el timbre que podría resultar interesante, este tipo de efectos recibe el nombre de \emph{ennhancer}\footnote{Esta operativa me fue propuesta por José Parera, al que agradezco mucho el tiempo que me dedicó desinteresadamente} ya que se puede modificar el timbre de forma significativa. Si añadiesemos a este otros efectos como tremolo, reverb o delay, podríamos realizar una aproximación muy válida a un pedal comercial, sin embargo, he preferido mantnerme fiel a la intención original de realizar la octavación descendente.
 
 No obstante, merece la pena probar que ocurre si realizamos la operación opuesta, $X_{out} = \sqrt{X_{in}}$, de forma que se octavara hipotéticamente la señal de forma descendente. EL resultado es menos halagüeño de lo que pudiera parecer, en primer lugar tenemos el inconveniente de tener que lidiar con las muestras de valor negativo\footnote{Como se verá más adelante, el método de entrada en la FPGA devuelve las muestras normalizadas en el rango (-1,1)}, lo que resulta una molestia de cara al flujo de datos. Además, debido a que la entrada está limitada en banda, al reducir de forma cuadrática el valor de los armónicos más agudos, se produce una modificación en el timbre que provoca un sonido \emph{robótico} o \emph{artificial} por lo que se descarta también esta idea.
@@ -166,11 +167,35 @@ Como ya se ha visto antes, el solapamiento se utilizará junto con un enventanad
 Estos mismos conceptos se utilizarán de forma completamente análoga en la etapa de la transformada inversa, tras introducir las muestras en el módulo iSTFT. La única excepción es que para mantener la amplitud de las muestras en la salida igual que las de la entrada, hay que aplicar un factor de escala de $2/3$. En la práctica, lo que se hará será realizar la multiplicación a las constantes de la ventana quedando una ventana de Hann donde cada muestra está escalada por el factor mencionado, ahorrando así una operación.
 
 \section{Operaciones sobre la fase}
+A grandes rasgos este algoritmo opera realizando un diezmado en frecuencia de factor 2, es decir, eliminando una de cada dos frecuencias entrantes, y posteriormente modifica la fase para evitar el desplazamiento circular mencionado en \ref{nofourier}. El procesado se realiza por \emph{tramas consecutivas pares}, dos tramas se agrupan para formar una pareja en la que se va a poder calcular el valor de una única trama de salida. De esta forma, la primera trama se agrupa con la segunda, la tercera con la cuarta y así sucesivamente.
 
+\subsection{Cálculo del módulo}
+El primer paso consiste en obtener el módulo de las muestras. Tras repasar el algoritmo, se puede ver que solo es necesaio calcular este valor para una de cada dos muestras, ya que la otra es la que será diezmada y por tanto, no merece la pena malgastar recursos en esta operación. 
 
+El cálculo del módulo a partir de la forma binomial es sencillo: $mod = \sqrt{re^{2}+im^{2}}$ donde $re$ es la parte real e $im$ la imaginaria. Sin embargo, la implementación en FPGA de una raíz cuadrada no resulta inmediata. Una opción es utilizar un módulo de cálculo que procese los datos y devuelva la función raíz mientras que otra es utilizar $lookup tables$ para consultar el resultado de unas entradas previamente definidas. Este último método no es práctico ya que el tamaño de la memoria ROM que almacenaría esos datos tendría que ser demasiado grande, además el Vivado proporciona algunos módulos IP que realizan estas operaciones matemáticas, entre otras, a camibio de algunos ciclos de procesado.
 
- 
- 
+En este caso, resulta más práctico realizar una aproximación que permita reducir el tamaño en área de la implementación así como la latencia de la misma, tal y como señala el doctor Chu en \cite{vhdlchu}. Si aproximamos por tanto según \ref{eq:mod_app}, $donde~x = max\{|a|,|b|\}, y = min\{|a|,|b|\}$, logramos simplificar en gran medida esta operación.
 
+\begin{equation}
+\label{eq:mod_app}
+ \sqrt{a^{2}+b^{2}} \approx max\{((x - 0,125x) + 0,5y),x\}
+\end{equation} 
 
+\subsection{Recalculando la fase}
+Una vez tenemos el módulo calculado, podemos calcular la nueva fase de cada muestra teniendo en cuenta una vez más que necesitamos la información de una trama $t$ y de la siguiente, $t+1$. El método para calcular la fase partiendo de la forma binomial es $\arctan(im/re)$ pero en este caso, si que compensa utilizar un core IP del Vivado que realice esta operación, ya que esta y otras operaciones trigonométricas serán necesarias más adelante.
 
+Una vez calculada la fase de cada muestra entrante $n_{t}$, procedemos a obtener la fase de salida que se aplicará a cada muestra de salida $n_{t}'$. Primeramente calculamos una variable, $dp$, que va acumulándose con $n$ según \ref{eq:phcalc}. 
+\begin{equation}
+\label{eq:phcalc}
+dp = fase(n_{t+1}) - fase(n_{t}) - dphi
+\end{equation} 
+En esta fórmula se puede observar la existencia de una constante $dphi$ de valor $dphi = (\frac{n\pi}{2})$\footnote{Esta $n$ también se refiere al número de muestra dentro de una trama $t$. Hay que recordar que $0 \leq n \leq puntos~de~la~transformada$, 511 en este caso} que se calcula aparte y se introduce en una ROM para utilizarla a lo largo del procesado. Aunque pueda parecer que el valor resultante puede llegar a ser muy elevado debido al carácter de esta constante, el siguiente paso es reducir el resultado obtenido al intervalo $(-\pi,\pi)$, eliminando el problema.
+
+Esta constante $dp$ va a servir para actualizar el valor de la fase \textbf{de la muestra siguiente $n+1$} operando como en \ref{eq:phfin}, de forma que la fase de cada muestra depende de la anterior dentro de la misma trama.
+\begin{equation}
+\label{eq:phfin}
+fase(n_{t}' + 1) = fase(n_{t}) + dp + dphi~~~~~~con~fase(n_{t}) = 0~~si~n=0
+\end{equation} 
+Tras este proceso, se puede preparar la muestra para iniciar la transformada inversa y posteriormente reenventanar la señal de salida cuando se procesen el resto de las muestras necesarias. [INCLUIR DIAGRAMA DE BLOQUES DE LA PARTE TRANSFORMADA]
+
+Para concluir, podemos afirmar que el algoritmo que se va a implementar es una adaptación del vocoder de fase propuesto por Ellis (\cite{Ellis}), de forma que este orientado a la octavación y sea lo más adecuado posible para introducirlo en la FPGA.

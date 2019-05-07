@@ -45,7 +45,7 @@ end;
 [rows, cols] = size(stft_signal);
 t = 0:r:(cols-2);
 % Tiene cuidado con las columnas porque se inicializa en 0 y hace falta la
-% ventana siguiente para eo solapamiento
+% ventana siguiente para el solapamiento
 
 num = 2*(rows-1);
 
@@ -67,7 +67,7 @@ ocol = 1;
 for i = t
   % Coge dos coulmnas
   bcols = stft_signal(:,floor(i)+[1 2]);
-  bmag = abs(bcols(:,1));% + tf*(abs(bcols(:,2)));
+  bmag = abs(bcols(:,1));%
   % Calcula la fase siguiente
   dp = angle(bcols(:,2)) - angle(bcols(:,1)) - dphi';
   % La reduce a rango de -pi, pi
