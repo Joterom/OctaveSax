@@ -162,6 +162,7 @@ begin
                 stage <= '0';    
                 stage_inv <= '0';     
                 input_tvalid <= '0';
+                input_tvalid_inv <= '0';
                 config_tvalid <= '1';
                 count_value <= (others => '1');
                 count_value_inv <= (others => '1');
@@ -263,6 +264,7 @@ begin
             read_nextn <= read_next; 
             start_proc_ifftn <= '0';
             if start_read = '1' then
+                start_proc_ifftn <= '1';
                 if warn2 = '0' then
                     if ena = '0' then
                         addra_next <= std_logic_vector(unsigned(addra) + 1);
@@ -272,20 +274,19 @@ begin
                     warn2nn <= '1';
                 else
                     ena_next <= '0';
-                    read_nextn <= '1'; 
+                    read_nextn <= '1';                 
                 end if;
             end if;
             if read_next = '1' then
                 read_nextn <= '0'; 
-                --membufn <= douta;
-                if addra = "1111111111" then
-                    start_proc_ifftn <= '1';
+                if addra = "1111111111" then                   
                     --start_readn <= '0';
+                    start_proc_ifftn <= '0';
                 end if;
             end if;
     end process;
     
-    process(start_proc_ifft, read_next,stage_inv, config_tvalid_inv, count_value_inv, output_tready_inv
+    process(start_proc_ifft, read_next,stage_inv , config_tvalid_inv, count_value_inv, output_tready_inv
             , start_read, douta, proc_ifft)
         begin
             --processing_next <= processing;
@@ -299,20 +300,22 @@ begin
             if start_proc_ifft = '1' then
                 proc_ifftn <= '1';
                 config_tvalidnn_inv <= '0';
-            elsif proc_ifft = '1' then
+            end if;
+            if proc_ifft = '1' then
                 if read_next = '1' then
                     input_data_inv_next <= douta; 
                     stagenn_inv <= '1';
-                    count_valuenn_inv <= count_value_inv + 1;               
-                end if;
-                if stage_inv = '1' then
-                    input_tvalidnn_inv <= '1';
-                    if count_value_inv = to_unsigned(511,9) then
+                    count_valuenn_inv <= count_value_inv + 1;   
+                    input_tvalidnn_inv <= '1';       
+                    if count_value_inv = to_unsigned(510,9) then
                         input_tlastnn_inv <= '1';
                         output_treadynn_inv <= '1';
                         proc_ifftn <= '0';
-                    end if;
+                    end if;     
                 end if;
+--                if stage_inv = '1' then                  
+                    
+--                end if;
             end if;
     end process;
     

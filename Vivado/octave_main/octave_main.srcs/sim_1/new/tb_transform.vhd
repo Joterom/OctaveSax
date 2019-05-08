@@ -65,7 +65,7 @@ begin
         wait for 70 ns;
             data_in <= "0010000000000000";
             start_readn <= '1';
-        wait for 4915200 ns;
+        wait for 20470 ns;
             start_readn <= '0';
         wait;
     end process;

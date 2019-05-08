@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="freq_short_memo_synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1555598425">
-  <File Type="RDS-DCP" Name="freq_short_memo.dcp"/>
   <File Type="PA-TCL" Name="freq_short_memo.tcl"/>
+  <File Type="RDS-DCP" Name="freq_short_memo.dcp"/>
   <File Type="REPORTS-TCL" Name="freq_short_memo_reports.tcl"/>
   <File Type="RDS-RDS" Name="freq_short_memo.vds"/>
   <File Type="RDS-UTIL" Name="freq_short_memo_utilization_synth.rpt"/>
