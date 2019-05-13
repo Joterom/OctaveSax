@@ -136,6 +136,6 @@
   </Strategy>
   <BlockFileSet Type="BlockSrcs" Name="clk_generator"/>
   <BlockFileSet Type="BlockSrcs" Name="FFT_transform"/>
-  <BlockFileSet Type="BlockSrcs" Name="freq_short_memo"/>
   <BlockFileSet Type="BlockSrcs" Name="out_long_memo"/>
+  <BlockFileSet Type="BlockSrcs" Name="freq_short_memo"/>
 </GenRun>

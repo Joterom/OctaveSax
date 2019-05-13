@@ -313,9 +313,6 @@ begin
                         proc_ifftn <= '0';
                     end if;     
                 end if;
---                if stage_inv = '1' then                  
-                    
---                end if;
             end if;
     end process;
     

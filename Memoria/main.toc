@@ -22,14 +22,17 @@
 \contentsline {section}{\numberline {3.4}Operaciones sobre la fase}{19}
 \contentsline {subsection}{\numberline {3.4.1}C\IeC {\'a}lculo del m\IeC {\'o}dulo}{20}
 \contentsline {subsection}{\numberline {3.4.2}Recalculando la fase}{20}
-\contentsline {chapter}{\numberline {4}Implementaci\IeC {\'o}n}{21}
-\contentsline {section}{\numberline {4.1}Gesti\IeC {\'o}n entrada-salida}{21}
-\contentsline {subsection}{\numberline {4.1.1}Pmod i2s2}{21}
-\contentsline {subsection}{\numberline {4.1.2}Consideraciones de implementaci\IeC {\'o}n}{21}
-\contentsline {section}{\numberline {4.2}Controlador de datos}{21}
-\contentsline {subsection}{\numberline {4.2.1}Bancos de memorias}{21}
-\contentsline {subsection}{\numberline {4.2.2}Core FFT}{21}
-\contentsline {section}{\numberline {4.3}Controlador global}{21}
-\contentsline {subsection}{\numberline {4.3.1}Displays}{22}
-\contentsline {chapter}{\numberline {5}Pruebas y depuraci\IeC {\'o}n}{23}
-\contentsline {chapter}{\numberline {6}Conclusiones y trabajo futuro}{24}
+\contentsline {chapter}{\numberline {4}Implementaci\IeC {\'o}n}{22}
+\contentsline {section}{\numberline {4.1}Gesti\IeC {\'o}n entrada-salida}{23}
+\contentsline {subsection}{\numberline {4.1.1}Pmod i2s2}{24}
+\contentsline {subsection}{\numberline {4.1.2}Consideraciones de implementaci\IeC {\'o}n}{24}
+\contentsline {section}{\numberline {4.2}Controlador de datos}{24}
+\contentsline {subsection}{\numberline {4.2.1}Bancos de memorias}{25}
+\contentsline {subsection}{\numberline {4.2.2}Core FFT}{25}
+\contentsline {section}{\numberline {4.3}Controlador global}{25}
+\contentsline {subsection}{\numberline {4.3.1}Displays}{25}
+\contentsline {chapter}{\numberline {5}Pruebas y depuraci\IeC {\'o}n}{26}
+\contentsline {chapter}{\numberline {6}Conclusiones y trabajo futuro}{27}
+\contentsline {chapter}{Ap\IeC {\'e}ndices}{}
+\contentsline {chapter}{\numberline {A}C\IeC {\'o}digo del algoritmo en MATLAB}{1}
+\contentsline {chapter}{\numberline {B}}{2}

@@ -8,7 +8,13 @@
 \usepackage{graphicx}
 \usepackage{mathrsfs}
 
-
+% APENDICES
+\usepackage[toc,page]{appendix}
+\noappendicestocpagenum
+%\appendixtitleoff
+\renewcommand{\appendixtocname}{Apéndices}
+\renewcommand{\appendixpagename}{Apéndices}
+\renewcommand{\appendixname}{Apéndice}
 
 \addtolength{\topmargin}{-20mm}
 \addtolength{\textheight}{20mm}
@@ -49,6 +55,7 @@
 
 % AÑADE VINCULOS A LOS ENLACES, PERO SE VEN MAL CON ALGUNOS EDITORES
 % \usepackage{hyperref}
+
 
 \setcounter{secnumdepth}{3}
 
@@ -142,6 +149,14 @@
 \chapter{Conclusiones y trabajo futuro}
 \input conclusiones.tex
 
+\begin{appendices}
+\clearpage
+\pagenumbering{arabic}
+\chapter{Código del algoritmo en MATLAB}
+codigo aqui
+\chapter{}
+codigo aqui
+\end{appendices}
 % BIBLIOGRAFIA
 \begin{thebibliography}{aaa}
 
@@ -153,12 +168,12 @@
 	http://www.ee.columbia.edu/\~dpwe/LabROSA/matlab/pvoc/
 	
 \bibitem[Opp]{Oppenheim}
-	\textsc{A.V.Oppenheim - R.W.Schafer},
+	\textsc{A.V.Oppenheim, R.W.Schafer},
 	\textit{Discrete-Time Signal Processing}.
 	Pearson Education, 2011
 	
 \bibitem[TSM]{nfctsm}
-	\textsc{A.Haghparast - H.Penttinen - V.Välimäki},
+	\textsc{A.Haghparast, H.Penttinen, V.Välimäki},
 	\textit{Real-Time Pitch-Shifting Of Musical Signals By A Time-Varying Factor Using Normalized Filtered Correlation Time-Scale Modification (NFC-TSM)}.
 	Proc. of the 10th Int. Conference on Digital Audio Effects (DAFx-07), Bordeaux, France, September 10-15, 2007
 	
@@ -166,6 +181,16 @@
 	\textsc{Digilent},
 	\textit{Nexys A7 Reference Manual}.
 	https://reference.digilentinc.com/reference/ programmable-logic/nexys-a7/	  reference-manual
+	
+\bibitem[ADC]{adcdata}
+	\textsc{Cirrus Logic},~
+	\textit{CS5343-44}.~
+	https://www.cirrus.com/products/cs5343-44/?\_g a=2.264355407.117367827.1557737954-871020677.1554307733
+	
+\bibitem[DAC]{dacdata}
+	\textsc{Cirrus Logic},~
+	\textit{CS4344/45/48}.~
+	https://www.cirrus.com/products/cs4344-45-48/?\_ga=2.264355407.117367827.1557737954-871020677.1554307733
 	
 \bibitem[Aud]{Mic}
 	\textsc{Audio Technica},

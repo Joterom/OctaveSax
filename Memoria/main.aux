@@ -21,10 +21,10 @@
 \@writefile{toc}{\contentsline {section}{\numberline {2.1}Selecci\IeC {\'o}n de micr\IeC {\'o}fono}{5}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces Tipos de micr\IeC {\'o}fonos seg\IeC {\'u}n su diagrama polar~\cite  {Mic}}}{6}}
 \newlabel{fig:polar_dig}{{2.1}{6}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces Saxof\IeC {\'o}n alto}}{6}}
+\newlabel{fig:saxo}{{2.2}{6}}
 \citation{Preamp}
 \@writefile{toc}{\contentsline {section}{\numberline {2.2}Preamp}{7}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces Saxof\IeC {\'o}n alto}}{7}}
-\newlabel{fig:saxo}{{2.2}{7}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2.3}{\ignorespaces Conector tipo XLR hembra y jack no balanceado macho de 6.35 mm}}{8}}
 \newlabel{fig:conec}{{2.3}{8}}
 \@writefile{toc}{\contentsline {section}{\numberline {2.3}Alimentaci\IeC {\'o}n}{8}}
@@ -39,21 +39,22 @@
 \newlabel{nofourier}{{3.1.1}{10}}
 \citation{nfctsm}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.1.1}Algoritmo NFC-TSM}{11}}
+\citation{nfctsm}
 \citation{hilbert}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces [A\IeC {\~N}ADIR LA FIGURA 1 Y 2 DEL PAPER EN LA MISMA IMAGEN]}}{12}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces Esquema del funcionamiento NFC-TSM en octavaci\IeC {\'o}n descendiente}}{12}}
 \newlabel{fig:tsm}{{3.1}{12}}
 \newlabel{eq:amdf}{{3.2}{12}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.1.2}Algortimo de baja latencia}{12}}
 \newlabel{rhilbert}{{3.1.1.2}{12}}
 \citation{hilbert}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces Esquema del algoritmo de baja latencia. FS es cada resta de frecuencia}}{13}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces Esquema del algoritmo de baja latencia. FS equivale a cada resta de frecuencia}}{13}}
 \newlabel{fig:fshil}{{3.2}{13}}
 \@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces Esquema de cada etapa de restado en el dominio del tiempo}}{14}}
 \newlabel{fig:restahil}{{3.3}{14}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1.2}Retorno a la transformada}{14}}
 \@writefile{toc}{\contentsline {section}{\numberline {3.2}Vocoder}{14}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}Vocoder en la m\IeC {\'u}sica}{15}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.4}{\ignorespaces Esquema del funcionamiento de un vocoder musical}}{16}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.4}{\ignorespaces Esquema del funcionamiento de un vocoder musical[TRADUCIR]}}{16}}
 \@writefile{toc}{\contentsline {section}{\numberline {3.3}Transformaci\IeC {\'o}n a frecuencia: STFT}{16}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.3.1}Transformada de Fourier: FFT e iFFT}{16}}
 \newlabel{eq:FFT}{{3.3}{16}}
@@ -76,28 +77,43 @@
 \newlabel{eq:mod_app}{{3.6}{20}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.4.2}Recalculando la fase}{20}}
 \newlabel{eq:phcalc}{{3.7}{20}}
-\newlabel{eq:phfin}{{3.8}{20}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {4}Implementaci\IeC {\'o}n}{21}}
+\citation{Ellis}
+\newlabel{eq:phfin}{{3.8}{21}}
+\citation{Nexys}
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}Implementaci\IeC {\'o}n}{22}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {4.1}Gesti\IeC {\'o}n entrada-salida}{21}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.1}Pmod i2s2}{21}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.2}Consideraciones de implementaci\IeC {\'o}n}{21}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}Controlador de datos}{21}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Bancos de memorias}{21}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Core FFT}{21}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}Controlador global}{21}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}Displays}{22}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Pruebas y depuraci\IeC {\'o}n}{23}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Placa Nexys A7}}{22}}
+\newlabel{fig:nexys}{{4.1}{22}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}Gesti\IeC {\'o}n entrada-salida}{23}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.1}Pmod i2s2}{24}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Detalle del Pmod i2s2}}{24}}
+\newlabel{fig:pmod}{{4.2}{24}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.2}Consideraciones de implementaci\IeC {\'o}n}{24}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}Controlador de datos}{24}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Bancos de memorias}{25}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Core FFT}{25}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}Controlador global}{25}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}Displays}{25}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Pruebas y depuraci\IeC {\'o}n}{26}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {chapter}{\numberline {6}Conclusiones y trabajo futuro}{24}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}Conclusiones y trabajo futuro}{27}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {chapter}{Ap\IeC {\'e}ndices}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {A}C\IeC {\'o}digo del algoritmo en MATLAB}{1}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {chapter}{\numberline {B}}{2}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \bibcite{Ellis}{Ell}
 \bibcite{Oppenheim}{Opp}
 \bibcite{nfctsm}{TSM}
 \bibcite{Nexys}{Nex}
+\bibcite{adcdata}{ADC}
+\bibcite{dacdata}{DAC}
 \bibcite{Mic}{Aud}
 \bibcite{hilbert}{LLA}
 \bibcite{Preamp}{PAm}

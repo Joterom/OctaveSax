@@ -135,3 +135,5 @@
 6.5.5 Memoria pre ifft lista, comienzo ifft
 6.5.6 Avances en la memoria de BCN, capitulo de algoritmo planteado
 6.5.7 Lectura de ifft lista
+13/05/19
+6.5.8 Pequeños cambios en Vivado y avance de la memoria: algoritmo, introduccion mandados para corregir
