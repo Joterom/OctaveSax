@@ -22,13 +22,12 @@
 \BOOKMARK [0][-]{chapter.4}{Implementaci\363n}{}% 22
 \BOOKMARK [1][-]{section.4.1}{Gesti\363n entrada-salida}{chapter.4}% 23
 \BOOKMARK [2][-]{subsection.4.1.1}{Pmod i2s2}{section.4.1}% 24
-\BOOKMARK [2][-]{subsection.4.1.2}{Consideraciones de implementaci\363n}{section.4.1}% 25
+\BOOKMARK [2][-]{subsection.4.1.2}{Consideraciones de la implementaci\363n del Pmod}{section.4.1}% 25
 \BOOKMARK [1][-]{section.4.2}{Controlador de datos}{chapter.4}% 26
-\BOOKMARK [2][-]{subsection.4.2.1}{Bancos de memorias}{section.4.2}% 27
-\BOOKMARK [2][-]{subsection.4.2.2}{Core FFT}{section.4.2}% 28
-\BOOKMARK [1][-]{section.4.3}{Controlador global}{chapter.4}% 29
-\BOOKMARK [2][-]{subsection.4.3.1}{Displays}{section.4.3}% 30
-\BOOKMARK [0][-]{chapter.5}{Pruebas y depuraci\363n}{}% 31
-\BOOKMARK [0][-]{chapter.6}{Conclusiones y trabajo futuro}{}% 32
-\BOOKMARK [0][-]{Ap\unhbox \voidb@x \bgroup \let \unhbox \voidb@x \setbox \@tempboxa \hbox {e\global \mathchardef \accent@spacefactor \spacefactor }\accent 19 e\egroup \spacefactor \accent@spacefactor \futurelet \@let@token ndice.alph1.Alph1}{C\363digo del algoritmo en MATLAB}{}% 33
-\BOOKMARK [0][-]{Ap\unhbox \voidb@x \bgroup \let \unhbox \voidb@x \setbox \@tempboxa \hbox {e\global \mathchardef \accent@spacefactor \spacefactor }\accent 19 e\egroup \spacefactor \accent@spacefactor \futurelet \@let@token ndice.alph1.Alph2}{}{}% 34
+\BOOKMARK [2][-]{subsection.4.2.1}{Implementaci\363n del solapamiento}{section.4.2}% 27
+\BOOKMARK [2][-]{subsection.4.2.2}{Bancos de memorias}{section.4.2}% 28
+\BOOKMARK [2][-]{subsection.4.2.3}{Core FFT e iFFT}{section.4.2}% 29
+\BOOKMARK [1][-]{section.4.3}{Controlador global}{chapter.4}% 30
+\BOOKMARK [2][-]{subsection.4.3.1}{Displays}{section.4.3}% 31
+\BOOKMARK [0][-]{chapter.5}{Pruebas y depuraci\363n}{}% 32
+\BOOKMARK [0][-]{chapter.6}{Conclusiones y trabajo futuro}{}% 33

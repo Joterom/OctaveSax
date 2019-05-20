@@ -25,14 +25,15 @@
 \contentsline {chapter}{\numberline {4}Implementaci\IeC {\'o}n}{22}
 \contentsline {section}{\numberline {4.1}Gesti\IeC {\'o}n entrada-salida}{23}
 \contentsline {subsection}{\numberline {4.1.1}Pmod i2s2}{24}
-\contentsline {subsection}{\numberline {4.1.2}Consideraciones de implementaci\IeC {\'o}n}{24}
-\contentsline {section}{\numberline {4.2}Controlador de datos}{24}
-\contentsline {subsection}{\numberline {4.2.1}Bancos de memorias}{25}
-\contentsline {subsection}{\numberline {4.2.2}Core FFT}{25}
-\contentsline {section}{\numberline {4.3}Controlador global}{25}
-\contentsline {subsection}{\numberline {4.3.1}Displays}{25}
-\contentsline {chapter}{\numberline {5}Pruebas y depuraci\IeC {\'o}n}{26}
-\contentsline {chapter}{\numberline {6}Conclusiones y trabajo futuro}{27}
+\contentsline {subsection}{\numberline {4.1.2}Consideraciones de la implementaci\IeC {\'o}n del Pmod}{25}
+\contentsline {section}{\numberline {4.2}Controlador de datos}{27}
+\contentsline {subsection}{\numberline {4.2.1}Implementaci\IeC {\'o}n del solapamiento}{28}
+\contentsline {subsection}{\numberline {4.2.2}Bancos de memorias}{29}
+\contentsline {subsection}{\numberline {4.2.3}Core FFT e iFFT}{30}
+\contentsline {section}{\numberline {4.3}Controlador global}{30}
+\contentsline {subsection}{\numberline {4.3.1}Displays}{30}
+\contentsline {chapter}{\numberline {5}Pruebas y depuraci\IeC {\'o}n}{31}
+\contentsline {chapter}{\numberline {6}Conclusiones y trabajo futuro}{32}
 \contentsline {chapter}{Ap\IeC {\'e}ndices}{}
 \contentsline {chapter}{\numberline {A}C\IeC {\'o}digo del algoritmo en MATLAB}{1}
-\contentsline {chapter}{\numberline {B}}{2}
+\contentsline {chapter}{\numberline {B}Script de generaci\IeC {\'o}n de valores para las ROM}{2}

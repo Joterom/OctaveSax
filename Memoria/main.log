@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.12.26)  13 MAY 2019 12:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.12.26)  18 MAY 2019 19:56
 entering extended mode
 **./main.tex
 (main.tex
@@ -667,8 +667,8 @@ File: img/pmod.png Graphic file (type png)
 <use img/pmod.png>
 Package pdftex.def Info: img/pmod.png  used on input line 37.
 (pdftex.def)             Requested size: 170.71652pt x 170.71487pt.
-LaTeX Info: Redefining \. on input line 54.
-LaTeX Info: Redefining \% on input line 54.
+LaTeX Info: Redefining \. on input line 47.
+LaTeX Info: Redefining \% on input line 47.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.5pt): 
@@ -676,7 +676,92 @@ Package Fancyhdr Warning: \headheight is too small (12.5pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[24 <./img/pmod.png>])
+[24 <./img/pmod.png>]
+<img/xdc.png, id=144, 432.86719pt x 130.23656pt>
+File: img/xdc.png Graphic file (type png)
+<use img/xdc.png>
+Package pdftex.def Info: img/xdc.png  used on input line 55.
+(pdftex.def)             Requested size: 341.43306pt x 102.73074pt.
+LaTeX Info: Redefining \. on input line 66.
+LaTeX Info: Redefining \% on input line 66.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.5pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[25 <./img/xdc.png>]
+<img/ratiosreloj.png, id=150, 584.93532pt x 181.42781pt>
+File: img/ratiosreloj.png Graphic file (type png)
+<use img/ratiosreloj.png>
+Package pdftex.def Info: img/ratiosreloj.png  used on input line 73.
+(pdftex.def)             Requested size: 426.79134pt x 132.3803pt.
+<img/i2sov.png, id=151, 614.295pt x 80.55093pt>
+File: img/i2sov.png Graphic file (type png)
+<use img/i2sov.png>
+Package pdftex.def Info: img/i2sov.png  used on input line 80.
+(pdftex.def)             Requested size: 398.33858pt x 52.23334pt.
+LaTeX Info: Redefining \. on input line 88.
+LaTeX Info: Redefining \% on input line 88.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.5pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[26 <./img/ratiosreloj.png> <./img/i2sov.png>]
+<img/controlsig.png, id=157, 254.45062pt x 67.75313pt>
+File: img/controlsig.png Graphic file (type png)
+<use img/controlsig.png>
+Package pdftex.def Info: img/controlsig.png  used on input line 91.
+(pdftex.def)             Requested size: 199.16928pt x 53.03537pt.
+<img/destados.png, id=158, 779.91376pt x 390.45876pt>
+File: img/destados.png Graphic file (type png)
+<use img/destados.png>
+Package pdftex.def Info: img/destados.png  used on input line 104.
+(pdftex.def)             Requested size: 369.88582pt x 185.17789pt.
+LaTeX Info: Redefining \. on input line 112.
+LaTeX Info: Redefining \% on input line 112.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.5pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[27 <./img/controlsig.png> <./img/destados.png>]
+<img/solap.png, id=164, 480.79625pt x 194.7275pt>
+File: img/solap.png Graphic file (type png)
+<use img/solap.png>
+Package pdftex.def Info: img/solap.png  used on input line 126.
+(pdftex.def)             Requested size: 369.88582pt x 149.80988pt.
+LaTeX Info: Redefining \. on input line 132.
+LaTeX Info: Redefining \% on input line 132.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.5pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[28 <./img/solap.png>]
+<img/rams.png, id=169, 1290.32062pt x 620.3175pt>
+File: img/rams.png Graphic file (type png)
+<use img/rams.png>
+Package pdftex.def Info: img/rams.png  used on input line 144.
+(pdftex.def)             Requested size: 341.43306pt x 164.13725pt.
+LaTeX Info: Redefining \. on input line 154.
+LaTeX Info: Redefining \% on input line 154.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.5pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[29])
 LaTeX Info: Redefining \. on input line 146.
 LaTeX Info: Redefining \% on input line 146.
 
@@ -686,15 +771,15 @@ Package Fancyhdr Warning: \headheight is too small (12.5pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[25]
+[30 <./img/rams.png>]
 Cap\'{\i }tulo 5.
-(pruebas.tex) [26
+(pruebas.tex) [31
 
 ]
 Cap\'{\i }tulo 6.
-(conclusiones.tex) [27
+(conclusiones.tex) [32
 
-] [28
+] [33
 
 
 ]
@@ -725,50 +810,52 @@ Underfull \hbox (badness 4060) in paragraph at lines 191--194
 344/45/48\OT1/cmr/m/n/10.95 . https://www.cirrus.com/products/cs4344-45-
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 196--199
+[]\OT1/cmr/m/sc/10.95 Philips Se-mi-con-duc-tors\OT1/cmr/m/n/10.95 , \OT1/cmr/m
+/it/10.95 I2S Bus Spe-ci-fi-caion
+ []
+
 [3
 
 ] (main.aux
 LaTeX Info: Redefining \. on input line 6.
 LaTeX Info: Redefining \% on input line 6.
-)
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+) ) 
 Here is how much of TeX's memory you used:
- 4757 strings out of 492970
- 67887 string characters out of 3127037
- 152248 words of memory out of 3000000
- 8487 multiletter control sequences out of 15000+200000
+ 4806 strings out of 492970
+ 68660 string characters out of 3127037
+ 152364 words of memory out of 3000000
+ 8529 multiletter control sequences out of 15000+200000
  12962 words of font info for 48 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,12n,44p,1376b,568s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/
-cm/cmbx10.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publ
-ic/amsfonts/cm/cmbx12.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/font
-s/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Javi/AppData/Local/Programs/Mi
-KTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Javi/AppData/Local
-/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Javi/A
-ppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/U
-sers/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi
-8.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfo
-nts/cm/cmmi9.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/p
-ublic/amsfonts/cm/cmr10.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fo
-nts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Javi/AppData/Local/Programs/Mi
-KTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Javi/AppData/Local/
-Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Javi/AppD
-ata/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users
-/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb
-><C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/c
-m/cmsy10.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publi
-c/amsfonts/cm/cmsy8.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/
-type1/public/amsfonts/cm/cmsy9.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/Javi/AppData/Local/Pro
-grams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti9.pfb><C:/Users/Javi/AppDat
-a/Local/Programs/MiKTeX 2.9/fonts/type1/public/rsfs/rsfs10.pfb>
-Output written on main.pdf (37 pages, 1840322 bytes).
+<C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts
+/cm/cmbx10.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pub
+lic/amsfonts/cm/cmbx12.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fon
+ts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Javi/AppData/Local/Programs/M
+iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Javi/AppData/Loca
+l/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Javi/
+AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/
+Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmm
+i8.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsf
+onts/cm/cmmi9.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/
+public/amsfonts/cm/cmr10.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/f
+onts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Javi/AppData/Local/Programs/M
+iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Javi/AppData/Local
+/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Javi/App
+Data/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/User
+s/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9.pf
+b><C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/
+cm/cmsy10.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publ
+ic/amsfonts/cm/cmsy8.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts
+/type1/public/amsfonts/cm/cmsy9.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTe
+X 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/Javi/AppData/Local/Pr
+ograms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti9.pfb><C:/Users/Javi/AppDa
+ta/Local/Programs/MiKTeX 2.9/fonts/type1/public/rsfs/rsfs10.pfb>
+Output written on main.pdf (42 pages, 1982735 bytes).
 PDF statistics:
- 231 PDF objects out of 1000 (max. 8388607)
+ 259 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 81 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 116 words of extra memory for PDF output out of 10000 (max. 10000000)
 
