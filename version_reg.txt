@@ -139,3 +139,4 @@
 6.5.8 Pequeños cambios en Vivado y avance de la memoria: algoritmo, introduccion mandados para corregir
 20/05/19
 6.5.9 Avances en la memoria: implementación 
+6.5.9.1 Bckp tutoria

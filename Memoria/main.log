@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.12.26)  18 MAY 2019 19:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.12.26)  22 MAY 2019 07:40
 entering extended mode
 **./main.tex
 (main.tex
@@ -652,8 +652,8 @@ Package pdftex.def Info: img/nexysa7.jpg  used on input line 5.
  [22
 
  <./img/nexysa7.jpg>]
-LaTeX Info: Redefining \. on input line 32.
-LaTeX Info: Redefining \% on input line 32.
+LaTeX Info: Redefining \. on input line 34.
+LaTeX Info: Redefining \% on input line 34.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.5pt): 
@@ -682,8 +682,8 @@ File: img/xdc.png Graphic file (type png)
 <use img/xdc.png>
 Package pdftex.def Info: img/xdc.png  used on input line 55.
 (pdftex.def)             Requested size: 341.43306pt x 102.73074pt.
-LaTeX Info: Redefining \. on input line 66.
-LaTeX Info: Redefining \% on input line 66.
+LaTeX Info: Redefining \. on input line 70.
+LaTeX Info: Redefining \% on input line 70.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.5pt): 
@@ -702,9 +702,17 @@ File: img/i2sov.png Graphic file (type png)
 <use img/i2sov.png>
 Package pdftex.def Info: img/i2sov.png  used on input line 80.
 (pdftex.def)             Requested size: 398.33858pt x 52.23334pt.
-LaTeX Info: Redefining \. on input line 88.
-LaTeX Info: Redefining \% on input line 88.
+<img/controlsig.png, id=152, 254.45062pt x 67.75313pt>
+File: img/controlsig.png Graphic file (type png)
+<use img/controlsig.png>
+Package pdftex.def Info: img/controlsig.png  used on input line 89.
+(pdftex.def)             Requested size: 199.16928pt x 53.03537pt.
 
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+LaTeX Info: Redefining \. on input line 99.
+LaTeX Info: Redefining \% on input line 99.
 
 Package Fancyhdr Warning: \headheight is too small (12.5pt): 
  Make it at least 13.59999pt.
@@ -712,15 +720,10 @@ Package Fancyhdr Warning: \headheight is too small (12.5pt):
  This may cause the page layout to be inconsistent, however.
 
 [26 <./img/ratiosreloj.png> <./img/i2sov.png>]
-<img/controlsig.png, id=157, 254.45062pt x 67.75313pt>
-File: img/controlsig.png Graphic file (type png)
-<use img/controlsig.png>
-Package pdftex.def Info: img/controlsig.png  used on input line 91.
-(pdftex.def)             Requested size: 199.16928pt x 53.03537pt.
 <img/destados.png, id=158, 779.91376pt x 390.45876pt>
 File: img/destados.png Graphic file (type png)
 <use img/destados.png>
-Package pdftex.def Info: img/destados.png  used on input line 104.
+Package pdftex.def Info: img/destados.png  used on input line 102.
 (pdftex.def)             Requested size: 369.88582pt x 185.17789pt.
 LaTeX Info: Redefining \. on input line 112.
 LaTeX Info: Redefining \% on input line 112.
@@ -735,10 +738,10 @@ Package Fancyhdr Warning: \headheight is too small (12.5pt):
 <img/solap.png, id=164, 480.79625pt x 194.7275pt>
 File: img/solap.png Graphic file (type png)
 <use img/solap.png>
-Package pdftex.def Info: img/solap.png  used on input line 126.
+Package pdftex.def Info: img/solap.png  used on input line 124.
 (pdftex.def)             Requested size: 369.88582pt x 149.80988pt.
-LaTeX Info: Redefining \. on input line 132.
-LaTeX Info: Redefining \% on input line 132.
+LaTeX Info: Redefining \. on input line 134.
+LaTeX Info: Redefining \% on input line 134.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.5pt): 
@@ -750,10 +753,10 @@ Package Fancyhdr Warning: \headheight is too small (12.5pt):
 <img/rams.png, id=169, 1290.32062pt x 620.3175pt>
 File: img/rams.png Graphic file (type png)
 <use img/rams.png>
-Package pdftex.def Info: img/rams.png  used on input line 144.
+Package pdftex.def Info: img/rams.png  used on input line 142.
 (pdftex.def)             Requested size: 341.43306pt x 164.13725pt.
-LaTeX Info: Redefining \. on input line 154.
-LaTeX Info: Redefining \% on input line 154.
+LaTeX Info: Redefining \. on input line 150.
+LaTeX Info: Redefining \% on input line 150.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.5pt): 
@@ -761,7 +764,7 @@ Package Fancyhdr Warning: \headheight is too small (12.5pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[29])
+[29 <./img/rams.png>])
 LaTeX Info: Redefining \. on input line 146.
 LaTeX Info: Redefining \% on input line 146.
 
@@ -771,7 +774,7 @@ Package Fancyhdr Warning: \headheight is too small (12.5pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[30 <./img/rams.png>]
+[30]
 Cap\'{\i }tulo 5.
 (pruebas.tex) [31
 
@@ -823,10 +826,10 @@ LaTeX Info: Redefining \. on input line 6.
 LaTeX Info: Redefining \% on input line 6.
 ) ) 
 Here is how much of TeX's memory you used:
- 4806 strings out of 492970
- 68660 string characters out of 3127037
+ 4807 strings out of 492970
+ 68679 string characters out of 3127037
  152364 words of memory out of 3000000
- 8529 multiletter control sequences out of 15000+200000
+ 8530 multiletter control sequences out of 15000+200000
  12962 words of font info for 48 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,12n,44p,1376b,568s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -853,7 +856,7 @@ ic/amsfonts/cm/cmsy8.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts
 X 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/Javi/AppData/Local/Pr
 ograms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti9.pfb><C:/Users/Javi/AppDa
 ta/Local/Programs/MiKTeX 2.9/fonts/type1/public/rsfs/rsfs10.pfb>
-Output written on main.pdf (42 pages, 1982735 bytes).
+Output written on main.pdf (42 pages, 1981881 bytes).
 PDF statistics:
  259 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
