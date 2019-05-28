@@ -1,6 +1,34 @@
-Como ya hemos visto, el propósito de un octavador es proporcionar una señal una octava inferior a la señal introducida. En consecuencia el algoritmo debe dividir la frecuencia de cada muestra entrante por dos. Lo primero que salta a la vista es la manifiesta relación con la transformada de Fourier para operar en el dominio de la frecuencia, sin embargo, el coste computacional y temporal de implementar esta operación matemática es elevado. Es por ello que se estudian diferentes posibilidades que pudiesen simplificar la arquitectura.
+Para comenzar considero necesario hacer un pequeña introducción a algunos conceptos que tendrán importancia durante el transcurso del presente documento en relación con la física del sonido y la teoría musical, para facilitar la comprensión del documento por un público no especializado en estos ámbitos. 
+
+\section{Fundamentos del sonido y teoría musical}
+En primer lugar cabe destacar que como cualquier fenómeno físico, un sonido lleva asociados una serie de parámetros matemáticos que lo definen, pero tradicionalmente, estos términos han recibido otro nombre en el ámbito musical, con el que se enseñan en escuelas y conservatorios. Es importante, por tanto, tener clara la relación entre la nomenclatura musical y la equivalencia física y matemática.
+\begin{itemize}
+\item \textbf{Tono:} hace referencia a la altura de la nota en cuanto a grave o aguda. En parámetro que la define es la frecuencia, que se mide en Hercios. Aunque el oído humano puede llegar a percibir señales de hasta 20kHz, las notas fundamentales rara vez sobrepasan los 2kHz.
+\item \textbf{Volumen:} equivale a la intensidad que posee la señal tanto eléctricamente como cuando se propaga por el aire como una onda de presión. Cuando se mide en un circuito eléctrico se utilizan unidades de tensión mientras que como onda se suelen utilizar los dB dado su carácter logarítmico, sin embargo, posee unidades de intensidad acústica: $W/m^{2}$.
+\item\textbf{Timbre:} es característico de cada fuente de sonido y es lo que nos permite diferenciar un instrumento de otro, o voces humanas entre si, aún produciendo la misma nota.
+\end{itemize}
+
+La lista de superior muestra los tres parámetros fundamentales de un sonido musical, sin embargo, no queda claro como funciona el mecanismo matemático que rige el funcionamiento del más importante de ellos: el timbre.
+
+\subsection{Timbre, armónicos y serie armónica}
+Cualquier estudiante de ingeniería está familiarizado con la generación de armónicos en el contexto de la física y las vibraciones. Sin embargo, puede que no tantos se hayan preguntado como se \emph{oyen} estos modos o si se pueden percibir. La respuesta es sí, y además con mucha claridad. En lo que se refiere a la música, tanto los instrumentos musicales como la voz humana son estructuras complejas que producen sonidos a muchas frecuencias diferentes al mismo tiempo. Nuestro cerebro, cuando oye un sonido se encarga de interpretar la señal recibida para producir un sonido identificable. 
+
+Es inevitable establecer una analogía entre este funcionamiento y el terorema de Fourier, que dice que podemos descomponer cualquier señal como suma de una o varias componentes sinusoidales. Esta poderosa afirmación explica como funciona la generación de cualquier sonido musical.
+
+Así pues, cuando se produce una nota con un instrumento, se generan varias vibraciones a distintas frecuencias, en consecuencia, es la relación entre estas componentes lo que modifica el timbre de la nota generada y nos permite identificarla. La trampa está en que las frecuencias que se producen no son aleatorias, son una serie de notas que reciben el nombre de \emph{armónicos}. El conjunto de estos armónicos se llama \emph{serie armónica}.
+
+\begin{figure}[!bt]
+\begin{center}
+\includegraphics[width=10cm]{img/armonicos.jpg}
+\caption{\label{fig:armonicos}Diferentes instrumentos interpretando una misma nota}
+\end{center}
+\end{figure}
+
+Así pues, podemos concluir con que cada nota está a su vez formada por varios armónicos presentándose en diferente proporción entre ellos. El armónico que define el sonido es el primero de la serie y recibe el nombre de fundamental, el resto se obtienen multiplicando esta frecuencia por números enteros. En la imagen \ref{fig:armonicos} vemos como una guitarra, un fagot y un saxofón generan una mezcla de armónicos diferentes cuando interpretan la misma nota. Las operaciones que vamos realizar en la señal de entrada tienen como objetivo modificar el tono de una nota introducida mientras mantenemos inalterados su volumen y su timbre. En la práctica veremos como tanto el algoritmo como la FPGA introducen desviaciones y no idealidades que nos permiten elaborar y clasificar diferentes métodos y operativas.
 
 \section{Aproximaciones al problema}
+Como ya hemos visto, el propósito de un octavador es proporcionar una señal una octava inferior a la señal introducida. En consecuencia el algoritmo debe dividir la frecuencia de cada muestra entrante por dos. Lo primero que salta a la vista es la manifiesta relación con la transformada de Fourier para operar en el dominio de la frecuencia, sin embargo, el coste computacional y temporal de implementar esta operación matemática es elevado. Es por ello que se estudian diferentes posibilidades que pudiesen simplificar la arquitectura.
+
 El primer pensamiento es que se trata de algo sencillo: basta con eliminar una de cada dos muestras en el espectro, es decir, un diezmado en frecuencia, para obtener a la salida una señal con las frecuencias divididas por dos. Sin embargo las propiedades de la transformación hacen imposible realizar esta operación: como las frecuencias de entrada son numerosas y variables no basta este diezmado, ya que el desajuste en la fase produce un desplazamiento circular en la señal de salida (ecuación~\ref{eq:DESP}). 
 
 \begin{equation}

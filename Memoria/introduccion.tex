@@ -29,30 +29,47 @@ Para la realización de este proyecto de forma satisfactoria se ha establecido l
 \item Test y depuración.
 \end{itemize}
 
-\section{Fundamentos del sonido y teoría musical}
-Considero necesario hacer un pequeña introducción a algunos conceptos que tendrán importancia para el desarrollo del tranajo en relación con la física del sonido y la teoría musical, para facilitar la comprensión del documento por un público no especializado en estos ámbitos. 
-En primer lugar cabe destacar que como cualquier fenómeno físico, un sonido lleva asociados una serie de parámetros matemáticos que lo definen, pero tradicionalmente, estos términos han recibido otro nombre en el ámbito musical, con el que se enseñan en escuelas y conservatorios. Es importante, por tanto, tener clara la relación entre la nomenclatura musical y la equivalencia física y matemática.
-\begin{itemize}
-\item \textbf{Tono:} hace referencia a la altura de la nota en cuanto a grave o aguda. En parámetro que la define es la frecuencia, que se mide en $Hz$. Aunque el oído humano puede llegar a percibir señales de hasta 20kHz, las notas fundamentales rara vez sobrepasan los 2kHz.
-\item \textbf{Volumen:} equivale a la intensidad que posee la señal tanto eléctricamente como cuando se propaga por el aire como una onda de presión. Cuando se mide en un circuito eléctrico se utilizan unidades de tensión mientras que como onda se suelen utilizar los dB dado su carácter logarítmico, sin embargo, posee unidades de intensidad acústica: $W/m^{2}$.
-\item\textbf{Timbre:} es característico de cada fuente de sonido y es lo que nos permite diferenciar un instrumento de otro, o voces humanas entre si, aún produciendo la misma nota.
-\end{itemize}
+\section{Resultados}
+Para llegar a los resultados descritos se ha dedicado el tiempo ilustrado aqui.
 
-La lista de aqui arriba muestra los tres parámetros fundamentales de un sonido musical, sin embargo, no queda claro como funciona el mecanismo matemático que rige el funcionamiento del timbre.
+\begin{table}[htb]
+\centering
+\begin{tabular}{l r}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\multirow{2}{9cm}{\centering{\textbf{Algoritmo}}}                   &\multirow{2}{2cm}{\textbf{10h}}   \\
+				                                                    &                                  \\
+\hline
+Investigación de los diferentes algoritmos                          &3h                                \\ 
+Comparativa y evaluación de los mismos                              &Sevilla                           \\
+Prueba del algoritmo escogido en Matlab                             &Sevilla                           \\
+\hline 
+\hline
+\multirow{2}{9cm}{\centering{\textbf{Circuito analógico}}}          &\multirow{2}{2cm}{\textbf{10h}}   \\
+				                                                    &                                  \\
+\hline 
+Fase de documentación y montaje del circuito elegido                &3h                                \\ 
+Pruebas y medidas                                                   &Sevilla                           \\
+\hline 
+\hline
+\multirow{2}{9cm}{\centering{\textbf{Implementación}}}              &\multirow{2}{2cm}{\textbf{10h}}   \\
+				                                                    &                                  \\
+\hline
+Caracterización y puesta en marcha de la entrada y salida de datos  &3h                                \\ 
+Implementación del algoritmo de Matlab en VHDL usando Vivado        &Sevilla                           \\
+Depuración y pruebas                                                &Sevilla                           \\
+\hline 
+\hline 
+\multirow{2}{9cm}{\centering{\textbf{Otros}}}                       &\multirow{2}{2cm}{\textbf{10h}}   \\
+				                                                    &                                  \\
+\hline
+Medidas y estimaciones sobre el prototipo final                     &3h                                \\ 
+Realización de la memoria                                           &Sevilla                           \\
+\hline 
+\hline
+\multirow{2}{9cm}{\centering{\textbf{TOTAL}}}                       &\multirow{2}{2cm}{\textbf{10h}}   \\
+				                                                    &                                  \\
+\end{tabular}
+%\caption{\label{tabla:tiempo}Relación de tiempo de trabajo destinado a cada ámbito.}
+\end{table}
 
-\subsection{Timbre, armónicos y serie armónica}
-Cualquier estudiente de ingeniería ha estudiado la generación de armónicos en el contexto de la física y las vibraciones. Sin embargo, puede que no tantos se hayan preguntado como se \emph{oyen} estos modos o si se pueden percibir. La respuesta es sí, y además con mucha claridad. En lo que se refiere a la música, tanto los instrumentos musicales como la voz humana son estructuras complejas que producen sonidos a muchas frecuencias diferentes al mismo tiempo. Nuestro cerebro, cuando oye un sonido se encarga de interpretar la señal recibida para producir un sonido identificable. 
-
-Es inevitable establecer una analogía entre este funcionamiento y el terorema de Fourier, que dice que podemos descomponer cualquier señal como suma de una o varias componentes sinusoidales. Esta poderosa afirmación explica como funciona la generación de cualquier sonido musical.
-
-Así pues, cuando se produce una nota con un instrumento, se generan varias vibraciones a distintas frecuencias, en consecuencia, es la relación entre estas componentes lo que modifica el timbre de la nota generada y nos permite identificarla. La trampa está en que las frecuencias que se producen no son aleatorias, son una serie de notas que reciben el nombre de \emph{armónicos}. El conjunto de estos armónicos se llama \emph{serie armónica}.
-
-\begin{figure}[!ht]
-\begin{center}
-\includegraphics[width=10cm]{img/armonicos.jpg}
-\caption{\label{fig:armonicos}Diferentes instrumentos interpretando una misma nota}
-\end{center}
-\end{figure}
-
-
-Así pues, podemos concluir con que cada nota está a su vez formada por varios armónicos presentándose en diferente proporción entre ellos. El armónico que define el sonido es el primero de la serie y recibe el nombre de fundamental, el resto se obtienen multiplicando esta frecuencia por números enteros. En la imagen \ref{fig:armonicos} vemos como una guitarra, un fagot y un saxofón generan una mezcla de armónicos diferentes cuando interpretan la misma nota. Las operaciones que vamos realizar en la señal de entrada tienen como objetivo modificar el tono de una nota introducida mientras mantenemos inalterados su volumen y su timbre. En la práctica veremos como tanto el algoritmo como la FPGA introducen desviaciones y no idealidades que nos permiten elaborar y clasificar diferentes métodos y operativas.
+\section{Consecución de objetivos}

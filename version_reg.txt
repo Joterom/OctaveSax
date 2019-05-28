@@ -140,3 +140,5 @@
 20/05/19
 6.5.9 Avances en la memoria: implementación 
 6.5.9.1 Bckp tutoria
+28/05/19
+6.6 Comienzan las correcciones sobre el primer borrador de la memoria

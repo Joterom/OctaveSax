@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.12.26)  22 MAY 2019 07:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.12.26)  28 MAY 2019 19:36
 entering extended mode
 **./main.tex
 (main.tex
@@ -221,34 +221,51 @@ ty"
 Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
 \symrsfs=\mathgroup4
 )
+("C:\Users\Javi\AppData\Local\Programs\MiKTeX 2.9\tex\latex\multirow\multirow.s
+ty"
+Package: multirow 2018/08/03 v2.3 Span multiple rows of a table
+\multirow@colwidth=\skip49
+\multirow@cntb=\count108
+\multirow@dima=\skip50
+\bigstrutjot=\dimen119
+) ("C:\Users\Javi\AppData\Local\Programs\MiKTeX 2.9\tex\latex\tools\array.sty"
+Package: array 2018/04/30 v2.4h Tabular extension package (FMi)
+\col@sep=\dimen120
+\ar@mcellbox=\box30
+\extrarowheight=\dimen121
+\NC@list=\toks25
+\extratabsurround=\skip51
+\backup@length=\skip52
+\ar@cellbox=\box31
+)
 ("C:\Users\Javi\AppData\Local\Programs\MiKTeX 2.9\tex\latex\appendix\appendix.s
 ty"
 Package: appendix 2009/09/02 v1.2b extra appendix facilities
-\c@@pps=\count108
-\c@@ppsavesec=\count109
-\c@@ppsaveapp=\count110
+\c@@pps=\count109
+\c@@ppsavesec=\count110
+\c@@ppsaveapp=\count111
 )
 ("C:\Users\Javi\AppData\Local\Programs\MiKTeX 2.9\tex\latex\fancyhdr\fancyhdr.s
 ty"
 Package: fancyhdr 2017/06/30 v3.9a Extensive control of page headers and footer
 s
-\f@nch@headwidth=\skip49
-\f@nch@O@elh=\skip50
-\f@nch@O@erh=\skip51
-\f@nch@O@olh=\skip52
-\f@nch@O@orh=\skip53
-\f@nch@O@elf=\skip54
-\f@nch@O@erf=\skip55
-\f@nch@O@olf=\skip56
-\f@nch@O@orf=\skip57
+\f@nch@headwidth=\skip53
+\f@nch@O@elh=\skip54
+\f@nch@O@erh=\skip55
+\f@nch@O@olh=\skip56
+\f@nch@O@orh=\skip57
+\f@nch@O@elf=\skip58
+\f@nch@O@erf=\skip59
+\f@nch@O@olf=\skip60
+\f@nch@O@orf=\skip61
 )
 
 Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is use
-less on input line 45.
+less on input line 46.
 
 
 Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is use
-less on input line 47.
+less on input line 48.
 
 (main.aux
 LaTeX Info: Redefining \. on input line 6.
@@ -256,36 +273,36 @@ LaTeX Info: Redefining \% on input line 6.
 )
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Info: Redefining \. on input line 62.
-LaTeX Info: Redefining \% on input line 62.
-\AtBeginShipoutBox=\box30
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Info: Redefining \. on input line 63.
+LaTeX Info: Redefining \% on input line 63.
+\AtBeginShipoutBox=\box32
 
 ("C:\Users\Javi\AppData\Local\Programs\MiKTeX 2.9\tex\context\base\supp-pdf.mki
 i"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count111
-\scratchdimen=\dimen119
-\scratchbox=\box31
-\nofMPsegments=\count112
-\nofMParguments=\count113
-\everyMPshowfont=\toks25
-\MPscratchCnt=\count114
-\MPscratchDim=\dimen120
-\MPnumerator=\count115
-\makeMPintoPDFobject=\count116
-\everyMPtoPDFconversion=\toks26
+\scratchcounter=\count112
+\scratchdimen=\dimen122
+\scratchbox=\box33
+\nofMPsegments=\count113
+\nofMParguments=\count114
+\everyMPshowfont=\toks26
+\MPscratchCnt=\count115
+\MPscratchDim=\dimen123
+\MPnumerator=\count116
+\makeMPintoPDFobject=\count117
+\everyMPtoPDFconversion=\toks27
 )
 ("C:\Users\Javi\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-b
 ase.sty"
@@ -354,26 +371,26 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 <img/LOGO_ESCUELA.png, id=1, 708.246pt x 221.3871pt>
 File: img/LOGO_ESCUELA.png Graphic file (type png)
 <use img/LOGO_ESCUELA.png>
-Package pdftex.def Info: img/LOGO_ESCUELA.png  used on input line 69.
+Package pdftex.def Info: img/LOGO_ESCUELA.png  used on input line 70.
 (pdftex.def)             Requested size: 256.0748pt x 80.04723pt.
  [1
 
 {C:/Users/Javi/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./img/LOGO_E
-SCUELA.png>] [2] (agradecimientos.tex) [3] (resumen.tex) (abstract.tex) [4] (ma
-in.toc
+SCUELA.png>] [2] (agradecimientos.tex) [3] (resumen.tex) (abstract.tex) [4] (pc
+lave.tex) (keywords.tex) [5] (main.toc
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 LaTeX Font Info:    Try loading font information for U+rsfs on input line 3.
 
 ("C:\Users\Javi\AppData\Local\Programs\MiKTeX 2.9\tex\latex\jknappen\ursfs.fd"
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
-) [5
+) [6
 
 ])
 \tf@toc=\write3
 \openout3 = `main.toc'.
 
- [6]
+ [7]
 Cap\'{\i }tulo 1.
 (introduccion.tex [1
 
@@ -386,8 +403,9 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 16.
-LaTeX Info: Redefining \. on input line 35.
-LaTeX Info: Redefining \% on input line 35.
+)
+LaTeX Info: Redefining \. on input line 143.
+LaTeX Info: Redefining \% on input line 143.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.5pt): 
@@ -396,14 +414,8 @@ Package Fancyhdr Warning: \headheight is too small (12.5pt):
  This may cause the page layout to be inconsistent, however.
 
 [2]
-<img/armonicos.jpg, id=38, 478.78876pt x 590.205pt>
-File: img/armonicos.jpg Graphic file (type jpg)
-<use img/armonicos.jpg>
-Package pdftex.def Info: img/armonicos.jpg  used on input line 52.
-(pdftex.def)             Requested size: 284.52756pt x 350.73955pt.
-)
-LaTeX Info: Redefining \. on input line 136.
-LaTeX Info: Redefining \% on input line 136.
+LaTeX Info: Redefining \. on input line 143.
+LaTeX Info: Redefining \% on input line 143.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.5pt): 
@@ -412,27 +424,17 @@ Package Fancyhdr Warning: \headheight is too small (12.5pt):
  This may cause the page layout to be inconsistent, however.
 
 [3]
-LaTeX Info: Redefining \. on input line 137.
-LaTeX Info: Redefining \% on input line 137.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.5pt): 
- Make it at least 13.59999pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[4 <./img/armonicos.jpg>]
 Cap\'{\i }tulo 2.
 (sistema.tex
-<img/micros.png, id=47, 590.205pt x 216.05719pt>
+<img/micros.png, id=44, 590.205pt x 216.05719pt>
 File: img/micros.png Graphic file (type png)
 <use img/micros.png>
 Package pdftex.def Info: img/micros.png  used on input line 13.
 (pdftex.def)             Requested size: 426.79134pt x 156.24017pt.
- [5
+ [4
 
 ]
-<img/saxo.png, id=51, 283.0575pt x 642.90187pt>
+<img/saxo.png, id=48, 283.0575pt x 642.90187pt>
 File: img/saxo.png Graphic file (type png)
 <use img/saxo.png>
 Package pdftex.def Info: img/saxo.png  used on input line 24.
@@ -446,8 +448,8 @@ Package Fancyhdr Warning: \headheight is too small (12.5pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[6 <./img/micros.png> <./img/saxo.png>]
-<img/canonyjack.png, id=57, 419.5675pt x 354.32375pt>
+[5 <./img/micros.png> <./img/saxo.png>]
+<img/canonyjack.png, id=54, 419.5675pt x 354.32375pt>
 File: img/canonyjack.png Graphic file (type png)
 <use img/canonyjack.png>
 Package pdftex.def Info: img/canonyjack.png  used on input line 47.
@@ -461,15 +463,15 @@ Package Fancyhdr Warning: \headheight is too small (12.5pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[7]
-<img/circuito.png, id=64, 670.505pt x 327.2225pt>
+[6]
+<img/circuito.png, id=62, 670.505pt x 327.2225pt>
 File: img/circuito.png Graphic file (type png)
 <use img/circuito.png>
 Package pdftex.def Info: img/circuito.png  used on input line 58.
 (pdftex.def)             Requested size: 398.33858pt x 194.39772pt.
 )
-LaTeX Info: Redefining \. on input line 140.
-LaTeX Info: Redefining \% on input line 140.
+LaTeX Info: Redefining \. on input line 146.
+LaTeX Info: Redefining \% on input line 146.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.5pt): 
@@ -477,9 +479,9 @@ Package Fancyhdr Warning: \headheight is too small (12.5pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[8 <./img/canonyjack.png>]
-LaTeX Info: Redefining \. on input line 140.
-LaTeX Info: Redefining \% on input line 140.
+[7 <./img/canonyjack.png>]
+LaTeX Info: Redefining \. on input line 146.
+LaTeX Info: Redefining \% on input line 146.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.5pt): 
@@ -487,18 +489,43 @@ Package Fancyhdr Warning: \headheight is too small (12.5pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[9 <./img/circuito.png>]
+[8 <./img/circuito.png>]
 Cap\'{\i }tulo 3.
-(algoritmo.tex [10
+(algoritmo.tex [9
 
 ]
-<img/nfc-tsm.png, id=79, 423.83344pt x 170.13562pt>
+<img/armonicos.jpg, id=74, 478.78876pt x 590.205pt>
+File: img/armonicos.jpg Graphic file (type jpg)
+<use img/armonicos.jpg>
+Package pdftex.def Info: img/armonicos.jpg  used on input line 22.
+(pdftex.def)             Requested size: 284.52756pt x 350.73955pt.
+LaTeX Info: Redefining \. on input line 40.
+LaTeX Info: Redefining \% on input line 40.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.5pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[10]
+LaTeX Info: Redefining \. on input line 44.
+LaTeX Info: Redefining \% on input line 44.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.5pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[11 <./img/armonicos.jpg>]
+<img/nfc-tsm.png, id=85, 423.83344pt x 170.13562pt>
 File: img/nfc-tsm.png Graphic file (type png)
 <use img/nfc-tsm.png>
-Package pdftex.def Info: img/nfc-tsm.png  used on input line 28.
+Package pdftex.def Info: img/nfc-tsm.png  used on input line 56.
 (pdftex.def)             Requested size: 341.43306pt x 137.06401pt.
-LaTeX Info: Redefining \. on input line 34.
-LaTeX Info: Redefining \% on input line 34.
+LaTeX Info: Redefining \. on input line 62.
+LaTeX Info: Redefining \% on input line 62.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.5pt): 
@@ -506,9 +533,9 @@ Package Fancyhdr Warning: \headheight is too small (12.5pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[11]
-LaTeX Info: Redefining \. on input line 51.
-LaTeX Info: Redefining \% on input line 51.
+[12]
+LaTeX Info: Redefining \. on input line 79.
+LaTeX Info: Redefining \% on input line 79.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.5pt): 
@@ -516,19 +543,19 @@ Package Fancyhdr Warning: \headheight is too small (12.5pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[12 <./img/nfc-tsm.png>]
-<img/filtros_hilbert.png, id=88, 300.12125pt x 269.005pt>
+[13 <./img/nfc-tsm.png>]
+<img/filtros_hilbert.png, id=95, 300.12125pt x 269.005pt>
 File: img/filtros_hilbert.png Graphic file (type png)
 <use img/filtros_hilbert.png>
-Package pdftex.def Info: img/filtros_hilbert.png  used on input line 56.
+Package pdftex.def Info: img/filtros_hilbert.png  used on input line 84.
 (pdftex.def)             Requested size: 142.26378pt x 127.51599pt.
-<img/fs_hilbert.png, id=89, 294.09875pt x 273.02pt>
+<img/fs_hilbert.png, id=96, 294.09875pt x 273.02pt>
 File: img/fs_hilbert.png Graphic file (type png)
 <use img/fs_hilbert.png>
-Package pdftex.def Info: img/fs_hilbert.png  used on input line 67.
+Package pdftex.def Info: img/fs_hilbert.png  used on input line 95.
 (pdftex.def)             Requested size: 142.26378pt x 132.06876pt.
-LaTeX Info: Redefining \. on input line 73.
-LaTeX Info: Redefining \% on input line 73.
+LaTeX Info: Redefining \. on input line 101.
+LaTeX Info: Redefining \% on input line 101.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.5pt): 
@@ -536,9 +563,9 @@ Package Fancyhdr Warning: \headheight is too small (12.5pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[13 <./img/filtros_hilbert.png>]
-LaTeX Info: Redefining \. on input line 82.
-LaTeX Info: Redefining \% on input line 82.
+[14 <./img/filtros_hilbert.png>]
+LaTeX Info: Redefining \. on input line 112.
+LaTeX Info: Redefining \% on input line 112.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.5pt): 
@@ -546,27 +573,12 @@ Package Fancyhdr Warning: \headheight is too small (12.5pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[14 <./img/fs_hilbert.png>]
-<img/music_vocoder.png, id=99, 245.91875pt x 220.825pt>
+[15 <./img/fs_hilbert.png>]
+<img/music_vocoder.png, id=105, 245.91875pt x 220.825pt>
 File: img/music_vocoder.png Graphic file (type png)
 <use img/music_vocoder.png>
-Package pdftex.def Info: img/music_vocoder.png  used on input line 90.
+Package pdftex.def Info: img/music_vocoder.png  used on input line 118.
 (pdftex.def)             Requested size: 199.16928pt x 178.85378pt.
-LaTeX Info: Redefining \. on input line 102.
-LaTeX Info: Redefining \% on input line 102.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.5pt): 
- Make it at least 13.59999pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[15]
-<img/dft.png, id=103, 778.40813pt x 621.82312pt>
-File: img/dft.png Graphic file (type png)
-<use img/dft.png>
-Package pdftex.def Info: img/dft.png  used on input line 109.
-(pdftex.def)             Requested size: 284.52756pt x 227.30038pt.
 LaTeX Info: Redefining \. on input line 124.
 LaTeX Info: Redefining \% on input line 124.
 
@@ -577,13 +589,28 @@ Package Fancyhdr Warning: \headheight is too small (12.5pt):
  This may cause the page layout to be inconsistent, however.
 
 [16 <./img/music_vocoder.png>]
-<img/problem_fft.png, id=107, 1177.39874pt x 594.72188pt>
+<img/dft.png, id=109, 778.40813pt x 621.82312pt>
+File: img/dft.png Graphic file (type png)
+<use img/dft.png>
+Package pdftex.def Info: img/dft.png  used on input line 137.
+(pdftex.def)             Requested size: 284.52756pt x 227.30038pt.
+LaTeX Info: Redefining \. on input line 156.
+LaTeX Info: Redefining \% on input line 156.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.5pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[17]
+<img/problem_fft.png, id=113, 1177.39874pt x 594.72188pt>
 File: img/problem_fft.png Graphic file (type png)
 <use img/problem_fft.png>
-Package pdftex.def Info: img/problem_fft.png  used on input line 131.
+Package pdftex.def Info: img/problem_fft.png  used on input line 159.
 (pdftex.def)             Requested size: 398.33858pt x 201.20454pt.
-LaTeX Info: Redefining \. on input line 141.
-LaTeX Info: Redefining \% on input line 141.
+LaTeX Info: Redefining \. on input line 165.
+LaTeX Info: Redefining \% on input line 165.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.5pt): 
@@ -591,29 +618,19 @@ Package Fancyhdr Warning: \headheight is too small (12.5pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[17 <./img/dft.png>]
-<img/ventanas_grafica.png, id=112, 361.35pt x 219.06844pt>
+[18 <./img/dft.png> <./img/problem_fft.png>]
+<img/ventanas_grafica.png, id=120, 361.35pt x 219.06844pt>
 File: img/ventanas_grafica.png Graphic file (type png)
 <use img/ventanas_grafica.png>
-Package pdftex.def Info: img/ventanas_grafica.png  used on input line 144.
+Package pdftex.def Info: img/ventanas_grafica.png  used on input line 172.
 (pdftex.def)             Requested size: 284.52756pt x 172.49724pt.
-LaTeX Info: Redefining \. on input line 152.
-LaTeX Info: Redefining \% on input line 152.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.5pt): 
- Make it at least 13.59999pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[18 <./img/problem_fft.png> <./img/ventanas_grafica.png>]
-<img/ventana_utilizada.png, id=118, 1156.32pt x 599.99156pt>
+<img/ventana_utilizada.png, id=121, 1156.32pt x 599.99156pt>
 File: img/ventana_utilizada.png Graphic file (type png)
 <use img/ventana_utilizada.png>
-Package pdftex.def Info: img/ventana_utilizada.png  used on input line 155.
+Package pdftex.def Info: img/ventana_utilizada.png  used on input line 183.
 (pdftex.def)             Requested size: 426.79134pt x 221.45325pt.
-LaTeX Info: Redefining \. on input line 171.
-LaTeX Info: Redefining \% on input line 171.
+LaTeX Info: Redefining \. on input line 189.
+LaTeX Info: Redefining \% on input line 189.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.5pt): 
@@ -621,9 +638,9 @@ Package Fancyhdr Warning: \headheight is too small (12.5pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[19 <./img/ventana_utilizada.png>]
-LaTeX Info: Redefining \. on input line 195.
-LaTeX Info: Redefining \% on input line 195.
+[19 <./img/ventanas_grafica.png>]
+LaTeX Info: Redefining \. on input line 202.
+LaTeX Info: Redefining \% on input line 202.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.5pt): 
@@ -631,9 +648,9 @@ Package Fancyhdr Warning: \headheight is too small (12.5pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[20])
-LaTeX Info: Redefining \. on input line 143.
-LaTeX Info: Redefining \% on input line 143.
+[20 <./img/ventana_utilizada.png>]
+LaTeX Info: Redefining \. on input line 228.
+LaTeX Info: Redefining \% on input line 228.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.5pt): 
@@ -641,15 +658,25 @@ Package Fancyhdr Warning: \headheight is too small (12.5pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[21]
+[21])
+LaTeX Info: Redefining \. on input line 149.
+LaTeX Info: Redefining \% on input line 149.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.5pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[22]
 Cap\'{\i }tulo 4.
 (implementacion.tex
-<img/nexysa7.jpg, id=132, 602.25pt x 435.6275pt>
+<img/nexysa7.jpg, id=138, 602.25pt x 435.6275pt>
 File: img/nexysa7.jpg Graphic file (type jpg)
 <use img/nexysa7.jpg>
 Package pdftex.def Info: img/nexysa7.jpg  used on input line 5.
 (pdftex.def)             Requested size: 284.52756pt x 205.81514pt.
- [22
+ [23
 
  <./img/nexysa7.jpg>]
 LaTeX Info: Redefining \. on input line 34.
@@ -661,8 +688,8 @@ Package Fancyhdr Warning: \headheight is too small (12.5pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[23]
-<img/pmod.png, id=139, 602.25pt x 602.25pt>
+[24]
+<img/pmod.png, id=146, 602.25pt x 602.25pt>
 File: img/pmod.png Graphic file (type png)
 <use img/pmod.png>
 Package pdftex.def Info: img/pmod.png  used on input line 37.
@@ -676,14 +703,14 @@ Package Fancyhdr Warning: \headheight is too small (12.5pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[24 <./img/pmod.png>]
-<img/xdc.png, id=144, 432.86719pt x 130.23656pt>
+[25 <./img/pmod.png>]
+<img/xdc.png, id=151, 432.86719pt x 130.23656pt>
 File: img/xdc.png Graphic file (type png)
 <use img/xdc.png>
 Package pdftex.def Info: img/xdc.png  used on input line 55.
 (pdftex.def)             Requested size: 341.43306pt x 102.73074pt.
-LaTeX Info: Redefining \. on input line 70.
-LaTeX Info: Redefining \% on input line 70.
+LaTeX Info: Redefining \. on input line 69.
+LaTeX Info: Redefining \% on input line 69.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.5pt): 
@@ -691,42 +718,42 @@ Package Fancyhdr Warning: \headheight is too small (12.5pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[25 <./img/xdc.png>]
-<img/ratiosreloj.png, id=150, 584.93532pt x 181.42781pt>
+[26 <./img/xdc.png>]
+<img/ratiosreloj.png, id=156, 584.93532pt x 181.42781pt>
 File: img/ratiosreloj.png Graphic file (type png)
 <use img/ratiosreloj.png>
-Package pdftex.def Info: img/ratiosreloj.png  used on input line 73.
+Package pdftex.def Info: img/ratiosreloj.png  used on input line 72.
 (pdftex.def)             Requested size: 426.79134pt x 132.3803pt.
-<img/i2sov.png, id=151, 614.295pt x 80.55093pt>
+<img/i2sov.png, id=157, 614.295pt x 80.55093pt>
 File: img/i2sov.png Graphic file (type png)
 <use img/i2sov.png>
-Package pdftex.def Info: img/i2sov.png  used on input line 80.
+Package pdftex.def Info: img/i2sov.png  used on input line 79.
 (pdftex.def)             Requested size: 398.33858pt x 52.23334pt.
-<img/controlsig.png, id=152, 254.45062pt x 67.75313pt>
+<img/controlsig.png, id=158, 254.45062pt x 67.75313pt>
 File: img/controlsig.png Graphic file (type png)
 <use img/controlsig.png>
-Package pdftex.def Info: img/controlsig.png  used on input line 89.
+Package pdftex.def Info: img/controlsig.png  used on input line 88.
 (pdftex.def)             Requested size: 199.16928pt x 53.03537pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-LaTeX Info: Redefining \. on input line 99.
-LaTeX Info: Redefining \% on input line 99.
+LaTeX Info: Redefining \. on input line 98.
+LaTeX Info: Redefining \% on input line 98.
 
 Package Fancyhdr Warning: \headheight is too small (12.5pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[26 <./img/ratiosreloj.png> <./img/i2sov.png>]
-<img/destados.png, id=158, 779.91376pt x 390.45876pt>
+[27 <./img/ratiosreloj.png> <./img/i2sov.png>]
+<img/destados.png, id=164, 779.91376pt x 390.45876pt>
 File: img/destados.png Graphic file (type png)
 <use img/destados.png>
-Package pdftex.def Info: img/destados.png  used on input line 102.
+Package pdftex.def Info: img/destados.png  used on input line 101.
 (pdftex.def)             Requested size: 369.88582pt x 185.17789pt.
-LaTeX Info: Redefining \. on input line 112.
-LaTeX Info: Redefining \% on input line 112.
+LaTeX Info: Redefining \. on input line 111.
+LaTeX Info: Redefining \% on input line 111.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.5pt): 
@@ -734,14 +761,14 @@ Package Fancyhdr Warning: \headheight is too small (12.5pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[27 <./img/controlsig.png> <./img/destados.png>]
-<img/solap.png, id=164, 480.79625pt x 194.7275pt>
+[28 <./img/controlsig.png> <./img/destados.png>]
+<img/solap.png, id=170, 1144.275pt x 469.00218pt>
 File: img/solap.png Graphic file (type png)
 <use img/solap.png>
-Package pdftex.def Info: img/solap.png  used on input line 124.
-(pdftex.def)             Requested size: 369.88582pt x 149.80988pt.
-LaTeX Info: Redefining \. on input line 134.
-LaTeX Info: Redefining \% on input line 134.
+Package pdftex.def Info: img/solap.png  used on input line 123.
+(pdftex.def)             Requested size: 369.88582pt x 151.6009pt.
+LaTeX Info: Redefining \. on input line 132.
+LaTeX Info: Redefining \% on input line 132.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.5pt): 
@@ -749,14 +776,14 @@ Package Fancyhdr Warning: \headheight is too small (12.5pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[28 <./img/solap.png>]
-<img/rams.png, id=169, 1290.32062pt x 620.3175pt>
+[29 <./img/solap.png>]
+<img/rams.png, id=175, 1290.32062pt x 620.3175pt>
 File: img/rams.png Graphic file (type png)
 <use img/rams.png>
-Package pdftex.def Info: img/rams.png  used on input line 142.
+Package pdftex.def Info: img/rams.png  used on input line 141.
 (pdftex.def)             Requested size: 341.43306pt x 164.13725pt.
-LaTeX Info: Redefining \. on input line 150.
-LaTeX Info: Redefining \% on input line 150.
+LaTeX Info: Redefining \. on input line 147.
+LaTeX Info: Redefining \% on input line 147.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.5pt): 
@@ -764,9 +791,19 @@ Package Fancyhdr Warning: \headheight is too small (12.5pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[29 <./img/rams.png>])
-LaTeX Info: Redefining \. on input line 146.
-LaTeX Info: Redefining \% on input line 146.
+[30 <./img/rams.png>]
+<img/esqfft.png, id=180, 1198.4775pt x 487.8225pt>
+File: img/esqfft.png Graphic file (type png)
+<use img/esqfft.png>
+Package pdftex.def Info: img/esqfft.png  used on input line 155.
+(pdftex.def)             Requested size: 341.43306pt x 138.9713pt.
+<img/modulofft.png, id=181, 512.66531pt x 624.08156pt>
+File: img/modulofft.png Graphic file (type png)
+<use img/modulofft.png>
+Package pdftex.def Info: img/modulofft.png  used on input line 165.
+(pdftex.def)             Requested size: 227.62204pt x 277.09167pt.
+LaTeX Info: Redefining \. on input line 170.
+LaTeX Info: Redefining \% on input line 170.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.5pt): 
@@ -774,91 +811,133 @@ Package Fancyhdr Warning: \headheight is too small (12.5pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[30]
+[31 <./img/esqfft.png>]
+LaTeX Info: Redefining \. on input line 172.
+LaTeX Info: Redefining \% on input line 172.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.5pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[32 <./img/modulofft.png>]
+LaTeX Info: Redefining \. on input line 190.
+LaTeX Info: Redefining \% on input line 190.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.5pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[33]
+<img/segan.png, id=193, 598.48593pt x 149.05687pt>
+File: img/segan.png Graphic file (type png)
+<use img/segan.png>
+Package pdftex.def Info: img/segan.png  used on input line 196.
+(pdftex.def)             Requested size: 455.24408pt x 113.38446pt.
+
+Overfull \hbox (28.45274pt too wide) in paragraph at lines 196--197
+ [] 
+ []
+
+)
+LaTeX Info: Redefining \. on input line 152.
+LaTeX Info: Redefining \% on input line 152.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.5pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[34 <./img/segan.png>]
 Cap\'{\i }tulo 5.
-(pruebas.tex) [31
+(pruebas.tex) [35
 
 ]
 Cap\'{\i }tulo 6.
-(conclusiones.tex) [32
+(conclusiones.tex) [36
 
-] [33
+] [37
 
 
 ]
 Ap\'{e}ndice A.
-[1
-
+[38
 
 ]
 Ap\'{e}ndice B.
-[2
+[39
 
 ]
-Overfull \hbox (3.30971pt too wide) in paragraph at lines 181--184
+Overfull \hbox (3.30971pt too wide) in paragraph at lines 187--190
 []\OT1/cmr/m/sc/10.95 Digilent\OT1/cmr/m/n/10.95 , \OT1/cmr/m/it/10.95 Nexys A7
  Re-fe-ren-ce Ma-nual\OT1/cmr/m/n/10.95 . https://reference.digilentinc.com/ref
 erence/
  []
 
 
-Underfull \hbox (badness 5050) in paragraph at lines 186--189
+Underfull \hbox (badness 5050) in paragraph at lines 192--195
 []\OT1/cmr/m/sc/10.95 Cirrus Lo-gic\OT1/cmr/m/n/10.95 , \OT1/cmr/m/it/10.95 CS5
 343-44\OT1/cmr/m/n/10.95 . https://www.cirrus.com/products/cs5343-44/?[]g
  []
 
 
-Underfull \hbox (badness 4060) in paragraph at lines 191--194
+Underfull \hbox (badness 4060) in paragraph at lines 197--200
 []\OT1/cmr/m/sc/10.95 Cirrus Lo-gic\OT1/cmr/m/n/10.95 , \OT1/cmr/m/it/10.95 CS4
 344/45/48\OT1/cmr/m/n/10.95 . https://www.cirrus.com/products/cs4344-45-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 196--199
-[]\OT1/cmr/m/sc/10.95 Philips Se-mi-con-duc-tors\OT1/cmr/m/n/10.95 , \OT1/cmr/m
-/it/10.95 I2S Bus Spe-ci-fi-caion
+Overfull \hbox (21.45343pt too wide) in paragraph at lines 234--236
+[]\OT1/cmr/m/sc/10.95 Xillinx\OT1/cmr/m/n/10.95 , \OT1/cmr/m/it/10.95 Fast Fou-
+rier Trans-form v9.0\OT1/cmr/m/n/10.95 . https://www.xilinx.com/support/documen
+tation 
  []
 
-[3
+[40
 
 ] (main.aux
 LaTeX Info: Redefining \. on input line 6.
 LaTeX Info: Redefining \% on input line 6.
 ) ) 
 Here is how much of TeX's memory you used:
- 4807 strings out of 492970
- 68679 string characters out of 3127037
- 152364 words of memory out of 3000000
- 8530 multiletter control sequences out of 15000+200000
- 12962 words of font info for 48 fonts, out of 3000000 for 9000
+ 4939 strings out of 492970
+ 70652 string characters out of 3127037
+ 155802 words of memory out of 3000000
+ 8646 multiletter control sequences out of 15000+200000
+ 13321 words of font info for 49 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,12n,44p,1376b,568s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,13n,44p,1376b,568s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts
 /cm/cmbx10.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pub
 lic/amsfonts/cm/cmbx12.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fon
-ts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Javi/AppData/Local/Programs/M
-iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Javi/AppData/Loca
-l/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Javi/
-AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/
-Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmm
-i8.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsf
-onts/cm/cmmi9.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/
-public/amsfonts/cm/cmr10.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/f
-onts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Javi/AppData/Local/Programs/M
-iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Javi/AppData/Local
-/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Javi/App
-Data/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/User
-s/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9.pf
-b><C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/
-cm/cmsy10.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publ
-ic/amsfonts/cm/cmsy8.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts
-/type1/public/amsfonts/cm/cmsy9.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTe
-X 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/Javi/AppData/Local/Pr
-ograms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti9.pfb><C:/Users/Javi/AppDa
-ta/Local/Programs/MiKTeX 2.9/fonts/type1/public/rsfs/rsfs10.pfb>
-Output written on main.pdf (42 pages, 1981881 bytes).
+ts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/Javi/AppData/Local/Programs/
+MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Javi/AppData/Lo
+cal/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Jav
+i/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
+C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
+cmmi6.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/a
+msfonts/cm/cmmi8.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/typ
+e1/public/amsfonts/cm/cmmi9.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.
+9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Javi/AppData/Local/Program
+s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Javi/AppData/Lo
+cal/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Javi
+/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/
+Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr
+8.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfo
+nts/cm/cmr9.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pu
+blic/amsfonts/cm/cmsy10.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fo
+nts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Javi/AppData/Local/Programs/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Users/Javi/AppData/Local/
+Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/Javi/Ap
+pData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti9.pfb><C:/Us
+ers/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/rsfs/rsfs10.pfb>
+Output written on main.pdf (47 pages, 2138253 bytes).
 PDF statistics:
- 259 PDF objects out of 1000 (max. 8388607)
+ 284 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 116 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 131 words of extra memory for PDF output out of 10000 (max. 10000000)
 

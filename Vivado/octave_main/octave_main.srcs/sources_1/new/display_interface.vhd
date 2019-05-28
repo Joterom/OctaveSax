@@ -118,7 +118,7 @@ begin
                   "11111110" when "111",
                   "11111111" when others;
      
-     -- Shows the right letter depending on the display           
+     -- Shows the right letter depending on the current display           
      with curr_display select 
          seg <= display1 when "000",
                 display2 when "001",

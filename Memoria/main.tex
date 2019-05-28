@@ -2,11 +2,12 @@
 
 \usepackage{amsmath}           
 \usepackage[utf8]{inputenc}  
-\usepackage[spanish]{babel}
+\usepackage[spanish,es-tabla]{babel}
 \renewcommand{\labelitemi}{\textbullet}
 \usepackage{pdfpages}
 \usepackage{graphicx}
 \usepackage{mathrsfs}
+\usepackage{multirow,array}
 
 % APENDICES
 \usepackage[toc,page]{appendix}
@@ -120,7 +121,12 @@
 \input{resumen}
 \section*{Abstract}
 \input{abstract}
-
+\newpage
+% PALABRAS CLAVE\\
+\section*{Palabras clave}
+\input{pclave}
+\section*{Key words}
+\input{keywords}
 % INDICE Y COMIENZO DEL DOCUMENTO
 \newpage
 \thispagestyle{empty}
@@ -150,8 +156,8 @@
 \input conclusiones.tex
 
 \begin{appendices}
-\clearpage
-\pagenumbering{arabic}
+%\clearpage
+%\pagenumbering{arabic}
 \chapter{Código del algoritmo en MATLAB}
 codigo aqui
 \chapter{\label{ap:script}Script de generación de valores para las ROM}
@@ -195,7 +201,7 @@ codigo aqui
 \bibitem[PhI]{i2s}
 	\textsc{Philips Semiconductors},
 	\textit{I2S Bus Specificaion}
-	https://www.sparkfun.com/datasheets/BreakoutBoards/I2SBUS.pdf
+	https://www.sparkfun.com/data\\sheets/BreakoutBoards/I2SBUS.pdf
 
 	
 \bibitem[Aud]{Mic}
@@ -223,6 +229,10 @@ codigo aqui
 \bibitem[MIP]{ram}
 	\textsc{Xillinx},
 	\textit{Block~Memory~Generator v8.3}. https://www.xilinx.com/support/docu mentation/ip\_documentation/blk\_mem\_gen/v8\_3/pg058-blk-mem-gen.pdf
+	
+\bibitem[FIP]{fftdoc}
+	\textsc{Xillinx},
+	\textit{Fast~Fourier~Transform v9.0}. https://www.xilinx.com/support/documentation\\/ip\_documentation/xfft/v9\_0/pg109-xfft.pdf
 	
 \end{thebibliography}
 
