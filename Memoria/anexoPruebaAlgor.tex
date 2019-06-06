@@ -1,0 +1,65 @@
+\noindent \textbf{Fichero: testEllis.m}
+
+\noindent function max\_lat = testEllis(FILE\_IN, samples\_delayed)\\
+\%Testea el algoritmo de Ellis con los parámetros prefijados\\
+\%   Emula el comportamiento real de la implementacion montando el fragmento\\
+\%   octavado sobre el original, que se pasa como parametro. Tambien\\
+\%   devuelve la latencia maxima (ms) segun el numero de muestras de retardo.\\
+
+\noindent \% LATENCIA MAXIMA SOPORTABLE\\
+close all;\\
+\% Configuracion de las graficas\\
+f1 = figure('Name','Input and Output','NumberTitle','off');\\
+f2 = figure('Name','Frequency domain','NumberTitle','off');\\
+\% Configuracion de los archivos de escritura\\
+FILE\_OUT = 'Audio/Octaved audio.wav';\\
+FILE\_MIX = 'Audio/Mixed audio.wav';\\
+
+\noindent \% Begin\\
+$[in, Fs]$ = audioread(FILE\_IN);\\
+ in\_mono = in(:,1);\\
+out = algoritmo\_final(in\_mono)';\\
+t = 1:1:length(in\_mono);\\
+
+\noindent mix = zeros(size(out));\\
+mix(1:samples\_delayed) = 0.5.*in\_mono(1:samples\_delayed);\\
+mix(samples\_delayed+1:end) = 0.35.*in\_mono(samples\_delayed+1:end) + 0.65.*out(1:end-samples\_delayed);\\
+max\_lat = 1/105*samples\_delayed;\\
+
+\noindent \% Gestion de las FFT para las graficas\\
+in\_fft = fft(in\_mono);\\
+out\_fft = fft(out);\\
+in\_fft\_plot = 2*abs(in\_fft(1:length(in\_fft)/2+1));\\
+in\_fft\_plot(1) = in\_fft(1);\\
+in\_fft\_plot = in\_fft\_plot./max(in\_fft\_plot);\\
+out\_fft\_plot = 2*abs(out\_fft(1:length(out\_fft)/2+1));\\
+out\_fft\_plot(1) = out\_fft(1);\\
+out\_fft\_plot = out\_fft\_plot./max(out\_fft\_plot);\\
+
+\noindent f = 1:1:length(out\_fft)/2+1;\\
+\% Graficas\\
+f\_lim = 0.7;\\
+figure(f1)\\
+subplot(3,1,1), plot(t,in\_mono), title('Input'), xlabel('Sample'), ylabel('Amplitude');\\
+xlim([0 length(t)]);\\
+ylim([-f\_lim f\_lim]);\\
+subplot(3,1,2), plot(t,out), title('Octaved input'), xlabel('Sample'), ylabel('Amplitude');\\
+xlim([0 length(t)]);\\
+ylim([-f\_lim f\_lim]);\\
+subplot(3,1,3), plot(t,mix), title('Mixed output'), xlabel('Sample'), ylabel('Amplitude');\\
+xlim([0 length(t)]);\\
+ylim([-f\_lim f\_lim]);\\
+
+\noindent f\_lim = 1;\\
+x\_lim = 15000;\\
+figure(f2)\\
+subplot(2,1,1), plot(f,in\_fft\_plot), title('Input (normalized)'), xlabel('Freq.');\\
+xlim([0 x\_lim]);\\
+ylim([0 f\_lim]);\\
+subplot(2,1,2), plot(f,out\_fft\_plot), title('Octaved Input (normalized)'), xlabel('Freq.');\\
+xlim([0 x\_lim]);\\
+ylim([0 f\_lim]);\\
+
+\noindent audiowrite(FILE\_OUT,out,Fs);\\
+audiowrite(FILE\_MIX,mix,Fs);\\
+end\\

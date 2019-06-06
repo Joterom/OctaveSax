@@ -14,34 +14,34 @@ De especial trascendencia para la puesta en marcha del conjunto, serán las bah�
 \section{Gestión entrada-salida}
 Siguiendo el flujo de datos desde la etapa analógica, el primer paso consiste en introducir los mismos en la FPGA. Para ello, es imprescindible convertir el voltaje analógico en la señal digital mediante el uso de un \emph{Conversor Analógico a Digital}, en lo sucesivo ADC. La Nexys A7 no incorpora ninguno integrado por lo que habrá que conectarlo externamente. Análogamente, será necesario también un \emph{Conversor Digital a Analógico}, o DAC, para reconvertir la salida de audio procesado en tensión analógica . Por ello, se decide buscar ambos conversores conjuntamente, para simplificar su puesta en marcha.
 
-Existen infinidad de conversores de este tipo en el mercado, todos ellos ideados para operar en diferentes condiciones de trabajo, en diferentes formatos y a un precio muy asequible. En el caso de las señales de audio, la mayor especificación que deben de cumplir es el compromiso de la tasa de muestreo $t_{s}$ (o más frecuentemente su inversa, la \emph{frecuencia de muestreo} $F_{s}$) para no corromper la señal entrante y preservar su calidad. Típicamente se utilizan algunos valores ya estandarizados por las grandes empresas a lo largo del siglo XX:
+Existen infinidad de conversores de este tipo en el mercado, todos ellos ideados para operar en diferentes condiciones de trabajo, en diferentes formatos y a un precio muy asequible. En el caso de las señales de audio, la mayor especificación que deben de cumplir es el compromiso de la tasa de muestreo $t_{s}$ (o más frecuentemente su inversa, la \emph{frecuencia de muestreo} $F_{s}$) para no corromper la señal entrante y preservar su calidad \cite{samplerate}. Típicamente se utilizan algunos valores ya estandarizados por las grandes empresas a lo largo del siglo XX:
 
 \begin{itemize}
-\item \textbf{$F_{s} = 8kHz$:} Utilizada especialmente para telefonía, aunque no tan común en componentes de audio musical.
-\item \textbf{$F_{s} = 22050Hz$:} Frecuencia de muestreo típica de radio que permite reproducir señales con componentes máximas de hasta 10kHz.
-\item \textbf{$F_{s} = 32kHz$:} Se utiliza escasamente en algunos formatos de vídeo digital, como el miniDV.
-\item \textbf{$F_{s} = 44,1kHz$:} La más extendida en formatos como MP3, MPEG y CD por razones tanto históricas como prácticas. Como un oído joven es capaz de percibir tonos de hasta 20kHz, se estableció esta cifra tras aplicar el criterio de Nyquist junto con un pequeño margen.
-\item \textbf{$F_{s} = 48kHz$:} También muy utilizada en televisión digital, DVD y audio profesional.
-\item \textbf{$F_{s} = 96 o 192,4kHz$:} Pensada especialmente para audio de alta definición en formatos como HD-DVD y Blue-Ray Disc
+\item \textbf{$F_{s} = 8~kHz$:} Utilizada especialmente para telefonía, aunque no tan común en componentes de audio musical.
+\item \textbf{$F_{s} = 22050~Hz$:} Frecuencia de muestreo típica de radio que permite reproducir señales con componentes máximas de hasta 10kHz.
+\item \textbf{$F_{s} = 32~kHz$:} Se utiliza escasamente en algunos formatos de vídeo digital, como el miniDV.
+\item \textbf{$F_{s} = 44,1~kHz$:} La más extendida en formatos como MP3, MPEG y CD por razones tanto históricas como prácticas. Como un oído joven es capaz de percibir tonos de hasta 20kHz, se estableció esta cifra tras aplicar el criterio de Nyquist junto con un pequeño margen.
+\item \textbf{$F_{s} = 48~kHz$:} También muy utilizada en televisión digital, DVD y audio profesional.
+\item \textbf{$F_{s} = 96~o~192,4~kHz$:} Pensada especialmente para audio de alta definición en formatos como HD-DVD y Blue-Ray Disc
 \end{itemize}
 
-Tras analizar las posibilidades, resulta evidente que para una aplicación musical conviene establecer la frecuencia de muestro en 44,1 o 48 kHz de forma que conserve cierta similitud con los equipos comerciales y profesionales del mercado.
+Tras analizar las posibilidades, resulta evidente que para una aplicación musical conviene establecer la frecuencia de muestro en 44,1 o 48 kHz de forma que conserve cierta similitud con los equipos comerciales y profesionales del mercado \cite{cdsamp}.
 
-Así, aprovechando su reciente adquisición por parte del departamento, se va utilizar un componente que integre tanto ADC como DAC y que permita trabajar a estas velocidades: el \emph{Pmod i2s2}, también de Digilent.
+Así, aprovechando su reciente adquisición por parte del departamento, se va utilizar un componente que integre tanto ADC como DAC y que permita trabajar a estas velocidades: el \emph{Pmod i2-s2}, también de Digilent.
 
-\subsection{Pmod i2s2}
+\subsection{Pmod i2-s2}
 Este componente contiene todo lo necesario para este proyecto: junto a los ADC y DAC incorpora dos puertos para mini-jack estéreo hembra\footnote{Lo más extendido para audio, puesto que son los conectores que llevan móviles, auriculares. ordenadores, etc...} y una serie de pines dispuestos de tal forma que la conexión con la placa es inmediata. Se pueden observar estas características en la imagen \ref{fig:pmod}.
 
 \begin{figure}[!ht]
 \begin{center}
-\includegraphics[width=6cm]{img/pmod.png}
-\caption{\label{fig:pmod}Detalle del Pmod i2s2}
+\includegraphics[width=5cm]{img/pmod.png}
+\caption{\label{fig:pmod}Detalle del Pmod i2-s2}
 \end{center}
 \end{figure}
 
 Como tanto la placa como el \emph{plug-in} son productos de Digilent, no hay ningún problema a la hora de interconectarlos, basta con insertarlo en una de las bahías de pines que tiene la FPGA. Además, las conexiones de alimentación: Vcc y GND, se encuentran hechas de serie en la Nexys, por lo que no es necesario añadirlas en el fichero de conexiones o \emph{constraints}.
 
-Tanto el modelo de ADC, \emph{Cirrus CS5345} \cite{adcdata}, como el de DAC, \emph{Cirrus CS4344} \cite{dacdata} realizan las conversiones con hasta 24 bit por muestra e incorporan un filtro paso bajo anti-aliasing que por tanto, no hará falta implementar. [EXPLICAR EL ALIASING?] Además tienen 98 dB de rango dinámico y baja distorsión armónica, haciéndolos ideales para las aplicaciones de audio, aún más cuando están conectados a  las entradas de \emph{mini-jack}.
+Tanto el modelo de ADC, \emph{Cirrus CS5345} \cite{adcdata}, como el de DAC, \emph{Cirrus CS4344} \cite{dacdata} realizan las conversiones con hasta 24 bit por muestra e incorporan un filtro paso bajo anti-aliasing que por tanto, no hará falta implementar. Además tienen 98 dB de rango dinámico y baja distorsión armónica, haciéndolos ideales para las aplicaciones de audio, aún más cuando están conectados a  las entradas de \emph{mini-jack}.
 
 Aunque los conversores soportan hasta 24 bit, el tamaño de cada palabra de datos será de 16 bit, debido a que es la longitud que utiliza el formato CD y aumentar este tamaño resulta costoso en recursos. La otra diferencia con respecto a este formato será que el procesado será \emph{mono} en lugar de \emph{estéreo}. Evidentemente, la existencia de dos canales dobla el número de operaciones y la complejidad del algoritmo al tener que duplicar el flujo de datos en todos los puntos del diseño. Por ello, no se suelen utilizar conexiones ni procesados estéreo en aplicaciones de audio en tiempo real, especialmente en instrumentos monofónicos\footnote{Instrumentos que solo pueden producir una nota al mismo tiempo}. Normalmente, estos instrumentos tienen un lugar fijo en la panorámica de la producción, siendo esta la razón por la cual el procesado estéreo no se suele emplear. En la práctica, se muestrearán los datos del canal izquierdo, que por convenio es el principal cuando se opera solo con un canal, y tras el procesado, se escribirá el resultado en ambos canales.
 
@@ -67,14 +67,14 @@ La comunicación entre ambos módulos sigue un protocolo $I^{2}S$ \cite{i2s} el 
 
 Es fundamental entender que las relaciones entre estos tres relojes aseguran tanto la correcta interpretación de los datos y su reconstrucción como la comunicación con el módulo maestro, la FPGA. Para este proyecto se ha fijado una frecuencia de \textbf{50~MHz} para MCLK, ya que de esta forma es más sencilla su relación con el reloj de sistema de 100~MHz. Para el resto de relojes, hay que consultar la tabla de equivalencias proporcionada por el fabricante, imagen \ref{fig:flujoreloj}.
 
-\begin{figure}[!b]
+\begin{figure}[!th]
 \begin{center}
 \includegraphics[width=15cm]{img/ratiosreloj.png}
 \caption{\label{fig:flujoreloj}Tabla de las relaciones entre los relojes}
 \end{center}
 \end{figure}
 
-\begin{figure}[!b]
+\begin{figure}[!th]
 \begin{center}
 \includegraphics[width=14cm]{img/i2sov.png}
 \caption{\label{fig:i2sov}Funcionamiento de los relojes de control con flujo de datos}
@@ -90,20 +90,20 @@ Como la frecuencia de MCLK es fija dada por el sistema, para obtener la frecuenc
 \end{center}
 \end{figure}
 
-Por último, la adquisición de los datos se realiza utilizando un registro de desplazamiento propuesto por P.Chu \cite{vhdlchu}. El primer dato, que será el bit más significativo o MSB, se lee un ciclo después de que conmute LRCK, como se muestra en la figura \ref{fig:i2sov}. Como solo se van a procesar 16 bit, el resto de datos se ignoran hasta el siguiente ciclo.
+La adquisición de los datos se completa usando un registro de desplazamiento propuesto por P.Chu \cite{vhdlchu}. El primer bit, que será el más significativo o MSB, se lee un ciclo después de que conmute LRCK, como se muestra en la figura \ref{fig:i2sov}. \textbf{El resultado son palabras de 16 bit en complemento a 2 normalizadas en el intervalo (-1,1).}
 
 \section{Controlador de datos}
+Una vez establecido el flujo de entrada/salida, se puede comenzar el desarrollo del procesado. Primeramente es necesario adecuar las palabras recibidas para su correcta interpretación y transformarlas al dominio de la frecuencia. Una vez realizadas todas las operaciones sobre ellas, se realiza la transformada inversa y su reconstrucción. La figura~\ref{fig:dbloques} muestra estas etapas junto con el tamaño de palabra asociado en cada punto. Hay que notar que debido a las diferentes frecuencias de funcionamiento los módulos funcionan a velocidades distintas, por lo que la escala temporal está distorsionada en esa figura. Esa es la razón por la cual el número de flechas de entrada y salida no coincide entre todos los bloques.
 
-El controlador que gestiona el flujo de entrada/salida de los datos es el llamado \emph{master\_controller}. Este se encarga de generar las señales necesarias para el correcto funcionamiento de Pmod y de instanciar el resto de componentes que se utilizarán, a excepción de los displays. Para garantizar el flujo de datos apropiado, se modela mediante una máquina de estados cuyo esquema corresponde a la figura \ref{fig:estados}. La lógica del cambio de estados se ubica en un fichero aparte llamado \emph{fsm\_control}.
-
-\begin{figure}[!th]
+\begin{figure}[!ht]
 \begin{center}
-\includegraphics[width=13cm]{img/destados.png}
-\caption{\label{fig:estados}Diagrama de estados del controlador de datos}
+\includegraphics[width=15cm]{img/diagramabloques.png}
+\caption{\label{fig:dbloques}Diagrama de bloques del procesado en la FPGA}
 \end{center}
 \end{figure}
 
-Notese que todos los cambios de estado los produce la variable \emph{frame\_number}, la cual se encarga de llevar la cuenta de los ciclos de reloj de bit (SCLK) que se producen en cada flanco del reloj de canal (LRCK) hasta un total de 32. En principio se cumple este diagrama solo para el canal izquierdo, es decir, cuando LR\_W\_SEL = 0, aunque veremos que esto podrá variar. A continuación se describen cada uno de los estados: 
+El encargado de gestionar el flujo de datos de entrada/salida es el llamado \emph{master\_controller}. Este se encarga de generar las señales necesarias para el correcto funcionamiento de Pmod y de instanciar el resto de componentes que se utilizarán, a excepción de los displays. Para garantizar el flujo de datos apropiado, se modela mediante una máquina de estados cuyo esquema corresponde a la figura \ref{fig:estados}. La lógica del cambio de estados se ubica en un fichero aparte llamado \emph{fsm\_control}. Los cambios de estado los produce la variable \emph{frame\_number}, la cual se encarga de llevar la cuenta de los ciclos de reloj de bit (SCLK) que se producen en cada flanco del reloj de canal (LRCK) hasta un total de 32. En principio se cumple este diagrama solo para el canal izquierdo, es decir, cuando LR\_W\_SEL = 0, aunque veremos que esto podrá variar. A continuación se describen cada uno de los estados: 
+
 \begin{itemize}
 \item \textbf{IDLE:} Es el estado fundamental aunque no de reposo, ya que se activa el registro de desplazamiento para leer el dato proveniente del ADC quedando almacenado en un búfer.
 \item \textbf{WRITE\_INPUT:} Lee el búfer donde está escrito el dato de entrada proveniente del ADC, le aplica el factor de enventanado que le corresponda y lo almacena en memoria.
@@ -112,6 +112,13 @@ Notese que todos los cambios de estado los produce la variable \emph{frame\_numb
 \item \textbf{READ\_OUTPUT:} Lee los cuatro datos de las memorias de salida y los almacena en otros registros temporales.
 \item \textbf{READ\_SUM:} Aplica la ventana de salida a las cuatro muestras ubicadas en los registros y las suma entre sí para obtener el dato que se va a escribir en el siguiente ciclo, el cuál se guarda nuevamente en un registro.
 \end{itemize}
+
+\begin{figure}[!th]
+\begin{center}
+\includegraphics[width=13cm]{img/destados.png}
+\caption{\label{fig:estados}Diagrama de estados del controlador de datos}
+\end{center}
+\end{figure}
 
 Salta a la vista que son necesarios varios bancos de memorias, cada uno ubicado en un punto diferente del flujo de datos. La implementación de cada uno de ellos varía en función de su propósito, como se verá a continuación en \ref{memo}. Sin embargo, conviene primero aclarar cómo se lleva a cabo el proceso de enventanado, ya que condiciona en gran medida el diseño del flujo de datos.
 
@@ -147,7 +154,7 @@ Las memorias RAM de puerto doble (derecha en la figura \ref{fig:rams}) funcionan
 
 Ambos tipos de memorias poseen las mismas características, salvo que dependiendo del lugar que ocupen en la cadena de datos, el tamaño de la palabra y el número de direcciones que poseen varían. Es importante tener en cuenta que estas memorias tienen un \emph{pipeline} interno que provoca un retraso de 2 ciclos en la lectura, ciclos durante los cuales es necesario mantener la señal de \emph{enable} activa. La documentación que proporciona Xillinx y los ficheros auxiliares que se generan al sintetizar estos módulos facilitan el correcto tratamiento y configuración de los bloques de memorias.
 
-\subsection{Core FFT e iFFT}
+\subsection{Core FFT e iFFT\label{ap:FFT}}
 Análogamente, se ha utilizado el módulo de Vivado \emph{Fast Fourier Transform v9.0}~\cite{fftdoc} para realizar las transformaciones de Fourier al dominio de la frecuencia. Aunque existe la posibilidad de utilizar más de un canal para llevar a cabo varias operaciones de forma simultánea, he preferido utilizar varios módulos monocanal ya que de esta forma se pueden configurar más fácilmente y simplificar el flujo de datos, a cambio de área en la FPGA. Dado que existen 4 ventanas, parece que serán necesario 4 pares FFT-iFFT, sin embargo, debido a la diferencia de velocidad en el procesado podemos utilizar únicamente 2 de estos pares. Así las ventanas pares compartirán un módulo FFT y las impares el otro. La figura \ref{fig:esq_fft} muestra el esquema temporal que se va a implementar para permitir esta operativa donde el azul representa la carga del módulo par y el amarillo del impar.
  
 \begin{figure}[!hb]
@@ -177,11 +184,18 @@ Debido a que la operativa sobre la fase no se ha implementado en VHDL, no se ha 
 Por último, la salida de las muestras procesadas por la iFFT en el dominio del tiempo, se almacenan en la memoria de doble puerto mencionada con anterioridad para que este disponible en el momento en que la escritura deba llevarse a cabo.
 
 \section{Controlador global}
-El controlador global del sistema recibe el nombre de \emph{fsm\_global} y también utiliza una máquina de estados para gestionar el estado del dispositivo. Para esta versión inicial del prototipo, la máquina implementada es muy sencilla ya que únicamente dispone de una función de \emph{pause}. De cara al futuro, el resto de mejoras del pedal en cuanto a manejo y control deberían implementarse en esta máquina de estados. Un ejemplo puede ser la incorporación de un control de volumen o de panorámica estéreo. Si se desearan habilitar más opciones de control como un botón de \emph{reset} o vincular alguna información a los LED, también habría que realizarlo aqui.
+El controlador global del sistema recibe el nombre de \emph{fsm\_global} y también utiliza una máquina de estados para gestionar el estado del dispositivo. Para esta versión inicial del prototipo, la máquina implementada es muy sencilla ya que únicamente dispone de una función de \emph{pause}. De cara al futuro, el resto de mejoras del pedal en cuanto a manejo y control deberían implementarse en esta máquina de estados. Un ejemplo puede ser la incorporación de un control de volumen o de panorámica estéreo. Si se deseara habilitar más opciones de control como un botón o vincular alguna información a los LED, también habría que realizarlo aquí.
 
-No obstante, este fichero es el \emph{TOP} de la arquitectura, por lo que las señales entrantes y salientes que precise, deberán provenir o dirigirse únicamente a la FPGA mediante el fichero de conexiones~\emph{.xdc}. Los archivos de \emph{testbench} que se empleen con el objetivo de probar el conjunto del sistema también deben referirse a este archivo, especialmente para la simulación post-síntesis o post-implementación.
+Este fichero es el \emph{TOP} de la arquitectura, por lo que las señales entrantes y salientes que precise, deberán provenir o dirigirse únicamente a la FPGA, utilizando para ello el fichero de conexiones~\emph{.xdc}. Los archivos de \emph{testbench} que se empleen con el objetivo de probar el conjunto del sistema también deben referirse a este archivo, especialmente para la simulación post-síntesis o post-implementación. 
 
-Lo que si contiene este controlador es el manejo de los displays de siete segmentos que posee la placa, el cual se detalla a continuación.
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[width=15cm]{img/bloquesImp.png}
+\caption{\label{fig:bimp}Estructura del código implementado}
+\end{center}
+\end{figure}
+
+La figura \ref{fig:bimp} describe los ficheros VHDL empleados para implementar la operativa descrita previamente en la figura \ref{fig:dbloques} a excepción del módulo de operaciones sobre la fase, \emph{phase\_ops}, que se encuentra punteado. En ella se aprecian las señales de entrada y de salida globales, usando mayúsculas para las utilizadas por el Pmod i2-s2. Todos los ficheros utilizados se encuentran en su apéndice correspondiente al final del documento. Finalmente se detalla el funcionamiento de los displays utilizados.
 
 \subsection{Displays}
 El fichero \emph{display\_interface} será el que controle el manejo de los \emph{displays}. En este caso, únicamente va a leer la variable del estado global y modificar el mensaje de las pantallas en consecuencia entre \emph{play} y \emph{pause}. Existe gran documentación y ejemplos de como es el funcionamiento de estos \emph{displays} pero se ha utilizado la literatura proporcionada por Xillinx \cite{Nexys} para su implementación. Esta utiliza dos señales principales:

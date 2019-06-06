@@ -8,6 +8,7 @@
 \usepackage{graphicx}
 \usepackage{mathrsfs}
 \usepackage{multirow,array}
+\usepackage{multicol} 
 
 % APENDICES
 \usepackage[toc,page]{appendix}
@@ -149,7 +150,7 @@
 \chapter{Implementación}
 \input implementacion.tex
 
-\chapter{Pruebas y depuración}
+\chapter{Pruebas, depuración y medidas}
 \input pruebas.tex
 
 \chapter{Conclusiones y trabajo futuro}
@@ -158,82 +159,132 @@
 \begin{appendices}
 %\clearpage
 %\pagenumbering{arabic}
-\chapter{Código del algoritmo en MATLAB}
-codigo aqui
+\chapter{\label{ap:algoritmo}Código del algoritmo en MATLAB}
+\input anexoCodAlgor.tex
+\chapter{\label{ap:pruebaalgoritmo}Código prueba del algoritmo en MATLAB}
+\input anexoPruebaAlgor.tex
 \chapter{\label{ap:script}Script de generación de valores para las ROM}
 codigo aqui
 \end{appendices}
 % BIBLIOGRAFIA
-\begin{thebibliography}{aaa}
+\begin{thebibliography}{aa}
 
-\bibitem[Ell]{Ellis} 
-	\textsc{D.Ellis},
-	\textit{A Phase Vocoder in Matlab},
-	LabROSA at Columbia University,
-	Marzo 2003: 
-	http://www.ee.columbia.edu/\~dpwe/LabROSA/matlab/pvoc/
-	
-\bibitem[Opp]{Oppenheim}
-	\textsc{A.V.Oppenheim, R.W.Schafer},
-	\textit{Discrete-Time Signal Processing}.
-	Pearson Education, 2011
-	
-\bibitem[TSM]{nfctsm}
-	\textsc{A.Haghparast, H.Penttinen, V.Välimäki},
-	\textit{Real-Time Pitch-Shifting Of Musical Signals By A Time-Varying Factor Using Normalized Filtered Correlation Time-Scale Modification (NFC-TSM)}.
-	Proc. of the 10th Int. Conference on Digital Audio Effects (DAFx-07), Bordeaux, France, September 10-15, 2007
-	
-\bibitem[Nex]{Nexys}
-	\textsc{Digilent},
-	\textit{Nexys A7 Reference Manual}.
-	https://reference.digilentinc.com/reference/ programmable-logic/nexys-a7/	  reference-manual
-	
-\bibitem[ADC]{adcdata}
-	\textsc{Cirrus Logic},~
-	\textit{CS5343-44}.~
-	https://www.cirrus.com/products/cs5343-44/?\_g a=2.264355407.117367827.1557737954-871020677.1554307733
-	
-\bibitem[DAC]{dacdata}
-	\textsc{Cirrus Logic},~
-	\textit{CS4344/45/48}.~
-	https://www.cirrus.com/products/cs4344-45-48/?\_ga=2.264355407.117367827.1557737954-871020677.1554307733
 
-\bibitem[PhI]{i2s}
-	\textsc{Philips Semiconductors},
-	\textit{I2S Bus Specificaion}
-	https://www.sparkfun.com/data\\sheets/BreakoutBoards/I2SBUS.pdf
-
-	
-\bibitem[Aud]{Mic}
-	\textsc{Audio Technica},
-	\textit{What's the pattern?}
-	https://www.audio-technica.com/cms/ site/aa901ccabf1dfc6b/index.html
-	
-\bibitem[LLA]{hilbert}
-	\textsc{N.Juillerat, S.Schubiger-Banz, S.Müller Arisona},
-	\textit{Low Latency Audio Pitch Shifting in the Time Domain}
-	ICALIP 2008 - Proc. of the IEEE International Conference on Audio, Language and Image Processing, Shanghai, China; pp.29 - 35.
-	
-\bibitem[PAm]{Preamp}
+\bibitem[1]{Preamp}
 	\textsc{P.Allison},
 	\textit{Low Noise Balanced Microphone Preamp}.
 	Edited by R.Elliot for	
 	Elliot Sound Products ESP, 2008.
 	http://sound.whsites.net/project66.htm
 	
-\bibitem[Chu]{vhdlchu}
+\bibitem[2]{Mic}
+	\textsc{Audio Technica},
+	\textit{What's the pattern?}
+	https://www.audio-technica.com/cms/ site/aa901ccabf1dfc6b/index.html
+	
+\bibitem[3]{Instinto}
+	\textsc{P.Ball},
+	\textit{El instinto musical: escuchar, pensay y vivir la música}. Capítulo III: Los átomos de la música. Editorial Turner Noema, 2010.
+	
+\bibitem[4]{VocOvw}
+	\textsc{T.Carney},
+	\textit{The Vocoder}. 2012 University of Sydney. Versión digital:
+	https://ses.library.usyd.edu.au/bitstream/2123/8296/2/311107435\%20Technology\\\%20Review\%20-\%20Vocoder.pdf
+	
+\bibitem[5]{vhdlchu}
 	\textsc{P.P.Chu},
 	\textit{RTL Hardware Design Using VHDL}.
 	Ed. Wiley Interscience, 2006
 	
-\bibitem[MIP]{ram}
+\bibitem[6]{dacdata}
+	\textsc{Cirrus Logic},~
+	\textit{CS4344/45/48}.~
+	https://www.cirrus.com/products/cs4344-45-48/?\_ga=2.264355407.117367827.1557737954-871020677.1554307733
+	
+\bibitem[7]{adcdata}
+	\textsc{Cirrus Logic},~
+	\textit{CS5343-44}.~
+	https://www.cirrus.com/products/cs5343-44/?\_g a=2.264355407.117367827.1557737954-871020677.1554307733
+	
+\bibitem[8]{arm_str}
+	\textsc{I. Cooper's: Visual Physics Online},
+	\textit{Waves: Musical Instruments, Strings}. University of Sydney. En
+	http://www.physics.usyd.edu.au/teach\_res/hsp/sp/mod31\\/m31\_strings.htm
+	
+\bibitem[9]{Nexys}
+	\textsc{Digilent},
+	\textit{Nexys A7 Reference Manual}.
+	https://reference.digilentinc.com/reference/ programmable-logic/nexys-a7/	  reference-manual
+	
+\bibitem[10]{Ellis} 
+	\textsc{D.Ellis},
+	\textit{A Phase Vocoder in Matlab},
+	LabROSA at Columbia University,
+	Marzo 2003: 
+	http://www.ee.columbia.edu/\~dpwe/LabROSA/matlab/pvoc/
+	
+\bibitem[11]{VocHis}
+	\textsc{D.Gale},
+	\textit{The Vocoder: History and deployment}. Artículo en MusicTech a julio de 2018. Versión digital:
+	https://www.musictech.net/features/the-history-of-the-vocoder/
+
+\bibitem[12]{nfctsm}
+	\textsc{A.Haghparast, H.Penttinen, V.Välimäki},
+	\textit{Real-Time Pitch-Shifting Of Musical Signals By A Time-Varying Factor Using Normalized Filtered Correlation Time-Scale Modification (NFC-TSM)}.
+	Proc. of the 10th Int. Conference on Digital Audio Effects (DAFx-07), Bordeaux, France, September 10-15, 2007
+	
+\bibitem[13]{hilbert}
+	\textsc{N.Juillerat, S.Schubiger-Banz, S.Müller Arisona},
+	\textit{Low Latency Audio Pitch Shifting in the Time Domain}
+	ICALIP 2008 - Proc. of the IEEE International Conference on Audio, Language and Image Processing, Shanghai, China; pp.29 - 35.
+	
+\bibitem[14]{samplerate}
+	\textsc{D.Lavry},
+	\textit{The Optimal Sample Rate for Quality Audio}. Lavry Engineering Inc, 2012. Edición digital: http://www.lavryengineering.com/pdfs/lavry-white-paper-the\_optimal\_sample\_rate\_for\_quality\_audio.pdf
+		
+\bibitem[15]{Oppenheim}
+	\textsc{A.V.Oppenheim, R.W.Schafer},
+	\textit{Discrete-Time Signal Processing}.
+	Pearson Education, 2011
+
+\bibitem[16]{i2s}
+	\textsc{Philips Semiconductors},
+	\textit{I2S Bus Specificaion}
+	https://www.sparkfun.com/data\\sheets/BreakoutBoards/I2SBUS.pdf
+	
+\bibitem[17]{cdsamp}
+	\textsc{J.R.Stuart},
+	\textit{Coding High Quality Digital Audio}. Meridian Audio Ltd. Edición\\ digital: https://tams.informatik.uni-hamburg.de/lehre/2000ws/vorlesung/audio-\\verarbeitung/high-quality-audio-coding.pdf
+
+\bibitem[18]{arm_wood2}
+	\textsc{University New South Wales},
+	\textit{How harmonic are harmonics?}. 2005. En
+	http://newt.phys.unsw.edu.au/jw/harmonics.html
+	
+\bibitem[19]{arm_wood}
+	\textsc{University New South Wales},
+	\textit{What is a sound spectrum?}. 2005. En
+	http://newt.phys.unsw.edu.au/jw/sound.spectrum.html
+	
+\bibitem[20]{ram}
 	\textsc{Xillinx},
 	\textit{Block~Memory~Generator v8.3}. https://www.xilinx.com/support/docu mentation/ip\_documentation/blk\_mem\_gen/v8\_3/pg058-blk-mem-gen.pdf
 	
-\bibitem[FIP]{fftdoc}
+\bibitem[21]{fftdoc}
 	\textsc{Xillinx},
 	\textit{Fast~Fourier~Transform v9.0}. https://www.xilinx.com/support/documentation\\/ip\_documentation/xfft/v9\_0/pg109-xfft.pdf
+--REUBICAR
+\bibitem[ojo]{shuremic}
+	\textsc{Shure},
+	\textit{Difference between a dynamic and condenser microphone}. https://www.shu-\\re.com/en-US/support/find-an-answer/difference-between-a-dynamic-and-condenser-microphone
 	
+\bibitem[ojo]{tbonemic}
+	\textsc{T.Bone},
+	\textit{The T.Bone MB60 SET}. https://www.tbone-mics.com/en/product/infor-\\mation/details/mb-60-dynamisches-mikrofon-set/
+	
+\bibitem[ojo]{opampdata}
+	\textsc{Texas Instruments},
+	\textit{TL071}. Información completa detallada en http://www.ti.com/product/TL071/description
 \end{thebibliography}
 
 

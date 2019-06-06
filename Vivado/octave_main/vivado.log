@@ -2,10 +2,10 @@
 # Vivado v2017.4 (64-bit)
 # SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
 # IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
-# Start of session at: Sat May 25 12:22:24 2019
-# Process ID: 13632
+# Start of session at: Sun Jun  2 10:27:27 2019
+# Process ID: 11592
 # Current directory: D:/UNI/TFG/OctaveSax/Vivado/octave_main
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent17228 D:\UNI\TFG\OctaveSax\Vivado\octave_main\octave_main.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent17152 D:\UNI\TFG\OctaveSax\Vivado\octave_main\octave_main.xpr
 # Log file: D:/UNI/TFG/OctaveSax/Vivado/octave_main/vivado.log
 # Journal file: D:/UNI/TFG/OctaveSax/Vivado/octave_main\vivado.jou
 #-----------------------------------------------------------
@@ -16,6 +16,6 @@ Finished scanning sources
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2017.4/data/ip'.
-open_project: Time (s): cpu = 00:00:10 ; elapsed = 00:00:08 . Memory (MB): peak = 741.297 ; gain = 52.031
+open_project: Time (s): cpu = 00:00:10 ; elapsed = 00:00:07 . Memory (MB): peak = 747.012 ; gain = 58.059
 exit
-INFO: [Common 17-206] Exiting Vivado at Sat May 25 13:13:11 2019...
+INFO: [Common 17-206] Exiting Vivado at Sun Jun  2 13:14:33 2019...

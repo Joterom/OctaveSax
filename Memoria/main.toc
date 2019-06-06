@@ -2,40 +2,47 @@
 \contentsline {chapter}{\numberline {1}Introducci\IeC {\'o}n y generalidades}{1}
 \contentsline {section}{\numberline {1.1}Objetivos}{2}
 \contentsline {section}{\numberline {1.2}Metodolog\IeC {\'\i }a}{2}
-\contentsline {section}{\numberline {1.3}Resultados}{2}
-\contentsline {section}{\numberline {1.4}Consecuci\IeC {\'o}n de objetivos}{2}
-\contentsline {chapter}{\numberline {2}Entrada: etapa anal\IeC {\'o}gica}{4}
-\contentsline {section}{\numberline {2.1}Selecci\IeC {\'o}n de micr\IeC {\'o}fono}{4}
-\contentsline {section}{\numberline {2.2}Preamp}{6}
-\contentsline {section}{\numberline {2.3}Alimentaci\IeC {\'o}n}{7}
-\contentsline {chapter}{\numberline {3}El algoritmo}{9}
-\contentsline {section}{\numberline {3.1}Fundamentos del sonido y teor\IeC {\'\i }a musical}{9}
-\contentsline {subsection}{\numberline {3.1.1}Timbre, arm\IeC {\'o}nicos y serie arm\IeC {\'o}nica}{10}
-\contentsline {section}{\numberline {3.2}Aproximaciones al problema}{10}
-\contentsline {subsection}{\numberline {3.2.1}Prescindiendo de Fourier}{11}
-\contentsline {subsubsection}{\numberline {3.2.1.1}Algoritmo NFC-TSM}{12}
-\contentsline {subsubsection}{\numberline {3.2.1.2}Algortimo de baja latencia}{13}
-\contentsline {subsection}{\numberline {3.2.2}Retorno a la transformada}{15}
-\contentsline {section}{\numberline {3.3}Vocoder}{15}
-\contentsline {subsection}{\numberline {3.3.1}Vocoder en la m\IeC {\'u}sica}{16}
-\contentsline {section}{\numberline {3.4}Transformaci\IeC {\'o}n a frecuencia: STFT}{17}
-\contentsline {subsection}{\numberline {3.4.1}Transformada de Fourier: FFT e iFFT}{17}
-\contentsline {subsection}{\numberline {3.4.2}Solapamiento y enventanado}{18}
-\contentsline {section}{\numberline {3.5}Operaciones sobre la fase}{20}
-\contentsline {subsection}{\numberline {3.5.1}C\IeC {\'a}lculo del m\IeC {\'o}dulo}{21}
-\contentsline {subsection}{\numberline {3.5.2}Recalculando la fase}{21}
-\contentsline {chapter}{\numberline {4}Implementaci\IeC {\'o}n}{23}
-\contentsline {section}{\numberline {4.1}Gesti\IeC {\'o}n entrada-salida}{24}
-\contentsline {subsection}{\numberline {4.1.1}Pmod i2s2}{25}
-\contentsline {subsection}{\numberline {4.1.2}Consideraciones de la implementaci\IeC {\'o}n del Pmod}{26}
-\contentsline {section}{\numberline {4.2}Controlador de datos}{28}
-\contentsline {subsection}{\numberline {4.2.1}Implementaci\IeC {\'o}n del solapamiento}{29}
-\contentsline {subsection}{\numberline {4.2.2}Bancos de memorias vol\IeC {\'a}tiles}{30}
-\contentsline {subsection}{\numberline {4.2.3}Core FFT e iFFT}{31}
-\contentsline {section}{\numberline {4.3}Controlador global}{33}
-\contentsline {subsection}{\numberline {4.3.1}Displays}{33}
-\contentsline {chapter}{\numberline {5}Pruebas y depuraci\IeC {\'o}n}{35}
-\contentsline {chapter}{\numberline {6}Conclusiones y trabajo futuro}{36}
+\contentsline {section}{\numberline {1.3}Resultados}{3}
+\contentsline {section}{\numberline {1.4}Consecuci\IeC {\'o}n de los objetivos propuestos}{4}
+\contentsline {chapter}{\numberline {2}Entrada: etapa anal\IeC {\'o}gica}{5}
+\contentsline {section}{\numberline {2.1}Captaci\IeC {\'o}n de sonido: selecci\IeC {\'o}n de micr\IeC {\'o}fono}{5}
+\contentsline {section}{\numberline {2.2}Etapa de preamp o preamplificaci\IeC {\'o}n}{8}
+\contentsline {section}{\numberline {2.3}Alimentaci\IeC {\'o}n}{10}
+\contentsline {chapter}{\numberline {3}El algoritmo}{11}
+\contentsline {section}{\numberline {3.1}Fundamentos del sonido y teor\IeC {\'\i }a musical}{11}
+\contentsline {subsection}{\numberline {3.1.1}Timbre, arm\IeC {\'o}nicos y serie arm\IeC {\'o}nica}{12}
+\contentsline {section}{\numberline {3.2}Aproximaciones a la octavaci\IeC {\'o}n}{13}
+\contentsline {subsection}{\numberline {3.2.1}Prescindiendo de Fourier}{13}
+\contentsline {subsubsection}{\numberline {3.2.1.1}Algoritmo NFC-TSM}{14}
+\contentsline {subsubsection}{\numberline {3.2.1.2}Algortimo de baja latencia}{15}
+\contentsline {subsection}{\numberline {3.2.2}Retorno a la transformada}{17}
+\contentsline {section}{\numberline {3.3}Vocoder}{17}
+\contentsline {subsection}{\numberline {3.3.1}Vocoder en la m\IeC {\'u}sica}{18}
+\contentsline {section}{\numberline {3.4}Transformaci\IeC {\'o}n a frecuencia: STFT}{19}
+\contentsline {subsection}{\numberline {3.4.1}Transformada de Fourier: FFT e iFFT}{19}
+\contentsline {subsection}{\numberline {3.4.2}Solapamiento y enventanado}{20}
+\contentsline {section}{\numberline {3.5}Operaciones sobre la fase}{22}
+\contentsline {subsection}{\numberline {3.5.1}C\IeC {\'a}lculo del m\IeC {\'o}dulo}{23}
+\contentsline {subsection}{\numberline {3.5.2}Recalculando la fase}{23}
+\contentsline {chapter}{\numberline {4}Implementaci\IeC {\'o}n}{25}
+\contentsline {section}{\numberline {4.1}Gesti\IeC {\'o}n entrada-salida}{26}
+\contentsline {subsection}{\numberline {4.1.1}Pmod i2-s2}{27}
+\contentsline {subsection}{\numberline {4.1.2}Consideraciones de la implementaci\IeC {\'o}n del Pmod}{28}
+\contentsline {section}{\numberline {4.2}Controlador de datos}{30}
+\contentsline {subsection}{\numberline {4.2.1}Implementaci\IeC {\'o}n del solapamiento}{31}
+\contentsline {subsection}{\numberline {4.2.2}Bancos de memorias vol\IeC {\'a}tiles}{32}
+\contentsline {subsection}{\numberline {4.2.3}Core FFT e iFFT}{33}
+\contentsline {section}{\numberline {4.3}Controlador global}{36}
+\contentsline {subsection}{\numberline {4.3.1}Displays}{37}
+\contentsline {chapter}{\numberline {5}Pruebas, depuraci\IeC {\'o}n y medidas}{38}
+\contentsline {section}{\numberline {5.1}Circuito anal\IeC {\'o}gico de entrada}{38}
+\contentsline {subsection}{\numberline {5.1.1}Saturaci\IeC {\'o}n y dependencia con la tensi\IeC {\'o}n de entrada}{38}
+\contentsline {subsection}{\numberline {5.1.2}Dependencia de la ganancia con la frecuencia}{39}
+\contentsline {subsection}{\numberline {5.1.3}Otros par\IeC {\'a}metros}{39}
+\contentsline {section}{\numberline {5.2}Algoritmo de \emph {Vocoder de fase}}{39}
+\contentsline {section}{\numberline {5.3}Sobre la implementaci\IeC {\'o}n en FPGA}{41}
+\contentsline {chapter}{\numberline {6}Conclusiones y trabajo futuro}{42}
 \contentsline {chapter}{Ap\IeC {\'e}ndices}{}
-\contentsline {chapter}{\numberline {A}C\IeC {\'o}digo del algoritmo en MATLAB}{38}
-\contentsline {chapter}{\numberline {B}Script de generaci\IeC {\'o}n de valores para las ROM}{39}
+\contentsline {chapter}{\numberline {A}C\IeC {\'o}digo del algoritmo en MATLAB}{44}
+\contentsline {chapter}{\numberline {B}C\IeC {\'o}digo prueba del algoritmo en MATLAB}{47}
+\contentsline {chapter}{\numberline {C}Script de generaci\IeC {\'o}n de valores para las ROM}{49}

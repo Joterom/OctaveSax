@@ -142,3 +142,5 @@
 6.5.9.1 Bckp tutoria
 28/05/19
 6.6 Comienzan las correcciones sobre el primer borrador de la memoria
+06/06/19
+7.0 Bckp de la memoria a falta de las medidas

@@ -6,15 +6,13 @@ function out = algoritmo_final( input )
 %   FPGA:
 %     - Coseno
 %     - Exponencial
-%     - Arcotangente
+%     - Arctan
 %     - FFT/iFFT
 
 r = 2;
 transform_length = 512;
 hop = transform_length/4;
 
-
-% STFT +++++++++++++++++++++++++++++++++++++++++++++++
 % Espera la entrada como una fila, si no, la transpone
 if size(input,1) > 1
   input = input';
@@ -39,8 +37,6 @@ for i = 0:hop:(s-transform_length)
   stft_signal(:,c_stft) = tot(1:(1+transform_length/2))';
   c_stft = c_stft+1;
 end;
-
-% PVSAMPLE +++++++++++++++++++++++++++++++++++++++++++++++++
 
 [rows, cols] = size(stft_signal);
 t = 0:r:(cols-2);
@@ -72,14 +68,12 @@ for i = t
   dp = angle(bcols(:,2)) - angle(bcols(:,1)) - dphi';
   % La reduce a rango de -pi, pi
   dp = dp - 2 * pi * round(dp/(2*pi));
-  % Save the column
+  % Reconstruye la muestra 
   pv_signal(:,ocol) = bmag.*cos(ph) + j.*bmag.*sin(ph);
-  % Acumula la fase para la siguiente trama
+  % La fase calculada corresponde a la siguiente trama
   ph = ph + dphi' + dp;
   ocol = ocol+1;
 end
-
-% iSTFT +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 % inicializa las variables necesarias
 s = size(pv_signal);
