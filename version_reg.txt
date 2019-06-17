@@ -144,3 +144,5 @@
 6.6 Comienzan las correcciones sobre el primer borrador de la memoria
 06/06/19
 7.0 Bckp de la memoria a falta de las medidas
+19/06/19
+7.1 Documento terminado a falta de corrección ortográfica

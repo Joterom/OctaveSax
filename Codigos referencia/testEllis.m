@@ -11,7 +11,7 @@ f1 = figure('Name','Input and Output','NumberTitle','off');
 f2 = figure('Name','Frequency domain','NumberTitle','off');
 % Configuracion de los archivos de escritura
 FILE_OUT = 'Audio/Octaved audio.wav';
-FILE_MIX = 'Audio/Mixed audio.wav';
+FILE_MIX = 'Audio/Mixed audio lat.wav';
 
 % Begin
 [in, Fs] = audioread(FILE_IN);
@@ -23,10 +23,12 @@ out = algoritmo_final(in_mono)';
 t = 1:1:length(in_mono);
 
 mix = zeros(size(out));
-mix(1:samples_delayed) = 0.5.*in_mono(1:samples_delayed);
-mix(samples_delayed+1:end) = 0.35.*in_mono(samples_delayed+1:end) + 0.65.*out(1:end-samples_delayed);
-max_lat = 1/105*samples_delayed;
-
+% mix(1:samples_delayed) = 0.5.*in_mono(1:samples_delayed);
+% mix(samples_delayed+1:end) = 0.35.*in_mono(samples_delayed+1:end) + 0.65.*out(1:end-samples_delayed);
+% max_lat = 1/105*samples_delayed;
+mix = in_mono;
+mix(samples_delayed+1:end) = 0.35.*mix(samples_delayed+1:end)+ 0.65.*out(1:end-samples_delayed);
+max_lat = samples_delayed*1000/Fs;
 % Gestion de las FFT para las graficas
 in_fft = fft(in_mono);
 out_fft = fft(out);

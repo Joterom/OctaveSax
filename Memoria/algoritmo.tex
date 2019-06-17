@@ -36,11 +36,11 @@ El primer pensamiento es que se trata de algo sencillo: basta con eliminar una d
 Si~~~~~\mathscr{F}(\{x_{n}\})_{k} = X_{k}~~~~~Entonces~~~~~\mathscr{F}(\{x_{n}e^{\frac{2\pi i}{N}nm}\})_{k}= X_{k-m} 
 \end{equation}
 
-La consecuencia es que si la señal de entrada no es una única nota invariante, la salida resulta irreconocible, por lo que  hay que descartar inmediatamente este proceder. [GRAFICA DE LA ENTRADA/SALIDA EN ESTE CASO MATLAB] Otra consideración que no hay que dejar de lado es la pretensión de operar en tiempo real. Esto supone que se debe tener en cuenta un mecanismo que permita trocear la señal en conjuntos finitos para poder aplicar la transformación de Fourier. Este proceso, junto con la propia implementación de la transformada va a complicar en gran medida la arquitectura, es por ello que se decide en primer lugar evaluar los algoritmos que no precisan de esta operativa.
+La consecuencia es que si la señal de entrada no es una única nota invariante, la salida resulta irreconocible, por lo que  hay que descartar inmediatamente este proceder. Otra consideración que no hay que dejar de lado es la pretensión de operar en tiempo real. Esto supone que se debe tener en cuenta un mecanismo que permita trocear la señal en conjuntos finitos para poder aplicar la transformación de Fourier. Este proceso, junto con la propia implementación de la transformada va a complicar en gran medida la arquitectura, es por ello que se decide en primer lugar evaluar los algoritmos que no precisan de esta operativa.
 
 \subsection{Prescindiendo de Fourier}
 \label{nofourier}
-De cara a obtener un pedal de efectos para un instrumento más grave, se podría haber pensado en optar por un octavador ascendente. Esto, aunque parece que plantea los mismos problemas, resulta mucho más sencillo de implementar precisamente por ser 2 el factor de multiplicación. La fácil solución consiste en elevar cada muestra al cuadrado y realizar un filtrado pertinente que aísle las componentes que nos interesan, de forma que $x_{out} = x_{in}^{2}$, según vemos en el gráfico [INSERTAR GRAFIO MATLAB]. Como se puede apreciar, se produce un aumento llamativo de los armónicos produciendo una ligera variación en el timbre que podría resultar o no conveniente. Este tipo de efectos recibe el nombre de \emph{enhancer} pudiendo modificar el timbre de forma significativa. Esta operativa descrita me fue sugerida por José Parera, al que agradezco el tiempo que me ha dedicado. Si añadiésemos a este otros efectos como tremolo, reverb o delay, podríamos realizar una aproximación muy válida a un pedal comercial, sin embargo, he preferido mantenerme fiel a la intención original de realizar la octavación descendente.
+De cara a obtener un pedal de efectos para un instrumento más grave, se podría haber pensado en optar por un octavador ascendente. Esto, aunque parece que plantea los mismos problemas, resulta mucho más sencillo de implementar precisamente por ser 2 el factor de multiplicación. La fácil solución consiste en elevar cada muestra al cuadrado y realizar un filtrado pertinente que aísle las componentes que nos interesan, de forma que $x_{out} = x_{in}^{2}$. Como se puede apreciar, se produce un aumento llamativo de los armónicos produciendo una ligera variación en el timbre que podría resultar o no conveniente. Este tipo de efectos recibe el nombre de \emph{enhancer} pudiendo modificar el timbre de forma significativa. Esta operativa descrita me fue sugerida por José Parera, al que agradezco el tiempo que me ha dedicado. Si añadiésemos a este otros efectos como tremolo, reverb o delay, podríamos realizar una aproximación muy válida a un pedal comercial, sin embargo, he preferido mantenerme fiel a la intención original de realizar la octavación descendente.
 
 No obstante, merece la pena probar que ocurre si realizamos la operación opuesta, $x_{out} = \sqrt{x_{in}}$, de forma que se octavara la señal de forma descendente. El resultado es menos halagüeño de lo que pudiera parecer, en primer lugar está el inconveniente de tener que lidiar con las muestras de valor negativo\footnote{Como se verá más adelante, el método de entrada en la FPGA devuelve las muestras normalizadas en el rango (-1,1)}, lo que resulta una molestia de cara al flujo de datos. Además, debido a que la entrada está limitada en banda, al reducir de forma cuadrática el valor de los armónicos más agudos, se produce una modificación en el timbre que provoca un sonido \emph{robótico} o \emph{artificial} por lo que se descarta también esta idea.
 
@@ -116,7 +116,7 @@ Paralelamente a su utilización en comunicaciones, el vocoder se comenzó a popu
 \begin{figure}
 \begin{center}
 \includegraphics[width=7cm]{img/music_vocoder.png}
-\caption{Esquema del funcionamiento de un vocoder musical[TRADUCIR]}
+\caption{Esquema del funcionamiento de un vocoder musical}
 \end{center}
 \end{figure}
 
@@ -209,7 +209,7 @@ En este caso, resulta más práctico realizar una aproximación que permita redu
  \sqrt{a^{2}+b^{2}} \approx max\{((x - 0,125x) + 0,5y),x\}
 \end{equation} 
 
-\subsection{Recalculando la fase}
+\subsection{Recalculando la fase\label{calc_alg}}
 Una vez tenemos el módulo calculado, podemos calcular la nueva fase de cada muestra teniendo en cuenta que necesitamos la información de una trama $t$ y de la siguiente, $t+1$. El método para calcular la fase partiendo de la forma binomial es $\arctan(im/re)$ por lo que en este caso, si compensa utilizar un core IP de Vivado que realice esta operación, ya que ésta y otras operaciones trigonométricas serán necesarias más adelante.
 
 Una vez calculada la fase de cada muestra entrante $n_{t}$, procedemos a obtener la fase de salida que se aplicará a cada muestra de salida $n_{t}'$. Para lo que calculamos una variable, $dp$, que se irá acumulando con $n$ según \ref{eq:phcalc}. 

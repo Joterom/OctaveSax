@@ -159,12 +159,10 @@
 \begin{appendices}
 %\clearpage
 %\pagenumbering{arabic}
-\chapter{\label{ap:algoritmo}Código del algoritmo en MATLAB}
+\chapter{\label{ap:extra}Aspectos éticos, económicos, sociales y ambientales}
 \input anexoCodAlgor.tex
-\chapter{\label{ap:pruebaalgoritmo}Código prueba del algoritmo en MATLAB}
-\input anexoPruebaAlgor.tex
-\chapter{\label{ap:script}Script de generación de valores para las ROM}
-codigo aqui
+\chapter{\label{ap:presupes}Presupuesto económico}
+\input anexoMedFreq.tex
 \end{appendices}
 % BIBLIOGRAFIA
 \begin{thebibliography}{aa}
@@ -223,69 +221,88 @@ codigo aqui
 	Marzo 2003: 
 	http://www.ee.columbia.edu/\~dpwe/LabROSA/matlab/pvoc/
 	
-\bibitem[11]{VocHis}
+\bibitem[11]{sfranco}
+	\textsc{S.Franco},
+	\textit{Design with operational amplifiers and analog integrated circuits}. Editorial McGraw-Hill, tercera edición, 2002.
+	
+\bibitem[12]{VocHis}
 	\textsc{D.Gale},
 	\textit{The Vocoder: History and deployment}. Artículo en MusicTech a julio de 2018. Versión digital:
 	https://www.musictech.net/features/the-history-of-the-vocoder/
 
-\bibitem[12]{nfctsm}
+\bibitem[13]{nfctsm}
 	\textsc{A.Haghparast, H.Penttinen, V.Välimäki},
 	\textit{Real-Time Pitch-Shifting Of Musical Signals By A Time-Varying Factor Using Normalized Filtered Correlation Time-Scale Modification (NFC-TSM)}.
 	Proc. of the 10th Int. Conference on Digital Audio Effects (DAFx-07), Bordeaux, France, September 10-15, 2007
 	
-\bibitem[13]{hilbert}
+\bibitem[14]{hilbert}
 	\textsc{N.Juillerat, S.Schubiger-Banz, S.Müller Arisona},
 	\textit{Low Latency Audio Pitch Shifting in the Time Domain}
 	ICALIP 2008 - Proc. of the IEEE International Conference on Audio, Language and Image Processing, Shanghai, China; pp.29 - 35.
 	
-\bibitem[14]{samplerate}
+\bibitem[15]{samplerate}
 	\textsc{D.Lavry},
 	\textit{The Optimal Sample Rate for Quality Audio}. Lavry Engineering Inc, 2012. Edición digital: http://www.lavryengineering.com/pdfs/lavry-white-paper-the\_optimal\_sample\_rate\_for\_quality\_audio.pdf
 		
-\bibitem[15]{Oppenheim}
+\bibitem[16]{Oppenheim}
 	\textsc{A.V.Oppenheim, R.W.Schafer},
 	\textit{Discrete-Time Signal Processing}.
 	Pearson Education, 2011
 
-\bibitem[16]{i2s}
+\bibitem[17]{i2s}
 	\textsc{Philips Semiconductors},
 	\textit{I2S Bus Specificaion}
 	https://www.sparkfun.com/data\\sheets/BreakoutBoards/I2SBUS.pdf
 	
-\bibitem[17]{cdsamp}
+\bibitem[18]{ampaudio}
+	\textsc{D.Self},
+	\textit{Audio Power Amplifier Design Handbook}. Editorial Newnes, primera edición 2006.
+	
+\bibitem[19]{shuremic}
+	\textsc{Shure},
+	\textit{Difference between a dynamic and condenser microphone}. https://www.shu-\\re.com/en-US/support/find-an-answer/difference-between-a-dynamic-and-condenser-microphone
+	
+\bibitem[20]{cdsamp}
 	\textsc{J.R.Stuart},
 	\textit{Coding High Quality Digital Audio}. Meridian Audio Ltd. Edición\\ digital: https://tams.informatik.uni-hamburg.de/lehre/2000ws/vorlesung/audio-\\verarbeitung/high-quality-audio-coding.pdf
 
-\bibitem[18]{arm_wood2}
+\bibitem[21]{tbonemic}
+	\textsc{T.Bone},
+	\textit{The T.Bone MB60 SET}. https://www.tbone-mics.com/en/product/infor-\\mation/details/mb-60-dynamisches-mikrofon-set/
+	
+\bibitem[22]{opampdata}
+	\textsc{Texas Instruments},
+	\textit{TL071}. Información completa detallada en http://www.ti.com/product/TL071/description
+
+	
+\bibitem[23]{arm_wood2}
 	\textsc{University New South Wales},
 	\textit{How harmonic are harmonics?}. 2005. En
 	http://newt.phys.unsw.edu.au/jw/harmonics.html
 	
-\bibitem[19]{arm_wood}
+\bibitem[24]{arm_wood}
 	\textsc{University New South Wales},
 	\textit{What is a sound spectrum?}. 2005. En
 	http://newt.phys.unsw.edu.au/jw/sound.spectrum.html
 	
-\bibitem[20]{ram}
+\bibitem[25]{ram}
 	\textsc{Xillinx},
 	\textit{Block~Memory~Generator v8.3}. https://www.xilinx.com/support/docu mentation/ip\_documentation/blk\_mem\_gen/v8\_3/pg058-blk-mem-gen.pdf
 	
-\bibitem[21]{fftdoc}
+\bibitem[26]{fftdoc}
 	\textsc{Xillinx},
 	\textit{Fast~Fourier~Transform v9.0}. https://www.xilinx.com/support/documentation\\/ip\_documentation/xfft/v9\_0/pg109-xfft.pdf
---REUBICAR
-\bibitem[ojo]{shuremic}
-	\textsc{Shure},
-	\textit{Difference between a dynamic and condenser microphone}. https://www.shu-\\re.com/en-US/support/find-an-answer/difference-between-a-dynamic-and-condenser-microphone
 	
-\bibitem[ojo]{tbonemic}
-	\textsc{T.Bone},
-	\textit{The T.Bone MB60 SET}. https://www.tbone-mics.com/en/product/infor-\\mation/details/mb-60-dynamisches-mikrofon-set/
+\bibitem[27]{cordicdoc}
+	\textsc{Xillinx},
+	\textit{CORDIC~v6.0}. https://www.xilinx.com/support/documentation/ip\_do-\\cumentation/cordic/v6\_0/pg105-cordic.pdf
 	
-\bibitem[ojo]{opampdata}
-	\textsc{Texas Instruments},
-	\textit{TL071}. Información completa detallada en http://www.ti.com/product/TL071/description
-\end{thebibliography}
 
+	
+--REUBICAR
+
+
+
+\end{thebibliography}
 
 \end{document}

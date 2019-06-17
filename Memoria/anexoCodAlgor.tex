@@ -1,106 +1,24 @@
-\noindent \textbf{Fichero: algoritmo\_final.m}
+\section{Introducción}
+El proyecto realizado responde en primera instancia a mi interés personal, pero a su vez, se puede plantear como el desarrollo de un producto. Este producto se enmarca en el sector de los componentes electrónicos de audio para uso profesional ya que pretende crear un tipo de dispositivo que no se utiliza hasta la fecha: pedales de efectos para instrumentos no electrófonos con funcionamiento en tiempo real. Este producto tiene un ciclo de vida amplio que parte desde el montaje de los componentes pasando por el ensamblaje y transporte hasta su uso particular para de reciclaje posterior. 
 
-\noindent function out = algoritmo\_final( input )\\
+Actualmente existen en el mercado multitud de empresas que comercializan modelos de pedales de características similares íntimamente relacionadas con el desarrollo de nuevas tecnologías y componentes electrónicos que facilitan los avances en este campo. A su vez, con el acercamiento de la música a las clases populares que esta teniendo lugar en nuestros días, la cifra de potenciales clientes va aumentando significativamente con el tiempo.
 
-\noindent \%ALGORITMO\_FINAL Algoritmo de Ellis ajustado y tal como se va a introducir\\
-\%     en la FPGA\\
-\%   Utiliza el algoritmo de Ellis para implementar un octavador. Requiere\\
-\%   de varias operaciones complejas que hay que buscar para implementarlas en\\
-\%   FPGA:\\
-\%     - Coseno\\
-\%     - Exponencial\\
-\%     - Arctan\\
-\%     - FFT/iFFT
+Por ello, aunque no exite una necesidad real de un dispositivo de estas características, si existe un hueco en el mercado que podría verse resuelto con la adquisición de este o diseños similares por parte de alguna empresa de audio ya asentada.
+\section{Descripción de impactos relevantes y análisis de los mismos}
+Para la descripción de los diferentes impactos del desarrollo del proyecto, se incluye la figura \ref{fig:aspectos} siguiendo el modelo propuesto en la guía para la realización de este anexo proporcionada por la escuela.
 
-\noindent r = 2;\\
-transform\_length = 512;\\
-hop = transform\_length/4;
+De todos ellos, cabe destacar el impacto de los aspectos económicos, ya que resultan de especial relevancia en el desarrollo de un producto. En general, como cualquier proyecto basado en electrónico, llama la atención el bajo costo de los componentes, frente al elevado coste de ingeniería y montaje relacionado con el mismo. Así mismo, cabe destacar que el pedal está pensado para un uso continuado sin mantenimiento, lo que reduce el número de piezas necesarias para su correcto funcionamiento a lo largo de los años.
 
-\noindent \% Espera la entrada como una fila, si no, la transpone\\
-if size(input,1) > 1\\
-  input = input';\\
-end
+De cara a los aspectos medioambientales, es necesario tener en cuenta algunas predicciones relacionadas con la cantidad restante en la naturaleza de algunos elementos que que se utilizan en la fabricación de los componentes. Según estas, en algunas pocas décadas, el costo de extracción o refinamiento de algunos metales podría superar su valor en el mercado, provocando un encarecimiento de los precios o escasez de los mismo. En cualquier caso, para el desarrollo de este producto, orientado al corto-medio plazo, no debería haber ningún problema de este tipo. Es más, el uso de una FPGA favorece el reutilizamiento de los recursos hardware, por lo que se pueden llevar a cabo actualizaciones de versiones sin cambiar componentes, maximizando el aprovechamiento del producto.
+ 
+\begin{figure}[!th]
+\begin{center}
+\includegraphics[width=14cm]{img/aspectos.png}
+\caption{\label{fig:aspectos}Relación de los posibles impactos en diferentes ámbitos}
+\end{center}
+\end{figure}
 
-\noindent s = length(input);\\
-\% Enventanado para la STFT \\
-halff = transform\_length/2;   % punto medio de la ventana\\
-halfwin = 0.5 * ( 1 + cos( pi * (0:halff)/halff));\\
-win\_stft = zeros(1, transform\_length);\\
-win\_stft((halff+1):(halff+halff)) = halfwin(1:halff);\\
-win\_stft((halff+1):-1:(halff-halff+2)) = halfwin(1:halff);\\
+Los aspectos sociales son, quizás, los menos relevantes ya que al producto esta orientado al mundo musical, que generalmente se trata como un elemento de ocio en la mayoría de los casos. El uso profesional está mucho más complicado debido al poco nivel de innovación que existe actualmente en cuanto a técnicas de producción.
 
-\noindent \% Inicializa el array de salida y las variables necesarias\\
-stft\_signal = zeros((1+transform\_length/2),1+fix((s-transform\_length)/hop));\\
-c\_stft = 1;\\
-\% Realiza la FFT utilizando una columna por cada ventana\\
-for i = 0:hop:(s-transform\_length)\\
-  frame = win\_stft.*input((i+1):(i+transform\_length));\\
-  tot = fft(frame);\\
-  stft\_signal(:,c\_stft) = tot(1:(1+transform\_length/2))';\\
-  c\_stft = c\_stft+1;\\
-end;\\
-
-\noindent [rows, cols] = size(stft\_signal);\\
-t = 0:r:(cols-2);\\
-\% Tiene cuidado con las columnas porque se inicializa en 0 y hace falta la\\
-\% ventana siguiente para el solapamiento\\
-
-\noindent num = 2*(rows-1);
-
-\noindent \% Inicializa el array de salida\\
-pv\_signal = zeros(rows, length(t));\\
-
-\noindent \% Calcula la fase a esperar\\
-dphi = zeros(1,num/2+1);\\
-dphi(2:(1 + num/2)) = (2*pi*hop)./(num./(1:(num/2)));
-
-\noindent \% Acumulador de fase\\
-\% Se inicializa la fase de todas las muestras de la primera trama\\
-ph = angle(stft\_signal(:,1));
-
-\noindent \% Incluye una columna de seguridad para evitar problemas\\
-stft\_signal = [stft\_signal,zeros(rows,1)];\\
-ocol = 1;\\
-for i = t\\
-  \% Coge dos coulmnas\\
-  bcols = stft\_signal(:,floor(i)+[1 2]);\\
-  bmag = abs(bcols(:,1));\\
-  \% Calcula la fase siguiente\\
-  dp = angle(bcols(:,2)) - angle(bcols(:,1)) - dphi';\\
-  \% La reduce a rango de -pi, pi\\
-  dp = dp - 2 * pi * round(dp/(2*pi));\\
-  \% Reconstruye la muestra\\ 
-  pv\_signal(:,ocol) = bmag.*cos(ph) + j.*bmag.*sin(ph);\\
-  \% La fase calculada corresponde a la siguiente trama\\
-  ph = ph + dphi' + dp;\\
-  ocol = ocol+1;\\
-end\\
-
-\noindent \% inicializa las variables necesarias\\
-s = size(pv\_signal);\\
-cols = s(2);\\
-win\_istft = 2/3*win\_stft;\\
-
-\noindent \% Inicializa las variables de salida y procede a hacer transformada
-\% inversa
-xlen = transform\_length + (cols-1)*hop;\\
-istft\_signal = zeros(1,xlen);\\
-for i = 0:hop:(hop*(cols-1))\\
-  ft = pv\_signal(:,1+i/hop)';\\
-  ft = [ft, conj(ft([((transform\_length/2)):-1:2]))];\\
-  px = real(ifft(ft));\\
-  istft\_signal((i+1):(i+transform\_length)) = istft\_signal((i+1):(i+transform\_length))+px.*win\_istft;\\
-end\\
-
-\noindent \% PREPARACION FINAL +++++++++++++++++++
-
-\noindent \% Remuestreo (interpolacion) tras filtrado antialiasing\\
-pre\_out = resample(istft\_signal,2,1);\\
-\% Fuerza a la salida a tener la misma longitud que a la entrada\\
-if length(pre\_out) == length(input)\\
-    out = pre\_out';\\
-else\\
-    out = zeros(size(input));\\
-    out(1,1:end) = pre\_out(1,1:length(input))';\\
-end\\
-end\\
+\section{Conclusiones}
+Tratándose de un proyecto planteado de forma personal, evidentemente no hay grandes impactos en el conjunto de la sociedad. No obstante, hay que destacar los aspectos económicos como los más relevantes. Al fin y al cabo, estos son los más importantes en cuanto a un producto comercial. Los bajos costos permiten rentabilizar en gran medida la inversión realizada en la fase de diseño, favoreciendo las ganancias totales a largo plazo.
