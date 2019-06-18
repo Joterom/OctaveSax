@@ -17,35 +17,35 @@
 \contentsline {subsubsection}{\numberline {3.2.1.1}Algoritmo NFC-TSM}{15}
 \contentsline {subsubsection}{\numberline {3.2.1.2}Algortimo de baja latencia}{16}
 \contentsline {subsection}{\numberline {3.2.2}Retorno a la transformada}{18}
-\contentsline {section}{\numberline {3.3}Vocoder}{18}
+\contentsline {section}{\numberline {3.3}Breve historia del vocoder}{18}
 \contentsline {subsection}{\numberline {3.3.1}Vocoder en la m\IeC {\'u}sica}{19}
 \contentsline {section}{\numberline {3.4}Transformaci\IeC {\'o}n a frecuencia: STFT}{20}
 \contentsline {subsection}{\numberline {3.4.1}Transformada de Fourier: FFT e iFFT}{20}
 \contentsline {subsection}{\numberline {3.4.2}Solapamiento y enventanado}{21}
-\contentsline {section}{\numberline {3.5}Operaciones sobre la fase}{23}
+\contentsline {section}{\numberline {3.5}Operaciones sobre la fase}{24}
 \contentsline {subsection}{\numberline {3.5.1}C\IeC {\'a}lculo del m\IeC {\'o}dulo}{24}
 \contentsline {subsection}{\numberline {3.5.2}Recalculando la fase}{24}
-\contentsline {chapter}{\numberline {4}Implementaci\IeC {\'o}n}{26}
-\contentsline {section}{\numberline {4.1}Gesti\IeC {\'o}n entrada-salida}{27}
-\contentsline {subsection}{\numberline {4.1.1}Pmod i2-s2}{28}
-\contentsline {subsection}{\numberline {4.1.2}Consideraciones de la implementaci\IeC {\'o}n del Pmod}{29}
-\contentsline {section}{\numberline {4.2}Controlador de datos}{31}
-\contentsline {subsection}{\numberline {4.2.1}Implementaci\IeC {\'o}n del solapamiento}{32}
-\contentsline {subsection}{\numberline {4.2.2}Bancos de memorias vol\IeC {\'a}tiles}{33}
-\contentsline {subsection}{\numberline {4.2.3}Core FFT e iFFT}{34}
-\contentsline {section}{\numberline {4.3}Controlador global}{37}
-\contentsline {subsection}{\numberline {4.3.1}Displays}{38}
-\contentsline {chapter}{\numberline {5}Pruebas, depuraci\IeC {\'o}n y medidas}{39}
-\contentsline {section}{\numberline {5.1}Circuito anal\IeC {\'o}gico de entrada}{39}
-\contentsline {subsection}{\numberline {5.1.1}Saturaci\IeC {\'o}n y dependencia con la frecuencia}{39}
-\contentsline {subsection}{\numberline {5.1.2}Dependencia de la ganancia con la frecuencia}{40}
-\contentsline {section}{\numberline {5.2}Algoritmo de \emph {Vocoder de fase}}{41}
-\contentsline {section}{\numberline {5.3}Sobre la implementaci\IeC {\'o}n en FPGA}{42}
-\contentsline {subsection}{\numberline {5.3.1}Uso de recursos y conclusiones}{44}
-\contentsline {chapter}{\numberline {6}Conclusiones y trabajo futuro}{46}
+\contentsline {chapter}{\numberline {4}Implementaci\IeC {\'o}n}{27}
+\contentsline {section}{\numberline {4.1}Gesti\IeC {\'o}n entrada-salida}{28}
+\contentsline {subsection}{\numberline {4.1.1}Pmod i2-s2}{29}
+\contentsline {subsection}{\numberline {4.1.2}Consideraciones de la implementaci\IeC {\'o}n del Pmod}{30}
+\contentsline {section}{\numberline {4.2}Controlador de datos}{32}
+\contentsline {subsection}{\numberline {4.2.1}Implementaci\IeC {\'o}n del solapamiento}{33}
+\contentsline {subsection}{\numberline {4.2.2}Bancos de memorias vol\IeC {\'a}tiles}{34}
+\contentsline {subsection}{\numberline {4.2.3}Core FFT e iFFT}{35}
+\contentsline {section}{\numberline {4.3}Controlador global}{38}
+\contentsline {subsection}{\numberline {4.3.1}Displays}{39}
+\contentsline {chapter}{\numberline {5}Pruebas, depuraci\IeC {\'o}n y medidas}{40}
+\contentsline {section}{\numberline {5.1}Circuito anal\IeC {\'o}gico de entrada}{40}
+\contentsline {subsection}{\numberline {5.1.1}Saturaci\IeC {\'o}n y dependencia con la frecuencia}{40}
+\contentsline {subsection}{\numberline {5.1.2}Dependencia de la ganancia con la frecuencia}{41}
+\contentsline {section}{\numberline {5.2}Algoritmo de \emph {Vocoder de fase}}{42}
+\contentsline {section}{\numberline {5.3}Sobre la implementaci\IeC {\'o}n en FPGA}{43}
+\contentsline {subsection}{\numberline {5.3.1}Uso de recursos y conclusiones}{45}
+\contentsline {chapter}{\numberline {6}Conclusiones y trabajo futuro}{47}
 \contentsline {chapter}{Ap\IeC {\'e}ndices}{}
-\contentsline {chapter}{\numberline {A}Aspectos \IeC {\'e}ticos, econ\IeC {\'o}micos, sociales y ambientales}{49}
-\contentsline {section}{\numberline {A.1}Introducci\IeC {\'o}n}{49}
-\contentsline {section}{\numberline {A.2}Descripci\IeC {\'o}n de impactos relevantes y an\IeC {\'a}lisis de los mismos}{49}
-\contentsline {section}{\numberline {A.3}Conclusiones}{50}
-\contentsline {chapter}{\numberline {B}Presupuesto econ\IeC {\'o}mico}{51}
+\contentsline {chapter}{\numberline {A}Aspectos \IeC {\'e}ticos, econ\IeC {\'o}micos, sociales y ambientales}{50}
+\contentsline {section}{\numberline {A.1}Introducci\IeC {\'o}n}{50}
+\contentsline {section}{\numberline {A.2}Descripci\IeC {\'o}n de impactos relevantes y an\IeC {\'a}lisis de los mismos}{50}
+\contentsline {section}{\numberline {A.3}Conclusiones}{51}
+\contentsline {chapter}{\numberline {B}Presupuesto econ\IeC {\'o}mico}{52}
